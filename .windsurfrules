@@ -1,0 +1,51 @@
+**General**
+
+Only write shippable, production ready code. If you wouldn’t ship it, don’t write it. 
+
+NexusPlus (my company) has exceptionally high code standards and adhering to these rules is a matter of life and death
+
+Never perform unsafe operations or take shortcuts to skirt around errors. If the solution is not obvious, take a step back and look at the bigger picture.
+
+I know what I am looking for if you are unsure,  stop and ask for help or additional information.
+
+** Project Approach**
+
+* Always check for a PRD (Product Requirements Document) before starting a new task and follow it closely
+* Look for comprehensive project documentation to understand requirements before making changes
+* Focus only on code areas relevant to the assigned task
+* Prefer iterating on existing code rather than creating new solutions
+* Keep solutions simple and avoid introducing unnecessary complexity
+
+**Code Quality**
+
+* Maintain a clean, organized codebase
+* Avoid code duplication by checking for similar existing functionality
+* Write thorough tests for all major functionality
+* Unless explicitly instructed, instead of trying to gracefully handle an error or failure, make sure to fix the underlying issue.
+
+**Development Workflow**
+
+* Make only requested changes or changes you're confident are well understood
+* Consider what other code areas might be affected by your changes
+* Don't drastically change existing patterns without explicit instruction
+
+**Best Practices**
+
+* Avoid writing one-time scripts in permanent files
+* Don't mock data except for tests (never for dev or prod environments)
+* Exhaust all options using existing implementations before introducing new patterns
+* If introducing a new pattern to replace an old one, remove the old implementation
+
+**CrewAI**
+
+For the crewAI coding, try and keep the core crew.py and main main.py files as clean as possible.
+
+Stick to the CrewAI documentation and framework.
+
+Where relevant, code additional features (loggers, configs, inputs, pydantic models etc.) and capabilities as seperate utility files in the src/utilities folder.
+
+Ensure you use Pydantic v2 for crewai 
+
+# Reference Document
+- Refer to Docs/CrewAI PRD - scan sources.md for detailed product requirements for this phase of the project.
+
