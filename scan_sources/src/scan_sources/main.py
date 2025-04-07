@@ -96,6 +96,10 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
                 inputs={"initial_inputs": initial_inputs_str}
             )
             
+            # Handle CrewOutput object specifically
+            if hasattr(result, 'raw_output'):
+                result = result.raw_output
+            
             # Process the result into a ResearchPlan Pydantic model
             if isinstance(result, str):
                 try:
@@ -157,6 +161,10 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
                 }
             )
             
+            # Handle CrewOutput object specifically
+            if hasattr(result, 'raw_output'):
+                result = result.raw_output
+            
             # Process the result into a ResearchPlan Pydantic model
             if isinstance(result, str):
                 try:
@@ -207,6 +215,10 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
                 inputs=inputs
             )
             
+            # Handle CrewOutput object specifically
+            if hasattr(web_result, 'raw_output'):
+                web_result = web_result.raw_output
+            
             if isinstance(web_result, str):
                 try:
                     self.state.web_findings = json.loads(web_result)
@@ -233,6 +245,10 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
             doc_result = ResearchCrew().crew().kickoff(
                 inputs=inputs
             )
+            
+            # Handle CrewOutput object specifically
+            if hasattr(doc_result, 'raw_output'):
+                doc_result = doc_result.raw_output
             
             if isinstance(doc_result, str):
                 try:
@@ -271,16 +287,25 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
                 inputs=inputs
             )
             
+            # Handle CrewOutput object specifically
+            if hasattr(result, 'raw_output'):
+                result = result.raw_output
+            
             if isinstance(result, str):
                 try:
                     self.state.synthesized_forces = json.loads(result)
                 except json.JSONDecodeError:
                     print(f"Warning: Failed to parse synthesized forces as JSON: {result}")
-                    self.state.synthesized_forces = {"raw_output": result}
-            else:
+                    self.state.synthesized_forces = [{"raw_output": result}]
+            elif isinstance(result, list):
                 self.state.synthesized_forces = result
-                
-            print(f"Synthesized Forces Count: {len(self.state.synthesized_forces) if isinstance(self.state.synthesized_forces, list) else 'N/A'}")
+            else:
+                print(f"Warning: Unexpected synthesized forces output type: {type(result)}")
+                self.state.synthesized_forces = [{"raw_output": str(result)}]
+            
+            print(f"Synthesized {len(self.state.synthesized_forces)} market forces.")
+            
+            # Return the crew name to route to the next step
             return "review"
         except Exception as e:
             self.state.error_message = f"Error synthesizing findings: {e}"
@@ -318,16 +343,23 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
                 inputs=inputs
             )
             
+            # Handle CrewOutput object specifically
+            if hasattr(result, 'raw_output'):
+                result = result.raw_output
+            
             if isinstance(result, str):
                 try:
                     self.state.final_forces = json.loads(result)
                 except json.JSONDecodeError:
                     print(f"Warning: Failed to parse final forces as JSON: {result}")
-                    self.state.final_forces = {"raw_output": result}
-            else:
+                    self.state.final_forces = [{"raw_output": result}]
+            elif isinstance(result, list):
                 self.state.final_forces = result
-                
-            print(f"Final Forces Count: {len(self.state.final_forces) if isinstance(self.state.final_forces, list) else 'N/A'}")
+            else:
+                print(f"Warning: Unexpected final forces output type: {type(result)}")
+                self.state.final_forces = [{"raw_output": str(result)}]
+            
+            print(f"Final Forces Count: {len(self.state.final_forces)}")
             return "packaging"
         except Exception as e:
             self.state.error_message = f"Error reviewing findings: {e}"
@@ -341,62 +373,10 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
     def generate_outputs(self):
         """Generates the markdown report and table using the Packaging Crew."""
         print("--- Flow Step: Generating Outputs (Packaging Crew) ---")
-        
-        # Generate markdown report
         try:
-            # Execute the packaging crew with the final forces for report
+            # Execute the packaging crew with the final forces
             inputs = {
-                "identified_forces": self.state.final_forces,
-                "output_type": "report",
-                **self.state.model_dump(mode='json')
-            }
-            
-            report_result = PackagingCrew().crew().kickoff(
-                inputs=inputs
-            )
-            
-            self.state.markdown_report = report_result
-            print(f"Markdown Report Generated: {len(self.state.markdown_report) if isinstance(self.state.markdown_report, str) else 'N/A'} characters")
-        except Exception as e:
-            self.state.error_message = f"Error generating markdown report: {e}"
-            print(self.state.error_message)
-        
-        # Generate markdown table
-        try:
-            # Execute the packaging crew with the final forces for table
-            inputs = {
-                "identified_forces": self.state.final_forces,
-                "output_type": "table",
-                **self.state.model_dump(mode='json')
-            }
-            
-            table_result = PackagingCrew().crew().kickoff(
-                inputs=inputs
-            )
-            
-            self.state.markdown_table = table_result
-            print(f"Markdown Table Generated: {len(self.state.markdown_table) if isinstance(self.state.markdown_table, str) else 'N/A'} characters")
-        except Exception as e:
-            self.state.error_message = f"Error generating markdown table: {e}"
-            print(self.state.error_message)
-        
-        # Continue to final packaging if we have outputs
-        if self.state.markdown_report or self.state.markdown_table:
-            return "finalize"
-        else:
-            self.state.error_message = "No report or table generated."
-            return "error"
-
-    @listen("finalize")
-    def package_outputs(self):
-        """Packages all outputs into a final MarketForceOutput using the Packaging Crew."""
-        print("--- Flow Step: Packaging Outputs (Packaging Crew) ---")
-        try:
-            # Execute the packaging crew with all outputs
-            inputs = {
-                "identified_forces": self.state.final_forces,
-                "markdown_report": self.state.markdown_report,
-                "markdown_table": self.state.markdown_table,
+                "final_forces": self.state.final_forces,
                 **self.state.model_dump(mode='json')
             }
             
@@ -404,35 +384,48 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
                 inputs=inputs
             )
             
+            # Handle CrewOutput object specifically
+            if hasattr(result, 'raw_output'):
+                result = result.raw_output
+            
             if isinstance(result, str):
                 try:
-                    self.state.final_output = json.loads(result)
+                    output_dict = json.loads(result)
+                    self.state.markdown_report = output_dict.get('report', '')
+                    self.state.markdown_table = output_dict.get('table', '')
+                    self.state.final_output = output_dict
                 except json.JSONDecodeError:
-                    print(f"Warning: Failed to parse final output as JSON: {result}")
+                    print(f"Warning: Failed to parse packaging output as JSON: {result}")
+                    self.state.markdown_report = result
                     self.state.final_output = {"raw_output": result}
             elif isinstance(result, dict):
+                self.state.markdown_report = result.get('report', '')
+                self.state.markdown_table = result.get('table', '')
                 self.state.final_output = result
             else:
-                print(f"Warning: Unexpected final output type: {type(result)}")
+                print(f"Warning: Unexpected packaging output type: {type(result)}")
+                self.state.markdown_report = str(result)
                 self.state.final_output = {"raw_output": str(result)}
-                
-            # Save the report to a file
+            
+            # Write the report to a file
             try:
-                report_path = os.path.join(
-                    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 
-                    "outputs", 
-                    f"report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-                )
-                os.makedirs(os.path.dirname(report_path), exist_ok=True)
+                timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+                report_file = f"market_forces_report_{timestamp}.md"
+                report_path = os.path.join('outputs', report_file)
+                
+                # Ensure the outputs directory exists
+                os.makedirs('outputs', exist_ok=True)
+                
                 with open(report_path, 'w') as f:
-                    json.dump(self.state.final_output, f, indent=2)
+                    f.write(self.state.markdown_report)
+                
                 print(f"Report saved to: {report_path}")
             except Exception as e:
-                print(f"Warning: Failed to save report to file: {e}")
+                print(f"Error saving report: {e}")
             
             return "complete"
         except Exception as e:
-            self.state.error_message = f"Error packaging outputs: {e}"
+            self.state.error_message = f"Error generating outputs: {e}"
             print(self.state.error_message)
             return "error"
 
@@ -475,27 +468,28 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
             self.state.initial_inputs = market_force_input.model_dump()
             
             # Kickoff the flow
-            final_state = self.kickoff()
+            final_result = self.kickoff()
             
             # Print the final state for debugging
-            if final_state:
-                print("\n--- Final Flow State ---")
-                # Check if final_state is a string or has model_dump
-                if isinstance(final_state, str):
-                    print(final_state)
-                else:
-                    try:
-                        print(json.dumps(final_state.model_dump(), indent=2))
-                    except AttributeError:
-                        print(f"Final state type: {type(final_state)}")
-                        print(str(final_state))
+            print("\n--- Final Flow State ---")
+            if isinstance(final_result, str):
+                print(final_result)
+                # Return the actual state object, not the string
+                return self.state
+            else:
+                try:
+                    print(json.dumps(final_result.model_dump(), indent=2))
+                except AttributeError:
+                    print(f"Final state type: {type(final_result)}")
+                    print(str(final_result))
             
-            return final_state
+            return final_result if not isinstance(final_result, str) else self.state
         except Exception as e:
             print(f"Error in flow execution: {e}")
             import traceback
             traceback.print_exc()
-            raise
+            # Return the state even if there's an error
+            return self.state
 
 # --- Main Execution Logic --- #
 
@@ -562,14 +556,41 @@ def main():
         print("\n\n########################")
         print("## Flow Run Completed.")
         print("########################\n")
-
+        
         # Access results from the final state
-        if final_state.error_message:
+        if isinstance(final_state, str):
+            print(f"Flow returned a string value: {final_state}")
+            # Try to access the flow's state directly since final_state is just a string
+            flow_state = scan_flow.state
+            if hasattr(flow_state, 'error_message') and flow_state.error_message:
+                print(f"Flow finished with an error: {flow_state.error_message}")
+            elif hasattr(flow_state, 'final_output') and flow_state.final_output:
+                print("Final Result (from Flow State):")
+                print(flow_state.final_output)
+                
+                # Save outputs if they exist
+                if hasattr(flow_state, 'markdown_table') and hasattr(flow_state, 'markdown_report'):
+                    output_dir = config_dict.get('output_directory', 'outputs')
+                    os.makedirs(output_dir, exist_ok=True)
+                    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+                    table_path = os.path.join(output_dir, f"market_forces_table_{timestamp}.md")
+                    report_path = os.path.join(output_dir, f"market_forces_report_{timestamp}.md")
+                    try:
+                        with open(table_path, "w", encoding='utf-8') as f:
+                            f.write(flow_state.markdown_table)
+                        with open(report_path, "w", encoding='utf-8') as f:
+                            f.write(flow_state.markdown_report)
+                        print(f"\nMarkdown table and report saved to '{output_dir}' directory.")
+                    except Exception as e:
+                        print(f"\nError saving output files: {e}")
+            else:
+                print("Flow completed, but no final output was generated in the state.")
+        elif hasattr(final_state, 'error_message') and final_state.error_message:
             print(f"Flow finished with an error: {final_state.error_message}")
-        elif final_state.final_output:
+        elif hasattr(final_state, 'final_output') and final_state.final_output:
             print("Final Result (from Flow State):")
             print(final_state.final_output)
-
+            
             # Save outputs
             output_dir = config_dict.get('output_directory', 'outputs')
             os.makedirs(output_dir, exist_ok=True)
