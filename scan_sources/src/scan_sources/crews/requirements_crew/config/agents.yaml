@@ -12,7 +12,7 @@ ResearchManager:
 
 ConfigurationSpecialist:
   role: >
-    Research Setup and Configuration Lead
+    Setup the research requirements based on user inputs
   goal: >
     Process initial user inputs, load default configurations (keywords, sources), integrate user modifications, and formulate the final research plan for user review.
   backstory: >

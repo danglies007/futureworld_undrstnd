@@ -12,7 +12,7 @@ ResearchManager:
 
 WebSourceAnalyst:
   role: >
-    Web Research and Data Extraction Specialist
+    Expert in Web Research and Data Extraction
   goal: >
     Scan specified web sources (search engines, websites) based on the research plan's keywords and scope, extracting relevant text snippets and metadata.
   backstory: >
@@ -26,7 +26,7 @@ WebSourceAnalyst:
 
 DocumentSourceAnalyst:
   role: >
-    Document and PDF Analysis Expert
+    Expert in Document and PDF Analysis
   goal: >
     Analyze provided documents (PDFs, local files) based on the research plan's keywords and scope, extracting relevant text snippets and metadata.
   backstory: >
@@ -39,7 +39,7 @@ DocumentSourceAnalyst:
 
 DataSynthesizer:
   role: >
-    Information Synthesis and Analysis Expert
+    Expert in Information Synthesis and Analysis
   goal: >
     Aggregate findings from all sources, deduplicate information, identify and synthesize distinct market forces/trends/signals, and structure the preliminary findings with supporting evidence.
   backstory: >

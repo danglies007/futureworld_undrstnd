@@ -7,8 +7,16 @@ from dotenv import load_dotenv
 from crewai import Agent, Task, Crew, Process, LLM
 from crewai.project import CrewBase, agent, task, crew
 
+# Suppress the Pydantic warnings
+import warnings
+from pydantic import PydanticDeprecatedSince211
+
+# Suppress the specific Pydantic warning
+warnings.filterwarnings("ignore", category=PydanticDeprecatedSince211)
+
+
 # Import Tools
-from crewai_tools import SerperDevTool, WebsiteSearchTool, FileReadTool
+from crewai_tools import SerperDevTool, WebsiteSearchTool, FileReadTool, PDFSearchTool, FileWriterTool
 # from crewai_tools import ScraperTool, DirectoryReadTool, BrowserbaseLoadTool # Optional/Alternative tools
 
 # Import custom tools
@@ -28,6 +36,7 @@ output_base_dir.mkdir(exist_ok=True)
 
 # Use GPT-4o mini for cost-effective operations
 llm_gpt4o_mini = LLM(model="gpt-4o-mini-2024-07-18")  # Fast and cheap $0.15/$0.60
+llm_gpt4o = LLM(model="gpt-4o-2024-11-20") # Fast intelligent $2.50/$10
 
 
 @CrewBase
@@ -55,7 +64,7 @@ class ResearchCrew:
     def DocumentSourceAnalyst(self) -> Agent:
         return Agent(
             config=self.agents_config['DocumentSourceAnalyst'],
-            tools=[CustomPDFSearchTool3(), FileReadTool()],
+            tools=[PDFSearchTool(), FileReadTool()],
             llm=llm_gpt4o_mini,
             verbose=True
         )
@@ -73,7 +82,7 @@ class ResearchCrew:
     def ResearchManager(self) -> Agent:
         return Agent(
             config=self.agents_config['ResearchManager'],
-            llm=llm_gpt4o_mini,
+            llm=llm_gpt4o,
             verbose=True
         )
 
@@ -82,7 +91,7 @@ class ResearchCrew:
     def scan_web_sources(self) -> Task:
         return Task(
             config=self.tasks_config['scan_web_sources'],
-            async_execution=True,
+            async_execution=False,
             output_pydantic=SourceFinding
         )
 
@@ -90,7 +99,7 @@ class ResearchCrew:
     def scan_document_sources(self) -> Task:
         return Task(
             config=self.tasks_config['scan_document_sources'],
-            async_execution=True,
+            async_execution=False,
             output_pydantic=SourceFinding,
         )
 
@@ -126,5 +135,5 @@ class ResearchCrew:
             process=Process.sequential,
             memory=True,
             verbose=True,
-            manager=self.agents['ResearchManager']
+            # manager=self.agents['ResearchManager']
         )

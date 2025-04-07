@@ -11,6 +11,13 @@ from pydantic import BaseModel, Field
 from crewai import Crew
 from crewai.flow import Flow, router, start, listen
 
+# Suppress the Pydantic warnings
+import warnings
+from pydantic import PydanticDeprecatedSince211
+
+# Suppress the specific Pydantic warning
+warnings.filterwarnings("ignore", category=PydanticDeprecatedSince211)
+
 # Ensure the src directory is in the Python path
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, project_root)
@@ -20,11 +27,12 @@ from scan_sources.crews.requirements_crew.requirements_crew import RequirementsC
 from scan_sources.crews.research_crew.research_crew import ResearchCrew
 from scan_sources.crews.packaging_crew.packaging_crew import PackagingCrew
 
-# Import utility models
+# Import utility models and config
 from scan_sources.utilities.models import (
     MarketForceInput, ResearchPlan, SourceFinding, 
     IdentifiedForce, MarketForceOutput
 )
+from scan_sources.utilities.flow_config import FLOW_VARIABLES
 
 # --- State Model --- #
 
@@ -61,16 +69,10 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
 
     def __init__(self):
         super().__init__(state_class=ScanSourcesState)
-        # Instantiate the crews
-        try:
-            self.requirements_crew: Crew = RequirementsCrew().crew()
-            self.research_crew: Crew = ResearchCrew().crew()
-            self.packaging_crew: Crew = PackagingCrew().crew()
-            # Initialize the state with default values
-            self._initial_inputs = {}
-        except Exception as e:
-            print(f"Error initializing crews: {e}")
-            raise
+        # Initialize the state with default values
+        self._initial_inputs = {}
+        # We'll instantiate crews when needed rather than at initialization
+        # This helps avoid issues with crew reuse across different steps
 
     # --- Requirements Crew Flow --- #
     
@@ -79,25 +81,44 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
         """Starts the flow by preparing the initial research plan using the Requirements Crew."""
         print("--- Flow Step: Preparing Research Plan (Requirements Crew) ---")
         try:
-            # Store initial inputs in the state
-            self.state.initial_inputs = self._initial_inputs
+            # Store initial inputs in the state (should already be done in run method)
+            if not hasattr(self.state, 'initial_inputs') or not self.state.initial_inputs:
+                self.state.initial_inputs = self._initial_inputs.model_dump() if hasattr(self._initial_inputs, 'model_dump') else self._initial_inputs
             
-            # Execute the requirements crew with the initial inputs
-            result = self.requirements_crew.kickoff(
-                inputs=self._initial_inputs
+            # Create a fresh requirements crew for this step
+            requirements_crew = RequirementsCrew().crew()
+            
+            # Format the initial inputs as a JSON string for template substitution
+            initial_inputs_str = json.dumps(self.state.initial_inputs, indent=2)
+            
+            # Execute the crew with the proper template variables
+            result = requirements_crew.kickoff(
+                inputs={"initial_inputs": initial_inputs_str}
             )
             
+            # Process the result into a ResearchPlan Pydantic model
             if isinstance(result, str):
                 try:
-                    self.state.research_plan = json.loads(result)
-                except json.JSONDecodeError:
+                    # Try to parse as JSON first
+                    plan_dict = json.loads(result)
+                    research_plan = ResearchPlan(**plan_dict)
+                    self.state.research_plan = research_plan.model_dump()
+                except (json.JSONDecodeError, TypeError):
                     print(f"Warning: Failed to parse research plan output as JSON: {result}")
                     self.state.research_plan = {"raw_output": result}
             elif isinstance(result, dict):
-                self.state.research_plan = result
+                try:
+                    research_plan = ResearchPlan(**result)
+                    self.state.research_plan = research_plan.model_dump()
+                except TypeError as e:
+                    print(f"Warning: Failed to create ResearchPlan from dict: {e}")
+                    self.state.research_plan = result
+            elif isinstance(result, ResearchPlan):
+                self.state.research_plan = result.model_dump()
             else:
                 print(f"Warning: Unexpected research plan output type: {type(result)}")
                 self.state.research_plan = {"raw_output": str(result)}
+            
             print(f"Prepared Plan: {self.state.research_plan}")
             
             # Return the crew name to route to the next step
@@ -112,24 +133,49 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
         """Reviews the research plan created in the previous step using the Requirements Crew."""
         print("--- Flow Step: Reviewing Research Plan (Requirements Crew) ---")
         try:
-            # Execute the requirements crew with the research plan from state
-            inputs = {
-                "plan_details": self.state.research_plan,
-                **self.state.model_dump(mode='json')
-            }
+            # Create a fresh requirements crew for this step
+            requirements_crew = RequirementsCrew().crew()
             
-            result = self.requirements_crew.kickoff(
-                inputs=inputs
+            # Convert research_plan back to a ResearchPlan model if it's a dict
+            if isinstance(self.state.research_plan, dict):
+                try:
+                    research_plan = ResearchPlan(**self.state.research_plan)
+                    plan_details_str = json.dumps(research_plan.model_dump(), indent=2)
+                except TypeError:
+                    plan_details_str = json.dumps(self.state.research_plan, indent=2)
+            else:
+                plan_details_str = json.dumps(self.state.research_plan, indent=2)
+            
+            # Format the initial inputs as a JSON string for template substitution
+            initial_inputs_str = json.dumps(self.state.initial_inputs, indent=2)
+            
+            # Execute the crew with the proper template variables
+            result = requirements_crew.kickoff(
+                inputs={
+                    "plan_details": plan_details_str,
+                    "initial_inputs": initial_inputs_str
+                }
             )
             
+            # Process the result into a ResearchPlan Pydantic model
             if isinstance(result, str):
                 try:
-                    self.state.validated_plan = json.loads(result)
-                except json.JSONDecodeError:
+                    # Try to parse as JSON first
+                    plan_dict = json.loads(result)
+                    validated_plan = ResearchPlan(**plan_dict)
+                    self.state.validated_plan = validated_plan.model_dump()
+                except (json.JSONDecodeError, TypeError):
                     print(f"Warning: Failed to parse validated plan output as JSON: {result}")
                     self.state.validated_plan = {"raw_output": result}
             elif isinstance(result, dict):
-                self.state.validated_plan = result
+                try:
+                    validated_plan = ResearchPlan(**result)
+                    self.state.validated_plan = validated_plan.model_dump()
+                except TypeError as e:
+                    print(f"Warning: Failed to create ResearchPlan from dict: {e}")
+                    self.state.validated_plan = result
+            elif isinstance(result, ResearchPlan):
+                self.state.validated_plan = result.model_dump()
             else:
                 print(f"Warning: Unexpected validated plan output type: {type(result)}")
                 self.state.validated_plan = {"raw_output": str(result)}
@@ -157,7 +203,7 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
                 **self.state.model_dump(mode='json')
             }
             
-            web_result = self.research_crew.kickoff(
+            web_result = ResearchCrew().crew().kickoff(
                 inputs=inputs
             )
             
@@ -184,7 +230,7 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
                 **self.state.model_dump(mode='json')
             }
             
-            doc_result = self.research_crew.kickoff(
+            doc_result = ResearchCrew().crew().kickoff(
                 inputs=inputs
             )
             
@@ -221,7 +267,7 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
                 **self.state.model_dump(mode='json')
             }
             
-            result = self.research_crew.kickoff(
+            result = ResearchCrew().crew().kickoff(
                 inputs=inputs
             )
             
@@ -268,7 +314,7 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
             if human_feedback.strip():
                 inputs["human_feedback"] = human_feedback
             
-            result = self.research_crew.kickoff(
+            result = ResearchCrew().crew().kickoff(
                 inputs=inputs
             )
             
@@ -305,7 +351,7 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
                 **self.state.model_dump(mode='json')
             }
             
-            report_result = self.packaging_crew.kickoff(
+            report_result = PackagingCrew().crew().kickoff(
                 inputs=inputs
             )
             
@@ -324,7 +370,7 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
                 **self.state.model_dump(mode='json')
             }
             
-            table_result = self.packaging_crew.kickoff(
+            table_result = PackagingCrew().crew().kickoff(
                 inputs=inputs
             )
             
@@ -354,7 +400,7 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
                 **self.state.model_dump(mode='json')
             }
             
-            result = self.packaging_crew.kickoff(
+            result = PackagingCrew().crew().kickoff(
                 inputs=inputs
             )
             
@@ -406,28 +452,50 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
 
     def run(self, initial_inputs: Dict[str, Any]):
         """Convenience method to kickoff the flow with initial state."""
-        # Store initial inputs for use in prepare_plan
-        self._initial_inputs = initial_inputs
-        
-        # Initialize state with initial inputs
-        self.state.initial_inputs = initial_inputs
-        
-        # Kickoff the flow
+        # Convert initial_inputs to MarketForceInput Pydantic model
         try:
+            # If initial_inputs is already a MarketForceInput, use it directly
+            if isinstance(initial_inputs, MarketForceInput):
+                market_force_input = initial_inputs
+            else:
+                # Otherwise, create a MarketForceInput from the dictionary
+                market_force_input = MarketForceInput(
+                    target_industry=initial_inputs.get('target_industry'),
+                    target_market=initial_inputs.get('target_market', 'Global'),
+                    time_horizon=initial_inputs.get('time_horizon', '5+ years'),
+                    keywords=initial_inputs.get('keywords', []),
+                    sources_config=initial_inputs.get('sources_config', {}),
+                    uploaded_files=initial_inputs.get('uploaded_files', [])
+                )
+            
+            # Store the Pydantic model as initial inputs
+            self._initial_inputs = market_force_input
+            
+            # Initialize state with model data (as dict for state compatibility)
+            self.state.initial_inputs = market_force_input.model_dump()
+            
+            # Kickoff the flow
             final_state = self.kickoff()
             
             # Print the final state for debugging
             if final_state:
                 print("\n--- Final Flow State ---")
-                print(json.dumps(final_state.model_dump(mode='json', exclude_none=True), indent=2))
-            else:
-                print("\n--- Warning: No final state returned from flow ---")
-                
+                # Check if final_state is a string or has model_dump
+                if isinstance(final_state, str):
+                    print(final_state)
+                else:
+                    try:
+                        print(json.dumps(final_state.model_dump(), indent=2))
+                    except AttributeError:
+                        print(f"Final state type: {type(final_state)}")
+                        print(str(final_state))
+            
             return final_state
         except Exception as e:
-            print(f"Error during flow execution: {e}")
-            # Return the current state if there was an error
-            return self.state
+            print(f"Error in flow execution: {e}")
+            import traceback
+            traceback.print_exc()
+            raise
 
 # --- Main Execution Logic --- #
 
@@ -441,39 +509,56 @@ def main():
     parser.add_argument(
         '--industry',
         type=str,
-        default='Banking',
-        help='Target industry for the market scan.'
+        help='Target industry for the market scan (overrides config)'
     )
     parser.add_argument(
         '--market',
         type=str,
-        default='Global',
-        help='Target market for the scan (e.g., Global, US, Europe).'
+        help='Target market for the scan (e.g., Global, US, Europe) (overrides config)'
     )
     parser.add_argument(
         '--time-horizon',
         type=str,
-        default='5+ years',
-        help='Time horizon for the analysis.'
+        help='Time horizon for the analysis (overrides config)'
     )
     args = parser.parse_args()
 
-    initial_inputs = {
-        'target_industry': args.industry,
-        'target_market': args.market,
-        'time_horizon': args.time_horizon,
-        # Add other inputs here as needed
-    }
+    # Start with the configuration from FLOW_VARIABLES
+    config_dict = FLOW_VARIABLES.copy()
+    
+    # Override with command-line arguments if provided
+    if args.industry:
+        config_dict['target_industry'] = args.industry
+    if args.market:
+        config_dict['target_market'] = args.market
+    if args.time_horizon:
+        config_dict['time_horizon'] = args.time_horizon
 
-    print(f"\nInitiating flow run with initial inputs:")
-    print(json.dumps(initial_inputs, indent=2))
-    print('-----------------------------------\n')
-
-    # Flow Execution
+    # Prepare source configuration from the config dictionary
+    source_config_dict = {}
+    if 'specified_sources' in config_dict:
+        # Add specified sources to a custom category in source_config
+        source_config_dict['custom'] = {'specified': config_dict.pop('specified_sources', [])}
+    
+    # Create a proper MarketForceInput Pydantic model
     try:
+        market_force_input = MarketForceInput(
+            target_industry=config_dict.get('target_industry'),
+            target_market=config_dict.get('target_market', 'Global'),
+            time_horizon=config_dict.get('time_horizon', '5+ years'),
+            keywords=config_dict.get('keywords', []),
+            sources_config=source_config_dict,
+            uploaded_files=config_dict.get('uploaded_files', [])
+        )
+        
+        print(f"\nInitiating flow run with initial inputs:")
+        print(json.dumps(market_force_input.model_dump(), indent=2))
+        print('-----------------------------------\n')
+        
+        # Flow Execution
         scan_flow = ScanSourcesFlow()
-        final_state = scan_flow.run(initial_inputs=initial_inputs)
-
+        final_state = scan_flow.run(initial_inputs=market_force_input)
+        
         print("\n\n########################")
         print("## Flow Run Completed.")
         print("########################\n")
@@ -486,7 +571,7 @@ def main():
             print(final_state.final_output)
 
             # Save outputs
-            output_dir = "outputs"
+            output_dir = config_dict.get('output_directory', 'outputs')
             os.makedirs(output_dir, exist_ok=True)
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
             table_path = os.path.join(output_dir, f"market_forces_table_{timestamp}.md")
@@ -501,7 +586,7 @@ def main():
                 print(f"\nError saving output files: {e}")
         else:
             print("Flow completed, but no final output was generated in the state.")
-
+            
     except Exception as e:
         print(f"\nAn unexpected error occurred running the flow: {e}")
         import traceback

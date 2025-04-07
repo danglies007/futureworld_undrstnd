@@ -7,6 +7,15 @@ from dotenv import load_dotenv
 from crewai import Agent, Task, Crew, Process, LLM
 from crewai.project import CrewBase, agent, task, crew
 
+# Suppress the Pydantic warnings
+import warnings
+from pydantic import PydanticDeprecatedSince211
+
+# Suppress the specific Pydantic warning
+warnings.filterwarnings("ignore", category=PydanticDeprecatedSince211)
+
+
+
 # Import Pydantic models
 from scan_sources.utilities.models import (
     IdentifiedForce, MarketForceOutput
@@ -21,6 +30,7 @@ output_base_dir.mkdir(exist_ok=True)
 
 # Use GPT-4o mini for cost-effective operations
 llm_gpt4o_mini = LLM(model="gpt-4o-mini-2024-07-18")  # Fast and cheap $0.15/$0.60
+llm_gpt4o = LLM(model="gpt-4o-2024-11-20") # Fast intelligent $2.50/$10
 
 
 @CrewBase

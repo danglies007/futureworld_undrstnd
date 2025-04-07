@@ -1,0 +1,14 @@
+# Scan Sources Configuration
+# This file contains all configurable parameters for the Scan Sources application
+
+# Basic scan parameters
+target_industry: "Coal Mining"
+target_market: "Global"
+time_horizon: "3-5 years"
+
+# Advanced scan parameters
+max_web_sources: 10
+max_document_sources: 0
+
+# Output configuration
+output_directory: "outputs/coal_mining_scan"
