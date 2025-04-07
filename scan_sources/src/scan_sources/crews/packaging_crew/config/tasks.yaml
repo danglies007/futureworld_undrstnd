@@ -1,0 +1,35 @@
+generate_markdown_report:
+  description: >
+    Based on the final, reviewed synthesized findings ({identified_forces}),
+    compose a structured Markdown narrative report summarizing key themes and insights.
+    The report should include an executive summary, introduction, key findings section for each identified force,
+    analysis of trends, and conclusion with strategic implications.
+    Ensure proper formatting with headers, bullet points, and emphasis where appropriate.
+  expected_output: >
+    A comprehensive Markdown-formatted report string that effectively communicates the market forces
+    and their implications in a narrative format suitable for strategic decision-making.
+  agent: ReportWriter
+
+generate_markdown_table:
+  description: >
+    Based on the final, reviewed synthesized findings ({identified_forces}),
+    create a detailed Markdown table summarizing each identified force.
+    The table should include columns for Name, Description, Keywords, Scope, Time Horizon, and Key Sources.
+    Ensure proper Markdown table formatting with headers and alignment.
+  expected_output: >
+    A well-formatted Markdown table string that presents all identified forces in a structured,
+    easy-to-scan format with clear headers and consistent formatting.
+  agent: TableFormatter
+
+package_outputs:
+  description: >
+    Combine the Markdown report ({markdown_report}) and Markdown table ({markdown_table}) with the
+    identified forces data ({identified_forces}) into a final MarketForceOutput object.
+    Ensure all components are properly formatted and consistent with each other.
+  expected_output: >
+    A final 'MarketForceOutput' Pydantic object containing the list of 'IdentifiedForce' objects,
+    the Markdown table string, and the Markdown report string.
+  agent: ReportWriter
+  context: # Depends on both output tasks
+    - generate_markdown_report
+    - generate_markdown_table

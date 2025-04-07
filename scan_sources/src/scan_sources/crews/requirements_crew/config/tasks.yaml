@@ -1,0 +1,27 @@
+prepare_research_plan:
+  description: >
+    Process the initial user inputs: {initial_inputs}.
+    Load default keywords and sources from the Pydantic models.
+    Combine with user inputs to formulate a draft research plan including target market,
+    industry, keywords, time horizon, and sources configuration, considering uploaded files.
+  expected_output: >
+    A structured dictionary or JSON string representing the draft research plan,
+    ready for user review. Include validated lists of keywords, sources (grouped by type),
+    target market, target industry, time horizon, and paths to any uploaded files.
+  agent: ConfigurationSpecialist
+
+review_research_plan:
+  description: >
+    Present the draft Research Plan from the previous task to the user:
+    '''
+    {plan_details}
+    '''
+    Ask the user to review the keywords, sources, market, industry, and time horizon.
+    Capture their confirmation or requested modifications.
+  expected_output: >
+    The final, user-confirmed or modified Research Plan as a structured dictionary or JSON string.
+    If the user requests modifications, incorporate them into the final plan.
+  agent: ResearchManager
+  human_input: true
+  context: # Depends on prepare_research_plan
+    - prepare_research_plan
