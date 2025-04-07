@@ -1,0 +1,18 @@
+research_task:
+  description: >
+    Conduct thorough research about what content and detail is required in a {topic} as part of a {report_type} for {audience_level}.
+    Make sure you find any interesting and relevant information given the current year is {year} and the focus based on the {company} and its activities within the {sector} in {geography}.
+    Ensure relevant best practices are incorporated into your research and the content for the {topic} {report_type}.
+  expected_output: >
+    A thorough research report on content and detail required in a {topic} applicable to {report_types} with all the relevant information that can inform and guide detailed content development.
+    The report is aimed at {audience_level}. 
+  agent: researcher
+
+planning_task:
+  description: >
+    Review the content you received and come up with a Top Quality plan to develop a detailed, accurate and comprehensive {topic} report suitable for a {report_type}.  It is aimed at {audience_level}.
+    The plan should be highly detailed and comprehensive.
+  expected_output: >
+    A detailed plan for an accurate, detailed and comprehensive {topic} suitable for a {report_type} that is aimed at {audience_level}.  Its important that the plan is relevant to the {company}, {sector} and current year: {year}
+    The plan should be a series of sections, each section with a subtitle, high level goal, why it's important and a content outline.
+  agent: planner

@@ -1,0 +1,37 @@
+research_strategy_task:
+  description: >
+    Conduct meta-research to define optimal methodologies and content requirements for a high-quality {report_type} on {topic} in the context of {sector}.
+    
+    Specifically:
+    - Research best practices for developing a {report_type}
+    - Identify foundational components for {report_type} relevant to {sector} and {topic}, considering the year is {year}
+    - Recommend approaches, methodologies and frameworks that match the topic’s complexity
+    - Evaluate what counts as credible, high-impact evidence in this domain, considering the year is {year}
+    - Ensure relevance to both {sector}-specific, {topic}-specific and broader contexts
+  expected_output: >
+    A comprehensive research strategy document that includes:
+    - A menu of proven methodologies, frameworks and approaches tailored to {topic} and {sector}
+    - Evaluation criteria for sources and data
+    - Structuring principles for further planning and execution
+    - Explicit guidance for the content planning team
+    - Clear working references for sources and citations - WITH INLINE WORKING URLS AND REFERENCES PROVIDED
+  agent: research_strategist
+
+content_planning_task:
+  description: >
+    Based on the strategic research, design a detailed content plan for the {report_type} on {topic} for {audience_level} in the {sector} sector.
+    
+    Your plan should:
+    - Include numbered, logically sequenced sections
+    - Define purpose, scope, questions, and data/methodology/framework needs for each section
+    - Provide practical guidance on sources, evaluation standards, and content flow
+    - Ensure the structure enables both high-level insight and operational usefulness
+  expected_output: >
+    A JSON-structured content plan with:
+    - Section numbers and titles
+    - Purpose, rationale, and importance
+    - Research questions and methodology/framework per section
+    - Content needs and guidelines per section
+    - Suggested sources and evaluation rubrics
+    - Logical flow from scanning to interpretation to synthesis
+  agent: content_planner

@@ -1,0 +1,152 @@
+trend_research_task:
+  description: >
+    Conduct thorough research to identify and document potential trends and forces affecting {sector} in {geography} according to the provided section from the content plan for {report_type}.
+    
+    Research this section: {subtitle}
+    Goal: {high_level_goal}
+    Importance: {why_important}
+    
+    Follow this content outline:
+    {content_outline}
+    
+    Initial sources to consider:
+    {sources}
+    
+    REQUIRED SOURCES TO CONSULT:
+    {specified_sources}
+
+    The current year is:
+    {year}
+
+    For each piece of research or insight identified:
+    - Search multiple diverse reputable sources for confirmation and evidence relevant to {sector}
+    - ENSURE all specified sources listed above are consulted and cited when relevant
+    - Collect quantifiable data and statistics relevant to the research or insight and as recent as possible, considering the year is {year}
+    - Document expert opinions and perspectives from credible sources appropriate for {audience_level}
+    - Gather examples and case studies that either support or contradict the research or insight
+    - Evaluate the potential scope and scale of impact on {sector}
+    
+    Ensure all information is properly sourced with working references. If information cannot be found, clearly state this rather than making assumptions.  
+
+    INCLUDE THE ACTUAL URLS / HYPERLINKS FOR SOURCES, CITATIONS AND REFERENCES
+    
+    Use various search tools as appropriate:
+    - The specified sources listed above as initial references
+    - Internet searches for recent reports and analyses on {sector}
+    - Academic and research databases for peer-reviewed insights relevant to {topic}
+    - Industry publications for {sector}-specific trends
+    - News sources for current developments in {geography}
+    - Statistical databases for quantitative support considering the year is {year}
+  expected_output: >
+    A comprehensive research report relevant to the {sector} with:
+    - Clear documentation of research and insights identified
+    - Citations from ALL specified sources where relevant to the topic
+    - Supporting evidence including statistics, expert quotes, and examples
+    - Source citations for all claims and data points - INCLUDE THE ACTUAL URLS / HYPERLINKS FOR SOURCES, CITATIONS AND REFERENCES INLINE WITH THE TEXT
+    - Initial assessment of significance and potential impact on {sector}
+    - Properly organised and structured information ready for analysis appropriate for {report_type}
+    - Explicit notes on which specified sources were most valuable and why
+    
+    The report should form a solid foundation of evidence for subsequent analysis and insight development for {company}.
+  agent: Researcher
+
+content_writing_task:
+  description: >
+    Transform the research, analysis, and insights into well-structured, detailed content for {report_type} according to the provided section from the content plan focused on {sector} in {geography}.
+
+    Section: {subtitle}
+    
+    Your writing should:
+    - Follow the content outline: {content_outline}
+    - Present the content in clear, compelling language for {audience_level}
+    - Structure the content logically with appropriate headings, subheadings, and narrative flow for {report_type}
+    - Ensure all content is evidence-based and properly sourced with working references, use real inline URLs which have been tested
+    - Balance academic rigour with accessibility for {audience_level} at {company}
+    - Use appropriate examples, analogies, and explanations to make complex ideas about {sector} understandable
+    - Address the section's importance: {why_important}
+    
+    If specific information cannot be verified, explicitly indicate this rather than making assumptions or omitting important points about {sector} in {geography}.  Ensure these sources and references are included inline with the content or information.
+  expected_output: >
+    A well-written content output for {company} that:
+    - Follows the content outline for {report_type}
+    - Clearly communicates the identified content for {sector}
+    - Is logically structured with appropriate headings and narrative flow for {report_type}
+    - Includes proper citations and references throughout - ensure actual working URLs are used and provided inline with the content
+    - Balances detail and clarity for {audience_level}
+    - Uses appropriate language, examples, and explanations relevant to {sector}
+    - Maintains engaging narrative through
+    - Addresses section objectives for {report_type}
+    
+    The content should effectively communicate complex ideas about {sector} while maintaining factual accuracy.
+  agent: content_writer
+
+content_editing_task:
+  description: >
+    Review and refine the written content for {report_type} according to the provided section from the content plan focused on {sector} in {geography}.
+
+    Section: {subtitle}
+    
+    Your editing should focus on:
+    - Ensuring factual accuracy and proper sourcing of all claims about {sector}
+    - Verifying that all references and links are valid and working
+    - Improving clarity, coherence, and logical flow for {audience_level}
+    - Enhancing readability and engagement while maintaining accuracy appropriate for {report_type}
+    - Ensuring appropriate tone and level of complexity for {audience_level} at {company}
+    - Consistency in terminology related to {sector} in {geography}
+    - Identifying and addressing any gaps, inconsistencies, or potential inaccuracies
+    
+    Ensure alignment with: {high_level_goal}
+
+    If specific claims cannot be verified, mark them clearly rather than removing important information about {sector} that may be accurate.
+  expected_output: >
+    A polished, high-quality content report for {company} that:
+    - Maintains factual accuracy with proper sourcing relevant to {sector}
+    - Features improved clarity, coherence, and flow appropriate for {report_type}
+    - Has enhanced readability and engagement for {audience_level}
+    - Is appropriate for {audience_level} in tone and complexity
+    - Has addressed gaps, inconsistencies, and potential inaccuracies about {sector} in {geography}
+    
+    The edited content should represent a significant improvement in quality while maintaining the substance of the original content.
+    The output should be the complete, final version of the content with all improvements integrated - NOT a review report.
+  agent: content_editor
+
+quality_review_task:
+  description: >
+    Conduct a comprehensive quality review and update of the {report_type} content according to the provided section from the content plan, and then implement all recommended improvements to deliver a final, polished version for {company} focused on {sector} in {geography}.
+
+    Section: {subtitle}
+    
+    Your task has two parts:
+    1. REVIEW: Assess the content for factual accuracy, structural integrity, and compliance with best practices for {report_type}
+    2. IMPLEMENT: Apply all necessary improvements and refinements to create the final version of the content for {audience_level}
+    
+    During review, assess:
+    - Achievement of section goal: {high_level_goal}
+    - Coverage of outlined content: {content_outline}
+    - Factual accuracy and proper sourcing of all claims about {sector} through {year}
+    - Validity and functionality of all references and links relevant to {geography}
+    - Overall quality, clarity, coherence, and impact of the content for {audience_level}
+    - Effectiveness in identifying and analysing market forces and social dynamics affecting {sector}
+    - Value and actionability of insights for {audience_level}
+    - Compliance with requirements specified in the content plan for {report_type}
+    
+    During implementation:
+    - Correct any factual inaccuracies identified about {sector}
+    - Update any outdated statistics or data points through {year}
+    - Enhance clarity, flow, and readability for {audience_level}
+    - Strengthen any weak sections
+    - Add missing information and sources where needed - INCLUDE THE ACTUAL URLS / HYPERLINKS FOR SOURCES, CITATIONS AND REFERENCES
+    - Ensure proper formatting and consistent style appropriate for {report_type}
+    - Maintain the authoritative voice and strategic focus expected by {company}
+    
+    The output should be the complete, final version of the content with all improvements integrated into the revised, finalised content output - NOT a review report.
+  expected_output: >
+    A complete, final version of the content for {company} that:
+    - Has incorporated all quality improvements relevant to the {report_type}
+    - Maintains factual accuracy with proper sourcing considering the year is {year}
+    - Features enhanced clarity, coherence, and flow appropriate for {audience_level}
+    - Has addressed gaps, inconsistencies, and potential inaccuracies about {sector}
+    - Is ready for publication without further edits as a professional {report_type}
+    
+    The output should be the polished, publication-ready final content that demonstrates high quality, accuracy, and strategic value for {company} - not a review of the content.
+  agent: quality_reviewer
