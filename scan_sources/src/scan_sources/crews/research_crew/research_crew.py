@@ -126,5 +126,5 @@ class ResearchCrew:
             process=Process.sequential,
             memory=True,
             verbose=True,
-            manager=self.agents['ResearchManager']
+            # manager=self.agents['ResearchManager']
         )

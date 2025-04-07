@@ -26,6 +26,10 @@ from scan_sources.utilities.models import (
     IdentifiedForce, MarketForceOutput
 )
 
+# Import Streamlit interface utilities
+from scan_sources.utilities.streamlit_interface import update_flow_status
+from scan_sources.utilities.human_input_handler import handle_human_input_task
+
 # --- State Model --- #
 
 class ScanSourcesState(BaseModel):
@@ -68,6 +72,8 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
             self.packaging_crew: Crew = PackagingCrew().crew()
             # Initialize the state with default values
             self._initial_inputs = {}
+            # Initialize flow status for Streamlit interface
+            update_flow_status(status="initialized", message="Flow initialized and ready to start")
         except Exception as e:
             print(f"Error initializing crews: {e}")
             raise
@@ -78,6 +84,12 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
     def prepare_research_plan(self):
         """Starts the flow by preparing the initial research plan using the Requirements Crew."""
         print("--- Flow Step: Preparing Research Plan (Requirements Crew) ---")
+        # Update flow status for Streamlit interface
+        update_flow_status(
+            status="running", 
+            message="Preparing initial research plan", 
+            current_step="prepare_research_plan"
+        )
         try:
             # Store initial inputs in the state
             self.state.initial_inputs = self._initial_inputs
@@ -111,6 +123,12 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
     def review_research_plan(self, result):
         """Reviews the research plan created in the previous step using the Requirements Crew."""
         print("--- Flow Step: Reviewing Research Plan (Requirements Crew) ---")
+        # Update flow status for Streamlit interface
+        update_flow_status(
+            status="running", 
+            message="Reviewing research plan", 
+            current_step="review_research_plan"
+        )
         try:
             # Execute the requirements crew with the research plan from state
             inputs = {
@@ -147,6 +165,12 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
     def scan_sources(self):
         """Scans web and document sources based on the validated plan using the Research Crew."""
         print("--- Flow Step: Scanning Sources (Research Crew) ---")
+        # Update flow status for Streamlit interface
+        update_flow_status(
+            status="running", 
+            message="Scanning web and document sources", 
+            current_step="scan_sources"
+        )
         
         # Scan web sources
         try:
@@ -213,6 +237,12 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
     def synthesize_findings(self):
         """Synthesizes the findings from the scans using the Research Crew."""
         print("--- Flow Step: Synthesizing Findings (Research Crew) ---")
+        # Update flow status for Streamlit interface
+        update_flow_status(
+            status="running", 
+            message="Synthesizing data from sources", 
+            current_step="synthesize_findings"
+        )
         try:
             # Execute the research crew with the scan results
             inputs = {
@@ -243,31 +273,39 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
 
     @listen("review")
     def review_findings(self):
-        """Reviews the preliminary findings using the Research Crew."""
+        """Reviews the preliminary findings with human input using the Research Crew."""
         print("--- Flow Step: Reviewing Findings (Research Crew) ---")
+        # Update flow status for Streamlit interface
+        update_flow_status(
+            status="running", 
+            message="Preparing to review findings with human input", 
+            current_step="review_findings"
+        )
+        
         try:
-            # Execute the research crew with the synthesized findings
+            # Get the synthesized findings from the state
+            synthesized_forces = self.state.synthesized_forces
+            
+            # Prepare inputs for the research crew
             inputs = {
-                "synthesized_data": self.state.synthesized_forces,
+                "synthesized_forces": synthesized_forces,
                 **self.state.model_dump(mode='json')
             }
             
-            # Check if we need to handle human input for this task
-            print("\n=====")
-            print("## HUMAN FEEDBACK: Provide feedback on the Preliminary Findings.")
-            print("Please follow these guidelines:")
-            print(" - If you are happy with the result, simply hit Enter without typing anything.")
-            print(" - Otherwise, provide specific improvement requests.")
-            print(" - You can provide multiple rounds of feedback until satisfied.")
-            print("=====\n")
+            # Check if we need to handle human input
+            task_description = "Review the preliminary findings and provide feedback on the identified market forces."
             
-            # Get human feedback
-            human_feedback = input("Your feedback (press Enter to accept): ")
+            # Use the human input handler to get feedback through Streamlit
+            human_feedback = handle_human_input_task(
+                task_id="review_preliminary_findings",
+                task_description=task_description,
+                data_to_review=synthesized_forces
+            )
             
-            # Add human feedback to inputs if provided
-            if human_feedback.strip():
-                inputs["human_feedback"] = human_feedback
+            # Add human feedback to the inputs
+            inputs["human_feedback"] = human_feedback
             
+            # Execute the research crew with the inputs including human feedback
             result = self.research_crew.kickoff(
                 inputs=inputs
             )
@@ -284,10 +322,9 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
             print(f"Final Forces Count: {len(self.state.final_forces) if isinstance(self.state.final_forces, list) else 'N/A'}")
             return "packaging"
         except Exception as e:
-            self.state.error_message = f"Error reviewing findings: {e}"
+            self.state.error_message = f"Error during findings review: {e}"
             print(self.state.error_message)
-            self.state.final_forces = self.state.synthesized_forces  # Fallback
-            return "packaging"  # Still proceed to packaging with the fallback data
+            return "error"
 
     # --- Packaging Crew Flow --- #
     
@@ -295,6 +332,12 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
     def generate_outputs(self):
         """Generates the markdown report and table using the Packaging Crew."""
         print("--- Flow Step: Generating Outputs (Packaging Crew) ---")
+        # Update flow status for Streamlit interface
+        update_flow_status(
+            status="running", 
+            message="Generating final report and table", 
+            current_step="generate_outputs"
+        )
         
         # Generate markdown report
         try:
@@ -345,6 +388,12 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
     def package_outputs(self):
         """Packages all outputs into a final MarketForceOutput using the Packaging Crew."""
         print("--- Flow Step: Packaging Outputs (Packaging Crew) ---")
+        # Update flow status for Streamlit interface
+        update_flow_status(
+            status="running", 
+            message="Packaging final output", 
+            current_step="package_outputs"
+        )
         try:
             # Execute the packaging crew with all outputs
             inputs = {
@@ -433,79 +482,55 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
 
 def main():
     """Main function to run the Scan Sources flow."""
-    print("## Welcome to the Scan Sources Crew (Flow Execution)")
-    print('-----------------------------------')
-
-    # Input Gathering
-    parser = argparse.ArgumentParser(description='Run the Scan Sources Crew Flow.')
-    parser.add_argument(
-        '--industry',
-        type=str,
-        default='Banking',
-        help='Target industry for the market scan.'
-    )
-    parser.add_argument(
-        '--market',
-        type=str,
-        default='Global',
-        help='Target market for the scan (e.g., Global, US, Europe).'
-    )
-    parser.add_argument(
-        '--time-horizon',
-        type=str,
-        default='5+ years',
-        help='Time horizon for the analysis.'
-    )
+    parser = argparse.ArgumentParser(description="Run the Scan Sources CrewAI flow")
+    parser.add_argument("--input", type=str, help="Path to input JSON file")
     args = parser.parse_args()
-
-    initial_inputs = {
-        'target_industry': args.industry,
-        'target_market': args.market,
-        'time_horizon': args.time_horizon,
-        # Add other inputs here as needed
-    }
-
-    print(f"\nInitiating flow run with initial inputs:")
-    print(json.dumps(initial_inputs, indent=2))
-    print('-----------------------------------\n')
-
-    # Flow Execution
+    
+    # Initialize the flow
+    flow = ScanSourcesFlow()
+    
     try:
-        scan_flow = ScanSourcesFlow()
-        final_state = scan_flow.run(initial_inputs=initial_inputs)
-
-        print("\n\n########################")
-        print("## Flow Run Completed.")
-        print("########################\n")
-
-        # Access results from the final state
-        if final_state.error_message:
-            print(f"Flow finished with an error: {final_state.error_message}")
-        elif final_state.final_output:
-            print("Final Result (from Flow State):")
-            print(final_state.final_output)
-
-            # Save outputs
-            output_dir = "outputs"
-            os.makedirs(output_dir, exist_ok=True)
-            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            table_path = os.path.join(output_dir, f"market_forces_table_{timestamp}.md")
-            report_path = os.path.join(output_dir, f"market_forces_report_{timestamp}.md")
-            try:
-                with open(table_path, "w", encoding='utf-8') as f:
-                    f.write(final_state.markdown_table)
-                with open(report_path, "w", encoding='utf-8') as f:
-                    f.write(final_state.markdown_report)
-                print(f"\nMarkdown table and report saved to '{output_dir}' directory.")
-            except Exception as e:
-                print(f"\nError saving output files: {e}")
-        else:
-            print("Flow completed, but no final output was generated in the state.")
-
+        # Load input data if provided
+        if args.input and os.path.exists(args.input):
+            with open(args.input, 'r') as f:
+                input_data = json.load(f)
+                flow._initial_inputs = input_data
+        
+        # Print startup message about Streamlit interface
+        print("\n=== CrewAI Scan Sources Flow ===")
+        print("A Streamlit interface is available for human interactions.")
+        print("To use it, run the following command in a separate terminal:")
+        print("streamlit run scan_sources/src/scan_sources/streamlit_app.py\n")
+        
+        # Run the flow
+        result = flow.kickoff()
+        
+        # Update flow status to completed
+        update_flow_status(
+            status="completed", 
+            message="Flow completed successfully", 
+            current_step="completed"
+        )
+        
+        # Save the result to a file
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        output_file = f"scan_sources_result_{timestamp}.json"
+        with open(output_file, 'w') as f:
+            json.dump(result, f, indent=2)
+        
+        print(f"\nFlow completed successfully. Results saved to {output_file}")
+        return result
+    
     except Exception as e:
-        print(f"\nAn unexpected error occurred running the flow: {e}")
-        import traceback
-        traceback.print_exc()
+        # Update flow status to error
+        update_flow_status(
+            status="error", 
+            message=f"Flow failed with error: {str(e)}", 
+            current_step="error"
+        )
+        
+        print(f"Error running flow: {e}")
+        raise
 
 if __name__ == "__main__":
     main()
