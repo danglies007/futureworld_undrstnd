@@ -1,0 +1,107 @@
+writing_task:
+  description: >
+    Create a comprehensive and detailed section for {company} {topic} based strictly on **REAL, verifiable** research sources.
+    Adhere to the content plan structure while ensuring depth, accuracy, and proper sourcing.
+
+    If you find a link to a file or document, do not try and read or open it, instead use the appropriate tool to download the file and then use the appropriate tool to read the file content.
+
+    You have a number of Tools that you can use to do your work, make sure you consider the appropriate tool for the task:  The tools you have are as follows:
+    - To search the internet: use the Serper Tool or the Tavily Search Tool
+    - To read website content: use the Read Website tool
+    - To read PDFs: use the Search PDF's content tool
+    - To search for news: Use the News Search tool
+    - To download files: Use the Download file tool
+    - To Write code: use the run_code tool
+
+    When working with files and documents:
+    - Download the files using the filedownload tool
+    - Search for relevant content using the appropriate search tool:
+    - If a file appears corrupted or contains non-text data, skip it and note: "FILE UNREADABLE - SKIPPED"
+
+    When including statistics, data points, and factual claims:
+    - Include source citations for verification
+    - Preserve specific details when sources are available
+    - Mark unverified claims with "SOURCE NEEDED: [claim]" rather than omitting them
+
+    **DO NOT fabricate information, extrapolate missing data, or assume facts. If the relevant information is unavailable, explicitly state: "THE INFORMATION CANNOT BE FOUND."**
+    
+    Section: {section}
+  expected_output: >
+    A detailed, well-researched section that aligns with the content plan and maintains specific examples and data points with proper sourcing.
+    Content should include clear source citations which must be **precisely sourced** while preserving valuable detail.
+    Unverified claims should be marked rather than removed.
+    
+    No summaries or conclusions—only the section content.
+  agent: content_writer
+
+editing_task:
+  description: >
+    Review and refine the written content for {company} {topic} to ensure accuracy, clarity, and compliance with the content plan.
+    Verify sources while preserving specific examples and data points that can be confirmed.
+    Verify that **all citations, references, and URLs are real and functional**—no broken links, assumptions, or fabricated sources.  Make sure you keep the actual URL or links where they have been verified
+    Mark unverified claims for review rather than removing them automatically.
+
+    Ensure writing quality meets professional standards and aligns with {audience_level} expectations.
+
+    If you find a link to a file or document, do not try and read or open it, instead use the appropriate tool to download the file and then use the appropriate tool to read the file content.
+
+    You have a number of Tools that you can use to do your work, make sure you consider the appropriate tool for the task:  The tools you have are as follows:
+    - To search the internet: use the Serper Tool or the Tavily Search Tool
+    - To read website content: use the Read Website tool
+    - To read PDFs: use the Search PDF's content tool
+    - To search for news: Use the News Search tool
+    - To download files: Use the Download file tool
+    - To Write code: use the run_code tool
+
+    When working with files and documents:
+    - Download the files using the filedownload tool
+    - Search for relevant content using the appropriate search tool:
+    - If a file appears corrupted or contains non-text data, skip it and note: "FILE UNREADABLE - SKIPPED"
+
+    Section: {section}
+  expected_output: >
+    A polished, high-quality section that maintains specific details while ensuring accuracy.
+    Content should include proper source citations for claims and data points.  Ensure the actual URL or hyperlink is preserved where it has been verified.
+    Unverified claims should be clearly marked for review.
+    Content should be formatted in Markdown with appropriate headings, subheadings, and bullet points.  
+    Do not include any ''' in the output.
+    Provide only the improved section—no feedback notes.
+  agent: editor
+
+quality_review_task:
+  description: >
+    Conduct a final review of the content to ensure factual accuracy, structural integrity, and compliance with best practices.
+    Verify that specific examples and data points have proper sourcing.
+    Focus on identifying potential hallucinations while preserving verified content.
+    Confirm that all **URLs, citations, and references are real, working, and relevant.** 
+    **No assumptions, no unverifiable claims, and no made-up sources.** Ensure the actual URL or hyperlink is preserved where it has been verified.
+    If a source cannot be verified, **it must be highlighted and flagged for correction.**
+    Mark claims needing verification rather than removing specific details automatically.
+
+    If you find a link to a file or document, do not try and read or open it, instead use the appropriate tool to download the file and then use the appropriate tool to read the file content.
+
+    You have a number of Tools that you can use to do your work, make sure you consider the appropriate tool for the task:  The tools you have are as follows:
+    - To search the internet: use the Serper Tool or the Tavily Search Tool
+    - To read website content: use the Read Website tool
+    - To read PDFs: use the Search PDF's content tool
+    - To search for news: Use the News Search tool
+    - To download files: Use the Download file tool
+    - To Write code: use the run_code tool
+
+    When working with files and documents:
+    - Download the files using the filedownload tool
+    - Search for relevant content using the appropriate search tool:
+    - If a file appears corrupted or contains non-text data, skip it and note: "FILE UNREADABLE - SKIPPED"
+
+    Section: {section}
+  expected_output: >
+    An improved, fully fact-checked version of the content with all links and citations verified and actual URLs or hyperlinks preserved where it has been verified.
+    Content should be formatted in Markdown with headings, subheadings, and bullet points for readability.
+    Do not include any ''' in the output.
+    If a source cannot be verified, it must be highlighted and flagged for correction.
+    Mark claims needing verification rather than removing specific details automatically.
+    If a file appears corrupted or contains non-text data, skip it and note: "FILE UNREADABLE - SKIPPED"
+  agent: quality_reviewer
+    Inline citations should be **real, working links**—if verification is not possible, state that explicitly.
+    All potential hallucinations should be identified and addressed.
+  agent: quality_reviewer

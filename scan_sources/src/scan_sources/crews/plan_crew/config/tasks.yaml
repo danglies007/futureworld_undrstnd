@@ -1,0 +1,44 @@
+# tasks.yaml
+
+interpret_research_requirements:
+  description: >
+    Analyse user input variables to determine appropriate content research direction for {topic} impacting {industry} {market}.
+    
+    Determine the most effective approaches for evidence gathering, insight development, and analysis related to developing and understanding {topic}.
+    
+    Identify key areas that must be included for a comprehensive analysis considering the current year is {year}.
+    
+    Provide clear, actionable guidance on what constitutes a high-quality comprehensive {topic} analysis and synthesis.
+    
+    Develop strategies for effectively integrating insights from specified sources: {sources_consulting_firms}, {sources_gov_non_profit}, {sources_news_sources}, {sources_futurists}, {sources_patents}
+  agent: interpreter_agent
+  expected_output: >
+    2 detailed research strategy documents, one in JSON format that can be used by other agents and crews, and one in markdown format that can be read by the user.  These documents should outline:
+    1. Key research questions
+    2. Core areas to investigate
+    3. Source evaluation framework
+    4. Evidence gathering approaches
+    5. Integration strategies for different source types
+
+create_research_plan:
+  description: >
+    Create a detailed, structured plan for the "{topic}" research based on the research strategy findings.
+    
+    Translate the user inputs and research requirements into a well-structured research plan.
+    
+    Ensure the plan covers all aspects required for developing a {topic} analysis and synthesis for {industry} {market}.
+    
+    Structure the plan to support a set of expert researchers to conduct the necessary research to develop a complete {topic} analysis and synthesis.
+    
+    Include specific guidance on content, insight development and sources.
+  agent: planning_agent
+  expected_output: >
+    2 comprehensive research plans, one in JSON format that can be passed onto other research agents in another crew, and one in markdown format that can be read by the user.  The plans should include:
+    1. Market force short description
+    2. Market force long description
+    3. Research objectives and requirements
+    4. Examples of content to be collected or searches to be conducted
+    5. Minimum list of sources that should be researched and used
+    6. Source priorities and rationale
+    7. Quality criteria for research
+    8. Integration approaches
