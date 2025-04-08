@@ -1,6 +1,17 @@
 import os
 
+from datetime import datetime
 from pydantic import BaseModel
+
+# Ignore warnings
+import warnings
+from pydantic import PydanticDeprecatedSince20
+
+# Suppress specific pydantic deprecation warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", category=PydanticDeprecatedSince20)
+
 
 from crewai.flow import Flow, listen, start, router 
 
@@ -8,7 +19,7 @@ from scan_sources.crews.plan_crew.plan_crew import PlanCrew
 from scan_sources.crews.research_crew.research_crew import ResearchCrew
 
 # Import variables from config.py
-from scan_sources.config import USER_INPUT_VARIABLES
+from scan_sources.config import USER_INPUT_VARIABLES, ALL_SOURCES_FLATTENED
 
 # Import Pydantic models
 from scan_sources.models import (
@@ -16,9 +27,13 @@ from scan_sources.models import (
     Market_Force_Plan
 )
 
-
 class ScanFlow(Flow):
-    user_input_variables = USER_INPUT_VARIABLES
+    def __init__(self):
+        super().__init__()
+        self.user_input_variables = {
+            **USER_INPUT_VARIABLES,
+            **ALL_SOURCES_FLATTENED
+        }
 
     RESEARCH_STRATEGY_FILE = "research_strategy.json"
     RESEARCH_PLAN_FILE = "research_plan.json"
@@ -31,13 +46,13 @@ class ScanFlow(Flow):
             print("Found approved research plan, resuming...")
             with open(self.APPROVED_RESEARCH_PLAN_FILE, "r") as f:
                 plan_data = f.read()
-                plan = Plan.model_validate_json(plan_data)
+                plan = Market_Force_Plan.model_validate_json(plan_data)
             return plan
         elif os.path.exists(self.RESEARCH_PLAN_FILE):
             print("Found plan waiting for review, resuming review...")
             return "awaiting_review"
         print("Creating new research plan...")
-        return "create_new_plan"
+        return "create_new_research_plan"
 
     @router(develop_research_plan)
     def handle_research_plan_flow(self, result):
@@ -99,7 +114,7 @@ class ScanFlow(Flow):
         # Write the plan to a markdown file
         with open(research_plan_md_path, "w") as f:
             f.write(f"# Research Plan for {self.user_input_variables.get('industry')}\n\n")
-            f.write(f"## Company: {self.input_variables.get('company_short')}\n\n")
+            f.write(f"## Company: {self.user_input_variables.get('company_short')}\n\n")
             f.write("### Plan Market Forces\n\n")
             
             for i, market_force in enumerate(plan.market_forces, 1):
@@ -181,7 +196,7 @@ class ScanFlow(Flow):
                 continue
 
             # Prepare input for the research crew
-            writer_inputs = self.input_variables.copy()
+            writer_inputs = self.user_input_variables.copy()
             writer_inputs['market_force'] = market_force_dict
             
             try:
@@ -212,7 +227,7 @@ class ScanFlow(Flow):
         output_dir = "outputs"
         os.makedirs(output_dir, exist_ok=True)
 
-        sector = self.userinput_variables.get("industry")
+        industry = self.user_input_variables.get("industry")
         file_name = f"Market_Force_{industry}.md".replace(" ", "_")
 
         output_path = os.path.join(output_dir, file_name)

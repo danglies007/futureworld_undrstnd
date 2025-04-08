@@ -18,3 +18,11 @@ class Market_Force(BaseModel):
 
 class Market_Force_Plan(BaseModel):
     market_forces: List[Market_Force]
+
+class Research_Strategy(BaseModel):
+    """Research strategy model for interpreter agent output"""
+    key_research_questions: List[str]
+    core_areas_to_investigate: List[str]
+    source_evaluation_framework: List[str]
+    evidence_gathering_approach: List[str]
+    integration_approach: List[str]

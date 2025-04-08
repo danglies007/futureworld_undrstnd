@@ -6,19 +6,23 @@ interpret_research_requirements:
     
     Determine the most effective approaches for evidence gathering, insight development, and analysis related to developing and understanding {topic}.
     
-    Identify key areas that must be included for a comprehensive analysis considering the current year is {year}.
+    Identify key areas that must be included for a comprehensive analysis considering the current year is {current_year}.
+
+    Find **no fewer than {minimum_forces}** key areas that must be included into the research plan, remembering the current year is {current_year}.
     
     Provide clear, actionable guidance on what constitutes a high-quality comprehensive {topic} analysis and synthesis.
     
     Develop strategies for effectively integrating insights from specified sources: {sources_consulting_firms}, {sources_gov_non_profit}, {sources_news_sources}, {sources_futurists}, {sources_patents}
   agent: interpreter_agent
   expected_output: >
-    2 detailed research strategy documents, one in JSON format that can be used by other agents and crews, and one in markdown format that can be read by the user.  These documents should outline:
+    A research strategy document, which is saved in 2 distinct formats: one in JSON format that can be used by other agents and crews, and one in markdown format that can be read by the user - ensure the formatting is clear and easy to read.  These documents should outline:
     1. Key research questions
     2. Core areas to investigate
     3. Source evaluation framework
     4. Evidence gathering approaches
-    5. Integration strategies for different source types
+    5. Integration strategies for different source types - this should be strategies that can be done without interacting with people
+    
+    The research strategy should include **no fewer than {minimum_forces}** market forces.  Each one must be unique and clearly defined.  
 
 create_research_plan:
   description: >
@@ -27,13 +31,18 @@ create_research_plan:
     Translate the user inputs and research requirements into a well-structured research plan.
     
     Ensure the plan covers all aspects required for developing a {topic} analysis and synthesis for {industry} {market}.
-    
+
+    Find **no fewer than {minimum_forces}** key areas that must be included for a comprehensive analysis considering the current year is {current_year}.
+
     Structure the plan to support a set of expert researchers to conduct the necessary research to develop a complete {topic} analysis and synthesis.
     
     Include specific guidance on content, insight development and sources.
+
   agent: planning_agent
   expected_output: >
-    2 comprehensive research plans, one in JSON format that can be passed onto other research agents in another crew, and one in markdown format that can be read by the user.  The plans should include:
+    A comprehensive research plan, which should be saved as in 2 formats, one in JSON format that can be passed onto other research agents in another crew, and one in markdown format that can be read by the user - ensure the formatting is clear and easy to read.  
+    The plan should include **no fewer than {minimum_forces}** market forces.  Each one must be unique and clearly defined.  
+    The plan should include:
     1. Market force short description
     2. Market force long description
     3. Research objectives and requirements
@@ -42,3 +51,5 @@ create_research_plan:
     6. Source priorities and rationale
     7. Quality criteria for research
     8. Integration approaches
+  context:
+    - interpret_research_requirements

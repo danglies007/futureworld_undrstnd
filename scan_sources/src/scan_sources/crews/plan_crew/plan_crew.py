@@ -16,6 +16,12 @@ from typing import List
 # Import User Inputs from config.py
 from scan_sources.config import USER_INPUT_VARIABLES
 
+# Import Pydantic models
+from scan_sources.models import (
+	Research_Strategy,
+	Market_Force_Plan
+)
+
 # Import sources from config.py
 from scan_sources.config import (
 	SOURCES_CONSULTING_FIRMS, 
@@ -75,16 +81,16 @@ class PlanCrew():
 		return Task(
 			config=self.tasks_config['interpret_research_requirements'],
             output_file=f'outputs/research_strategy_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',     
-			output_pydantic=research_strategy
+			output_pydantic=Research_Strategy
 		)
 
 	@task
 	def create_research_plan(self) -> Task:
 		return Task(
 			config=self.tasks_config['create_research_plan'],
+			# context=["interpret_research_requirements"],
             output_file=f'outputs/plan_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',     
-			output_pydantic=research_plan
-
+			output_pydantic=Market_Force_Plan
 		)
 
 	@crew
