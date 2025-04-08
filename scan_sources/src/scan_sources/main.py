@@ -202,73 +202,150 @@ class ScanSourcesFlow(Flow[ScanSourcesState]):
         """Scans web and document sources based on the validated plan using the Research Crew."""
         print("--- Flow Step: Scanning Sources (Research Crew) ---")
         
-        # Scan web sources
-        try:
-            # Execute the research crew with the validated plan for web sources
-            inputs = {
-                "validated_plan": self.state.validated_plan,
-                "source_type": "web",
-                **self.state.model_dump(mode='json')
-            }
-            
-            web_result = ResearchCrew().crew().kickoff(
-                inputs=inputs
-            )
-            
-            # Handle CrewOutput object specifically
-            if hasattr(web_result, 'raw_output'):
-                web_result = web_result.raw_output
-            
-            if isinstance(web_result, str):
-                try:
-                    self.state.web_findings = json.loads(web_result)
-                except json.JSONDecodeError:
-                    print(f"Warning: Failed to parse web findings as JSON: {web_result}")
-                    self.state.web_findings = {"raw_output": web_result}
-            else:
-                self.state.web_findings = web_result
-                
-            print(f"Web Findings Count: {len(self.state.web_findings) if isinstance(self.state.web_findings, list) else 'N/A'}")
-        except Exception as e:
-            print(f"Error scanning web sources: {e}")
-            self.state.error_message = f"Error during web scan: {e}"
+        # Get the research plan
+        validated_plan = self.state.validated_plan
+        if not validated_plan:
+            self.state.error_message = "No validated research plan found."
+            return "error"
         
-        # Scan document sources
-        try:
-            # Execute the research crew with the validated plan for document sources
-            inputs = {
-                "validated_plan": self.state.validated_plan,
-                "source_type": "document",
-                **self.state.model_dump(mode='json')
-            }
-            
-            doc_result = ResearchCrew().crew().kickoff(
-                inputs=inputs
-            )
-            
-            # Handle CrewOutput object specifically
-            if hasattr(doc_result, 'raw_output'):
-                doc_result = doc_result.raw_output
-            
-            if isinstance(doc_result, str):
-                try:
-                    self.state.document_findings = json.loads(doc_result)
-                except json.JSONDecodeError:
-                    print(f"Warning: Failed to parse document findings as JSON: {doc_result}")
-                    self.state.document_findings = {"raw_output": doc_result}
-            else:
-                self.state.document_findings = doc_result
-                
-            print(f"Document Findings Count: {len(self.state.document_findings) if isinstance(self.state.document_findings, list) else 'N/A'}")
-        except Exception as e:
-            print(f"Error scanning document sources: {e}")
-            self.state.error_message = f"Error during document scan: {e}"
+        # Parse the validated plan using the ResearchPlan model
+        from scan_sources.utilities.models import ResearchPlan
         
-        # Continue to synthesis if we have findings
-        if self.state.web_findings or self.state.document_findings:
-            return "synthesize"
-        else:
-            self.state.error_message = "No findings from either web or document sources."
+        try:
+            # Convert the validated plan to a ResearchPlan object
+            research_plan = ResearchPlan.from_crew_output(validated_plan)
+            
+            # Get the research items
+            research_items = research_plan.research_items
+            
+            if not research_items:
+                self.state.error_message = "No research items found in the validated plan."
+                return "error"
+            
+            print(f"Processing {len(research_items)} research items from the plan")
+            
+            # Initialize findings lists if they don't exist
+            if not hasattr(self.state, 'web_findings') or not self.state.web_findings:
+                self.state.web_findings = []
+            if not hasattr(self.state, 'document_findings') or not self.state.document_findings:
+                self.state.document_findings = []
+            
+            # Process each research item one by one
+            all_web_findings = []
+            all_document_findings = []
+            
+            for index, item in enumerate(research_items):
+                print(f"\nProcessing research item {index + 1}/{len(research_items)}: {item.topic}")
+                
+                # Scan web sources for this item
+                try:
+                    # Execute the research crew with the validated plan for web sources
+                    inputs = {
+                        "validated_plan": research_plan.model_dump(),
+                        "source_type": "web",
+                        "current_item_index": index,
+                        "all_research_items": [item.model_dump() for item in research_items],
+                        "current_research_item": item.model_dump(),
+                        "all_web_findings": all_web_findings,
+                        "all_document_findings": all_document_findings,
+                        **self.state.model_dump(mode='json')
+                    }
+                    
+                    # Create a new research crew for each item to avoid state conflicts
+                    from scan_sources.crews.research_crew.research_crew import ResearchCrew
+                    web_crew = ResearchCrew()
+                    web_result = web_crew.crew().kickoff(inputs=inputs)
+                    
+                    # Extract web findings from the result
+                    if web_result and isinstance(web_result, dict) and 'web_findings' in web_result:
+                        web_findings = web_result['web_findings']
+                        all_web_findings.extend(web_findings)
+                        print(f"Found {len(web_findings)} web findings for item {index + 1}")
+                    else:
+                        print(f"No web findings for item {index + 1}")
+                    
+                    # Scan document sources for this item
+                    inputs = {
+                        "validated_plan": research_plan.model_dump(),
+                        "source_type": "document",
+                        "current_item_index": index,
+                        "all_research_items": [item.model_dump() for item in research_items],
+                        "current_research_item": item.model_dump(),
+                        "all_web_findings": all_web_findings,
+                        "all_document_findings": all_document_findings,
+                        **self.state.model_dump(mode='json')
+                    }
+                    
+                    # Create a new research crew for document scanning
+                    doc_crew = ResearchCrew()
+                    doc_result = doc_crew.crew().kickoff(inputs=inputs)
+                    
+                    # Extract document findings from the result
+                    if doc_result and isinstance(doc_result, dict) and 'document_findings' in doc_result:
+                        doc_findings = doc_result['document_findings']
+                        all_document_findings.extend(doc_findings)
+                        print(f"Found {len(doc_findings)} document findings for item {index + 1}")
+                    else:
+                        print(f"No document findings for item {index + 1}")
+                    
+                except Exception as e:
+                    print(f"Error processing research item {index + 1}: {e}")
+                    # Continue with the next item
+            
+            # Store all findings in the state
+            self.state.web_findings = all_web_findings
+            self.state.document_findings = all_document_findings
+            
+            # Synthesize findings
+            try:
+                # Execute the research crew for synthesis
+                inputs = {
+                    "validated_plan": research_plan.model_dump(),
+                    "web_findings": all_web_findings,
+                    "doc_findings": all_document_findings,
+                    **self.state.model_dump(mode='json')
+                }
+                
+                # Create a new research crew for synthesis
+                synthesis_crew = ResearchCrew()
+                synthesis_result = synthesis_crew.crew().kickoff(inputs=inputs)
+                
+                # Extract synthesized forces from the result
+                if synthesis_result and isinstance(synthesis_result, dict) and 'synthesized_forces' in synthesis_result:
+                    self.state.synthesized_forces = synthesis_result['synthesized_forces']
+                    print(f"Synthesized {len(self.state.synthesized_forces)} forces")
+                else:
+                    print("No synthesized forces found")
+                
+                # Review findings with human input if configured
+                inputs = {
+                    "validated_plan": research_plan.model_dump(),
+                    "synthesized_forces": self.state.synthesized_forces,
+                    **self.state.model_dump(mode='json')
+                }
+                
+                # Create a new research crew for review
+                review_crew = ResearchCrew()
+                review_result = review_crew.crew().kickoff(inputs=inputs)
+                
+                # Extract final forces from the result
+                if review_result and isinstance(review_result, dict) and 'final_forces' in review_result:
+                    self.state.final_forces = review_result['final_forces']
+                    print(f"Finalized {len(self.state.final_forces)} forces after review")
+                else:
+                    # If no final forces, use the synthesized forces
+                    self.state.final_forces = self.state.synthesized_forces
+                    print("Using synthesized forces as final forces (no review changes)")
+                
+            except Exception as e:
+                print(f"Error in synthesis or review: {e}")
+                # Continue with the flow
+            
+            return "success"
+            
+        except Exception as e:
+            print(f"Error processing validated plan: {e}")
+            self.state.error_message = f"Error processing validated plan: {e}"
             return "error"
 
     @listen("synthesize")

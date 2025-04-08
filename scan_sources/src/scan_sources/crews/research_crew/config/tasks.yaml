@@ -1,32 +1,42 @@
 scan_web_sources:
   description: >
-    Execute web scanning based on the confirmed Research Plan: {validated_plan}.
+    Execute web scanning for the current research item: {current_research_item}.
+    This is item {current_item_index + 1} of {len(all_research_items)} from the research plan.
     Use the configured web search and scraping tools to find information related to
-    the keywords for the specified industry and market across the defined web sources.
+    the keywords for this specific research item, focusing on the specified industry and market.
     Focus on extracting relevant text snippets and associated metadata (source name, URL, date if available).
   expected_output: >
     A list of 'SourceFinding' objects (or dictionaries) containing extracted text snippets,
     source names, URLs, source type ('Web'), publication dates (if found), matched keywords,
-    and scope context from web sources. Return an empty list if no relevant information is found.
+    and scope context from web sources for this specific research item.
+    Return an empty list if no relevant information is found.
   agent: WebSourceAnalyst
 
 scan_document_sources:
   description: >
-    Execute document scanning based on the confirmed Research Plan: {validated_plan}.
+    Execute document scanning for the current research item: {current_research_item}.
+    This is item {current_item_index + 1} of {len(all_research_items)} from the research plan.
     Use the configured PDF and file reading tools to find information related to the keywords
-    within the specified PDF URLs (if applicable and supported by tools) and uploaded files.
+    within the specified PDF URLs (if applicable and supported by tools) and uploaded files
+    that are relevant to this specific research item.
     Extract relevant text snippets and associated metadata (filename, source type, date if available).
   expected_output: >
     A list of 'SourceFinding' objects (or dictionaries) containing extracted text snippets,
     source names (filenames), source type ('Document' or 'Uploaded'), publication dates (if found),
-    matched keywords, and scope context from document sources. Return an empty list if no files were provided or no relevant info found.
+    matched keywords, and scope context from document sources for this specific research item.
+    Return an empty list if no files were provided or no relevant info found.
   agent: DocumentSourceAnalyst
 
 synthesize_findings:
   description: >
     Aggregate and analyze the raw findings from web scanning (task: scan_web_sources)
-    and document scanning (task: scan_document_sources).
-    Deduplicate entries, cluster similar points, and identify distinct market forces/trends/signals relevant to the research plan's scope and time horizon.
+    and document scanning (task: scan_document_sources) across all research items.
+    You have access to:
+    - Web findings: {web_findings}
+    - Document findings: {doc_findings}
+    
+    Deduplicate entries, cluster similar points, and identify distinct market forces/trends/signals 
+    relevant to the research plan's scope and time horizon.
     For each identified force, synthesize a concise name, a detailed description, list associated keywords,
     scope, time horizon relevance, and link the key supporting source snippets/references (preserving metadata from SourceFinding).
   expected_output: >
@@ -45,6 +55,8 @@ review_preliminary_findings:
     Display the list of identified forces/trends with their names and descriptions.
     Ask the user to review for relevance, accuracy, and completeness.
     Capture feedback or approval.
+    
+    If human feedback is provided, incorporate it to improve the findings: {human_feedback}
   expected_output: >
     The final list of 'IdentifiedForce' objects (or dictionaries), potentially refined based on user feedback,
     along with a confirmation signal or summary of feedback.

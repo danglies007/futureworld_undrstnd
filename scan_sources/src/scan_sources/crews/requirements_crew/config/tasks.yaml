@@ -13,9 +13,7 @@ prepare_research_plan:
 review_research_plan:
   description: >
     Present the draft Research Plan from the previous task to the user:
-    '''
-    {plan_details}
-    '''
+
     Ask the user to review the keywords, sources, market, industry, and time horizon.
     Capture their confirmation or requested modifications.
   expected_output: >
