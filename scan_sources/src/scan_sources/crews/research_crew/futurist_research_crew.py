@@ -1,9 +1,11 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-
+from dotenv import load_dotenv
+load_dotenv()
 
 # Ignore warnings
 import warnings
+from crewai_tools.tools.firecrawl_crawl_website_tool.firecrawl_crawl_website_tool import FirecrawlCrawlWebsiteToolSchema
 from pydantic import PydanticDeprecatedSince20
 
 # Suppress specific pydantic deprecation warnings
@@ -23,35 +25,25 @@ import datetime
 from pydantic import BaseModel
 from typing import List
 
-# Import User Inputs from config.py
-from scan_sources.config import (
-	USER_INPUT_VARIABLES,
-	SOURCES_CONSULTING_FIRMS,
-	SOURCES_FUTURISTS,
-	SOURCES_NEWS_SOURCES,
-	SOURCES_GOV_NON_PROFIT,
-	SOURCES_PATENTS
-)
-
-# Import Pydantic models - old models used by old crew
-# from scan_sources.models import (
-#     Research_Strategy,
-#     Market_Force_Plan,
-#     InternetResearch,
-#     NewsAnalysis,
-#     PatentResearch, 
-#     ConsultingInsights,
-#     FutureTrends,
-#     DocumentAnalysis,
-#     ResearchSynthesis
+# # Import User Inputs from config.py
+# from scan_sources.config import (
+# 	USER_INPUT_VARIABLES,
+# 	SOURCES_CONSULTING_FIRMS,
+# 	SOURCES_FUTURISTS,
+# 	SOURCES_NEWS_SOURCES,
+# 	SOURCES_GOV_NON_PROFIT,
+# 	SOURCES_PATENTS
 # )
 
 # Import Pydantic models - Used to generate Market Force research and report
 from scan_sources.models import (
+    ListStructuredMarketForce,
     RawMarketForce,
 	ResearchOutput,
 	MarketForceReportSection,
 	MarketForceReport,
+	StructuredMarketForce,
+	ListStructuredMarketForce
 )
 
 # Import LLMs
@@ -63,14 +55,30 @@ from scan_sources.llm_config import (
 )
 
 # Import CrewAI tools
-from crewai_tools import SerperDevTool, PDFSearchTool,ScrapeWebsiteTool
+from crewai_tools import (
+	FirecrawlCrawlWebsiteTool,
+	FirecrawlScrapeWebsiteTool,
+	FirecrawlSearchTool,
+	SerperDevTool, 
+	PDFSearchTool,
+	ScrapeWebsiteTool,
+	BraveSearchTool,
+	ScrapflyScrapeWebsiteTool
+)
 
 # Import Custom tools
 from scan_sources.tools.file_downloader import FileDownloaderTool
+from scan_sources.tools.exa_search_tool import Exa_search_tool
+from scan_sources.tools.exa_crawl_tool import Exa_crawl_scrape_tool
+
+scrapfly_scrape_tool = ScrapflyScrapeWebsiteTool(api_key="scp-live-74020f77bb114ac985986486ae6a95eb")
+# firecrawl_crawl_tool = FirecrawlCrawlWebsiteTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
+# firecrawl_search_tool = FirecrawlSearchTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
+# firecrawl_scrape_tool = FirecrawlScrapeWebsiteTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
 
 @CrewBase
-class ResearchCrew():
-	"""ResearchCrew crew"""
+class FuturistResearchCrew():
+	"""Futurist ResearchCrew crew"""
 
 	# Learn more about YAML configuration files here:
 	# Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
@@ -85,25 +93,35 @@ class ResearchCrew():
 		return Agent(
 			config=self.agents_config['futurist_researcher'],
 			llm=llm_gpt4o_mini_accurate,
-			tools=[SerperDevTool(), FileDownloaderTool(), ScrapeWebsiteTool()],
+			tools=[SerperDevTool(),scrapfly_scrape_tool, FileDownloaderTool()],
 			verbose=True
 		)
 
 	@agent
-	def reporting_analyst(self) -> Agent:
+	def futurist_reporting_analyst(self) -> Agent:
 		return Agent(
-			config=self.agents_config['reporting_analyst'],
+			config=self.agents_config['futurist_reporting_analyst'],
+			llm=llm_gpt4o_mini,
+			tools=[scrapfly_scrape_tool],
+			verbose=True
+		)
+
+	@agent
+	def futurist_formatter(self) -> Agent:
+		return Agent(
+			config=self.agents_config['futurist_formatter'],
 			llm=llm_gpt4o_mini,
 			verbose=True
 		)
 
 	@agent
-	def formatter(self) -> Agent:
+	def futurist_market_force_extractor(self) -> Agent:
 		return Agent(
-			config=self.agents_config['formatter'],
+			config=self.agents_config['futurist_market_force_extractor'],
 			llm=llm_gpt4o_mini,
 			verbose=True
 		)
+
 
 	# To learn more about structured task outputs, 
 	# task dependencies, and task callbacks, check out the documentation:
@@ -118,17 +136,25 @@ class ResearchCrew():
 		)
 
 	@task
-	def reporting_task(self) -> Task:
+	def futurist_structure_market_forces(self) -> Task:
 		return Task(
-			config=self.tasks_config['reporting_task'],
+			config=self.tasks_config['futurist_structure_market_forces'],
+			output_file=f'outputs/futurist_structured_market_forces_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+			output_pydantic=ListStructuredMarketForce
+		)
+
+	@task
+	def futurist_reporting_task(self) -> Task:
+		return Task(
+			config=self.tasks_config['futurist_reporting_task'],
 			output_file=f'outputs/futurist_report_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
 			output_pydantic=MarketForceReport
 		)
 
 	@task
-	def formatting_task(self) -> Task:
+	def futurist_formatting_task(self) -> Task:
 		return Task(
-			config=self.tasks_config['formatting_task'],
+			config=self.tasks_config['futurist_formatting_task'],
 			output_file=f'outputs/research_synthesis_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
 		)
 

@@ -115,43 +115,55 @@ class ResearchOutput(BaseModel):
     summary: str = Field(..., description="Summary of the research findings")
     raw_market_forces: List[RawMarketForce] = Field(..., description="List of identified market forces")
 
-# class StructuredMarketForce(BaseModel):
-#     id: str = Field(..., description="Unique identifier for the market force")
-#     source_category: str = Field(..., description="Category of the source")
-#     short_description: str = Field(..., description="Brief description of the market force")
-#     long_description: str = Field(..., description="Detailed description of the market force")
-#     examples: List[str] = Field(default_factory=list, description="Examples of the market force in action")
-#     source_name: str = Field(..., description="Name of the source")
-#     source_url: Optional[str] = Field(None, description="URL or reference to the source")
-#     source_date: Optional[str] = Field(None, description="Date of publication")
-#     key_terms: List[str] = Field(default_factory=list, description="Key terms associated with this market force")
-#     mentioned_entities: List[str] = Field(default_factory=list, description="Entities mentioned in relation to this market force")
+class StructuredMarketForce(BaseModel):
+    id: str = Field(..., description="Unique identifier for the market force")
+    source_category: str = Field(..., description="Category of the source")
+    short_description: str = Field(..., description="Brief description of the market force")
+    long_description: str = Field(..., description="Detailed description of the market force")
+    examples: List[str] = Field(default_factory=list, description="Examples of the market force in action")
+    source_name: str = Field(..., description="Name of the source")
+    source_url: Optional[str] = Field(None, description="URL or reference to the source")
+    source_date: Optional[str] = Field(None, description="Date of publication")
+    key_terms: List[str] = Field(default_factory=list, description="Key terms associated with this market force")
+    mentioned_entities: List[str] = Field(default_factory=list, description="Entities mentioned in relation to this market force")
     
-#     @field_validator('id', mode='before')
-#     @classmethod
-#     def set_id_if_none(cls, v):
-#         return v or f"MF-{uuid.uuid4().hex[:8]}"
+    @field_validator('id', mode='before')
+    @classmethod
+    def set_id_if_none(cls, v):
+        return v or f"MF-{uuid.uuid4().hex[:8]}"
 
-# class ExtractorOutput(BaseModel):
-#     market_forces: List[StructuredMarketForce] = Field(..., description="Structured market forces extracted from research")
-
-# class ConsolidatedMarketForce(BaseModel):
-#     consolidated_id: str = Field(..., description="Unique identifier for the consolidated market force")
-#     constituent_forces: List[str] = Field(..., description="IDs of the constituent market forces")
-#     source_categories: List[str] = Field(..., description="Categories of sources that identified this force")
-#     canonical_description: str = Field(..., description="Standardised short description")
-#     consolidated_description: str = Field(..., description="Comprehensive description combining insights from all sources")
-#     all_examples: List[str] = Field(default_factory=list, description="Combined examples from all sources")
-#     all_sources: List[Dict[str, str]] = Field(default_factory=list, description="All source references")
-#     first_identified: Optional[str] = Field(None, description="Earliest date this market force was identified")
+class ListStructuredMarketForce(BaseModel):
+    """Container for a list of structured market forces."""
+    market_forces: List[StructuredMarketForce] = Field(default_factory=list, description="List of structured market forces")
     
-#     @field_validator('consolidated_id', mode='before')
-#     @classmethod
-#     def set_consolidated_id_if_none(cls, v):
-#         return v or f"CMF-{uuid.uuid4().hex[:8]}"
+    # Helper method to add market forces
+    def add_market_force(self, market_force: StructuredMarketForce):
+        self.market_forces.append(market_force)
+    
+    # Helper method to get all market forces
+    def get_all_market_forces(self) -> List[StructuredMarketForce]:
+        return self.market_forces
 
-# class ConsolidatorOutput(BaseModel):
-#     consolidated_forces: List[ConsolidatedMarketForce] = Field(..., description="Consolidated market forces")
+class ExtractorOutput(BaseModel):
+    market_forces: List[StructuredMarketForce] = Field(..., description="Structured market forces extracted from research")
+
+class ConsolidatedMarketForce(BaseModel):
+    consolidated_id: str = Field(..., description="Unique identifier for the consolidated market force")
+    constituent_forces: List[str] = Field(..., description="IDs of the constituent market forces")
+    source_categories: List[str] = Field(..., description="Categories of sources that identified this force")
+    canonical_description: str = Field(..., description="Standardised short description")
+    consolidated_description: str = Field(..., description="Comprehensive description combining insights from all sources")
+    all_examples: List[str] = Field(default_factory=list, description="Combined examples from all sources")
+    all_sources: List[Dict[str, str]] = Field(default_factory=list, description="All source references")
+    first_identified: Optional[str] = Field(None, description="Earliest date this market force was identified")
+    
+    @field_validator('consolidated_id', mode='before')
+    @classmethod
+    def set_consolidated_id_if_none(cls, v):
+        return v or f"CMF-{uuid.uuid4().hex[:8]}"
+
+class ConsolidatorOutput(BaseModel):
+    consolidated_forces: List[ConsolidatedMarketForce] = Field(..., description="Consolidated market forces")
     
 # # Helper function for parsing agent output to Pydantic models
 # def parse_agent_output(output: str, expected_model: Any) -> Any:

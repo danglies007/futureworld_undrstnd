@@ -5,6 +5,8 @@ import warnings
 import traceback
 from datetime import datetime
 from typing import Dict, Any
+from dotenv import load_dotenv
+load_dotenv()
                 
 from pydantic import BaseModel, PydanticDeprecatedSince20
 
@@ -14,7 +16,7 @@ warnings.filterwarnings("ignore", category=UserWarning)
 warnings.filterwarnings("ignore", category=PydanticDeprecatedSince20)
 
 from crewai.flow import Flow, listen, start, router
-from scan_sources.crews.research_crew.research_crew import ResearchCrew
+from scan_sources.crews.research_crew.futurist_research_crew import FuturistResearchCrew
 
 # Import variables from config.py
 from scan_sources.config import USER_INPUT_VARIABLES, ALL_SOURCES_FLATTENED, SOURCES_FUTURISTS
@@ -47,9 +49,12 @@ class ScanFlow(Flow):
         inputs = {
             'topic': 'Generative AI in Financial Services',
             'date': datetime.now().strftime('%Y-%m-%d'),
-            'sources_futurists': SOURCES_FUTURISTS
+            'research_sources': SOURCES_FUTURISTS,
+            'specialisation': 'Futurist & Foresight',
+            'minimum_number_of_forces': 20,
+            'minimum_number_of_sources': 15
         }
-        ResearchCrew().crew().kickoff(inputs=inputs).pydantic
+        FuturistResearchCrew().crew().kickoff(inputs=inputs).pydantic
         return "Research completed"
     
     # def generate_futureist_content(self):

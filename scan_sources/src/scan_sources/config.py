@@ -39,6 +39,24 @@ SOURCES_NEWS_SOURCES = [
 ]
 
 SOURCES_FUTURISTS = [
+    "Thomas Frey",
+    "Gerd Leonhard",
+    "Daniel Burrus",
+    "Peter Diamandis", 
+    "Ian Pearson", 
+    "Matthew Griffin", 
+    "Ray Kurzweil", 
+    "Richard Van Hooijdonk",
+    "Amy Webb"
+]
+
+SOURCES_VENTURE_CAPITAL = [
+    "a16z",
+    "sequoia"
+]
+
+
+SOURCES_FUTURISTS_OLD = [
     "https://futuristspeaker.com/",
     "https://www.futuristgerd.com/",
     "https://burrus.com/",
@@ -47,6 +65,7 @@ SOURCES_FUTURISTS = [
     "https://www.matthewgriffin.info/",
     "https://www.kurzweilai.net/",
     "https://richardvanhooijdonk.com/en/",
+    "https://www.amywebb.com/"
 ]
 
 SOURCES_PATENTS = [
