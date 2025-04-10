@@ -6,7 +6,7 @@ conduct_internet_research:
     
     Identify key trends, statistics, case studies, and expert opinions from credible online sources.
 
-    Ensure you populate the internet_research variables with your research findings.
+    Ensure you populate the InternetResearch variables with your research findings.
     
     Compile findings with true and accurate citations and source attributions, ensuring all information is traceable.  
     
@@ -16,7 +16,7 @@ conduct_internet_research:
 
   agent: internet_researcher
   expected_output: >
-    A piece of detailed, accurate and high quality research aligned to the internet_research variables for the {market_force_short_description}.
+    A piece of detailed, accurate and high quality research aligned to the InternetResearch variables for the {market_force_short_description}.
 
     The document should be comprehensive, well-organized.
 
@@ -157,11 +157,11 @@ quality_check_research:
     The report should include specific examples and cover **no fewer than {minimum_forces}** distinct quality considerations.
   context:
     - conduct_internet_research
-    - analyze_news_coverage
-    - research_patent_filings
-    - analyze_consulting_insights
-    - research_future_trends
-    - analyze_documents
+    # - analyze_news_coverage
+    # - research_patent_filings
+    # - analyze_consulting_insights
+    # - research_future_trends
+    # - analyze_documents
 
 
 synthesize_research_findings:
@@ -187,9 +187,9 @@ synthesize_research_findings:
     The synthesis should be well-structured, properly sourced, and include **no fewer than {minimum_forces}** major insights or conclusions.
   context:
     - conduct_internet_research
-    - analyze_news_coverage
-    - research_patent_filings
-    - analyze_consulting_insights
-    - research_future_trends
-    - analyze_documents
-    - quality_check_research
+    # - analyze_news_coverage
+    # - research_patent_filings
+    # - analyze_consulting_insights
+    # - research_future_trends
+    # - analyze_documents
+    # - quality_check_research

@@ -33,19 +33,26 @@ from scan_sources.config import (
 	SOURCES_PATENTS
 )
 
-# Import Pydantic models
-from scan_sources.models import (
-    Research_Strategy,
-    Market_Force_Plan,
-    InternetResearch,
-    NewsAnalysis,
-    PatentResearch, 
-    ConsultingInsights,
-    FutureTrends,
-    DocumentAnalysis,
-    ResearchSynthesis
-)
+# Import Pydantic models - old models used by old crew
+# from scan_sources.models import (
+#     Research_Strategy,
+#     Market_Force_Plan,
+#     InternetResearch,
+#     NewsAnalysis,
+#     PatentResearch, 
+#     ConsultingInsights,
+#     FutureTrends,
+#     DocumentAnalysis,
+#     ResearchSynthesis
+# )
 
+# Import Pydantic models - Used to generate Market Force research and report
+from scan_sources.models import (
+    RawMarketForce,
+	ResearchOutput,
+	MarketForceReportSection,
+	MarketForceReport,
+)
 
 # Import LLMs
 from scan_sources.llm_config import (
@@ -72,72 +79,26 @@ class ResearchCrew():
 	# If you would like to add tools to your agents, you can learn more about it here:
 	# https://docs.crewai.com/concepts/agents#agent-tools
 	@agent
-	def internet_researcher(self) -> Agent:
+	def futurist_researcher(self) -> Agent:
 		return Agent(
-			config=self.agents_config['internet_researcher'],
+			config=self.agents_config['futurist_researcher'],
 			llm=llm_gpt4o_mini,
 			tools=[SerperDevTool(), FileDownloaderTool()],
 			verbose=True
 		)
 
 	@agent
-	def general_news_researcher(self) -> Agent:
+	def reporting_analyst(self) -> Agent:
 		return Agent(
-			config=self.agents_config['general_news_researcher'],
+			config=self.agents_config['reporting_analyst'],
 			llm=llm_gpt4o_mini,
-			tools=[SerperDevTool(), FileDownloaderTool()],
 			verbose=True
 		)
 
 	@agent
-	def patent_filings_researcher(self) -> Agent:
+	def formatter(self) -> Agent:
 		return Agent(
-			config=self.agents_config['patent_filings_researcher'],
-			llm=llm_gpt4o_mini,
-			tools=[SerperDevTool(), FileDownloaderTool()],
-			verbose=True
-		)
-
-	@agent
-	def specialist_consultant_researcher(self) -> Agent:
-		return Agent(
-			config=self.agents_config['specialist_consultant_researcher'],
-			llm=llm_gpt4o_mini,
-			tools=[SerperDevTool(), FileDownloaderTool()],
-			verbose=True
-		)
-
-	@agent
-	def specialist_trend_researcher(self) -> Agent:
-		return Agent(
-			config=self.agents_config['specialist_trend_researcher'],
-			llm=llm_gpt4o_mini,
-			tools=[SerperDevTool(), FileDownloaderTool()],
-			verbose=True
-		)
-
-	@agent
-	def document_researcher(self) -> Agent:
-		return Agent(
-			config=self.agents_config['document_researcher'],
-			llm=llm_gpt4o_mini,
-			tools=[SerperDevTool(), FileDownloaderTool(), PDFSearchTool()],
-			verbose=True
-		)
-
-	@agent
-	def quality_assurance_reviewer(self) -> Agent:
-		return Agent(
-			config=self.agents_config['quality_assurance_reviewer'],
-			llm=llm_gpt4o_mini,
-			tools=[SerperDevTool(), FileDownloaderTool()],
-			verbose=True
-		)
-
-	@agent
-	def research_synthesizer(self) -> Agent:
-		return Agent(
-			config=self.agents_config['research_synthesizer'],
+			config=self.agents_config['formatter'],
 			llm=llm_gpt4o_mini,
 			verbose=True
 		)
@@ -145,67 +106,28 @@ class ResearchCrew():
 	# To learn more about structured task outputs, 
 	# task dependencies, and task callbacks, check out the documentation:
 	# https://docs.crewai.com/concepts/tasks#overview-of-a-task
-	@task
-	def conduct_internet_research(self) -> Task:
-		return Task(
-			config=self.tasks_config['conduct_internet_research'],
-			output_file=f'outputs/internet_research_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
-			output_pydantic=InternetResearch
-		)
-
-	# @task
-	# def analyze_news_coverage(self) -> Task:
-	# 	return Task(
-	# 		config=self.tasks_config['analyze_news_coverage'],
-	# 		output_file=f'outputs/news_analysis_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
-	# 		output_pydantic=NewsAnalysis
-	# 	)
-
-	# @task
-	# def research_patent_filings(self) -> Task:
-	# 	return Task(
-	# 		config=self.tasks_config['research_patent_filings'],
-	# 		output_file=f'outputs/patent_research_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
-	# 		output_pydantic=PatentResearch
-	# 	)
-
-	# @task
-	# def analyze_consulting_insights(self) -> Task:
-	# 	return Task(
-	# 		config=self.tasks_config['analyze_consulting_insights'],
-	# 		output_file=f'outputs/consulting_insights_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
-	# 		output_pydantic=ConsultingInsights
-	# 	)
-
-	# @task
-	# def research_future_trends(self) -> Task:
-	# 	return Task(
-	# 		config=self.tasks_config['research_future_trends'],
-	# 		output_file=f'outputs/future_trends_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
-	# 		output_pydantic=FutureTrends
-	# 	)
-
-	# @task
-	# def analyze_documents(self) -> Task:
-	# 	return Task(
-	# 		config=self.tasks_config['analyze_documents'],
-	# 		output_file=f'outputs/document_analysis_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
-	# 		output_pydantic=DocumentAnalysis
-	# 	)
 
 	@task
-	def quality_check_research(self) -> Task:
+	def futurist_research(self) -> Task:
 		return Task(
-			config=self.tasks_config['quality_check_research'],
-			output_file=f'outputs/quality_check_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
+			config=self.tasks_config['futurist_research'],
+			output_file=f'outputs/futurist_research_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+			output_pydantic=ResearchOutput
 		)
 
 	@task
-	def synthesize_research_findings(self) -> Task:
+	def reporting_task(self) -> Task:
 		return Task(
-			config=self.tasks_config['synthesize_research_findings'],
+			config=self.tasks_config['reporting_task'],
+			output_file=f'outputs/futurist_report_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+			output_pydantic=MarketForceReport
+		)
+
+	@task
+	def formatting_task(self) -> Task:
+		return Task(
+			config=self.tasks_config['formatting_task'],
 			output_file=f'outputs/research_synthesis_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
-			output_pydantic=ResearchSynthesis
 		)
 
 	@crew

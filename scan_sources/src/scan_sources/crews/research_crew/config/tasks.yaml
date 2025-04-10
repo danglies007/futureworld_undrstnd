@@ -1,195 +1,200 @@
-# tasks.yaml - research_crew
-
-conduct_internet_research:
+futurist_research:
   description: >
-    Conduct comprehensive internet research on {market_force_short_description} as it relates to {industry} in {market}.
+    Conduct EXTENSIVE research to identify market forces impacting {topic} from futurist and foresight sources, the current date is {date}.
     
-    Identify key trends, statistics, case studies, and expert opinions from credible online sources.
+    Expected research scope:
+    - Minimum of 15 respected futurist and foresight publications or thought leaders
+    - At least 15 distinct market forces identified
+    - Minimum of 3 specific examples for each market force
+    - Cover multiple domains (example: technology, society, economics, environment)
+    - Do not conclude your research until you have gathered a comprehensive set of market forces.
+    - Your thoroughness is critical to the success of the overall project.      
+    - Your research is not complete until you've met or exceeded these minimum requirements.
 
-    Ensure you populate the InternetResearch variables with your research findings.
+    Research process:
+    1. As part of your research process, you must search the {sources_futurists}
+    1. Identify initial set of market forces from each source
+    2. For each market force, ask yourself: "What related or adjacent market forces might this indicate?"
+    3. Expand your list with these adjacent forces
+    4. For any new force identified, repeat steps 2-3
+    5. Continue until you have at least 15 market forces
     
-    Compile findings with true and accurate citations and source attributions, ensuring all information is traceable.  
+    Remember: Thorough research requires multiple iterations of discovery and expansion.
+
+    Research quality:
+    1. Compile findings with true and accurate citations and source attributions, ensuring all information is traceable.
+    2. **PROVIDE REAL WORKING URLS FOR ALL CONTENT - DO NOT PROVIDE FAKE OR MOCKED CONTENT**  
+    3. **IF CONTENT CANNOT BE FOUND, INDICATE SO, DO NOT MAKE UP CONTENT OR SOURCES**
+    4. **ALWAYS EXTRACT AND USE THE ACTUAL PUBLICATION DATE FROM THE SOURCE - DO NOT USE TODAY'S DATE**
+    5. **IF A PUBLICATION DATE IS NOT CLEARLY VISIBLE, MAKE A REASONABLE ESTIMATE BASED ON CONTENT OR MARK AS UNKNOWN - NEVER DEFAULT TO TODAY'S DATE**
+
+    Performace and incentive:
+    1. Your performance will be evaluated based on the quantity and quality of market forces identified.
+    2. The breadth of your sources
+    3. The depth of your analysis (detailed market force descriptions)
+    4. The quantity of market forces identified (aim for 15+)
+    5. The diversity of domains covered (technology, business, social, environmental)
+    6. You will be rewarded for meeting or exceeding the minimum requirements.
+    7. You will be penalized for not meeting the minimum requirements.
     
-    **PROVIDE REAL WOKRING URLS FOR ALL CONTENT - DO NOT PROVIDE FAKE OR MOCKED CONTENT**  
+    The most valuable insights often come from comprehensive research that goes beyond
+    obvious sources and findings. Your goal is to deliver the most thorough analysis possible.
 
-    **IF CONTENT CANNOT BE FOUND, INDICATE SO, DO NOT MAKE UP CONTENT OR SOURCES**
-
-  agent: internet_researcher
+    Your output MUST be formatted as a valid JSON object following the ResearchOutput schema.
+    Set the source_category to "Futurist" in your response.
   expected_output: >
-    A piece of detailed, accurate and high quality research aligned to the InternetResearch variables for the {market_force_short_description}.
+    A structured list of market forces relating to {topic} from respected futurist and foresight sources
+  agent: futurist_researcher
 
-    The document should be comprehensive, well-organized.
-
-    I expect 2 outputs:
-     - A markdown document containing the research findings, please format and structure this document in a clear and readable fashion, especially if its being convered from JSON.
-     - A JSON document containing the research findings in a structured format
-
-# analyze_news_coverage:
-#   description: >
-#     Monitor and analyze news coverage related to {market_force_short_description} in {industry} and {market}.
-    
-#     Identify recent developments, announcements, and media narratives from reputable news sources.
-    
-#     Extract insights about how {market_force_short_description} is being discussed in mainstream and industry-specific media.
-    
-#     Track evolving narratives and media sentiment around {market_force_short_description} over time.
-    
-#     Identify potential biases or gaps in media coverage that might affect public perception.
-#   agent: general_news_researcher
-#   expected_output: >
-#     A news analysis report containing:
-#     1. Summary of major news developments
-#     2. Analysis of media narratives and framing
-#     3. Identification of key stakeholders featured in coverage
-#     4. Timeline of significant announcements or events
-#     5. Assessment of media sentiment and tone
-    
-#     The report should include proper citations and cover **no fewer than {minimum_forces}** distinct news angles or developments.
-
-# research_patent_filings:
-#   description: >
-#     Research patent filings and intellectual property developments related to {market_force_short_description} in {industry}.
-    
-#     Identify emerging technologies, innovation trends, and key players based on patent activity.
-    
-#     Analyze patent data to provide insights on future technological directions and competitive landscapes.
-    
-#     Map relationships between patent holders and identify potential collaboration or competition patterns.
-    
-#     Assess the potential impact of patented technologies on the future of {market_force_short_description}.
-#   agent: patent_filings_researcher
-#   expected_output: >
-#     A patent intelligence report containing:
-#     1. Overview of key patent trends
-#     2. Analysis of major patent holders and their portfolios
-#     3. Emerging technology directions identified from patent filings
-#     4. Timeline of significant patent developments
-#     5. Assessment of potential market implications
-    
-#     The report should include proper citations and cover **no fewer than {minimum_forces}** distinct technology trends or innovation patterns.
-
-# analyze_consulting_insights:
-#   description: >
-#     Research and analyze content from leading consulting firms regarding {market_force_short_description} in {industry} and {market}.
-    
-#     Extract key insights, frameworks, and predictions from consulting reports, whitepapers, and thought leadership.
-    
-#     Identify how major consulting firms are advising clients on {market_force_short_description}-related challenges and opportunities.
-    
-#     Compare and contrast perspectives from different consulting organizations.
-    
-#     Only use consulting references from sources_consulting_firms.
-#   agent: specialist_consultant_researcher
-#   expected_output: >
-#     A consulting intelligence report containing:
-#     1. Summary of key consulting frameworks and models
-#     2. Analysis of strategic recommendations being made to industry
-#     3. Comparison of different consulting perspectives
-#     4. Identification of consensus views and contrasting opinions
-#     5. Assessment of practical implementation advice
-    
-#     The report should include proper citations and cover **no fewer than {minimum_forces}** distinct strategic approaches or recommendations.
-
-# research_future_trends:
-#   description: >
-#     Research emerging trends and future projections related to {market_force_short_description} in {industry} and {market}.
-    
-#     Analyze content from futurists, trend forecasters, and specialized trend research organizations.
-    
-#     Identify long-term patterns, weak signals, and potential disruptive changes that could impact {market_force_short_description}.
-    
-#     Evaluate the potential timeline and probability of emerging trends.
-    
-#     Prioritize content from futurist references from sources_futurists.
-#   agent: specialist_trend_researcher
-#   expected_output: >
-#     A future trends report containing:
-#     1. Overview of major projected developments
-#     2. Analysis of weak signals and emerging patterns
-#     3. Timeline of potential future scenarios
-#     4. Assessment of disruptive forces and their implications
-#     5. Evaluation of trend interconnections and dependencies
-    
-#     The report should include proper citations and cover **no fewer than {minimum_forces}** distinct future trends or scenarios.
-
-# analyze_documents:
-#   description: >
-#     Analyze downloaded PDFs and local documents containing information about {market_force_short_description} in {industry} and {market}.
-    
-#     Extract key insights, data points, and expert opinions from academic papers, industry reports, and other documents.
-    
-#     Synthesize document-based findings to complement online research and provide deeper context.
-    
-#     Identify methodologies, research approaches, and analytical frameworks used in formal studies.
-    
-#     Compare and contrast findings across different document sources.
-#   agent: document_researcher
-#   expected_output: >
-#     A document analysis report containing:
-#     1. Summary of key documents reviewed
-#     2. Extraction of critical data points and statistics
-#     3. Synthesis of expert opinions and research findings
-#     4. Comparison of methodologies and analytical approaches
-#     5. Assessment of document credibility and relevance
-    
-#     The report should include proper citations and cover **no fewer than {minimum_forces}** distinct document-based insights.
-
-quality_check_research:
+reporting_task:
   description: >
-    Review and validate research findings from all researchers to ensure accuracy, credibility, and relevance.
-    
-    Identify potential hallucinations, factual errors, or unsupported claims in research outputs.
-    
-    Ensure all information is properly sourced - inline, contextually appropriate, and aligned with the research objectives.
-    
-    Verify consistency across different research streams and resolve any contradictions.
-    
-    Assess the overall quality, comprehensiveness, and objectivity of the research.
-  agent: quality_assurance_reviewer
+    Review the context you got and expand each market force into a full section for a report.
+    Make sure the report is detailed and contains any and all relevant information.
+    The report should be dated {date}. The audience should be experts with deep knowledge about the {topic}.
+
+    Report process:
+    1. Do not lose any content from the context, make sure include and where relevant expand on the context create all the required report outputs (e.g. key findings, possible signals, possible structural shifts, implications on future of sector, sources)
+    2. **PRESERVE THE ORIGINAL SOURCE DATES FROM THE INPUT - DO NOT REPLACE THEM WITH TODAY'S DATE**
+
+    Report quality:
+    1. Ensure all information from the context is comprehensively and accurately included in the report.
+    2. Compile content with true and accurate citations and source attributions, ensuring all information is traceable.
+    3. **PROVIDE REAL WORKING URLS FOR ALL CONTENT - DO NOT PROVIDE FAKE OR MOCKED CONTENT**  
+    4. **IF CONTENT CANNOT BE FOUND, INDICATE SO, DO NOT MAKE UP CONTENT OR SOURCES**
+
+    Performace and incentive:
+    1. Your performance will be evaluated based on the quantity and quality of your report.
+
+    Your output MUST be formatted as a valid JSON object following the MarketForceReport schema.
   expected_output: >
-    A quality assurance report containing:
-    1. Assessment of research accuracy and factual integrity
-    2. Identification of any unsupported claims or potential errors
-    3. Evaluation of source quality and citation practices
-    4. Analysis of research comprehensiveness and coverage
-    5. Recommendations for improvements or additional research needed
-    
-    The report should include specific examples and cover **no fewer than {minimum_forces}** distinct quality considerations.
-  context:
-    - conduct_internet_research
-    # - analyze_news_coverage
-    # - research_patent_filings
-    # - analyze_consulting_insights
-    # - research_future_trends
-    # - analyze_documents
+    A fully fledge reports with all the main topics, each with a full section of information.
+  agent: reporting_analyst
+  context: [futurist_research]
 
-
-synthesize_research_findings:
+formatting_task:
   description: >
-    Integrate and synthesize findings from all research streams into a cohesive, comprehensive analysis of {market_force_short_description}.
-    
-    Identify patterns, connections, and insights across different research areas.
-    
-    Develop a holistic understanding of {market_force_short_description} that incorporates multiple perspectives and data sources.
-    
-    Resolve contradictions and tensions between different research findings.
-    
-    Create a unified narrative that captures the complexity of {market_force_short_description} in {industry} and {market}.
-  agent: research_synthesizer
+    Format the executive report into a beautiful markdown document without '```'.
+    Follow these guidelines:
+    1. Use proper markdown headers (#, ##, ###)
+    2. Include emojis from the section_emoji field
+    3. Format market forces and key findings as bullet points
+    4. Add proper spacing and sections breaks
+    5. Make implications, signals and structural shifts stand out using blockquotes
+    6. Ensure the date is properly formatted
+    7. Add a table of contents at the beginning
+    8. Use horizontal rules (---) to separate major sections
+    9. Add inline citations for each major claim using (Author, Year, URL) format
+    10. Include a Sources section at the end with numbered references
+    11. Each source should include title, publisher/author, and URL
+    12. Link inline citations to the corresponding entry in the Sources section
   expected_output: >
-    A comprehensive research synthesis containing:
-    1. Executive summary of key findings
-    2. Integrated analysis across all research streams
-    3. Identification of cross-cutting themes and patterns
-    4. Assessment of implications and future directions
-    5. Recommendations based on the synthesized research
+    A beautifully formatted markdown report with proper structure, spacing,
+    citations, and visual elements that enhance readability and presentation.
+  agent: formatter
+  context: [futurist_research, reporting_task]
+
+# consulting_research:
+#   description: >
+#     Research and identify market forces from major consulting publications.
     
-    The synthesis should be well-structured, properly sourced, and include **no fewer than {minimum_forces}** major insights or conclusions.
-  context:
-    - conduct_internet_research
-    # - analyze_news_coverage
-    # - research_patent_filings
-    # - analyze_consulting_insights
-    # - research_future_trends
-    # - analyze_documents
-    # - quality_check_research
+#     Expected research scope:
+#     - Minimum of 5 major consulting firms (e.g., McKinsey, BCG, Deloitte, Accenture, KPMG)
+#     - At least 20 distinct market forces identified
+#     - At least 2 specific examples for each market force
+    
+#     Your performance will be evaluated based on:
+#     - The breadth of consulting sources covered
+#     - The depth of your market force descriptions
+#     - The quantity of unique market forces identified (aim for 20+)
+#     - The diversity of industries and domains covered
+    
+#     Your output MUST be formatted as a valid JSON object following the ResearchOutput schema.
+#     Set the source_category to "Consulting" in your response.
+#   expected_output: >
+#     A structured list of market forces from consulting sources
+#   agent: consulting_researcher
+#   output_file: outputs/consulting_research.json
+
+# patent_research:
+#   description: >
+#     Research and identify market forces from patent filings.
+    
+#     Expected research scope:
+#     - Multiple patent databases and tech domains
+#     - At least 15 distinct technology-driven market forces
+#     - Cover emerging technologies across various industries
+    
+#     Research process:
+#     1. Identify initial set of 10 market forces from patent trends
+#     2. For each market force, ask yourself: "What related or adjacent market forces might this indicate?"
+#     3. Expand your list with these adjacent forces
+#     4. Continue until you have at least 15 market forces
+    
+#     Your output MUST be formatted as a valid JSON object following the ResearchOutput schema.
+#     Set the source_category to "Patent" in your response.
+#   expected_output: >
+#     A structured list of market forces from patent sources
+#   agent: patent_researcher
+#   output_file: outputs/patent_research.json
+
+# academic_research:
+#   description: >
+#     Research and identify market forces from academic and scholarly sources.
+    
+#     Expected research scope:
+#     - Multiple academic journals, conferences, and research institutions
+#     - At least 15 distinct market forces backed by academic research
+#     - Include perspective from various disciplines (economics, technology, sociology, etc.)
+    
+#     Your output MUST be formatted as a valid JSON object following the ResearchOutput schema.
+#     Set the source_category to "Academic" in your response.
+#   expected_output: >
+#     A structured list of market forces from academic sources
+#   agent: academic_researcher
+#   output_file: outputs/academic_research.json
+
+# extraction:
+#   description: >
+#     Process the research data from all source agents.
+    
+#     Your task is to extract structured market forces with the following fields:
+#     - Unique ID (generate this as "MF-[source_category]-[number]")
+#     - Short description (based on title)
+#     - Long description (refined from raw_description)
+#     - Examples (cleaned from raw_examples)
+#     - Source details (including category, name, URL)
+#     - Key terms and entities
+    
+#     Ensure you process ALL market forces from the research agents' outputs.
+    
+#     Your output MUST be formatted as a valid JSON object following the ExtractorOutput schema.
+#   expected_output: >
+#     A structured JSON database of market forces with all required fields
+#   agent: market_force_extractor
+#   context:
+#     - futurist_research
+#     - consulting_research
+#     - patent_research
+#     - academic_research
+#   output_file: outputs/extraction.json
+
+# consolidation:
+#   description: >
+#     Analyse the structured market forces and identify similar concepts across different sources.
+    
+#     When you find similar market forces, consolidate them with:
+#     - A new consolidated ID
+#     - References to the original market force IDs
+#     - A canonical description that synthesises the individual descriptions
+#     - Combined examples from all sources
+#     - List of all source categories that identified this force
+    
+#     Be thorough in your analysis - identify all potential connections between market forces.
+    
+#     Your output MUST be formatted as a valid JSON object following the ConsolidatorOutput schema.
+#   expected_output: >
+#     A consolidated view of market forces with cross-references
+#   agent: market_force_consolidator
+#   context:
+#     - extraction
+#   output_file: outputs/consolidation.json
