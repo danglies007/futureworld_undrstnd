@@ -1,31 +1,32 @@
 import os
-
-from datetime import datetime
-from pydantic import BaseModel
-
-# Ignore warnings
+import json
+import sys
 import warnings
-from pydantic import PydanticDeprecatedSince20
+import traceback
+from datetime import datetime
+from typing import Dict, Any
+                
+from pydantic import BaseModel, PydanticDeprecatedSince20
 
 # Suppress specific pydantic deprecation warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
 warnings.filterwarnings("ignore", category=PydanticDeprecatedSince20)
 
-
-from crewai.flow import Flow, listen, start, router 
-
-from scan_sources.crews.plan_crew.plan_crew import PlanCrew
+from crewai.flow import Flow, listen, start, router
+from scan_sources.crews.plan_crew.plan_crew import PlanCrew, Market_Force_Plan
 from scan_sources.crews.research_crew.research_crew import ResearchCrew
 
 # Import variables from config.py
 from scan_sources.config import USER_INPUT_VARIABLES, ALL_SOURCES_FLATTENED
 
 # Import Pydantic models
-from scan_sources.models import (
-    Market_Force,
-    Market_Force_Plan
-)
+from scan_sources.models import Market_Force, Market_Force_Plan, InternetResearch, ResearchFinding, BaseResearchOutput
+
+# Define the new input model for the research crew
+class ResearchCrewInput(BaseModel):
+    market_force: Market_Force
+    user_variables: Dict[str, Any]
 
 class ScanFlow(Flow):
     def __init__(self):
@@ -46,8 +47,8 @@ class ScanFlow(Flow):
             print("Found approved research plan, resuming...")
             with open(self.APPROVED_RESEARCH_PLAN_FILE, "r") as f:
                 plan_data = f.read()
-                plan = Market_Force_Plan.model_validate_json(plan_data)
-            return plan
+                research_plan = Market_Force_Plan.model_validate_json(plan_data)
+            return research_plan
         elif os.path.exists(self.RESEARCH_PLAN_FILE):
             print("Found plan waiting for review, resuming review...")
             return "awaiting_review"
@@ -71,87 +72,39 @@ class ScanFlow(Flow):
     @listen("create_new_research_plan")
     def create_new_research_plan(self):
         """Create a new research plan using the plan crew"""
-        
         # Create and run the planning crew
-        plan_crew = PlanCrew()
-        crew_output = plan_crew.crew().kickoff(self.user_input_variables)
-
-        # Check if pydantic output is available
-        if hasattr(crew_output, 'pydantic') and crew_output.pydantic is not None:
-            plan = crew_output.pydantic
-        else:
-            # Create a basic plan from the raw output if needed
-            raw_output = crew_output.raw
-            print("Creating plan from raw output")
-            # This is a simplified fallback and may need adjustment based on the actual output
-            plan = Market_Force_Plan(market_forces=[
-                {
-                    "market_force_id": 1,
-                    "market_force_short_description": "Market force short description",
-                    "market_force_long_description": "Market force long description",
-                    "research_objectives": ["Basic research requirement"],
-                    "content_examples": ["Suggested search terms"],
-                    "minimum_sources": ["Sources which must be searched and or scrapped"],
-                    "source_priority": ["Priortities sources and rationale"],
-                    "quality_criteria": ["criteria against which sources and insights are evaluated"],
-                    "integration_approach": ["Approach for integrating sources and insights"]
-                }
-            ])
+        research_plan = PlanCrew().crew().kickoff(self.user_input_variables).pydantic
 
         # Save plan to review file
         with open(self.RESEARCH_PLAN_FILE, "w") as f:
-            f.write(plan.model_dump_json(indent=2))
-
-        # Save the plan to a markdown file for review
-        output_dir = "outputs"
-        os.makedirs(output_dir, exist_ok=True)
-
-        # Create a timestamped filename for the plan
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        research_plan_md_file = f"research_plan_{timestamp}.md"
-        research_plan_md_path = os.path.join(output_dir, research_plan_md_file)
-        
-        # Write the plan to a markdown file
-        with open(research_plan_md_path, "w") as f:
-            f.write(f"# Research Plan for {self.user_input_variables.get('industry')}\n\n")
-            f.write(f"## Company: {self.user_input_variables.get('company_short')}\n\n")
-            f.write("### Plan Market Forces\n\n")
-            
-            for i, market_force in enumerate(plan.market_forces, 1):
-                market_force_dict = market_force
-                if not isinstance(market_force, dict):
-                    market_force_dict = market_force.model_dump()
-                
-                f.write(f"#### Market Force {market_force_dict.get('market_force_id', i)}: {market_force_dict.get('market_force_short_description', 'Untitled') }\n\n")
-                f.write(f"**Research Objectives**: {market_force_dict.get('research_objectives', 'N/A')}\n\n")
-                
-                # Write sources if available
-                sources = market_force_dict.get('minimum_sources', [])
-                if sources:
-                    f.write("**Sources**:\n")
-                    for source in sources:
-                        f.write(f"- {source}\n")
-                    f.write("\n")
-                
-                # Write content outline if available
-                content_examples = market_force_dict.get('content_examples', [])
-                if content_examples:
-                    f.write("**Content Examples**:\n")
-                    for item in content_examples:
-                        f.write(f"- {item}\n")
-                    f.write("\n")
-        
-        print(f"Plan saved to {research_plan_md_path} for review")
-        
-        # The flow will now transition to awaiting_review
-        # We emit the event instead of returning a string to ensure proper transition
-        self.emit("awaiting_review")
-        return None
+            f.write(research_plan.model_dump_json(indent=2))
+        print("Plan saved for review")
+        # Return a string to signal we're awaiting review
+        return "awaiting_review"
 
     @listen("awaiting_review")
     def wait_for_approval(self):
-        """Wait for user approval of the researchplan"""
-        return None
+        """Wait for user approval of the research plan"""
+        if sys.stdin.isatty():
+            print("\nResearch plan ready for review.")
+            print(f"The plan is saved at: {self.RESEARCH_PLAN_FILE}")
+            print("Would you like to approve this plan? (y/n)")
+            approval = input().strip().lower()
+            if approval == 'y':
+                # Copy the research plan file to the approved file
+                with open(self.RESEARCH_PLAN_FILE, "r") as f:
+                    plan_data = f.read()
+                with open(self.APPROVED_RESEARCH_PLAN_FILE, "w") as f:
+                    f.write(plan_data)
+                print("Plan approved! Continuing with research...")
+                self.resume_flow_with_approved_plan()
+                return None
+            else:
+                print("Plan not approved. Exiting flow.")
+                return None
+        else:
+            print("Plan ready for review. Waiting for approval via web interface...")
+            return None
 
     @listen("research_plan_approved")
     def research_market_forces(self):
@@ -159,82 +112,82 @@ class ScanFlow(Flow):
         # Load the approved plan
         with open(self.APPROVED_RESEARCH_PLAN_FILE, "r") as f:
             plan_data = f.read()
-            plan = Market_Force_Plan.model_validate_json(plan_data)
+            research_plan = Market_Force_Plan.model_validate_json(plan_data)
 
-        # Create directory for section outputs
+        # Create directory for market force outputs
         market_force_dir = os.path.join("outputs", "market_forces")
         os.makedirs(market_force_dir, exist_ok=True)
 
         final_content = []
-        for i, market_force in enumerate(plan.market_forces, 1):
-            # Get market_force as dictionary if it's not already
-            market_force_dict = market_force
-            if not isinstance(market_force, dict):
-                market_force_dict = market_force.model_dump()
+        for i, market_force in enumerate(research_plan.market_forces, 1):
+            # Ensure market_force is a Market_Force instance if needed
+            if not isinstance(market_force, Market_Force):
+                market_force = Market_Force.model_validate(market_force)
             
-            # Check if market_force_id exists, if not, add it using the index
-            if 'market_force_id' not in market_force_dict or not market_force_dict['market_force_id']:
-                market_force_dict['market_force_id'] = i
-                print(f"Assigned market_force id {i} to market_force: {market_force_dict.get('market_force_short_description', 'Untitled')}")
-            
-            # Get market_force id and short description safely
-            market_force_id = market_force_dict.get('market_force_id', i)
-            subtitle = market_force_dict.get('market_force_short_description', f"Market_Force_{i}")
+            # Get market_force id and short description directly from the model
+            market_force_id = market_force.market_force_id or i
+            subtitle = market_force.market_force_short_description or f"Market_Force_{i}"
             
             # Create a more robust filename with market_force id
             market_force_file = f"{market_force_id}_{subtitle.replace(' ', '_')}.md"
             market_force_path = os.path.join(market_force_dir, market_force_file)
 
-            print(f"Processing section {market_force_id}: {subtitle}")
+            print(f"Processing market force {market_force_id}: {subtitle}")
 
-            # Check if this section has already been processed
+            # Check if this market force has already been processed
             if os.path.exists(market_force_path):
-                print(f"Section {market_force_id} already processed, loading from file")
+                print(f"Market force {market_force_id} already processed, loading from file")
                 with open(market_force_path, "r") as f:
                     market_force_content = f.read()
                     final_content.append(market_force_content)
                 continue
 
-            # Prepare input for the research crew
-            writer_inputs = self.user_input_variables.copy()
-            writer_inputs['market_force'] = market_force_dict
-            
             try:
-                print(f"Running research crew for section {market_force_id}")
-                research_crew = ResearchCrew()
-                result = research_crew.crew().kickoff(writer_inputs).raw
+                # Debugging prints
+                print(f"Debug - user_input_variables type: {type(self.user_input_variables)}")
+                print(f"Debug - user_input_variables keys: {list(self.user_input_variables.keys())}")
                 
+                print(f"Running research crew for market force {market_force_id}")
+                # Create a flat dictionary with both user variables and market force attributes
+                flat_inputs = {}
+                flat_inputs.update(self.user_input_variables)  # Add the user inputs
+                flat_inputs.update(market_force.model_dump())  # Add all market force attributes at top level
+                # flat_inputs.update(internet_research.model_dump())  # Add internet research
+                # flat_inputs.update(research_finding.model_dump())  # Add research finding
+                # flat_inputs.update(base_research_output.model_dump())  # Add base research output
+
+
+                # Use the new approach to kickoff the research crew with flat_inputs
+                result = ResearchCrew().crew().kickoff(flat_inputs).pydantic
                 # Add to final content and save to file
                 final_content.append(result)
                 with open(market_force_path, "w") as f:
                     f.write(result)
                     
-                print(f"Section {market_force_id} completed and saved")
+                print(f"Market force {market_force_id} completed and saved")
             except Exception as e:
-                print(f"Error processing section {market_force_id} ({subtitle}): {e}")
-                # Continue with next section instead of returning early
-                print(f"Moving to next section...")
+                print(f"Error processing market force {market_force_id} ({subtitle}): {e}")
+                # Print the full stack trace to find where exactly the error occurs
+                traceback.print_exc()
+                print("Moving to next market force...")
                 continue
 
-        # Return all processed sections, even if some failed
-        print(f"Completed processing {len(final_content)} out of {len(plan.market_forces)} market forces")
+        print(f"Completed processing {len(final_content)} out of {len(research_plan.market_forces)} market forces")
         return final_content
 
     @listen(research_market_forces)
     def save_to_markdown(self, content):
         """Save the research content to a markdown file"""
-
         output_dir = "outputs"
         os.makedirs(output_dir, exist_ok=True)
 
         industry = self.user_input_variables.get("industry")
         file_name = f"Market_Force_{industry}.md".replace(" ", "_")
-
         output_path = os.path.join(output_dir, file_name)
 
         with open(output_path, "w") as f:
             f.write("# Market Forces and Tsunamis of Change\n\n")
-            f.write(f"## Industry Focus: {sector}\n\n")
+            f.write(f"## Industry Focus: {industry}\n\n")
             f.write("*A Futureworld & NexusPlus Research Report*\n\n")
 
             for market_force in content:
@@ -284,19 +237,13 @@ class ScanFlow(Flow):
         This is an external entry point that resumes the flow after plan approval.
         It emits the "research_plan_approved" event which triggers the research_sections method.
         """
-        
         # Create a new instance of the flow to continue from where we left off
         flow_instance = ScanFlow()
-        
-        # Emit the "research_plan_approved" event to trigger the research_sections method
-        # This will continue the flow from the approved plan to research and report generation
+        # Emit the "research_plan_approved" event to trigger further flow actions
         flow_instance.emit("research_plan_approved")
-        
         return "Flow resumed with approved plan"
 
-    # External API methods that interact with the flow
-    # These methods are called from outside the flow to provide user interaction points
-
+# External functions to kickoff and plot the flow
 def kickoff():
     scan_flow = ScanFlow()
     scan_flow.kickoff()

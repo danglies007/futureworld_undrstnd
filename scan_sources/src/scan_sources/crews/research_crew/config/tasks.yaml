@@ -1,17 +1,195 @@
-research_task:
-  description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
-  expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+# tasks.yaml - research_crew
 
-reporting_task:
+conduct_internet_research:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Conduct comprehensive internet research on {market_force_short_description} as it relates to {industry} in {market}.
+    
+    Identify key trends, statistics, case studies, and expert opinions from credible online sources.
+
+    Ensure you populate the InternetResearch variables with your research findings.
+    
+    Compile findings with true and accurate citations and source attributions, ensuring all information is traceable.  
+    
+    **PROVIDE REAL WOKRING URLS FOR ALL CONTENT - DO NOT PROVIDE FAKE OR MOCKED CONTENT**  
+
+    **IF CONTENT CANNOT BE FOUND, INDICATE SO, DO NOT MAKE UP CONTENT OR SOURCES**
+
+  agent: internet_researcher
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A piece of detailed, accurate and high quality research aligned to the InternetResearch variables for the {market_force_short_description}.
+
+    The document should be comprehensive, well-organized.
+
+    I expect 2 outputs:
+     - A markdown document containing the research findings, please format and structure this document in a clear and readable fashion, especially if its being convered from JSON.
+     - A JSON document containing the research findings in a structured format
+
+# analyze_news_coverage:
+#   description: >
+#     Monitor and analyze news coverage related to {market_force_short_description} in {industry} and {market}.
+    
+#     Identify recent developments, announcements, and media narratives from reputable news sources.
+    
+#     Extract insights about how {market_force_short_description} is being discussed in mainstream and industry-specific media.
+    
+#     Track evolving narratives and media sentiment around {market_force_short_description} over time.
+    
+#     Identify potential biases or gaps in media coverage that might affect public perception.
+#   agent: general_news_researcher
+#   expected_output: >
+#     A news analysis report containing:
+#     1. Summary of major news developments
+#     2. Analysis of media narratives and framing
+#     3. Identification of key stakeholders featured in coverage
+#     4. Timeline of significant announcements or events
+#     5. Assessment of media sentiment and tone
+    
+#     The report should include proper citations and cover **no fewer than {minimum_forces}** distinct news angles or developments.
+
+# research_patent_filings:
+#   description: >
+#     Research patent filings and intellectual property developments related to {market_force_short_description} in {industry}.
+    
+#     Identify emerging technologies, innovation trends, and key players based on patent activity.
+    
+#     Analyze patent data to provide insights on future technological directions and competitive landscapes.
+    
+#     Map relationships between patent holders and identify potential collaboration or competition patterns.
+    
+#     Assess the potential impact of patented technologies on the future of {market_force_short_description}.
+#   agent: patent_filings_researcher
+#   expected_output: >
+#     A patent intelligence report containing:
+#     1. Overview of key patent trends
+#     2. Analysis of major patent holders and their portfolios
+#     3. Emerging technology directions identified from patent filings
+#     4. Timeline of significant patent developments
+#     5. Assessment of potential market implications
+    
+#     The report should include proper citations and cover **no fewer than {minimum_forces}** distinct technology trends or innovation patterns.
+
+# analyze_consulting_insights:
+#   description: >
+#     Research and analyze content from leading consulting firms regarding {market_force_short_description} in {industry} and {market}.
+    
+#     Extract key insights, frameworks, and predictions from consulting reports, whitepapers, and thought leadership.
+    
+#     Identify how major consulting firms are advising clients on {market_force_short_description}-related challenges and opportunities.
+    
+#     Compare and contrast perspectives from different consulting organizations.
+    
+#     Only use consulting references from sources_consulting_firms.
+#   agent: specialist_consultant_researcher
+#   expected_output: >
+#     A consulting intelligence report containing:
+#     1. Summary of key consulting frameworks and models
+#     2. Analysis of strategic recommendations being made to industry
+#     3. Comparison of different consulting perspectives
+#     4. Identification of consensus views and contrasting opinions
+#     5. Assessment of practical implementation advice
+    
+#     The report should include proper citations and cover **no fewer than {minimum_forces}** distinct strategic approaches or recommendations.
+
+# research_future_trends:
+#   description: >
+#     Research emerging trends and future projections related to {market_force_short_description} in {industry} and {market}.
+    
+#     Analyze content from futurists, trend forecasters, and specialized trend research organizations.
+    
+#     Identify long-term patterns, weak signals, and potential disruptive changes that could impact {market_force_short_description}.
+    
+#     Evaluate the potential timeline and probability of emerging trends.
+    
+#     Prioritize content from futurist references from sources_futurists.
+#   agent: specialist_trend_researcher
+#   expected_output: >
+#     A future trends report containing:
+#     1. Overview of major projected developments
+#     2. Analysis of weak signals and emerging patterns
+#     3. Timeline of potential future scenarios
+#     4. Assessment of disruptive forces and their implications
+#     5. Evaluation of trend interconnections and dependencies
+    
+#     The report should include proper citations and cover **no fewer than {minimum_forces}** distinct future trends or scenarios.
+
+# analyze_documents:
+#   description: >
+#     Analyze downloaded PDFs and local documents containing information about {market_force_short_description} in {industry} and {market}.
+    
+#     Extract key insights, data points, and expert opinions from academic papers, industry reports, and other documents.
+    
+#     Synthesize document-based findings to complement online research and provide deeper context.
+    
+#     Identify methodologies, research approaches, and analytical frameworks used in formal studies.
+    
+#     Compare and contrast findings across different document sources.
+#   agent: document_researcher
+#   expected_output: >
+#     A document analysis report containing:
+#     1. Summary of key documents reviewed
+#     2. Extraction of critical data points and statistics
+#     3. Synthesis of expert opinions and research findings
+#     4. Comparison of methodologies and analytical approaches
+#     5. Assessment of document credibility and relevance
+    
+#     The report should include proper citations and cover **no fewer than {minimum_forces}** distinct document-based insights.
+
+quality_check_research:
+  description: >
+    Review and validate research findings from all researchers to ensure accuracy, credibility, and relevance.
+    
+    Identify potential hallucinations, factual errors, or unsupported claims in research outputs.
+    
+    Ensure all information is properly sourced - inline, contextually appropriate, and aligned with the research objectives.
+    
+    Verify consistency across different research streams and resolve any contradictions.
+    
+    Assess the overall quality, comprehensiveness, and objectivity of the research.
+  agent: quality_assurance_reviewer
+  expected_output: >
+    A quality assurance report containing:
+    1. Assessment of research accuracy and factual integrity
+    2. Identification of any unsupported claims or potential errors
+    3. Evaluation of source quality and citation practices
+    4. Analysis of research comprehensiveness and coverage
+    5. Recommendations for improvements or additional research needed
+    
+    The report should include specific examples and cover **no fewer than {minimum_forces}** distinct quality considerations.
+  context:
+    - conduct_internet_research
+    # - analyze_news_coverage
+    # - research_patent_filings
+    # - analyze_consulting_insights
+    # - research_future_trends
+    # - analyze_documents
+
+
+synthesize_research_findings:
+  description: >
+    Integrate and synthesize findings from all research streams into a cohesive, comprehensive analysis of {market_force_short_description}.
+    
+    Identify patterns, connections, and insights across different research areas.
+    
+    Develop a holistic understanding of {market_force_short_description} that incorporates multiple perspectives and data sources.
+    
+    Resolve contradictions and tensions between different research findings.
+    
+    Create a unified narrative that captures the complexity of {market_force_short_description} in {industry} and {market}.
+  agent: research_synthesizer
+  expected_output: >
+    A comprehensive research synthesis containing:
+    1. Executive summary of key findings
+    2. Integrated analysis across all research streams
+    3. Identification of cross-cutting themes and patterns
+    4. Assessment of implications and future directions
+    5. Recommendations based on the synthesized research
+    
+    The synthesis should be well-structured, properly sourced, and include **no fewer than {minimum_forces}** major insights or conclusions.
+  context:
+    - conduct_internet_research
+    # - analyze_news_coverage
+    # - research_patent_filings
+    # - analyze_consulting_insights
+    # - research_future_trends
+    # - analyze_documents
+    # - quality_check_research

@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		
+		if ( localStorage.getItem('consentMode') === null ){
+			gtag('consent', 'default', {
+				'ad_user_data': 'denied',
+				'ad_personalization': 'denied',
+				'wait_for_update': 500
+			});
+		} else {
+			gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+		}
+	</script>
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MJ37M2B');</script>
+	<!-- End Google Tag Manager -->
+
+			<!-- OneTrust Cookies Consent Notice start for prophet.com -->
+		<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="f26bfcb9-8f07-42eb-aa93-43d972a29bc9" ></script>
+		<!-- OneTrust Cookies Consent Notice end for prophet.com -->
+	
+	<script src="https://www.google.com/recaptcha/api.js?render=6LdUc4YbAAAAAGyMkZ7M22eL63vMnKz2v2QFy_wF"></script>
+	<meta name="google-site-verification" content="T4NnoGraemfJXaDL8H56i9PMMjou4DeUpDGjVhh6KWs" />
+
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	
+	<!-- This site is optimized with the Yoast SEO Premium plugin v23.3 (Yoast SEO v24.5) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>NEW REPORT: The 2023 State of Digital Transformation | Prophet</title>
+	<meta name="description" content="The 2023 State of Digital Transformation report outlines digital maturity benchmarks in 2023 and how businesses can drive growth in this next wave of digital transformation." />
+	<link rel="canonical" href="https://prophet.com/2023/03/download-the-2023-state-of-digital-transformation/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="The 2023 State of Digital Transformation" />
+	<meta property="og:description" content="The 2023 State of Digital Transformation report outlines digital maturity benchmarks in 2023 and how businesses can drive growth in this next wave of digital transformation." />
+	<meta property="og:url" content="https://prophet.com/2023/03/download-the-2023-state-of-digital-transformation/" />
+	<meta property="og:site_name" content="Business Transformation Consultants | Prophet" />
+	<meta property="article:published_time" content="2023-03-20T16:16:09+00:00" />
+	<meta property="article:modified_time" content="2023-11-06T19:03:18+00:00" />
+	<meta property="og:image" content="https://prophet.com/wp-content/uploads/2023/03/DigitalTransformation_6A.png" />
+	<meta property="og:image:width" content="5600" />
+	<meta property="og:image:height" content="3000" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="author" content="Omar Akhtar, Chan Suh" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@obakhtar" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Omar Akhtar, Chan Suh" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="2 minutes" />
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel="alternate" type="application/rss+xml" title="Business Transformation Consultants | Prophet &raquo; Feed" href="https://prophet.com/feed/" />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/prophet.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.2"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://prophet.com/wp-includes/css/dist/block-library/style.min.css?ver=6.7.2' type='text/css' media='all' />
+<style id='pdfp-pdfposter-style-inline-css' type='text/css'>
+.pdfp_wrapper .pdf{position:relative}.pdfp_wrapper.pdfp_popup_enabled .iframe_wrapper{display:none}.pdfp_wrapper.pdfp_popup_enabled .iframe_wrapper:fullscreen{display:block}.pdfp_wrapper .iframe_wrapper{width:100%}.pdfp_wrapper .iframe_wrapper:fullscreen iframe{height:100vh!important}.pdfp_wrapper .iframe_wrapper iframe{width:100%}.pdfp_wrapper .iframe_wrapper .close{background:#fff;border:1px solid #ddd;border-radius:3px;color:#222;cursor:pointer;display:none;font-family:sans-serif;font-size:36px;line-height:100%;padding:0 7px;position:absolute;right:12px;top:35px;z-index:9999}.pdfp_wrapper .iframe_wrapper:fullscreen .close{display:block}.pdfp_wrapper .pdfp_fullscreen_close{display:none}.pdfp_wrapper.pdfp_fullscreen_opened .pdfp_fullscreen_close{align-items:center;background:#fff;border-radius:3px;color:#222;cursor:pointer;display:flex;font-size:35px;height:30px;justify-content:center;overflow:hidden;padding-bottom:4px;position:fixed;right:20px;top:20px;width:32px}.pdfp_wrapper.pdfp_fullscreen_opened .pdfp_fullscreen_overlay{background:rgba(34,34,34,.6);height:100%;left:0;position:fixed;top:0;width:100%}.pdfp_wrapper.pdfp_fullscreen_opened .iframe_wrapper{display:block;height:90vh;left:50%;max-width:95%;position:fixed;top:50%;transform:translate(-50%,-50%);width:900px;z-index:99999999999}.pdfp-adobe-viewer{border:1px solid #ddd;border-radius:3px;cursor:pointer;outline:none;text-decoration:none}.pdfp_download{margin-right:15px}.cta_wrapper{margin-bottom:10px;text-align:left}.cta_wrapper button{cursor:pointer}.pdfp_wrapper p{margin:10px 0;text-align:center}.popout-disabled{height:50px;position:absolute;right:12px;top:12px;width:50px}@media screen and (max-width:768px){.pdfp_wrapper iframe{height:calc(100vw + 120px)}}iframe{max-width:100%}.ViewSDK_hideOverflow[data-align=center]{margin-left:auto;margin-right:auto}.ViewSDK_hideOverflow[data-align=left]{margin-right:auto}.ViewSDK_hideOverflow[data-align=right]{margin-left:auto}@media screen and (max-width:768px){.pdfp_wrapper iframe{height:calc(100vw + 120px)!important}}@media screen and (max-width:576px){.cta_wrapper .pdfp_download{margin-bottom:10px;margin-right:0}.cta_wrapper .pdfp_download button{margin-right:0!important}.cta_wrapper{align-items:center;display:flex;flex-direction:column}}
+
+</style>
+<style id='co-authors-plus-coauthors-style-inline-css' type='text/css'>
+.wp-block-co-authors-plus-coauthors.is-layout-flow [class*=wp-block-co-authors-plus]{display:inline}
+
+</style>
+<style id='co-authors-plus-avatar-style-inline-css' type='text/css'>
+.wp-block-co-authors-plus-avatar :where(img){height:auto;max-width:100%;vertical-align:bottom}.wp-block-co-authors-plus-coauthors.is-layout-flow .wp-block-co-authors-plus-avatar :where(img){vertical-align:middle}.wp-block-co-authors-plus-avatar:is(.alignleft,.alignright){display:table}.wp-block-co-authors-plus-avatar.aligncenter{display:table;margin-inline:auto}
+
+</style>
+<style id='co-authors-plus-image-style-inline-css' type='text/css'>
+.wp-block-co-authors-plus-image{margin-bottom:0}.wp-block-co-authors-plus-image :where(img){height:auto;max-width:100%;vertical-align:bottom}.wp-block-co-authors-plus-coauthors.is-layout-flow .wp-block-co-authors-plus-image :where(img){vertical-align:middle}.wp-block-co-authors-plus-image:is(.alignfull,.alignwide) :where(img){width:100%}.wp-block-co-authors-plus-image:is(.alignleft,.alignright){display:table}.wp-block-co-authors-plus-image.aligncenter{display:table;margin-inline:auto}
+
+</style>
+<style id='pdfemb-pdf-embedder-viewer-style-inline-css' type='text/css'>
+.wp-block-pdfemb-pdf-embedder-viewer{max-width:none}
+
+</style>
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #FFFFFF;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--gray-1: #606060;--wp--preset--color--gray-2: #B4B4B4;--wp--preset--color--gray-3: #DADADA;--wp--preset--color--navy-blue: #002668;--wp--preset--color--blue: #334aff;--wp--preset--color--light-blue: #4888FF;--wp--preset--color--teal: #A4EDD6;--wp--preset--color--green: #22ffab;--wp--preset--color--light-purple: #887BFF;--wp--preset--color--purple: #8037d0;--wp--preset--color--pink: #C214B9;--wp--preset--color--red: #FF0053;--wp--preset--color--yellow: #DEFF00;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 12px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 16px;--wp--preset--font-size--huge: 50px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='pdfp-public-css' href='https://prophet.com/wp-content/plugins/pdf-poster/dist/public.css?ver=2.2.1' type='text/css' media='all' />
+<link rel='stylesheet' id='prophetv3_styles-css' href='https://prophet.com/wp-content/themes/prophetv3/build/index.css?ver=d4fa81ce11c4d4d450aa' type='text/css' media='all' />
+<link rel='stylesheet' id='prophetv3_form_popup_subscribe_styles-css' href='https://prophet.com/wp-content/themes/prophetv3/build/form-popup-subscribe.css?ver=d4fa81ce11c4d4d450aa' type='text/css' media='all' />
+<link rel='stylesheet' id='prophetv3_site_offline_styles-css' href='https://prophet.com/wp-content/themes/prophetv3/build/site-offline.css?ver=d4fa81ce11c4d4d450aa' type='text/css' media='all' />
+<link rel='stylesheet' id='wpdreams-asl-basic-css' href='https://prophet.com/wp-content/plugins/ajax-search-lite/css/style.basic.css?ver=4.12.6' type='text/css' media='all' />
+<link rel='stylesheet' id='wpdreams-asl-instance-css' href='https://prophet.com/wp-content/plugins/ajax-search-lite/css/style-underline.css?ver=4.12.6' type='text/css' media='all' />
+<link rel='stylesheet' id='searchwp-forms-css' href='https://prophet.com/wp-content/plugins/searchwp/assets/css/frontend/search-forms.css?ver=4.3.18' type='text/css' media='all' />
+<script type="text/javascript" src="https://prophet.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<link rel="https://api.w.org/" href="https://prophet.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://prophet.com/wp-json/wp/v2/posts/32093" /><link rel='shortlink' href='https://prophet.com/?p=32093' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://prophet.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fprophet.com%2F2023%2F03%2Fdownload-the-2023-state-of-digital-transformation%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://prophet.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fprophet.com%2F2023%2F03%2Fdownload-the-2023-state-of-digital-transformation%2F&#038;format=xml" />
+        <style>
+                    </style>
+        				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+				<link rel="preload" as="style" href="//fonts.googleapis.com/css?family=Open+Sans&display=swap" />
+				<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans&display=swap" media="all" />
+							            <style>
+				            
+					div[id*='ajaxsearchlitesettings'].searchsettings .asl_option_inner label {
+						font-size: 0px !important;
+						color: rgba(0, 0, 0, 0);
+					}
+					div[id*='ajaxsearchlitesettings'].searchsettings .asl_option_inner label:after {
+						font-size: 11px !important;
+						position: absolute;
+						top: 0;
+						left: 0;
+						z-index: 1;
+					}
+					.asl_w_container {
+						width: 100%;
+						margin: 0px 0px 0px 0px;
+						min-width: 200px;
+					}
+					div[id*='ajaxsearchlite'].asl_m {
+						width: 100%;
+					}
+					div[id*='ajaxsearchliteres'].wpdreams_asl_results div.resdrg span.highlighted {
+						font-weight: bold;
+						color: rgba(217, 49, 43, 1);
+						background-color: rgba(238, 238, 238, 1);
+					}
+					div[id*='ajaxsearchliteres'].wpdreams_asl_results .results img.asl_image {
+						width: 70px;
+						height: 70px;
+						object-fit: cover;
+					}
+					div.asl_r .results {
+						max-height: none;
+					}
+				
+						.asl_m, .asl_m .probox {
+							background-color: rgb(38, 38, 38) !important;
+							background-image: none !important;
+							-webkit-background-image: none !important;
+							-ms-background-image: none !important;
+						}
+					
+						.asl_m .probox svg {
+							fill: rgba(0, 0, 0, 1) !important;
+						}
+						.asl_m .probox .innericon {
+							background-color: rgb(34, 255, 171) !important;
+							background-image: none !important;
+							-webkit-background-image: none !important;
+							-ms-background-image: none !important;
+						}
+					
+						div.asl_m.asl_w {
+							border:0px none rgb(0, 0, 0) !important;border-radius:0px 0px 0px 0px !important;
+							box-shadow: none !important;
+						}
+						div.asl_m.asl_w .probox {border: none !important;}
+					
+						div.asl_r.asl_w.vertical .results .item::after {
+							display: block;
+							position: absolute;
+							bottom: 0;
+							content: '';
+							height: 1px;
+							width: 100%;
+							background: #D8D8D8;
+						}
+						div.asl_r.asl_w.vertical .results .item.asl_last_item::after {
+							display: none;
+						}
+					 .asl_nores_header {
+    display: block;
+    text-align: center!important;
+}			            </style>
+			            <link rel="icon" href="https://prophet.com/wp-content/uploads/2022/05/favicon-white-bg-300x300.png" sizes="32x32" />
+<link rel="icon" href="https://prophet.com/wp-content/uploads/2022/05/favicon-white-bg-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://prophet.com/wp-content/uploads/2022/05/favicon-white-bg-300x300.png" />
+<meta name="msapplication-TileImage" content="https://prophet.com/wp-content/uploads/2022/05/favicon-white-bg-300x300.png" />
+
+	<meta data="The 2023 State of Digital Transformation" /><meta data="post" /><meta name="title" property="og:title" content="The 2023 State of Digital Transformation" /><meta name="type" property="og:type" content="article" /><meta name="url" property="og:url" content="https://prophet.com/2023/03/download-the-2023-state-of-digital-transformation/" /><meta property="og:image" content="https://prophet.com/wp-content/uploads/2023/03/DigitalTransformation_6A.png" /><meta property="twitter:image" content="https://prophet.com/wp-content/uploads/2023/03/DigitalTransformation_6A.png" />	<script type="application/ld+json">{"@context":"http:\/\/schema.org\/","@type":"Article","author":{"@type":"Person","name":"Omar Akhtar"},"url":"https:\/\/prophet.com\/2023\/03\/download-the-2023-state-of-digital-transformation\/","headline":"The 2023 State of Digital Transformation","datePublished":"2023-03-20 16:16:09","dateModified":"2023-11-06 19:03:18","image":"https:\/\/prophet.com\/wp-content\/uploads\/2023\/03\/DigitalTransformation_6A.png","publisher":{"@type":"Organization","url":"https:\/\/prophet.com","name":"Prophet Brand Strategy","logo":"https:\/\/prophet.com\/wp-content\/uploads\/2022\/02\/Prophet-Logo-White.svg"}}</script>
+
+</head>
+
+<body class="post-template-default single single-post postid-32093 single-format-standard wp-custom-logo wp-embed-responsive site-wrapper group-blog no-js">
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJ37M2B"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+	<!-- TEMPORARY PLACEMENT -->
+	<svg id="svg-icon-wrapper" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none"> 
+		<symbol id="i-right-arrow" viewBox="0 0 64 64">
+			<polygon points="38.11 5.15 36.76 6.45 36.76 6.45 60.5 31.06 0 31.06 0 32.94 60.5 32.94 36.76 57.55 38.11 58.85 64 32 38.11 5.15"/>
+		</symbol>
+		<symbol id="i-search" viewBox="0 0 64 64">
+			<path d="m64 61.7-23.83-20.82a23.49 23.49 0 1 0 -1.26 1.19l23.96 20.93zm-55.92-21.88a21.74 21.74 0 1 1 15.37 6.36 21.69 21.69 0 0 1 -15.37-6.36z"/>
+		</symbol>
+		<symbol id="i-circle-arrows" viewBox="0 0 64 64">
+			<path d="M50.79,50.11A25.72,25.72,0,0,1,6.69,37l5.67,3.35.85-1.43-8-4.72L0,41.29l1.34,1L5,37.3a27.43,27.43,0,0,0,54.14-.86l-1.7,0A25.63,25.63,0,0,1,50.79,50.11Z"/>
+			<path d="M13.12,14.07A25.72,25.72,0,0,1,57.35,26.79l-5.7-3.29-.84,1.44,8,4.64L64,22.41l-1.35-1-3.64,5A27.43,27.43,0,0,0,4.92,27.52l1.68.12A25.76,25.76,0,0,1,13.12,14.07Z"/>
+		</symbol>
+		<symbol id="i-plus" viewBox="0 0 64 64">
+			<path d="m64 31.89h-31v-31.89h-2v31.89h-31v2h31v30.11h2v-30.11h31z"/>
+		</symbol>
+		<symbol id="i-down-chevron" viewBox="0 0 64 64">
+			<path d="m62.73 15.16-30.3 31.17-31.18-31.18-1.25 1.25 32.45 32.45 31.55-32.46z"/>
+		</symbol>
+		<symbol id="i-right-chevron" viewBox="0 0 64 64">
+			<path d="m15.16 1.27 31.17 30.3-31.18 31.18 1.25 1.25 32.45-32.45-32.46-31.55z"/>
+		</symbol>
+		<symbol id="i-right-circle-chevron" viewBox="-1 0 66 64">
+			<path d="M32,0A32,32,0,1,0,64,32,32,32,0,0,0,32,0ZM53.44,53.44A30.32,30.32,0,1,1,62.32,32,30.26,30.26,0,0,1,53.44,53.44Z"/><polygon points="28.6 22.08 28.6 22.08 38.66 31.86 28.59 41.93 29.79 43.12 41.06 31.84 29.78 20.87 28.6 22.08"/>
+		</symbol>
+		<symbol id="i-left-chevron" viewBox="0 0 64 64">
+			<path d="m48.84 62.73-31.17-30.3 31.18-31.18-1.25-1.25-32.45 32.45 32.46 31.55z"/>
+		</symbol>
+		<symbol id="i-external" viewBox="0 0 64 64">
+			<path d="m64.04 16.5-.04-16.5h-16.17l-.05 1.64 13.65.04-17.74 17.34 1.15 1.17 17.51-17.11.04 13.42z"/>
+			<path d="m52.65 62.36h-50.95v-50.96h40.27v-1.64h-41.92v54.24h54.25v-41.91h-1.65z"/>
+		</symbol>
+		<symbol id="i-play" viewBox="0 0 53 53">
+			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				<g id="Tile-/-Video-/-Small" transform="translate(-124.000000, -63.000000)">
+					<g id="Icon-/-Play" transform="translate(124.000000, 63.000000)">
+						<circle id="Oval" fill="#00FFB5" cx="26.5" cy="26.5" r="26.5"></circle>
+						<path d="M38.859126,25.5418863 L21.0488279,15.6528809 C20.7037534,15.4616935 20.2829851,15.4660886 19.9423631,15.6616711 C19.5995149,15.8594512 19.3902439,16.2198505 19.3902439,16.6110156 L19.3902439,36.3890265 C19.3902439,36.7801916 19.5995149,37.1405909 19.9423631,37.338371 C20.1160136,37.4372611 20.3097005,37.4878049 20.5033875,37.4878049 C20.6903957,37.4878049 20.8796301,37.4416562 21.0488279,37.3471612 L38.859126,27.4581558 C39.2086531,27.2625733 39.4268293,26.8977788 39.4268293,26.5000211 C39.4268293,26.1022633 39.2086531,25.7374689 38.859126,25.5418863 Z" id="Path" fill="#000000" fill-rule="nonzero"></path>
+					</g>
+				</g>
+			</g>
+		</symbol>
+	</svg>
+
+	
+	<a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+
+	<header id="masthead" class="site-header">
+
+		
+		<div class="header-main-nav-container">
+			<div class="header-main-nav-inner">
+				<div class="site-branding">
+					<a href="https://prophet.com/" class="custom-logo-link" rel="home"><img width="105" height="13" src="https://prophet.com/wp-content/uploads/2022/02/Prophet-Logo-White.svg" class="custom-logo" alt="Business Transformation Consultants | Prophet" decoding="async" /></a>				</div><!-- .site-branding -->
+
+									<!-- <button type="button" class="off-canvas-open" aria-expanded="false" aria-label="Open Menu"></button> -->
+								
+				<nav id="site-navigation" class="main-navigation navigation-menu" aria-label="Main Navigation">
+					<ul id="primary-menu" class="menu dropdown"><li id="menu-item-35478" class="drop-menu menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-35478"><a href="#">What We Do</a>
+<ul class="sub-menu">
+	<li id="menu-item-35498" class="sub-menu-title menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-35498"><a href="https://prophet.com/growth-solutions/">Growth Solutions</a>
+	<ul class="sub-menu">
+		<li id="menu-item-35501" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35501"><a href="https://prophet.com/growth-solutions/growth-strategy/">Growth Strategy</a></li>
+		<li id="menu-item-35499" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35499"><a href="https://prophet.com/growth-solutions/go-to-market-innovation/">Go-to-Market Innovation</a></li>
+		<li id="menu-item-35500" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35500"><a href="https://prophet.com/growth-solutions/brand-led-transformation/">Brand-Led Transformation</a></li>
+	</ul>
+</li>
+	<li id="menu-item-35502" class="sub-menu-title menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-35502"><a href="https://prophet.com/marketing-solutions/">Marketing Solutions</a>
+	<ul class="sub-menu">
+		<li id="menu-item-35505" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35505"><a href="https://prophet.com/marketing-solutions/build-launch-and-grow-brands/">Build, Launch and Grow Brands</a></li>
+		<li id="menu-item-35504" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35504"><a href="https://prophet.com/marketing-solutions/demand-marketing/">Demand Marketing</a></li>
+		<li id="menu-item-35503" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35503"><a href="https://prophet.com/marketing-solutions/brand-marketing-and-campaigns/">Brand Marketing and Campaigns</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1335" class="sub-menu-title menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1335"><a href="https://prophet.com/services/">Services</a>
+	<ul class="sub-menu">
+		<li id="menu-item-35510" class="menu-item menu-item-type-post_type menu-item-object-services menu-item-35510"><a href="https://prophet.com/services/brand-building/">Brand Building</a></li>
+		<li id="menu-item-35509" class="menu-item menu-item-type-post_type menu-item-object-services menu-item-35509"><a href="https://prophet.com/services/marketing-excellence/">Marketing Excellence</a></li>
+		<li id="menu-item-35508" class="menu-item menu-item-type-post_type menu-item-object-services menu-item-35508"><a href="https://prophet.com/services/businessstrategy/">Business Strategy</a></li>
+		<li id="menu-item-35507" class="menu-item menu-item-type-post_type menu-item-object-services menu-item-35507"><a href="https://prophet.com/services/experience-innovation/">Experience &amp; Innovation</a></li>
+		<li id="menu-item-35506" class="menu-item menu-item-type-post_type menu-item-object-services menu-item-35506"><a href="https://prophet.com/services/organization-culture/">Organization &amp; Culture</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-740" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-740"><a href="https://prophet.com/work/">Work</a></li>
+<li id="menu-item-521" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-521"><a href="https://prophet.com/thinking/">Thinking</a></li>
+<li id="menu-item-326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-326"><a href="https://prophet.com/about/">About</a></li>
+<li id="menu-item-324" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-324"><a href="https://prophet.com/connect/">Connect</a></li>
+</ul>				</nav><!-- #site-navigation-->
+
+				<div class="main-nav-options">
+					<ul class="flatten-list">
+						<li class="language-items">
+							<ul id="language-menu" class="menu dropdown"><li id="menu-item-13383" class="pll-parent-menu-item menu-item menu-item-type-custom menu-item-object-custom current-menu-parent menu-item-has-children menu-item-13383"><a href="#pll_switcher">English</a>
+<ul class="sub-menu">
+	<li id="menu-item-13383-en" class="lang-item lang-item-295 lang-item-en current-lang lang-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-13383-en"><a href="https://prophet.com/2023/03/download-the-2023-state-of-digital-transformation/" hreflang="en-US" lang="en-US">English</a></li>
+	<li id="menu-item-13383-de" class="lang-item lang-item-297 lang-item-de no-translation menu-item menu-item-type-custom menu-item-object-custom menu-item-13383-de"><a href="https://prophet.com/de/" hreflang="de-DE" lang="de-DE">Deutsch</a></li>
+</ul>
+</li>
+</ul>						</li>
+						<li class="search">
+							<div class="icons">
+								<svg class="icon icon-search">
+									<use xlink:href="#i-search"></use>
+								</svg>
+								<svg class="icon icon-close">
+									<use xlink:href="#i-plus"></use>
+								</svg>
+							</div>
+
+						</li>
+						<li class="hamburger-menu">
+							<div class="hamburger" id="hamburger-1">
+								<span class="line"></span>
+								<span class="line"></span>
+								<span class="line"></span>
+							</div>
+						</li>
+					</ul>
+					
+				</div>
+			</div><!-- .container -->
+		</div>
+
+		<div class="breadcrumbs"><a href="https://prophet.com"  class="bounce-underline">Home</a> <span class="delimiter"> &#8250; </span> <a href="/thinking/all-posts/" class="bounce-underline">Thinking</a><span class="delimiter"> &#8250; </span><span class="current">The 2023 State of Digital Transformation</span></div>		
+	</header><!-- .site-header-->
+
+	<main id="main" class="site-main">
+
+		
+	<article class="post-container post-32093 post type-post status-publish format-standard has-post-thumbnail hentry thinking_topic-digital-transformation thinking_type-research">
+
+		<div class="entry-content">
+			
+<section class="section-content section-dark" style="">
+    <article class="container">
+        
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-1 wp-block-columns-is-layout-flex">
+<div class="wp-block-column phone:mb-32 is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:125px">
+<p class="h5 has-text-color" style="color:#00ffb5"><strong>REPORT</strong></p>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:60%">
+<h1 class="wp-block-heading h2 has-white-color has-text-color" id="h-the-2023-state-of-digital-transformation">The 2023 State of Digital Transformation</h1>
+
+
+
+<p>Benchmarks for what digital maturity looks like in 2023 for businesses to chart a path forward in the next wave of digital transformation.&nbsp;</p>
+
+
+
+<div class="wp-block-buttons">
+    <div class="wp-block-button is-style-fill scroll-cta">
+        <a href="#" 
+            class="wp-block-button__link no-border-radius white set-scroll to-scroll-cta" 
+            style="color: #0a0a0a; "  >
+                Download  
+        </a>
+    </div>
+</div>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:25%"></div>
+</div>
+
+
+    </article>
+</section>
+
+
+
+<section class="section-content section-white" style="background-color: #ffffff;color: #0a0a0a;">
+    <article class="container">
+        
+
+<div class="wp-block-columns prophet-columns is-layout-flex wp-container-core-columns-is-layout-2 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:125px"></div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:60%">
+<p>In this year’s State of Digital Transformation report, we set out to identify the key differences between the businesses that are succeeding at digital transformation, and those that are still struggling. We surveyed over 600 executives from North America, Europe and Asia across a range of industries to highlight not only their current digital capabilities but the key investments and choices they made that got them to where they are today. By separating the responses of high performers and average performers, we identified key characteristics of companies that successfully met their transformation goals.&nbsp;</p>
+
+
+
+<p>This report serves as a benchmark for what digital maturity looks like in 2023 and charts a path forward for businesses that are looking to drive growth and thrive in the next wave of digital transformation initiatives.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="h-key-takeaways">Key Takeaways: </h2>
+
+
+
+<ul class="disc wp-block-list">
+<li>The majority of companies (45%) chose business growth as their top goal for digital transformation, followed by innovation (45%) and efficiency (42%).&nbsp;</li>
+
+
+
+<li>Top-performing companies tracked metrics like innovation (36%) and digital literacy (32%) to measure digital transformation success, while average performers tracked business performance (42%) and efficiency (40%).&nbsp;</li>
+
+
+
+<li>Limited budgets (34%) and a resistant culture (27%) were the top obstacles to digital transformation success.&nbsp;</li>
+
+
+
+<li>Despite challenging economic times, 42% of digitally mature companies were accelerating their digital transformation efforts this year.&nbsp;</li>
+
+
+
+<li>Top-performing companies were more likely to have their digital transformation led by the CEO (33%), compared to average performers where the CIO or CTO (36%) were more likely to be in charge.&nbsp;</li>
+
+
+
+<li>The top transformation priorities for companies were upgrading technology (50%), achieving operational efficiency (34%) and getting more value from data (32%)&nbsp;</li>
+</ul>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:15px"></div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:25%">
+<div id="sidebar-block_2bf624c0dfaa055ed8b446fec8070368" class="thinking-sidebar-wrapper">
+
+    
+    
+        
+            <div class="author-block">
+                                <h3 class="title">Authors</h3>
+                <ul class="author-list">
+                                                <li class="leadership-container">
+                                <a href="/author/omar" class="leader">
+                                    <div class="profile-img">
+                                        <div class="profile-halo"></div>
+                                        <img decoding="async" data-del="avatar" alt="" height="150" width="150" class="avatar pp-user-avatar photo lazyloaded" src="https://prophet.com/wp-content/uploads/2022/04/Omar-Akhtar-1.jpg">
+                                    </div>
+                                    <div class="profile-info">
+                                        <p class="name">Omar Akhtar</p>
+                                        <p class="role">Former Senior Analyst and Research Director</p>
+                                    </div>
+                                </a>
+                            </li>
+                                                <li class="leadership-container">
+                                <a href="/author/chan-suh" class="leader">
+                                    <div class="profile-img">
+                                        <div class="profile-halo"></div>
+                                        <img decoding="async" data-del="avatar" alt="" height="150" width="150" class="avatar pp-user-avatar photo lazyloaded" src="https://prophet.com/wp-content/uploads/2018/01/suh.jpg">
+                                    </div>
+                                    <div class="profile-info">
+                                        <p class="name">Chan Suh</p>
+                                        <p class="role">Senior Partner, Chief Digital Officer</p>
+                                    </div>
+                                </a>
+                            </li>
+                    
+                </ul>
+            </div>
+
+        
+    
+    
+    
+        <nav class="social-links">
+            <h3 class="title">Share</h3>
+            <ul class="social-icons">
+                <li class="icon"> 
+                    <a href="#" target="_blank" class="linkedin sharer"><span class="icon-linkedin" style="right: 0px;"></span></a>
+                </li>
+                <li class="icon">
+                    <a href="#" target="_blank" class="facebook sharer"><span class="icon-facebook"></span></a>
+                </li>
+
+            </ul>
+        </nav>
+
+    
+    
+    
+        <div class="subscribe-block">
+            <h3 class="title">Don&#8217;t Miss a Beat</h3>
+            <p>Sign up to receive our latest insights.</p>
+            <div class="wp-block-buttons">
+                <div class="wp-block-button">
+                    <a href="/subscribe" class="wp-block-button__link no-border-radius link--ani-arrow" style="color: #0a0a0a">SUBSCRIBE&nbsp;
+                        <svg class="i-ani-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <g fill="none" stroke="#000000" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10">
+                                    <circle class="arrow-icon--circle" cx="16" cy="16" r="15.12" />
+                                    <path class="arrow-icon--arrow" d="M16.14 10.93L22.21 16l-6.07 5.07M8.23 16h13.98" / > 
+                            </g>
+                        </svg> 
+                    </a>
+                </div>
+            </div>
+        </div><!-- .subscribe-block -->
+
+        
+</div><!-- .thinking-sidebar-wrapper -->
+
+
+    <div class="tile-link-container  tile-link-container-light">
+        <div class="tile-link-inner-container">
+
+                            
+                    <div class="tile-link-block" style="background: #fcfcfc; color: #000000;">
+                        <a href="https://prophet.com/services/business-strategy/" class="tile-anchor-link ">
+                            <div  style="background: #334aff" class="line-bar"></div>
+                            <p class="tile-title">Identify<br>Growth<br>Pathways</p>
+
+                                                            <p class="tile-text">RELATED SERVICE</p>
+                                                        
+                                                    </a>
+                    </div><!-- .tile-link-block -->
+
+            
+        </div><!-- .tile-link-inner-container -->
+    </div><!-- .tile-link-container -->
+
+</div>
+</div>
+
+
+    </article>
+</section>
+
+
+
+<section class="section-content to-scroll-cta section-dark" style="">
+    <article class="container">
+        
+
+<div class="wp-block-columns prophet-columns is-layout-flex wp-container-core-columns-is-layout-3 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:125px"></div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:66.66%">
+<div id="cta-anchor"></div>
+<div class="form-container gated-page-block">    
+    <div class="form-wrapper" style="">
+
+        <div class="header">
+            <h3 class="title"><span>Download</span> <span class=""><br>The 2023 State of Digital Transformation</span></h3>
+        </div>
+        
+        <form id="form-gated" class="download" name="gated_form">
+
+            <div class="form-row col-1-2">
+                <label for="first_name" aria-label="First Name">
+                    <input value="" type="text" id="first_name" name="first_name" placeholder="First Name*">
+                    <span class="bottom-line trans"></span>
+                </label>
+            </div>
+
+            <div class="form-row col-1-2">
+                <label for="last_name" aria-label="Last Name">
+                    <input value="" type="text" id="last_name" name="last_name" placeholder="Last Name*">
+                    <span class="bottom-line trans"></span>
+                </label>
+            </div>
+
+            <div class="form-row col-1-2">
+                <label for="company" aria-label="Company">
+                    <input value="" type="text" id="company" name="company" placeholder="Company*">
+                    <span class="bottom-line trans"></span>	
+                </label>
+            </div>
+
+            <div class="form-row col-1-2">
+                <label for="seniority" class="dropmenu-wrapper" aria-label="Seniority">
+                    <select id="seniority" class="connect-seniority" name="seniority">
+                        <option value="" selected="selected">Role*</option>
+                                                    <option value="Analyst / Coordinator">Analyst / Coordinator</option>
+<option value="Assistant">Assistant</option>
+<option value="Business Unit Head">Business Unit Head</option>
+<option value="C-Level">C-Level</option>
+<option value="Director">Director</option>
+<option value="General Manager / Managing Director">General Manager / Managing Director</option>
+<option value="Manager">Manager</option>
+<option value="President">President</option>
+<option value="VP / SVP">VP / SVP</option>
+<option value="Professor">Professor</option>
+<option value="Student">Student</option>
+<option value="Other">Other</option>                        
+                    </select>
+                    <span class="bottom-line trans"></span>
+                    <svg class="icon white">
+                        <use xlink:href="#i-down-chevron"></use>
+                    </svg>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label for="job_function" class="dropmenu-wrapper" aria-label="Job Function">
+                    <select id="job_function" class="connect-job-function" name="job_function">
+                        <option value="" selected="selected">Function*</option>
+                                                    <option value="Strategy">Strategy</option>
+<option value="Legal">Legal</option>
+<option value="Operations">Operations</option>
+<option value="Research / Insights">Research / Insights</option>
+<option value="Procurement">Procurement</option>
+<option value="Digital / Technology">Digital / Technology</option>
+<option value="Sales">Sales</option>
+<option value="Finance">Finance</option>
+<option value="Experience">Experience</option>
+<option value="People / HR">People / HR</option>
+<option value="Communications / PR">Communications / PR</option>
+<option value="Product / Innovation">Product / Innovation</option>
+<option value="Marketing">Marketing</option>
+<option value="Design">Design</option>
+<option value="Brand">Brand</option>                        
+                    </select>
+                    <span class="bottom-line trans"></span>
+                    <svg class="icon white">
+                        <use xlink:href="#i-down-chevron"></use>
+                    </svg>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label for="country" class="dropmenu-wrapper" aria-label="Country">
+                    <select id="country" class="connect-country" name="country">
+                        <option value="" selected="selected">Country*</option>
+                                                    <option value="DE">GERMANY</option>
+<option value="ES">SPAIN</option>
+<option value="CH">SWITZERLAND</option>
+<option value="GB">UNITED KINGDOM</option>
+<option value="US">UNITED STATES</option>
+<option value="AF">AFGHANISTAN</option>
+<option value="AL">ALBANIA</option>
+<option value="DZ">ALGERIA</option>
+<option value="AS">AMERICAN SAMOA</option>
+<option value="AD">ANDORRA</option>
+<option value="AO">ANGOLA</option>
+<option value="AI">ANGUILLA</option>
+<option value="AQ">ANTARCTICA</option>
+<option value="AG">ANTIGUA AND BARBUDA</option>
+<option value="AR">ARGENTINA</option>
+<option value="AM">ARMENIA</option>
+<option value="AW">ARUBA</option>
+<option value="AU">AUSTRALIA</option>
+<option value="AT">AUSTRIA</option>
+<option value="AZ">AZERBAIJAN</option>
+<option value="BS">BAHAMAS</option>
+<option value="BH">BAHRAIN</option>
+<option value="BD">BANGLADESH</option>
+<option value="BB">BARBADOS</option>
+<option value="BY">BELARUS</option>
+<option value="BE">BELGIUM</option>
+<option value="BZ">BELIZE</option>
+<option value="BJ">BENIN</option>
+<option value="BM">BERMUDA</option>
+<option value="BT">BHUTAN</option>
+<option value="BO">BOLIVIA</option>
+<option value="BA">BOSNIA AND HERZEGOVINA</option>
+<option value="BW">BOTSWANA</option>
+<option value="BV">BOUVET ISLAND</option>
+<option value="BR">BRAZIL</option>
+<option value="IO">BRITISH INDIAN OCEAN TERRITORY</option>
+<option value="BN">BRUNEI DARUSSALAM</option>
+<option value="BG">BULGARIA</option>
+<option value="BF">BURKINA FASO</option>
+<option value="BI">BURUNDI</option>
+<option value="KH">CAMBODIA</option>
+<option value="CM">CAMEROON</option>
+<option value="CA">CANADA</option>
+<option value="CV">CAPE VERDE</option>
+<option value="KY">CAYMAN ISLANDS</option>
+<option value="CF">CENTRAL AFRICAN REPUBLIC</option>
+<option value="TD">CHAD</option>
+<option value="CL">CHILE</option>
+<option value="CN">CHINA</option>
+<option value="CX">CHRISTMAS ISLAND</option>
+<option value="CC">COCOS (KEELING) ISLANDS</option>
+<option value="CO">COLOMBIA</option>
+<option value="KM">COMOROS</option>
+<option value="CG">CONGO</option>
+<option value="CD">CONGO, THE DEMOCRATIC REPUBLIC OF THE</option>
+<option value="CK">COOK ISLANDS</option>
+<option value="CR">COSTA RICA</option>
+<option value="CI">COTE D&#8217;IVOIRE</option>
+<option value="HR">CROATIA</option>
+<option value="CU">CUBA</option>
+<option value="CY">CYPRUS</option>
+<option value="CZ">CZECH REPUBLIC</option>
+<option value="DK">DENMARK</option>
+<option value="DJ">DJIBOUTI</option>
+<option value="DM">DOMINICA</option>
+<option value="DO">DOMINICAN REPUBLIC</option>
+<option value="EC">ECUADOR</option>
+<option value="EG">EGYPT</option>
+<option value="SV">EL SALVADOR</option>
+<option value="GQ">EQUATORIAL GUINEA</option>
+<option value="ER">ERITREA</option>
+<option value="EE">ESTONIA</option>
+<option value="ET">ETHIOPIA</option>
+<option value="FK">FALKLAND ISLANDS (MALVINAS)</option>
+<option value="FO">FAROE ISLANDS</option>
+<option value="FJ">FIJI</option>
+<option value="FI">FINLAND</option>
+<option value="FR">FRANCE</option>
+<option value="GF">FRENCH GUIANA</option>
+<option value="PF">FRENCH POLYNESIA</option>
+<option value="TF">FRENCH SOUTHERN TERRITORIES</option>
+<option value="GA">GABON</option>
+<option value="GM">GAMBIA</option>
+<option value="GE">GEORGIA</option>
+<option value="GH">GHANA</option>
+<option value="GI">GIBRALTAR</option>
+<option value="GR">GREECE</option>
+<option value="GL">GREENLAND</option>
+<option value="GD">GRENADA</option>
+<option value="GP">GUADELOUPE</option>
+<option value="GU">GUAM</option>
+<option value="GT">GUATEMALA</option>
+<option value="GN">GUINEA</option>
+<option value="GW">GUINEA-BISSAU</option>
+<option value="GY">GUYANA</option>
+<option value="HT">HAITI</option>
+<option value="HM">HEARD ISLAND AND MCDONALD ISLANDS</option>
+<option value="VA">HOLY SEE (VATICAN CITY STATE)</option>
+<option value="HN">HONDURAS</option>
+<option value="HK">HONG KONG</option>
+<option value="HU">HUNGARY</option>
+<option value="IS">ICELAND</option>
+<option value="IN">INDIA</option>
+<option value="ID">INDONESIA</option>
+<option value="IR">IRAN, ISLAMIC REPUBLIC OF</option>
+<option value="IQ">IRAQ</option>
+<option value="IE">IRELAND</option>
+<option value="IL">ISRAEL</option>
+<option value="IT">ITALY</option>
+<option value="JM">JAMAICA</option>
+<option value="JP">JAPAN</option>
+<option value="JO">JORDAN</option>
+<option value="KZ">KAZAKHSTAN</option>
+<option value="KE">KENYA</option>
+<option value="KI">KIRIBATI</option>
+<option value="KP">KOREA, DEMOCRATIC PEOPLE&#8217;S REPUBLIC OF</option>
+<option value="KR">KOREA, REPUBLIC OF</option>
+<option value="KW">KUWAIT</option>
+<option value="KG">KYRGYZSTAN</option>
+<option value="LA">LAO PEOPLE&#8217;S DEMOCRATIC REPUBLIC</option>
+<option value="LV">LATVIA</option>
+<option value="LB">LEBANON</option>
+<option value="LS">LESOTHO</option>
+<option value="LR">LIBERIA</option>
+<option value="LY">LIBYAN ARAB JAMAHIRIYA</option>
+<option value="LI">LIECHTENSTEIN</option>
+<option value="LT">LITHUANIA</option>
+<option value="LU">LUXEMBOURG</option>
+<option value="MO">MACAO</option>
+<option value="MK">MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF</option>
+<option value="MG">MADAGASCAR</option>
+<option value="MW">MALAWI</option>
+<option value="MY">MALAYSIA</option>
+<option value="MV">MALDIVES</option>
+<option value="ML">MALI</option>
+<option value="MT">MALTA</option>
+<option value="MH">MARSHALL ISLANDS</option>
+<option value="MQ">MARTINIQUE</option>
+<option value="MR">MAURITANIA</option>
+<option value="MU">MAURITIUS</option>
+<option value="YT">MAYOTTE</option>
+<option value="MX">MEXICO</option>
+<option value="FM">MICRONESIA, FEDERATED STATES OF</option>
+<option value="MD">MOLDOVA, REPUBLIC OF</option>
+<option value="MC">MONACO</option>
+<option value="MN">MONGOLIA</option>
+<option value="MS">MONTSERRAT</option>
+<option value="MA">MOROCCO</option>
+<option value="MZ">MOZAMBIQUE</option>
+<option value="MM">MYANMAR</option>
+<option value="NA">NAMIBIA</option>
+<option value="NR">NAURU</option>
+<option value="NP">NEPAL</option>
+<option value="NL">NETHERLANDS</option>
+<option value="AN">NETHERLANDS ANTILLES</option>
+<option value="NC">NEW CALEDONIA</option>
+<option value="NZ">NEW ZEALAND</option>
+<option value="NI">NICARAGUA</option>
+<option value="NE">NIGER</option>
+<option value="NG">NIGERIA</option>
+<option value="NU">NIUE</option>
+<option value="NF">NORFOLK ISLAND</option>
+<option value="MP">NORTHERN MARIANA ISLANDS</option>
+<option value="NO">NORWAY</option>
+<option value="OM">OMAN</option>
+<option value="PK">PAKISTAN</option>
+<option value="PW">PALAU</option>
+<option value="PS">PALESTINIAN TERRITORY, OCCUPIED</option>
+<option value="PA">PANAMA</option>
+<option value="PG">PAPUA NEW GUINEA</option>
+<option value="PY">PARAGUAY</option>
+<option value="PE">PERU</option>
+<option value="PH">PHILIPPINES</option>
+<option value="PN">PITCAIRN</option>
+<option value="PL">POLAND</option>
+<option value="PT">PORTUGAL</option>
+<option value="PR">PUERTO RICO</option>
+<option value="QA">QATAR</option>
+<option value="RE">REUNION</option>
+<option value="RO">ROMANIA</option>
+<option value="RU">RUSSIAN FEDERATION</option>
+<option value="RW">RWANDA</option>
+<option value="SH">SAINT HELENA</option>
+<option value="KN">SAINT KITTS AND NEVIS</option>
+<option value="LC">SAINT LUCIA</option>
+<option value="PM">SAINT PIERRE AND MIQUELON</option>
+<option value="VC">SAINT VINCENT AND THE GRENADINES</option>
+<option value="WS">SAMOA</option>
+<option value="SM">SAN MARINO</option>
+<option value="ST">SAO TOME AND PRINCIPE</option>
+<option value="SA">SAUDI ARABIA</option>
+<option value="SN">SENEGAL</option>
+<option value="CS">SERBIA AND MONTENEGRO</option>
+<option value="SC">SEYCHELLES</option>
+<option value="SL">SIERRA LEONE</option>
+<option value="SG">SINGAPORE</option>
+<option value="SK">SLOVAKIA</option>
+<option value="SI">SLOVENIA</option>
+<option value="SB">SOLOMON ISLANDS</option>
+<option value="SO">SOMALIA</option>
+<option value="ZA">SOUTH AFRICA</option>
+<option value="GS">SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS</option>
+<option value="LK">SRI LANKA</option>
+<option value="SD">SUDAN</option>
+<option value="SR">SURINAME</option>
+<option value="SJ">SVALBARD AND JAN MAYEN</option>
+<option value="SZ">SWAZILAND</option>
+<option value="SE">SWEDEN</option>
+<option value="SY">SYRIAN ARAB REPUBLIC</option>
+<option value="TW">TAIWAN, PROVINCE OF CHINA</option>
+<option value="TJ">TAJIKISTAN</option>
+<option value="TZ">TANZANIA, UNITED REPUBLIC OF</option>
+<option value="TH">THAILAND</option>
+<option value="TL">TIMOR-LESTE</option>
+<option value="TG">TOGO</option>
+<option value="TK">TOKELAU</option>
+<option value="TO">TONGA</option>
+<option value="TT">TRINIDAD AND TOBAGO</option>
+<option value="TN">TUNISIA</option>
+<option value="TR">TURKEY</option>
+<option value="TM">TURKMENISTAN</option>
+<option value="TC">TURKS AND CAICOS ISLANDS</option>
+<option value="TV">TUVALU</option>
+<option value="UG">UGANDA</option>
+<option value="UA">UKRAINE</option>
+<option value="AE">UNITED ARAB EMIRATES</option>
+<option value="UM">UNITED STATES MINOR OUTLYING ISLANDS</option>
+<option value="UY">URUGUAY</option>
+<option value="UZ">UZBEKISTAN</option>
+<option value="VU">VANUATU</option>
+<option value="VE">VENEZUELA</option>
+<option value="VN">VIET NAM</option>
+<option value="VG">VIRGIN ISLANDS, BRITISH</option>
+<option value="VI">VIRGIN ISLANDS, U.S.</option>
+<option value="WF">WALLIS AND FUTUNA</option>
+<option value="EH">WESTERN SAHARA</option>
+<option value="YE">YEMEN</option>
+<option value="ZM">ZAMBIA</option>
+<option value="ZW">ZIMBABWE</option>                                            </select>
+                    <span class="bottom-line trans"></span>
+                    <svg class="icon white">
+                        <use xlink:href="#i-down-chevron"></use>
+                    </svg>
+                </label>
+            </div>
+
+            <div class="form-row state-province-row hidden">
+                <label for="state_province" class="dropmenu-wrapper" aria-label="State or Province">
+                    <select id="state_province" class="connect-state-province" name="state_province">
+                        <option value="" selected="selected">State or Province*</option>
+
+                                                    <option value="AK">Alaska</option>
+<option value="AL">Alabama</option>
+<option value="AR">Arkansas</option>
+<option value="AS">American Samoa</option>
+<option value="AZ">Arizona</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="CT">Connecticut</option>
+<option value="DC">D.C.</option>
+<option value="DE">Delaware</option>
+<option value="FL">Florida</option>
+<option value="FM">Micronesia</option>
+<option value="GA">Georgia</option>
+<option value="GU">Guam</option>
+<option value="HI">Hawaii</option>
+<option value="IA">Iowa</option>
+<option value="ID">Idaho</option>
+<option value="IL">Illinois</option>
+<option value="IN">Indiana</option>
+<option value="KS">Kansas</option>
+<option value="KY">Kentucky</option>
+<option value="LA">Louisiana</option>
+<option value="MA">Massachusetts</option>
+<option value="MD">Maryland</option>
+<option value="ME">Maine</option>
+<option value="MH">Marshall Islands</option>
+<option value="MI">Michigan</option>
+<option value="MN">Minnesota</option>
+<option value="MO">Missouri</option>
+<option value="MP">Marianas</option>
+<option value="MS">Mississippi</option>
+<option value="MT">Montana</option>
+<option value="NC">North Carolina</option>
+<option value="ND">North Dakota</option>
+<option value="NE">Nebraska</option>
+<option value="NH">New Hampshire</option>
+<option value="NJ">New Jersey</option>
+<option value="NM">New Mexico</option>
+<option value="NV">Nevada</option>
+<option value="NY">New York</option>
+<option value="OH">Ohio</option>
+<option value="OK">Oklahoma</option>
+<option value="OR">Oregon</option>
+<option value="PA">Pennsylvania</option>
+<option value="PR">Puerto Rico</option>
+<option value="PW">Palau</option>
+<option value="RI">Rhode Island</option>
+<option value="SC">South Carolina</option>
+<option value="SD">South Dakota</option>
+<option value="TN">Tennessee</option>
+<option value="TX">Texas</option>
+<option value="UT">Utah</option>
+<option value="VA">Virginia</option>
+<option value="VI">Virgin Islands</option>
+<option value="VT">Vermont</option>
+<option value="WA">Washington</option>
+<option value="WI">Wisconsin</option>
+<option value="WV">West Virginia</option>
+<option value="WY">Wyoming</option>
+<option value="AA">Military Americas</option>
+<option value="AE">Military Europe/ME/Canada</option>
+<option value="AP">Military Pacific</option>
+<option value="AB">Alberta</option>
+<option value="MB">Manitoba</option>
+<option value="BC">British Columbia</option>
+<option value="NB">New Brunswick</option>
+<option value="NL">Newfoundland and Labrador</option>
+<option value="NS">Nova Scotia</option>
+<option value="NT">Northwest Territories</option>
+<option value="NU">Nunavut</option>
+<option value="ON">Ontario</option>
+<option value="PE">Prince Edward Island</option>
+<option value="QC">Quebec</option>
+<option value="SK">Saskatchewan</option>
+<option value="YT">Yukon Territory</option>                        
+                    </select>
+                    <span class="bottom-line trans"></span>
+                    <svg class="icon white">
+                        <use xlink:href="#i-down-chevron"></use>
+                    </svg>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label for="email" aria-label="Email">
+                    <input type="email" id="email" name="email" placeholder="Email*" >
+                    <span class="bottom-line trans"></span>
+                </label>
+            </div>
+            
+            <div class="form-row">
+                <label class="checkbox-wrapper" aria-label="Interested in receiving the latest insights, research and news.">
+                    <span class="checkbox-message">Interested in receiving the latest insights, research and news.</span> <input type="checkbox" class="connect-checkbox" /> <span class="checkmark"></span>
+                </label>
+            </div>
+
+            <input type="hidden" id="gated_link_asset" name="gatedLinkAsset" value="https://prophet.com/pdf/the-2023-state-of-digital-transformation/?redirectedfrom=gatedpage">
+            <input type="hidden" id="report_title" name="reportTitle" value="The 2023 State of Digital Transformation">
+            <input type="hidden" id="tracking_id" name="elqPostTrackingID" value="1036">
+            <!-- reCaptcha -->
+            <input type="hidden" class="recaptcha_token" name="recaptcha_token" >
+            <input type="hidden" class="recaptcha_action" name="recaptcha_action" value="recaptcha_gated_connect_form" >
+            <input type="hidden" name="elqCustomerGUID" value="">
+            <input type="hidden" name="elqCookieWrite" value="0">
+
+            <input type="hidden" name="utm_source" class="utm_source" value="">
+            <input type="hidden" name="utm_medium" class="utm_medium" value="">
+            <input type="hidden" name="utm_campaign" class="utm_campaign" value="">
+            
+            <div class="form-row button-container">
+                <div class="wp-block-buttons">
+                    <div class="wp-block-button is-style-fill">
+                        <span class="required-message">*Fill in all required fields</span>
+                        <input class="wp-block-button__link no-border-radius connect-submit-btn" type="submit" name="submit" value="Submit" />
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="success-container" data-success-redirect="">
+            <div class="cta-success-message" >
+                <p>Thank you for your interest in Prophet’s research!</p>
+            </div>
+        </div>
+
+        
+        <div class="gated-btn-content ">
+            <div class="wp-block-buttons">
+                <div class="wp-block-button is-style-fill">
+                    <a href="https://prophet.com/pdf/the-2023-state-of-digital-transformation/?redirectedfrom=thinking" class="wp-block-button__link no-border-radius gated-btn">DOWNLOAD NOW!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</div>
+</div>
+
+
+    </article>
+</section>
+
+
+
+<section class="section-content section-white" style="background-color: #ffffff;color: #0a0a0a;">
+    <article class="container">
+        
+
+<div class="wp-block-columns prophet-columns is-layout-flex wp-container-core-columns-is-layout-5 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-4 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="h-related-thinking"><strong>Related Thinking</strong></h2>
+
+
+
+<p></p>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<p class="has-text-align-right"><a href="https://prophet.com/thinking/all-posts/">View All</a></p>
+</div>
+</div>
+
+
+
+<div class="carousel-container" data-slide-show="3">
+
+    <div class="tiles-container">
+
+    
+<div id="post-35803" class="tile-item post-35803 post type-post status-publish format-standard has-post-thumbnail hentry thinking_topic-digital-transformation thinking_type-research" >
+    <a href="https://prophet.com/2025/03/download-making-culture-pop-unlocking-the-power-of-culture-for-your-business/" class="tile-link hotSpot-container" target="_self" onclick="ga( 'send', 'event', 'Card Tile', 'Custom Block', 'Making Culture Pop: Unlocking the Power of Culture for Your Business' );">
+        <div class="tile-block">
+            <div class="tile-content">
+                <div class="top">
+                                        <div class="bg-img" style="background-image: url(https://prophet.com/wp-content/uploads/2025/03/CultureReport_BlogTile_2800x1500-03-1492x800.png)"></div>
+                </div>
+                <div class="bottom">
+
+                    <p class='taxonomy'><span class='content-type uppercase font-GraphikMedium text-sm'>Research</span></p><h3 class='entry-title font-normal font-GraphikLight'>Making Culture Pop: Unlocking the Power of Culture for Your Business</h3>
+                    <div class="arrow-icon">
+                        
+	<svg viewbox="0 0 64 64" class="icon i-right-arrow" aria-hidden="true" role="img">
+
+		
+									<polygon points="38.11 5.15 36.76 6.45 36.76 6.45 60.5 31.06 0 31.06 0 32.94 60.5 32.94 36.76 57.55 38.11 58.85 64 32 38.11 5.15" />
+					
+	</svg>
+
+	                    </div>
+
+                </div>
+            </div>
+        </div> 
+    </a>
+</div><!-- .tile-item -->
+<div id="post-35319" class="tile-item post-35319 post type-post status-publish format-standard has-post-thumbnail hentry thinking_topic-digital-transformation thinking_type-research" >
+    <a href="https://prophet.com/2024/12/download-the-rise-of-the-ai-powered-consumer/" class="tile-link hotSpot-container" target="_self" onclick="ga( 'send', 'event', 'Card Tile', 'Custom Block', 'The Rise of the AI-Powered Consumer' );">
+        <div class="tile-block">
+            <div class="tile-content">
+                <div class="top">
+                                        <div class="bg-img" style="background-image: url(https://prophet.com/wp-content/uploads/2024/12/Featured-Tile-1493x800.jpg)"></div>
+                </div>
+                <div class="bottom">
+
+                    <p class='taxonomy'><span class='content-type uppercase font-GraphikMedium text-sm'>Research</span></p><h3 class='entry-title font-normal font-GraphikLight'>The Rise of the AI-Powered Consumer</h3>
+                    <div class="arrow-icon">
+                        
+	<svg viewbox="0 0 64 64" class="icon i-right-arrow" aria-hidden="true" role="img">
+
+		
+									<polygon points="38.11 5.15 36.76 6.45 36.76 6.45 60.5 31.06 0 31.06 0 32.94 60.5 32.94 36.76 57.55 38.11 58.85 64 32 38.11 5.15" />
+					
+	</svg>
+
+	                    </div>
+
+                </div>
+            </div>
+        </div> 
+    </a>
+</div><!-- .tile-item -->
+<div id="post-35187" class="tile-item post-35187 post type-post status-publish format-standard has-post-thumbnail hentry thinking_topic-brand-activation thinking_topic-digital-transformation thinking_type-blogs" >
+    <a href="https://prophet.com/2024/10/three-brand-building-imperatives-in-leading-successful-m-a-deals/" class="tile-link hotSpot-container" target="_self" onclick="ga( 'send', 'event', 'Card Tile', 'Custom Block', 'Three Brand Building Imperatives in Leading Successful M&amp;A Deals ' );">
+        <div class="tile-block">
+            <div class="tile-content">
+                <div class="top">
+                                        <div class="bg-img" style="background-image: url(https://prophet.com/wp-content/uploads/2018/06/Brand-Role-Models-Best-Brands_2_B-1493x800.png)"></div>
+                </div>
+                <div class="bottom">
+
+                    <p class='taxonomy'><span class='content-type uppercase font-GraphikMedium text-sm'>Blog</span></p><h3 class='entry-title font-normal font-GraphikLight'>Three Brand Building Imperatives in Leading Successful M&amp;A Deals </h3>
+                    <div class="arrow-icon">
+                        
+	<svg viewbox="0 0 64 64" class="icon i-right-arrow" aria-hidden="true" role="img">
+
+		
+									<polygon points="38.11 5.15 36.76 6.45 36.76 6.45 60.5 31.06 0 31.06 0 32.94 60.5 32.94 36.76 57.55 38.11 58.85 64 32 38.11 5.15" />
+					
+	</svg>
+
+	                    </div>
+
+                </div>
+            </div>
+        </div> 
+    </a>
+</div><!-- .tile-item -->
+<div id="post-35079" class="tile-item post-35079 post type-post status-publish format-standard has-post-thumbnail hentry thinking_topic-digital-transformation thinking_type-blogs thinking_sub_brand-healthcare" >
+    <a href="https://prophet.com/2024/10/transforming-healthcare-advocate-healths-shift-to-platforms/" class="tile-link hotSpot-container" target="_self" onclick="ga( 'send', 'event', 'Card Tile', 'Custom Block', 'Transforming Healthcare: Advocate Health’s Shift to Platforms' );">
+        <div class="tile-block">
+            <div class="tile-content">
+                <div class="top">
+                                        <div class="bg-img" style="background-image: url(https://prophet.com/wp-content/uploads/2024/10/Healthcare_1A-1493x800.png)"></div>
+                </div>
+                <div class="bottom">
+
+                    <p class='taxonomy'><span class='content-type uppercase font-GraphikMedium text-sm'>Blog</span></p><h3 class='entry-title font-normal font-GraphikLight'>Transforming Healthcare: Advocate Health’s Shift to Platforms</h3>
+                    <div class="arrow-icon">
+                        
+	<svg viewbox="0 0 64 64" class="icon i-right-arrow" aria-hidden="true" role="img">
+
+		
+									<polygon points="38.11 5.15 36.76 6.45 36.76 6.45 60.5 31.06 0 31.06 0 32.94 60.5 32.94 36.76 57.55 38.11 58.85 64 32 38.11 5.15" />
+					
+	</svg>
+
+	                    </div>
+
+                </div>
+            </div>
+        </div> 
+    </a>
+</div><!-- .tile-item -->
+<div id="post-34763" class="tile-item post-34763 post type-post status-publish format-standard has-post-thumbnail hentry thinking_topic-digital-transformation thinking_type-blogs thinking_sub_brand-healthcare" >
+    <a href="https://prophet.com/2024/08/transforming-healthcare-the-power-of-platform-thinking/" class="tile-link hotSpot-container" target="_self" onclick="ga( 'send', 'event', 'Card Tile', 'Custom Block', 'Transforming Healthcare: The Power of Platform Thinking' );">
+        <div class="tile-block">
+            <div class="tile-content">
+                <div class="top">
+                                        <div class="bg-img" style="background-image: url(https://prophet.com/wp-content/uploads/2019/05/Strategy_3_B-1493x800.jpg)"></div>
+                </div>
+                <div class="bottom">
+
+                    <p class='taxonomy'><span class='content-type uppercase font-GraphikMedium text-sm'>Blog</span></p><h3 class='entry-title font-normal font-GraphikLight'>Transforming Healthcare: The Power of Platform Thinking</h3>
+                    <div class="arrow-icon">
+                        
+	<svg viewbox="0 0 64 64" class="icon i-right-arrow" aria-hidden="true" role="img">
+
+		
+									<polygon points="38.11 5.15 36.76 6.45 36.76 6.45 60.5 31.06 0 31.06 0 32.94 60.5 32.94 36.76 57.55 38.11 58.85 64 32 38.11 5.15" />
+					
+	</svg>
+
+	                    </div>
+
+                </div>
+            </div>
+        </div> 
+    </a>
+</div><!-- .tile-item -->
+    </div><!-- .tiles -->
+
+
+</div><!-- .carousel-container --></div>
+</div>
+
+
+    </article>
+</section>
+
+
+		</div><!-- .entry-content -->
+
+		<footer class="entry-footer bg-white text-black">
+					</footer><!-- .entry-footer -->
+
+	</article><!-- #post-## -->
+
+	</main><!-- #main -->
+
+
+	<footer class="site-footer">
+		<div class="container">
+			<div class="site-footer-inner block-fade-in">	
+
+				<div class="footer-content">
+
+					<div class="row social-footer-row">
+						<h3 class="title h5">SOCIAL MEDIA</h3>
+
+							<ul class="flatten-list content-container social-icons one-row">
+						<li class="social-icon instagram mr-2">
+						<a class="social-link" href="https://www.instagram.com/prophetconsulting" target="_blank">
+
+						
+	<svg height="24" width="24" class="icon instagram-icon" aria-hidden="true" role="img">
+
+		
+									<use xlink:href="#instagram-icon"></use>
+					
+	</svg>
+
+							<span class="screen-reader-text">
+						Link to Instagram						</span>
+					</a>
+				</li><!-- .social-icon -->
+								<li class="social-icon facebook mr-2">
+						<a class="social-link" href="https://www.facebook.com/prophetconsulting" target="_blank">
+
+						
+	<svg height="24" width="24" class="icon facebook-icon" aria-hidden="true" role="img">
+
+		
+									<use xlink:href="#facebook-icon"></use>
+					
+	</svg>
+
+							<span class="screen-reader-text">
+						Link to Facebook						</span>
+					</a>
+				</li><!-- .social-icon -->
+								<li class="social-icon threads mr-2">
+						<a class="social-link" href="https://www.threads.net/@prophetconsulting?igshid=MzRlODBiNWFlZA==" target="_blank">
+
+						
+	<svg height="24" width="24" class="icon threads-icon" aria-hidden="true" role="img">
+
+		
+									<use xlink:href="#threads-icon"></use>
+					
+	</svg>
+
+							<span class="screen-reader-text">
+						Link to Threads						</span>
+					</a>
+				</li><!-- .social-icon -->
+								<li class="social-icon linkedin mr-2">
+						<a class="social-link" href="https://www.linkedin.com/company/prophet" target="_blank">
+
+						
+	<svg height="24" width="24" class="icon linkedin-icon" aria-hidden="true" role="img">
+
+		
+									<use xlink:href="#linkedin-icon"></use>
+					
+	</svg>
+
+							<span class="screen-reader-text">
+						Link to Linkedin						</span>
+					</a>
+				</li><!-- .social-icon -->
+								<li class="social-icon weixin mr-2">
+						<a class="social-link no-link-anchor" href="https://weixin.qq.com/r/yCmrsx-EWEInrVvQ93za" target="_blank">
+
+						
+	<svg height="24" width="24" class="icon weixin-icon" aria-hidden="true" role="img">
+
+		
+									<use xlink:href="#weixin-icon"></use>
+					
+	</svg>
+
+	
+	<svg height="24" width="24" class="icon wechat-qrcode" aria-hidden="true" role="img">
+
+		
+									<use xlink:href="#wechat-qrcode"></use>
+					
+	</svg>
+
+							<span class="screen-reader-text">
+						Link to Weixin						</span>
+					</a>
+				</li><!-- .social-icon -->
+					</ul><!-- .social-icons -->
+	
+					</div><!-- .social-footer-row -->
+
+					<div class="row connect-footer-row">
+						<h3 class="title h5">CONNECT</h3>
+						<div class="content-container">
+							<div class="newsletter">
+								<h4>Newsletter</h4>
+
+									<p>Stay in the loop. Get the latest insights on growth and transformation.</p>
+
+								<div class="form-newsletter">
+									<a href="https://prophet.com/subscribe" class="animate-underline" style="--bg-underline-color: #22ffab;">
+										SUBSCRIBE									</a>
+								</div>
+							</div>
+							<div class="contact-us">
+								<h4>Contact Us</h4>
+								
+								<p>Need help with a project, have a question about employment or our work with nonprofits? We’re here.</p>
+
+								<div class="form-newsletter">
+									<a href="https://prophet.com/connect" class="animate-underline" style="--bg-underline-color: #22ffab;">
+										CONNECT									</a>
+								</div>
+							</div>
+						</div>
+						
+					</div><!-- .connect-footer-row -->
+
+					<div class="row prophet-footer-row">
+						<h3 class="title h5 phone:order-2">&copy; PROPHET 2025</h3>
+						<div class="content-container">
+							<nav id="site-footer-navigation" class="footer-navigation" aria-label="Footer Navigation">
+								<ul id="footer-main-menu" class="menu-list"><li id="menu-item-9057" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9057"><a href="https://prophet.com/services/">Services</a></li>
+<li id="menu-item-9058" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9058"><a href="https://prophet.com/work/">Work</a></li>
+<li id="menu-item-9059" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9059"><a href="https://prophet.com/thinking/">Thinking</a></li>
+<li id="menu-item-9060" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9060"><a href="https://prophet.com/about/">About</a></li>
+<li id="menu-item-9061" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9061"><a href="https://prophet.com/thinking/aaker/">Aaker</a></li>
+<li id="menu-item-9069" class="menu-item menu-item-type-post_type menu-item-object-about menu-item-9069"><a href="https://prophet.com/about/careers/">Careers</a></li>
+<li id="menu-item-9062" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-9062"><a rel="privacy-policy" href="https://prophet.com/privacy/">Privacy Policy</a></li>
+<li id="menu-item-9063" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9063"><a href="https://prophet.com/terms-of-use/">Terms of Use</a></li>
+</ul>							</nav><!-- #site-navigation-->
+						</div>
+						
+					</div><!-- .prophet-footer-row -->
+
+				</div>
+			</div>
+		</div><!-- .container -->
+
+		<!-- <div class="container site-info"> -->
+					<!--</div> .site-info -->
+
+	</footer><!-- .site-footer container-->
+
+		
+	<!--=================
+	// SEARCH OVERLAY :)
+	===================-->
+	
+	<div id="frontend-search">
+		<div class="container">
+			<span class="h1">Ask Prophet</span>
+			<div class="asl_w_container asl_w_container_1">
+	<div id='ajaxsearchlite1'
+		 data-id="1"
+		 data-instance="1"
+		 class="asl_w asl_m asl_m_1 asl_m_1_1">
+		<div class="probox">
+
+	
+	<div class='prosettings' style='display:none;' data-opened=0>
+				<div class='innericon'>
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="22" height="22" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+					<polygon transform = "rotate(90 256 256)" points="142.332,104.886 197.48,50 402.5,256 197.48,462 142.332,407.113 292.727,256 "/>
+				</svg>
+		</div>
+	</div>
+
+	
+	
+	<div class='proinput'>
+        <form role="search" action='#' autocomplete="off"
+			  aria-label="Search form">
+			<input aria-label="Search input"
+				   type='search' class='orig'
+				   tabindex="0"
+				   name='phrase'
+				   placeholder='Type phrase or question...'
+				   value=''
+				   autocomplete="off"/>
+			<input aria-label="Search autocomplete"
+				   type='text'
+				   class='autocomplete'
+				   tabindex="-1"
+				   name='phrase'
+				   value=''
+				   autocomplete="off" disabled/>
+			<input type='submit' value="Start search" style='width:0; height: 0; visibility: hidden;'>
+		</form>
+	</div>
+
+	
+	
+	<button class='promagnifier' tabindex="0" aria-label="Search magnifier">
+				<span class='innericon' style="display:block;">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="22" height="22" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+					<path d="M460.355,421.59L353.844,315.078c20.041-27.553,31.885-61.437,31.885-98.037
+						C385.729,124.934,310.793,50,218.686,50C126.58,50,51.645,124.934,51.645,217.041c0,92.106,74.936,167.041,167.041,167.041
+						c34.912,0,67.352-10.773,94.184-29.158L419.945,462L460.355,421.59z M100.631,217.041c0-65.096,52.959-118.056,118.055-118.056
+						c65.098,0,118.057,52.959,118.057,118.056c0,65.096-52.959,118.056-118.057,118.056C153.59,335.097,100.631,282.137,100.631,217.041
+						z"/>
+				</svg>
+		</span>
+	</button>
+
+	
+	
+	<div class='proloading'>
+
+		<div class="asl_loader"><div class="asl_loader-inner asl_simple-circle"></div></div>
+
+			</div>
+
+			<div class='proclose'>
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+				 y="0px"
+				 width="12" height="12" viewBox="0 0 512 512" enable-background="new 0 0 512 512"
+				 xml:space="preserve">
+				<polygon points="438.393,374.595 319.757,255.977 438.378,137.348 374.595,73.607 255.995,192.225 137.375,73.622 73.607,137.352 192.246,255.983 73.622,374.625 137.352,438.393 256.002,319.734 374.652,438.378 "/>
+			</svg>
+		</div>
+	
+	
+</div>	</div>
+	<div class='asl_data_container' style="display:none !important;">
+		<div class="asl_init_data wpdreams_asl_data_ct"
+	 style="display:none !important;"
+	 id="asl_init_id_1"
+	 data-asl-id="1"
+	 data-asl-instance="1"
+	 data-asldata="ew0KCSJob21ldXJsIjogImh0dHBzOi8vcHJvcGhldC5jb20vIiwNCgkicmVzdWx0c3R5cGUiOiAidmVydGljYWwiLA0KCSJyZXN1bHRzcG9zaXRpb24iOiAiaG92ZXIiLA0KCSJpdGVtc2NvdW50IjogNCwNCgkiY2hhcmNvdW50IjogIDAsDQoJImhpZ2hsaWdodCI6IDAsDQoJImhpZ2hsaWdodHdob2xld29yZHMiOiAxLA0KCSJzaW5nbGVIaWdobGlnaHQiOiAwLA0KCSJzY3JvbGxUb1Jlc3VsdHMiOiB7DQoJCSJlbmFibGVkIjogMCwNCgkJIm9mZnNldCI6IDANCgl9LA0KCSJyZXN1bHRhcmVhY2xpY2thYmxlIjogMSwNCgkiYXV0b2NvbXBsZXRlIjogew0KCQkiZW5hYmxlZCIgOiAxLA0KCQkibGFuZyIgOiAiZW4iLA0KCQkidHJpZ2dlcl9jaGFyY291bnQiIDogMA0KCX0sDQoJIm1vYmlsZSI6IHsNCgkJIm1lbnVfc2VsZWN0b3IiOiAiI21lbnUtdG9nZ2xlIg0KCX0sDQoJInRyaWdnZXIiOiB7DQoJCSJjbGljayI6ICJyZXN1bHRzX3BhZ2UiLA0KCQkiY2xpY2tfbG9jYXRpb24iOiAic2FtZSIsDQoJCSJ1cGRhdGVfaHJlZiI6IDAsDQoJCSJyZXR1cm4iOiAicmVzdWx0c19wYWdlIiwNCgkJInJldHVybl9sb2NhdGlvbiI6ICJzYW1lIiwNCgkJImZhY2V0IjogMSwNCgkJInR5cGUiOiAxLA0KCQkicmVkaXJlY3RfdXJsIjogIj9zPXtwaHJhc2V9IiwNCgkJImRlbGF5IjogMzAwDQoJfSwNCiAgICAiYW5pbWF0aW9ucyI6IHsNCiAgICAgICAgInBjIjogew0KICAgICAgICAgICAgInNldHRpbmdzIjogew0KICAgICAgICAgICAgICAgICJhbmltIiA6ICJmYWRlZHJvcCIsDQogICAgICAgICAgICAgICAgImR1ciIgIDogMzAwDQogICAgICAgICAgICB9LA0KICAgICAgICAgICAgInJlc3VsdHMiIDogew0KCQkJCSJhbmltIiA6ICJmYWRlZHJvcCIsDQoJCQkJImR1ciIgIDogMzAwDQogICAgICAgICAgICB9LA0KICAgICAgICAgICAgIml0ZW1zIiA6ICJ2b2lkYW5pbSINCiAgICAgICAgfSwNCiAgICAgICAgIm1vYiI6IHsNCiAgICAgICAgICAgICJzZXR0aW5ncyI6IHsNCiAgICAgICAgICAgICAgICAiYW5pbSIgOiAiZmFkZWRyb3AiLA0KICAgICAgICAgICAgICAgICJkdXIiICA6IDMwMA0KICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICJyZXN1bHRzIiA6IHsNCgkJCQkiYW5pbSIgOiAiZmFkZWRyb3AiLA0KCQkJCSJkdXIiICA6IDMwMA0KICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICJpdGVtcyIgOiAidm9pZGFuaW0iDQogICAgICAgIH0NCiAgICB9LA0KCSJhdXRvcCI6IHsNCgkJInN0YXRlIjogImRpc2FibGVkIiwNCgkJInBocmFzZSI6ICIiLA0KCQkiY291bnQiOiAxCX0sDQogICAgInJlc1BhZ2UiOiB7DQogICAgICAgICJ1c2VBamF4IjogMCwNCiAgICAgICAgInNlbGVjdG9yIjogIiNtYWluIiwNCiAgICAgICAgInRyaWdnZXJfdHlwZSI6IDEsDQogICAgICAgICJ0cmlnZ2VyX2ZhY2V0IjogMSwNCiAgICAgICAgInRyaWdnZXJfbWFnbmlmaWVyIjogMCwNCiAgICAgICAgInRyaWdnZXJfcmV0dXJuIjogMCAgICB9LA0KCSJyZXN1bHRzU25hcFRvIjogImNlbnRlciIsDQogICAgInJlc3VsdHMiOiB7DQogICAgICAgICJ3aWR0aCI6ICJhdXRvIiwNCiAgICAgICAgIndpZHRoX3RhYmxldCI6ICJhdXRvIiwNCiAgICAgICAgIndpZHRoX3Bob25lIjogImF1dG8iDQogICAgfSwNCgkic2V0dGluZ3NpbWFnZXBvcyI6ICJyaWdodCIsDQoJImNsb3NlT25Eb2NDbGljayI6IDEsDQoJIm92ZXJyaWRld3BkZWZhdWx0IjogMSwNCgkib3ZlcnJpZGVfbWV0aG9kIjogImdldCINCn0NCg=="></div>	<div id="asl_hidden_data">
+		<svg style="position:absolute" height="0" width="0">
+			<filter id="aslblur">
+				<feGaussianBlur in="SourceGraphic" stdDeviation="4"/>
+			</filter>
+		</svg>
+		<svg style="position:absolute" height="0" width="0">
+			<filter id="no_aslblur"></filter>
+		</svg>
+	</div>
+	</div>
+
+	<div id='ajaxsearchliteres1'
+	 class='vertical wpdreams_asl_results asl_w asl_r asl_r_1 asl_r_1_1'>
+
+	
+	<div class="results">
+
+		
+		<div class="resdrg">
+		</div>
+
+		
+	</div>
+
+	
+	
+</div>
+
+	<div id='__original__ajaxsearchlitesettings1'
+		 data-id="1"
+		 class="searchsettings wpdreams_asl_settings asl_w asl_s asl_s_1">
+		<form name='options'
+	  aria-label="Search settings form"
+	  autocomplete = 'off'>
+
+	
+	
+	<input type="hidden" name="filters_changed" style="display:none;" value="0">
+	<input type="hidden" name="filters_initial" style="display:none;" value="1">
+
+	<div class="asl_option_inner hiddend">
+		<input type='hidden' name='qtranslate_lang' id='qtranslate_lang1'
+			   value='0'/>
+	</div>
+
+	
+			<div class="asl_option_inner hiddend">
+			<input type='hidden' name='polylang_lang'
+				   value='en'/>
+		</div>
+	
+	<fieldset class="asl_sett_scroll">
+		<legend style="display: none;">Generic selectors</legend>
+		<div class="asl_option" tabindex="0">
+			<div class="asl_option_inner">
+				<input type="checkbox" value="exact"
+					   aria-label="Exact matches only"
+					   name="asl_gen[]" />
+				<div class="asl_option_checkbox"></div>
+			</div>
+			<div class="asl_option_label">
+				Exact matches only			</div>
+		</div>
+		<div class="asl_option" tabindex="0">
+			<div class="asl_option_inner">
+				<input type="checkbox" value="title"
+					   aria-label="Search in title"
+					   name="asl_gen[]"  checked="checked"/>
+				<div class="asl_option_checkbox"></div>
+			</div>
+			<div class="asl_option_label">
+				Search in title			</div>
+		</div>
+		<div class="asl_option" tabindex="0">
+			<div class="asl_option_inner">
+				<input type="checkbox" value="content"
+					   aria-label="Search in content"
+					   name="asl_gen[]"  checked="checked"/>
+				<div class="asl_option_checkbox"></div>
+			</div>
+			<div class="asl_option_label">
+				Search in content			</div>
+		</div>
+		<div class="asl_option_inner hiddend">
+			<input type="checkbox" value="excerpt"
+				   aria-label="Search in excerpt"
+				   name="asl_gen[]"  checked="checked"/>
+			<div class="asl_option_checkbox"></div>
+		</div>
+	</fieldset>
+	<fieldset class="asl_sett_scroll">
+		<legend style="display: none;">Post Type Selectors</legend>
+					<div class="asl_option_inner hiddend">
+				<input type="checkbox" value="post"
+					   aria-label="Hidden option, ignore please"
+					   name="customset[]" checked="checked"/>
+			</div>
+						<div class="asl_option_inner hiddend">
+				<input type="checkbox" value="case-studies"
+					   aria-label="Hidden option, ignore please"
+					   name="customset[]" checked="checked"/>
+			</div>
+						<div class="asl_option_inner hiddend">
+				<input type="checkbox" value="services"
+					   aria-label="Hidden option, ignore please"
+					   name="customset[]" checked="checked"/>
+			</div>
+						<div class="asl_option_inner hiddend">
+				<input type="checkbox" value="news-press"
+					   aria-label="Hidden option, ignore please"
+					   name="customset[]" checked="checked"/>
+			</div>
+						<div class="asl_option_inner hiddend">
+				<input type="checkbox" value="about"
+					   aria-label="Hidden option, ignore please"
+					   name="customset[]" checked="checked"/>
+			</div>
+						<div class="asl_option_inner hiddend">
+				<input type="checkbox" value="careers"
+					   aria-label="Hidden option, ignore please"
+					   name="customset[]" checked="checked"/>
+			</div>
+				</fieldset>
+	</form>
+	</div>
+</div>		</div>
+		
+	</div>
+
+	<!--=================
+	// MODAL OVERLAY
+	===================-->
+	<div class="modalOverlay">
+		<div class="loading-circle-container">
+			<div class="loading-circle-arrows">
+				<svg class="icon circle-arrows white">
+					<use xlink:href="#i-circle-arrows"></use>
+				</svg>
+			</div>
+		</div>
+	</div>
+
+	<!--=================
+	// FORM POPUP
+	===================-->
+	
+<div class="form-container subscribe-form-popup" data-enable_subscribe_popup="1" data-popup_timer="">
+    <div class="form-wrapper">
+        <div class="button close">
+            <svg class="icon white">	
+                <use xlink:href="#i-plus"></use>
+            </svg>	
+        </div>
+        <div class="no-show-wrapper">
+            <label class="checkbox-wrapper" aria-label="Newsletter checkbox">
+                                    <span class="checkbox-message">Do not show again</span>
+                                <input type="checkbox" class="no-show-checkbox">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="wrapper-circle-arrows">
+            <svg class="icon circle-arrows">
+                <use xlink:href="#i-circle-arrows"></use>
+            </svg>
+        </div>
+        <div class="subscribe-popup-success-message" >
+            <p class="h2">Thank you for subscribing.</p>
+            <p>Please check your email and click on the link to confirm your subscription.</p>
+        </div>
+        <div class="subscribe-form-wrapper">
+            <div class="logo">
+                <a href="https://prophet.com/" class="custom-logo-link" rel="home"><img width="105" height="13" src="https://prophet.com/wp-content/uploads/2022/02/Prophet-Logo-White.svg" class="custom-logo" alt="Business Transformation Consultants | Prophet" decoding="async" /></a>            </div>
+            <div class="header subscribe-content">
+                <h3 class="h2">Join our mailing list                </h3>
+
+                                    <p>Sign up and receive our latest thinking, insights and strategies to help your business grow better.</p>
+                
+            </div><!-- .subscribe-content -->
+            <form id="popup-sub-form" name="popup_sub_form">
+
+                <div class="form-row">
+                    <label for="popup-country" class="dropmenu-wrapper" aria-label="Country">
+                        <select id="popup-country" class="popup-country" name="country">
+                            <option value="" selected="selected">Country*</option>
+                                                            <option value="DE">GERMANY</option>
+<option value="ES">SPAIN</option>
+<option value="CH">SWITZERLAND</option>
+<option value="GB">UNITED KINGDOM</option>
+<option value="US">UNITED STATES</option>
+<option value="AF">AFGHANISTAN</option>
+<option value="AL">ALBANIA</option>
+<option value="DZ">ALGERIA</option>
+<option value="AS">AMERICAN SAMOA</option>
+<option value="AD">ANDORRA</option>
+<option value="AO">ANGOLA</option>
+<option value="AI">ANGUILLA</option>
+<option value="AQ">ANTARCTICA</option>
+<option value="AG">ANTIGUA AND BARBUDA</option>
+<option value="AR">ARGENTINA</option>
+<option value="AM">ARMENIA</option>
+<option value="AW">ARUBA</option>
+<option value="AU">AUSTRALIA</option>
+<option value="AT">AUSTRIA</option>
+<option value="AZ">AZERBAIJAN</option>
+<option value="BS">BAHAMAS</option>
+<option value="BH">BAHRAIN</option>
+<option value="BD">BANGLADESH</option>
+<option value="BB">BARBADOS</option>
+<option value="BY">BELARUS</option>
+<option value="BE">BELGIUM</option>
+<option value="BZ">BELIZE</option>
+<option value="BJ">BENIN</option>
+<option value="BM">BERMUDA</option>
+<option value="BT">BHUTAN</option>
+<option value="BO">BOLIVIA</option>
+<option value="BA">BOSNIA AND HERZEGOVINA</option>
+<option value="BW">BOTSWANA</option>
+<option value="BV">BOUVET ISLAND</option>
+<option value="BR">BRAZIL</option>
+<option value="IO">BRITISH INDIAN OCEAN TERRITORY</option>
+<option value="BN">BRUNEI DARUSSALAM</option>
+<option value="BG">BULGARIA</option>
+<option value="BF">BURKINA FASO</option>
+<option value="BI">BURUNDI</option>
+<option value="KH">CAMBODIA</option>
+<option value="CM">CAMEROON</option>
+<option value="CA">CANADA</option>
+<option value="CV">CAPE VERDE</option>
+<option value="KY">CAYMAN ISLANDS</option>
+<option value="CF">CENTRAL AFRICAN REPUBLIC</option>
+<option value="TD">CHAD</option>
+<option value="CL">CHILE</option>
+<option value="CN">CHINA</option>
+<option value="CX">CHRISTMAS ISLAND</option>
+<option value="CC">COCOS (KEELING) ISLANDS</option>
+<option value="CO">COLOMBIA</option>
+<option value="KM">COMOROS</option>
+<option value="CG">CONGO</option>
+<option value="CD">CONGO, THE DEMOCRATIC REPUBLIC OF THE</option>
+<option value="CK">COOK ISLANDS</option>
+<option value="CR">COSTA RICA</option>
+<option value="CI">COTE D'IVOIRE</option>
+<option value="HR">CROATIA</option>
+<option value="CU">CUBA</option>
+<option value="CY">CYPRUS</option>
+<option value="CZ">CZECH REPUBLIC</option>
+<option value="DK">DENMARK</option>
+<option value="DJ">DJIBOUTI</option>
+<option value="DM">DOMINICA</option>
+<option value="DO">DOMINICAN REPUBLIC</option>
+<option value="EC">ECUADOR</option>
+<option value="EG">EGYPT</option>
+<option value="SV">EL SALVADOR</option>
+<option value="GQ">EQUATORIAL GUINEA</option>
+<option value="ER">ERITREA</option>
+<option value="EE">ESTONIA</option>
+<option value="ET">ETHIOPIA</option>
+<option value="FK">FALKLAND ISLANDS (MALVINAS)</option>
+<option value="FO">FAROE ISLANDS</option>
+<option value="FJ">FIJI</option>
+<option value="FI">FINLAND</option>
+<option value="FR">FRANCE</option>
+<option value="GF">FRENCH GUIANA</option>
+<option value="PF">FRENCH POLYNESIA</option>
+<option value="TF">FRENCH SOUTHERN TERRITORIES</option>
+<option value="GA">GABON</option>
+<option value="GM">GAMBIA</option>
+<option value="GE">GEORGIA</option>
+<option value="GH">GHANA</option>
+<option value="GI">GIBRALTAR</option>
+<option value="GR">GREECE</option>
+<option value="GL">GREENLAND</option>
+<option value="GD">GRENADA</option>
+<option value="GP">GUADELOUPE</option>
+<option value="GU">GUAM</option>
+<option value="GT">GUATEMALA</option>
+<option value="GN">GUINEA</option>
+<option value="GW">GUINEA-BISSAU</option>
+<option value="GY">GUYANA</option>
+<option value="HT">HAITI</option>
+<option value="HM">HEARD ISLAND AND MCDONALD ISLANDS</option>
+<option value="VA">HOLY SEE (VATICAN CITY STATE)</option>
+<option value="HN">HONDURAS</option>
+<option value="HK">HONG KONG</option>
+<option value="HU">HUNGARY</option>
+<option value="IS">ICELAND</option>
+<option value="IN">INDIA</option>
+<option value="ID">INDONESIA</option>
+<option value="IR">IRAN, ISLAMIC REPUBLIC OF</option>
+<option value="IQ">IRAQ</option>
+<option value="IE">IRELAND</option>
+<option value="IL">ISRAEL</option>
+<option value="IT">ITALY</option>
+<option value="JM">JAMAICA</option>
+<option value="JP">JAPAN</option>
+<option value="JO">JORDAN</option>
+<option value="KZ">KAZAKHSTAN</option>
+<option value="KE">KENYA</option>
+<option value="KI">KIRIBATI</option>
+<option value="KP">KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF</option>
+<option value="KR">KOREA, REPUBLIC OF</option>
+<option value="KW">KUWAIT</option>
+<option value="KG">KYRGYZSTAN</option>
+<option value="LA">LAO PEOPLE'S DEMOCRATIC REPUBLIC</option>
+<option value="LV">LATVIA</option>
+<option value="LB">LEBANON</option>
+<option value="LS">LESOTHO</option>
+<option value="LR">LIBERIA</option>
+<option value="LY">LIBYAN ARAB JAMAHIRIYA</option>
+<option value="LI">LIECHTENSTEIN</option>
+<option value="LT">LITHUANIA</option>
+<option value="LU">LUXEMBOURG</option>
+<option value="MO">MACAO</option>
+<option value="MK">MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF</option>
+<option value="MG">MADAGASCAR</option>
+<option value="MW">MALAWI</option>
+<option value="MY">MALAYSIA</option>
+<option value="MV">MALDIVES</option>
+<option value="ML">MALI</option>
+<option value="MT">MALTA</option>
+<option value="MH">MARSHALL ISLANDS</option>
+<option value="MQ">MARTINIQUE</option>
+<option value="MR">MAURITANIA</option>
+<option value="MU">MAURITIUS</option>
+<option value="YT">MAYOTTE</option>
+<option value="MX">MEXICO</option>
+<option value="FM">MICRONESIA, FEDERATED STATES OF</option>
+<option value="MD">MOLDOVA, REPUBLIC OF</option>
+<option value="MC">MONACO</option>
+<option value="MN">MONGOLIA</option>
+<option value="MS">MONTSERRAT</option>
+<option value="MA">MOROCCO</option>
+<option value="MZ">MOZAMBIQUE</option>
+<option value="MM">MYANMAR</option>
+<option value="NA">NAMIBIA</option>
+<option value="NR">NAURU</option>
+<option value="NP">NEPAL</option>
+<option value="NL">NETHERLANDS</option>
+<option value="AN">NETHERLANDS ANTILLES</option>
+<option value="NC">NEW CALEDONIA</option>
+<option value="NZ">NEW ZEALAND</option>
+<option value="NI">NICARAGUA</option>
+<option value="NE">NIGER</option>
+<option value="NG">NIGERIA</option>
+<option value="NU">NIUE</option>
+<option value="NF">NORFOLK ISLAND</option>
+<option value="MP">NORTHERN MARIANA ISLANDS</option>
+<option value="NO">NORWAY</option>
+<option value="OM">OMAN</option>
+<option value="PK">PAKISTAN</option>
+<option value="PW">PALAU</option>
+<option value="PS">PALESTINIAN TERRITORY, OCCUPIED</option>
+<option value="PA">PANAMA</option>
+<option value="PG">PAPUA NEW GUINEA</option>
+<option value="PY">PARAGUAY</option>
+<option value="PE">PERU</option>
+<option value="PH">PHILIPPINES</option>
+<option value="PN">PITCAIRN</option>
+<option value="PL">POLAND</option>
+<option value="PT">PORTUGAL</option>
+<option value="PR">PUERTO RICO</option>
+<option value="QA">QATAR</option>
+<option value="RE">REUNION</option>
+<option value="RO">ROMANIA</option>
+<option value="RU">RUSSIAN FEDERATION</option>
+<option value="RW">RWANDA</option>
+<option value="SH">SAINT HELENA</option>
+<option value="KN">SAINT KITTS AND NEVIS</option>
+<option value="LC">SAINT LUCIA</option>
+<option value="PM">SAINT PIERRE AND MIQUELON</option>
+<option value="VC">SAINT VINCENT AND THE GRENADINES</option>
+<option value="WS">SAMOA</option>
+<option value="SM">SAN MARINO</option>
+<option value="ST">SAO TOME AND PRINCIPE</option>
+<option value="SA">SAUDI ARABIA</option>
+<option value="SN">SENEGAL</option>
+<option value="CS">SERBIA AND MONTENEGRO</option>
+<option value="SC">SEYCHELLES</option>
+<option value="SL">SIERRA LEONE</option>
+<option value="SG">SINGAPORE</option>
+<option value="SK">SLOVAKIA</option>
+<option value="SI">SLOVENIA</option>
+<option value="SB">SOLOMON ISLANDS</option>
+<option value="SO">SOMALIA</option>
+<option value="ZA">SOUTH AFRICA</option>
+<option value="GS">SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS</option>
+<option value="LK">SRI LANKA</option>
+<option value="SD">SUDAN</option>
+<option value="SR">SURINAME</option>
+<option value="SJ">SVALBARD AND JAN MAYEN</option>
+<option value="SZ">SWAZILAND</option>
+<option value="SE">SWEDEN</option>
+<option value="SY">SYRIAN ARAB REPUBLIC</option>
+<option value="TW">TAIWAN, PROVINCE OF CHINA</option>
+<option value="TJ">TAJIKISTAN</option>
+<option value="TZ">TANZANIA, UNITED REPUBLIC OF</option>
+<option value="TH">THAILAND</option>
+<option value="TL">TIMOR-LESTE</option>
+<option value="TG">TOGO</option>
+<option value="TK">TOKELAU</option>
+<option value="TO">TONGA</option>
+<option value="TT">TRINIDAD AND TOBAGO</option>
+<option value="TN">TUNISIA</option>
+<option value="TR">TURKEY</option>
+<option value="TM">TURKMENISTAN</option>
+<option value="TC">TURKS AND CAICOS ISLANDS</option>
+<option value="TV">TUVALU</option>
+<option value="UG">UGANDA</option>
+<option value="UA">UKRAINE</option>
+<option value="AE">UNITED ARAB EMIRATES</option>
+<option value="UM">UNITED STATES MINOR OUTLYING ISLANDS</option>
+<option value="UY">URUGUAY</option>
+<option value="UZ">UZBEKISTAN</option>
+<option value="VU">VANUATU</option>
+<option value="VE">VENEZUELA</option>
+<option value="VN">VIET NAM</option>
+<option value="VG">VIRGIN ISLANDS, BRITISH</option>
+<option value="VI">VIRGIN ISLANDS, U.S.</option>
+<option value="WF">WALLIS AND FUTUNA</option>
+<option value="EH">WESTERN SAHARA</option>
+<option value="YE">YEMEN</option>
+<option value="ZM">ZAMBIA</option>
+<option value="ZW">ZIMBABWE</option>                                                    </select>
+                        <span class="bottom-line trans"></span>
+                        <svg class="icon white">
+                            <use xlink:href="#i-down-chevron"></use>
+                        </svg>
+                        
+                    </label>
+                </div>
+
+                <div class="form-row">
+                    <label for="email" aria-label="Email">
+                        <input type="email" id="email" name="email" placeholder="Email*" >
+                        <span class="bottom-line trans"></span>
+                        <button class="subscribe-button" type="submit" name="submit" >
+                            Subscribe                        </button>
+                    </label>
+                </div>
+
+                <input type="hidden" class="recaptcha_token" name="recaptcha_token" >
+                <input type="hidden" id="subscribe_popup_page_title" name="subscribe_popup_page_title" value="download-the-2023-state-of-digital-transformation" >
+                <input type="hidden" class="site_language" name="site_language" value="en_US" >
+                <input type="hidden" name="elqCustomerGUID" value="">
+                <input type="hidden" name="elqCookieWrite" value="0">
+
+                <input type="hidden" name="utm_source" class="utm_source" value="">
+                <input type="hidden" name="utm_medium" class="utm_medium" value="">
+                <input type="hidden" name="utm_campaign" class="utm_campaign" value="">
+              
+            </form>
+        </div><!-- subscribe-form-wrapper -->
+    </div>                    
+</div><!-- .subscribe-form-popup -->
+<!-- <button class="popup-test-btn" style="position: absolute; bottom: 0; right: 0; opacity: 0;">Pop-up</button> -->
+
+
+	<!--=================
+	// Slide out Navigation
+	===================-->
+	<div id="hamburger-navigation">
+		<nav class="container mobile-navigation">
+			<div class="backBtn-container">
+				<span>
+					<button id="menu-backBtn"><svg class="icon white"><use xlink:href="#i-left-chevron"></use></svg> Main Menu</button>
+				</span>
+			</div>
+			<div class="line-separator">
+				<hr>
+			</div>
+			<div class="subMenu-title h3">
+				<h3></h3>
+				<span class="clone-subMenu-title h3"></span>
+			</div>
+			<ul id="mobile-menu" class="menu"><li id="menu-item-35479" class="level-1 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-35479"><a href="https://prophet.com/what-we-do/">What We Do</a>
+<ul class="sub-menu">
+	<li id="menu-item-35480" class="level-2 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-35480"><a href="https://prophet.com/growth-solutions/">Growth Solutions</a>
+	<ul class="sub-menu">
+		<li id="menu-item-35481" class="level-3 menu-item menu-item-type-post_type menu-item-object-page menu-item-35481"><a href="https://prophet.com/growth-solutions/go-to-market-innovation/">Go-to-Market Innovation</a></li>
+		<li id="menu-item-35483" class="level-3 menu-item menu-item-type-post_type menu-item-object-page menu-item-35483"><a href="https://prophet.com/growth-solutions/growth-strategy/">Growth Strategy</a></li>
+		<li id="menu-item-35482" class="level-3 menu-item menu-item-type-post_type menu-item-object-page menu-item-35482"><a href="https://prophet.com/growth-solutions/brand-led-transformation/">Brand-Led Transformation</a></li>
+	</ul>
+</li>
+	<li id="menu-item-35484" class="level-2 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-35484"><a href="https://prophet.com/marketing-solutions/">Marketing Solutions</a>
+	<ul class="sub-menu">
+		<li id="menu-item-35487" class="level-3 menu-item menu-item-type-post_type menu-item-object-page menu-item-35487"><a href="https://prophet.com/marketing-solutions/build-launch-and-grow-brands/">Build, Launch and Grow Brands</a></li>
+		<li id="menu-item-35486" class="level-3 menu-item menu-item-type-post_type menu-item-object-page menu-item-35486"><a href="https://prophet.com/marketing-solutions/demand-marketing/">Demand Marketing</a></li>
+		<li id="menu-item-35485" class="level-3 menu-item menu-item-type-post_type menu-item-object-page menu-item-35485"><a href="https://prophet.com/marketing-solutions/brand-marketing-and-campaigns/">Brand Marketing and Campaigns</a></li>
+	</ul>
+</li>
+	<li id="menu-item-35492" class="level-2 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-35492"><a href="https://prophet.com/services/">Services</a>
+	<ul class="sub-menu">
+		<li id="menu-item-35497" class="level-3 menu-item menu-item-type-post_type menu-item-object-services menu-item-35497"><a href="https://prophet.com/services/brand-building/">Brand Building</a></li>
+		<li id="menu-item-35496" class="level-3 menu-item menu-item-type-post_type menu-item-object-services menu-item-35496"><a href="https://prophet.com/services/marketing-excellence/">Marketing Excellence</a></li>
+		<li id="menu-item-35495" class="level-3 menu-item menu-item-type-post_type menu-item-object-services menu-item-35495"><a href="https://prophet.com/services/businessstrategy/">Business Strategy</a></li>
+		<li id="menu-item-35494" class="level-3 menu-item menu-item-type-post_type menu-item-object-services menu-item-35494"><a href="https://prophet.com/services/experience-innovation/">Experience &amp; Innovation</a></li>
+		<li id="menu-item-35493" class="level-3 menu-item menu-item-type-post_type menu-item-object-services menu-item-35493"><a href="https://prophet.com/services/organization-culture/">Organization &amp; Culture</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-35489" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35489"><a href="https://prophet.com/work/">Work</a></li>
+<li id="menu-item-35490" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35490"><a href="https://prophet.com/thinking/">Thinking</a></li>
+<li id="menu-item-35488" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35488"><a href="https://prophet.com/about/">About</a></li>
+<li id="menu-item-35491" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35491"><a href="https://prophet.com/connect/">Connect</a></li>
+</ul>		</nav>
+	</div>
+
+	<div id="prophet-offline-message" class="!hidden"><p>Your network connection is offline.</p></div>
+
+		
+	<img src="https://s.ml-attr.com/getuid?https%3a%2f%2fattr.ml-api.io%2f%3fdomain%3dwww.prophet.com%26pId%3d%24UID" width="1" height="1" style="display:none" />
+
+	<!-- Conversion Pixel - ML|Prophet|Conversion Pixel|April 2023 - DO NOT MODIFY -->
+	<img src="https://secure.adnxs.com/px?id=1680168&t=2" width="1" height="1" />
+	<!-- End of Conversion Pixel -->
+
+
+		<script type="text/javascript">
+		window._elqQ = window._elqQ || [];
+		window._elqQ.push(['elqSetSiteId', '1597073417']);
+		window._elqQ.push(['elqUseFirstPartyCookie', 'tracking.prophet.com']);
+
+		function OptanonWrapper() {
+			window._elqQ.push(['elqTrackPageViewOptinByCountry']);
+			window._elqQ.push(['elqTrackPageView', window.location.href]);
+
+			function async_load() {
+				var s = document.createElement('script');
+				s.type = 'text/javascript';
+				s.async = true;
+				s.src = '//img.en25.com/i/elqCfg.min.js';
+				var x = document.getElementsByTagName('script')[0];
+				x.parentNode.insertBefore(s, x);
+			}
+
+			if (
+				('complete' === document.readyState || 'loading' !== document.readyState) &&
+				!document.documentElement.doScroll
+			) {
+				async_load();
+			} else {
+				document.addEventListener('DOMContentLoaded', async_load);
+			}
+
+			// if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+			// else if (window.attachEvent) window.attachEvent('onload', async_load);
+
+			this.ProcessIntegrationModules = function() {
+				var json = Optanon.GetDomainData();
+				for (var i = 0; i < json.Groups.length; i += 1) {
+					var group = json.Groups[i];
+
+					var eloquaCookieGroup = null;
+					if (group.Cookies && group.Cookies.length > 0) {
+						for (var k = 0; k < group.Cookies.length; k += 1) {
+							var cookie = group.Cookies[k];
+							if (cookie.Name === "ELOQUA") {
+								eloquaCookieGroup = group.Parent ? group.Parent.OptanonGroupId : group.OptanonGroupId;
+							}
+						}
+					}
+
+					if (eloquaCookieGroup !== null) {
+						var groupIsActive = OptanonActiveGroups.indexOf(eloquaCookieGroup) != -1;
+						SetEloquaTracking(groupIsActive);
+					}
+				}
+			}
+			ProcessIntegrationModules();
+		}
+
+		function SetEloquaTracking(optIn) {
+			var trackingStatus = optIn ? "elqOptIn" : "elqOptOut";
+			var a = window._elqQ.push([trackingStatus]);
+		};
+	</script>
+
+
+	
+			<script type="text/javascript">
+				var _paq = _paq || [];
+					_paq.push(['setCustomDimension', 1, '{"ID":186,"name":"Omar Akhtar","avatar":"21079c751d5fe8ce8b771ddb78790960"}']);
+				_paq.push(['trackPageView']);
+								(function () {
+					var u = "https://stats1.wpmudev.com/";
+					_paq.push(['setTrackerUrl', u + 'track/']);
+					_paq.push(['setSiteId', '178349']);
+					var d   = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+					g.type  = 'text/javascript';
+					g.async = true;
+					g.defer = true;
+					g.src   = 'https://stats.wpmucdn.com/analytics.js';
+					s.parentNode.insertBefore(g, s);
+				})();
+			</script>
+			<link rel='stylesheet' id='prophetv3_thinking_sidebar_block_styles-css' href='https://prophet.com/wp-content/themes/prophetv3/build/thinking-sidebar-block.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='prophetv3_slick-css' href='//cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.css?ver=1.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='prophetv3_slick_theme-css' href='//cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/accessible-slick-theme.min.css?ver=1.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='prophetv3_carousel_block_styles-css' href='https://prophet.com/wp-content/themes/prophetv3/build/carousel-block.css?ver=1.0.0' type='text/css' media='all' />
+<style id='core-block-supports-inline-css' type='text/css'>
+.wp-container-core-columns-is-layout-1{flex-wrap:nowrap;}.wp-container-core-columns-is-layout-2{flex-wrap:nowrap;}.wp-container-core-columns-is-layout-3{flex-wrap:nowrap;}.wp-container-core-columns-is-layout-4{flex-wrap:nowrap;}.wp-container-core-columns-is-layout-5{flex-wrap:nowrap;}
+</style>
+<script type="text/javascript" src="https://prophet.com/wp-content/themes/prophetv3/inc/js_vendors/gsap/gsap.min.js?ver=3.7.1" id="prophetv3_gsap-js"></script>
+<script type="text/javascript" src="https://prophet.com/wp-content/themes/prophetv3/inc/js_vendors/gsap/ScrollTrigger.min.js?ver=3.7.1" id="prophetv3_gsap_scrollTrigger-js"></script>
+<script type="text/javascript" src="https://prophet.com/wp-content/themes/prophetv3/inc/js_vendors/gsap/ScrollToPlugin.min.js?ver=3.7.1" id="prophetv3_gsap_scrollTo-js"></script>
+<script type="text/javascript" src="https://prophet.com/wp-content/themes/prophetv3/inc/js_vendors/gsap/DrawSVGPlugin.min.js?ver=3.7.1" id="prophetv3_gsap_drawSvg-js"></script>
+<script type="text/javascript" src="https://prophet.com/wp-content/themes/prophetv3/build/index.js?ver=d4fa81ce11c4d4d450aa" id="prophetv3_scripts-js"></script>
+<script type="text/javascript" src="https://prophet.com/wp-content/themes/prophetv3/build/form-popup-subscribe.js?ver=d4fa81ce11c4d4d450aa" id="prophetv3_form_popup_subscribe-js"></script>
+<script type="text/javascript" id="prophetv3_social_sharing-js-extra">
+/* <![CDATA[ */
+var postProps = {"url":"https:\/\/prophet.com\/2023\/03\/download-the-2023-state-of-digital-transformation\/","title":"The 2023 State of Digital Transformation","excerpt":"The 2023 State of Digital Transformation report outlines digital maturity benchmarks in 2023 and how businesses can drive growth in this next wave of digital transformation.","image":"https:\/\/prophet.com\/wp-content\/uploads\/2023\/03\/DigitalTransformation_6A.png"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://prophet.com/wp-content/themes/prophetv3/build/social-sharing.js?ver=d4fa81ce11c4d4d450aa" id="prophetv3_social_sharing-js"></script>
+<script type="text/javascript" src="https://prophet.com/wp-content/themes/prophetv3/build/site-offline.js?ver=d4fa81ce11c4d4d450aa" id="prophetv3_site_offline-js"></script>
+<script type="text/javascript" id="wd-asl-ajaxsearchlite-js-before">
+/* <![CDATA[ */
+window.ASL = typeof window.ASL !== 'undefined' ? window.ASL : {}; window.ASL.wp_rocket_exception = "DOMContentLoaded"; window.ASL.ajaxurl = "https:\/\/prophet.com\/wp-admin\/admin-ajax.php"; window.ASL.backend_ajaxurl = "https:\/\/prophet.com\/wp-admin\/admin-ajax.php"; window.ASL.js_scope = "jQuery"; window.ASL.asl_url = "https:\/\/prophet.com\/wp-content\/plugins\/ajax-search-lite\/"; window.ASL.detect_ajax = 1; window.ASL.media_query = 4768; window.ASL.version = 4768; window.ASL.pageHTML = ""; window.ASL.additional_scripts = [{"handle":"wd-asl-ajaxsearchlite","src":"https:\/\/prophet.com\/wp-content\/plugins\/ajax-search-lite\/js\/min\/plugin\/optimized\/asl-prereq.js","prereq":[]},{"handle":"wd-asl-ajaxsearchlite-core","src":"https:\/\/prophet.com\/wp-content\/plugins\/ajax-search-lite\/js\/min\/plugin\/optimized\/asl-core.js","prereq":[]},{"handle":"wd-asl-ajaxsearchlite-vertical","src":"https:\/\/prophet.com\/wp-content\/plugins\/ajax-search-lite\/js\/min\/plugin\/optimized\/asl-results-vertical.js","prereq":["wd-asl-ajaxsearchlite"]},{"handle":"wd-asl-ajaxsearchlite-autocomplete","src":"https:\/\/prophet.com\/wp-content\/plugins\/ajax-search-lite\/js\/min\/plugin\/optimized\/asl-autocomplete.js","prereq":["wd-asl-ajaxsearchlite"]},{"handle":"wd-asl-ajaxsearchlite-load","src":"https:\/\/prophet.com\/wp-content\/plugins\/ajax-search-lite\/js\/min\/plugin\/optimized\/asl-load.js","prereq":["wd-asl-ajaxsearchlite-autocomplete"]}]; window.ASL.script_async_load = false; window.ASL.init_only_in_viewport = true; window.ASL.font_url = "https:\/\/prophet.com\/wp-content\/plugins\/ajax-search-lite\/css\/fonts\/icons2.woff2"; window.ASL.css_async = false; window.ASL.highlight = {"enabled":false,"data":[]}; window.ASL.analytics = {"method":0,"tracking_id":"","string":"?ajax_search={asl_term}","event":{"focus":{"active":1,"action":"focus","category":"ASL","label":"Input focus","value":"1"},"search_start":{"active":0,"action":"search_start","category":"ASL","label":"Phrase: {phrase}","value":"1"},"search_end":{"active":1,"action":"search_end","category":"ASL","label":"{phrase} | {results_count}","value":"1"},"magnifier":{"active":1,"action":"magnifier","category":"ASL","label":"Magnifier clicked","value":"1"},"return":{"active":1,"action":"return","category":"ASL","label":"Return button pressed","value":"1"},"facet_change":{"active":0,"action":"facet_change","category":"ASL","label":"{option_label} | {option_value}","value":"1"},"result_click":{"active":1,"action":"result_click","category":"ASL","label":"{result_title} | {result_url}","value":"1"}}};
+window.ASL_INSTANCES = [];window.ASL_INSTANCES[1] = {"homeurl":"https:\/\/prophet.com\/","resultstype":"vertical","resultsposition":"hover","itemscount":4,"charcount":0,"highlight":0,"highlightwholewords":1,"singleHighlight":0,"scrollToResults":{"enabled":0,"offset":0},"resultareaclickable":1,"autocomplete":{"enabled":1,"lang":"en","trigger_charcount":0},"mobile":{"menu_selector":"#menu-toggle"},"trigger":{"click":"results_page","click_location":"same","update_href":0,"return":"results_page","return_location":"same","facet":1,"type":1,"redirect_url":"?s={phrase}","delay":300},"animations":{"pc":{"settings":{"anim":"fadedrop","dur":300},"results":{"anim":"fadedrop","dur":300},"items":"voidanim"},"mob":{"settings":{"anim":"fadedrop","dur":300},"results":{"anim":"fadedrop","dur":300},"items":"voidanim"}},"autop":{"state":"disabled","phrase":"","count":1},"resPage":{"useAjax":0,"selector":"#main","trigger_type":1,"trigger_facet":1,"trigger_magnifier":0,"trigger_return":0},"resultsSnapTo":"center","results":{"width":"auto","width_tablet":"auto","width_phone":"auto"},"settingsimagepos":"right","closeOnDocClick":1,"overridewpdefault":1,"override_method":"get"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://prophet.com/wp-content/plugins/ajax-search-lite/js/min/plugin/optimized/asl-prereq.js?ver=4768" id="wd-asl-ajaxsearchlite-js"></script>
+<script type="text/javascript" src="https://prophet.com/wp-content/plugins/ajax-search-lite/js/min/plugin/optimized/asl-core.js?ver=4768" id="wd-asl-ajaxsearchlite-core-js"></script>
+<script type="text/javascript" src="https://prophet.com/wp-content/plugins/ajax-search-lite/js/min/plugin/optimized/asl-results-vertical.js?ver=4768" id="wd-asl-ajaxsearchlite-vertical-js"></script>
+<script type="text/javascript" src="https://prophet.com/wp-content/plugins/ajax-search-lite/js/min/plugin/optimized/asl-autocomplete.js?ver=4768" id="wd-asl-ajaxsearchlite-autocomplete-js"></script>
+<script type="text/javascript" src="https://prophet.com/wp-content/plugins/ajax-search-lite/js/min/plugin/optimized/asl-load.js?ver=4768" id="wd-asl-ajaxsearchlite-load-js"></script>
+<script type="text/javascript" src="https://prophet.com/wp-content/plugins/ajax-search-lite/js/min/plugin/optimized/asl-wrapper.js?ver=4768" id="wd-asl-ajaxsearchlite-wrapper-js"></script>
+<script type="text/javascript" src="https://prophet.com/wp-content/themes/prophetv3/build/form-gated.js?ver=1.0.0" id="prophetv3_form_gated-js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.js?ver=1.0.1" id="prophetv3_slick-js"></script>
+<script type="text/javascript" src="https://prophet.com/wp-content/themes/prophetv3/build/carousel-block.js?ver=1.0.0" id="prophetv3_carousel_block-js"></script>
+<script type="text/javascript">
+(function() {
+				var expirationDate = new Date();
+				expirationDate.setTime( expirationDate.getTime() + 31536000 * 1000 );
+				document.cookie = "pll_language=en; expires=" + expirationDate.toUTCString() + "; path=/; secure; SameSite=Lax";
+			}());
+
+</script>
+<div class="svg-sprite-wrapper"><svg xmlns="http://www.w3.org/2000/svg"><symbol id="caret-down" viewBox="0 0 16 28"><title>caret-down</title><path fill="currentColor" d="M16 11a.99.99 0 0 1-.297.703l-7 7C8.516 18.89 8.265 19 8 19s-.516-.109-.703-.297l-7-7A.996.996 0 0 1 0 11c0-.547.453-1 1-1h14c.547 0 1 .453 1 1z"/></symbol><symbol id="close" viewBox="0 0 22.5 22.27"><defs><style>.e976b01e-b823-4a33-afa4-7e423e5efc07{fill:#303536}</style></defs><title>close</title><g id="bc0933f0-4035-477f-a26f-3729a5f20fc6" data-name="Layer 2"><g id="ac142a7b-f51d-4aa6-8dfb-c0c4fdfa64fb" data-name="Layer 1"><path class="e976b01e-b823-4a33-afa4-7e423e5efc07" d="m.4 2.17 19.44 19.44a1.25 1.25 0 1 0 1.77-1.77L2.17.4A1.18 1.18 0 0 0 .4.4a1.18 1.18 0 0 0 0 1.77Z"/><path class="e976b01e-b823-4a33-afa4-7e423e5efc07" d="M2.66 21.87 22.1 2.43a1.18 1.18 0 0 0 0-1.77 1.18 1.18 0 0 0-1.77 0L.89 20.1a1.18 1.18 0 0 0 0 1.77 1.18 1.18 0 0 0 1.77 0Z"/></g></g></symbol><symbol id="external-icon" viewBox="0 0 64 64"><title>external-icon</title><path d="M64.04 16.5 64 0H47.83l-.05 1.64 13.65.04-17.74 17.34 1.15 1.17L62.35 3.08l.04 13.42z"/><path d="M52.65 62.36H1.7V11.4h40.27V9.76H.05V64H54.3V22.09h-1.65z"/></symbol><symbol id="facebook-icon" viewBox="0 0 10 18"><title>facebook-logo</title><path d="M9.365.004 7.031 0C4.41 0 2.714 1.739 2.714 4.43v2.042H.367A.367.367 0 0 0 0 6.84V9.8c0 .203.164.367.367.367h2.347v7.467c0 .203.164.367.367.367h3.062a.367.367 0 0 0 .367-.367v-7.467h2.744a.367.367 0 0 0 .367-.367l.001-2.96a.368.368 0 0 0-.367-.367H6.51V4.741c0-.832.198-1.255 1.282-1.255h1.573a.367.367 0 0 0 .367-.367V.37a.367.367 0 0 0-.367-.367Z" transform="translate(-.003)" fill="currentColor" fill-rule="nonzero"/></symbol><symbol id="hamburger" viewBox="0 0 30 20"><title>hamburger</title><g data-name="Layer 2"><path d="M12.5 11.25h16.25A1.18 1.18 0 0 0 30 10a1.18 1.18 0 0 0-1.25-1.25H12.5A1.18 1.18 0 0 0 11.25 10a1.18 1.18 0 0 0 1.25 1.25ZM1.25 2.5h27.5A1.18 1.18 0 0 0 30 1.25 1.18 1.18 0 0 0 28.75 0H1.25A1.18 1.18 0 0 0 0 1.25 1.18 1.18 0 0 0 1.25 2.5Zm0 17.5h27.5a1.25 1.25 0 0 0 0-2.5H1.25a1.25 1.25 0 0 0 0 2.5Z" style="fill:currentColor" data-name="Layer 1"/></g></symbol><symbol id="instagram-icon" viewBox="0 0 18 18"><title>instagram</title><g fill="currentColor" fill-rule="nonzero"><path d="M17.95 5.292c-.041-.956-.196-1.614-.418-2.184a4.393 4.393 0 0 0-1.04-1.596A4.43 4.43 0 0 0 14.899.475C14.326.253 13.67.098 12.715.056 11.752.011 11.445 0 9.002 0c-2.444 0-2.75.01-3.71.053C4.336.095 3.678.25 3.11.47a4.392 4.392 0 0 0-1.597 1.041c-.457.45-.812.995-1.037 1.593-.222.573-.377 1.227-.419 2.183C.011 6.252 0 6.558 0 9.002s.01 2.75.053 3.71c.042.956.197 1.613.418 2.183a4.439 4.439 0 0 0 1.041 1.597c.45.457.995.812 1.593 1.037.573.221 1.227.376 2.184.418.96.043 1.266.053 3.71.053 2.443 0 2.75-.01 3.71-.053.955-.042 1.613-.197 2.183-.418a4.604 4.604 0 0 0 2.633-2.634c.222-.573.377-1.227.419-2.183.042-.96.053-1.266.053-3.71s-.004-2.75-.046-3.71Zm-1.62 7.35c-.039.878-.187 1.353-.31 1.67a2.986 2.986 0 0 1-1.709 1.708c-.316.123-.794.271-1.67.31-.95.042-1.234.052-3.636.052-2.401 0-2.69-.01-3.636-.052-.879-.039-1.353-.187-1.67-.31a2.77 2.77 0 0 1-1.034-.671 2.798 2.798 0 0 1-.671-1.034c-.123-.316-.271-.795-.31-1.67-.042-.95-.052-1.235-.052-3.636 0-2.402.01-2.69.052-3.636.039-.88.187-1.354.31-1.67.144-.39.373-.746.675-1.034a2.794 2.794 0 0 1 1.034-.672c.316-.123.794-.27 1.67-.31.95-.041 1.234-.052 3.636-.052 2.405 0 2.69.01 3.636.053.879.039 1.354.186 1.67.31.39.143.745.372 1.034.67a2.8 2.8 0 0 1 .671 1.035c.123.316.271.794.31 1.67.042.95.053 1.234.053 3.636 0 2.401-.01 2.683-.053 3.632Z"/><path d="M9.002 4.378a4.625 4.625 0 0 0 0 9.248 4.625 4.625 0 0 0 0-9.248Zm0 7.623a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm5.886-7.806a1.08 1.08 0 1 1-2.159 0 1.08 1.08 0 0 1 2.16 0Z"/></g></symbol><symbol id="linkedin-icon" viewBox="0 0 20 18"><title>linkedin</title><path d="M2.284 0C.903 0 0 .907 0 2.099c0 1.165.876 2.098 2.23 2.098h.027c1.408 0 2.284-.933 2.284-2.098C4.515.907 3.665 0 2.284 0ZM.239 5.855h4.036V18H.24zm13.945-.285c-2.178 0-3.638 2.046-3.638 2.046V5.855H6.51V18h4.037v-6.782c0-.363.026-.726.133-.986.292-.725.956-1.476 2.071-1.476 1.46 0 2.045 1.114 2.045 2.747V18h4.037v-6.964c0-3.73-1.992-5.466-4.648-5.466Z" transform="translate(.882)" fill="currentColor" fill-rule="nonzero"/></symbol><symbol id="pause" viewBox="0 0 24 28"><title>pause</title><path fill="currentColor" d="M24 3v22c0 .547-.453 1-1 1h-8c-.547 0-1-.453-1-1V3c0-.547.453-1 1-1h8c.547 0 1 .453 1 1zM10 3v22c0 .547-.453 1-1 1H1c-.547 0-1-.453-1-1V3c0-.547.453-1 1-1h8c.547 0 1 .453 1 1z"/></symbol><symbol id="play" viewBox="0 0 22 28"><title>play</title><path fill="currentColor" d="M21.625 14.484.875 26.015c-.484.266-.875.031-.875-.516v-23c0-.547.391-.781.875-.516l20.75 11.531c.484.266.484.703 0 .969z"/></symbol><symbol id="threads-icon" viewBox="0 0 192 192"><title>threads-icon</title><path class="xmcdc9a" d="M141.537 88.988a66.667 66.667 0 0 0-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.348-10.548h.229c8.249.053 14.474 2.452 18.503 7.129 2.932 3.405 4.893 8.111 5.864 14.05-7.314-1.243-15.224-1.626-23.68-1.14-23.82 1.371-39.134 15.264-38.105 34.568.522 9.792 5.4 18.216 13.735 23.719 7.047 4.652 16.124 6.927 25.557 6.412 12.458-.683 22.231-5.436 29.049-14.127 5.178-6.6 8.453-15.153 9.899-25.93 5.937 3.583 10.337 8.298 12.767 13.966 4.132 9.635 4.373 25.468-8.546 38.376-11.319 11.308-24.925 16.2-45.488 16.351-22.809-.169-40.06-7.484-51.275-21.742C35.236 139.966 29.808 120.682 29.605 96c.203-24.682 5.63-43.966 16.133-57.317C56.954 24.425 74.204 17.11 97.013 16.94c22.975.17 40.526 7.52 52.171 21.847 5.71 7.026 10.015 15.86 12.853 26.162l16.147-4.308c-3.44-12.68-8.853-23.606-16.219-32.668C147.036 9.607 125.202.195 97.07 0h-.113C68.882.194 47.292 9.642 32.788 28.08 19.882 44.485 13.224 67.315 13.001 95.932L13 96v.067c.224 28.617 6.882 51.447 19.788 67.854C47.292 182.358 68.882 191.806 96.957 192h.113c24.96-.173 42.554-6.708 57.048-21.189 18.963-18.945 18.392-42.692 12.142-57.27-4.484-10.454-13.033-18.945-24.723-24.553ZM98.44 129.507c-10.44.588-21.286-4.098-21.82-14.135-.397-7.442 5.296-15.746 22.461-16.735a99.978 99.978 0 0 1 5.79-.169c6.235 0 12.068.606 17.371 1.765-1.978 24.702-13.58 28.713-23.802 29.274Z"/></symbol><symbol id="twitter-icon" viewBox="0 0 23 18"><title>twitter</title><path d="M19.878 4.489a9.066 9.066 0 0 0 2.276-2.358c-.824.36-1.701.6-2.617.717a4.518 4.518 0 0 0 1.998-2.51 9.087 9.087 0 0 1-2.88 1.1A4.54 4.54 0 0 0 10.8 4.542c0 .36.03.706.105 1.035C7.13 5.394 3.787 3.584 1.542.828A4.58 4.58 0 0 0 .92 3.122c0 1.573.81 2.967 2.018 3.774a4.49 4.49 0 0 1-2.052-.56v.05a4.563 4.563 0 0 0 3.639 4.464c-.37.101-.773.15-1.19.15-.292 0-.585-.017-.86-.078.588 1.798 2.259 3.12 4.243 3.164a9.13 9.13 0 0 1-5.632 1.937A8.59 8.59 0 0 1 0 15.962 12.79 12.79 0 0 0 6.967 18c8.015 0 13.24-6.687 12.91-13.511Z" transform="translate(.728)" fill="currentColor" fill-rule="nonzero"/></symbol><symbol id="wechat-qrcode" viewBox="0 0 298 299"><title>wechat-qrcode</title><path d="M76 2911c-9-15-3-407 6-418 7-9 7-13-1-13-15 0-14-63 1-78 9-9 9-12 0-12-16 0-15-55 1-67 15-13 138-13 154-1 6 5 13 5 17 0 7-11 145-12 152-1 3 5 14 3 24-3 15-10 27-10 50-1 17 7 32 7 36 2 8-13 48-11 63 4 11 10 14 10 18 0 7-18 49-16 67 3 19 18 21 60 4 67-10 4-10 7 0 18 14 15 16 55 3 63-5 4-5 19 2 36 9 23 9 35-1 50-6 10-8 21-3 24 11 7 10 145-1 152-5 4-5 11 0 17 12 16 12 139-1 155-12 15-67 16-67 0 0-9-3-9-12 0-15 15-78 16-78 1 0-8-4-8-12-1-14 11-416 14-422 3zm524-78c0-1-5-14-10-28-7-18-7-33 1-46 7-15 7-24-1-33-7-9-7-22 0-40 6-17 6-35 0-52-7-17-7-32 0-45 7-12 7-25 1-36-5-10-5-26 0-40 5-13 4-34-2-53-8-23-8-34 1-45 17-20 5-32-15-15-11 9-22 9-45 1-19-6-40-7-53-2-14 5-30 5-40 0-11-7-24-6-38 2-16 8-28 8-45 0-16-7-32-7-50-1-18 7-31 7-40 0-9-8-18-8-33-1-13 8-28 8-46 1-14-5-27-10-28-10s-1 82 0 182c2 101 3 200 3 220 0 36 1 37 43 40 45 3 397 4 397 1z" transform="matrix(.1 0 0 -.1 0 299)"/><path d="M256 2734c-12-12-14-223-2-242 7-11 145-12 152-1 3 5 13 4 23-3 28-17 70-2 77 29 4 14 2 34-4 44-7 10-8 20-3 23 11 7 10 145-1 152-19 12-230 10-242-2zm174-158c0-3-4-8-10-11-5-3-10-1-10 4 0 6 5 11 10 11 6 0 10-2 10-4zm333 325c-9-14-10-28-3-46 8-20 16-25 45-25s36 4 41 27c9 35-6 57-42 61-20 2-33-3-41-17zm170-1c-9-14-10-27-3-46 9-23 15-26 50-22l40 4-6-33c-8-41 9-63 47-63 37 0 57 36 40 68-6 11-11 22-11 24s61 3 135 3h134l-5-36c-4-22-2-39 5-43 21-13 1-25-28-16-43 12-66-8-59-51l6-34h-95l5 37c4 34 2 39-22 48-44 17-70-3-63-50l5-37-44 5c-40 4-43 3-50-23-14-56-3-60 177-60h164v45l-1 45h93l-5-42c-3-32-1-43 9-43s10-3 1-12c-17-17-15-63 2-77 8-7 27-11 43-9 26 3 28 6 28 49v46l43-5c23-2 43-1 44 4 4 26 5 222 1 237-4 14-13 17-41 15-36-3-37-4-37-46s0-43-35-40c-20 1-41-1-47-5-8-5-10 14-8 65 4 104 0 118-39 118-18 0-37-5-44-12-9-9-12-9-12 0 0 15-52 16-67 1-8-8-13-8-17 0-9 15-59 14-74-1-9-9-12-9-12 0 0 15-56 16-66 1-4-8-9-8-17 0-6 6-23 11-37 11s-31-5-37-11c-8-8-13-8-17 0-12 18-60 13-73-9zm771 6c-3-8-4-27-2-43 3-25 7-28 45-31l41-3 4-45c3-44 3-45-23-40-14 3-36 2-48-1-18-5-22-12-19-42l3-36h170l3 28c2 16-2 35-9 43-9 11-9 14 0 14 8 0 11 14 9 38-3 36-4 37-45 40-42 3-42 3-45 45-3 41-4 42-41 45-26 2-39-1-43-12zm263 7c-4-3-7-24-7-46v-39l46 4c44 3 45 3 40-23-9-47 3-69 39-69 42 0 59 21 51 62l-6 33h43c39 0 42 2 45 28 2 16-2 35-9 43-14 17-69 19-69 2 0-9-3-9-12 0-16 16-78 16-78 0 0-9-3-9-12 0-13 13-60 16-71 5zm342 0c-7-35-4-572 3-585 10-21 48-24 67-5 11 10 14 10 18 0 6-16 55-17 70-2 8 8 13 8 17 0 10-15 49-14 65 2 11 10 14 10 18 0 6-16 59-17 69-2 4 8 9 8 17 0 15-15 64-14 70 2 4 10 7 10 18 0 16-16 55-17 65-2 4 8 9 8 17 0 6-6 23-11 38-11 21 0 29 7 38 31 8 24 8 36 0 45-8 10-8 18 0 27 6 8 8 24 5 38-7 28-7 47-1 74 2 11 0 25-5 32-6 7-6 19 0 30 5 10 7 27 5 38-6 25-6 45 0 70 2 11 0 25-5 32-6 7-6 19 0 30 5 10 7 27 5 38-6 25-6 45 0 70 7 31-11 55-41 55-16 0-33-5-40-12-9-9-12-9-12-1 0 14-147 16-156 2-4-6-10-6-17 0-15 12-138 11-154-1-7-5-14-5-18 2-8 13-58 13-72-1-8-8-13-8-17 0-8 12-65 15-67 4zm505-111c-4-19-1-38 5-46 7-8 8-17 3-20-11-7-12-145-1-152 5-3 3-14-3-24-10-15-10-27-1-50 7-17 7-32 2-36-13-8-11-48 3-62 18-18 4-23-31-11-24 8-35 8-46-1s-18-10-29-1c-9 8-22 8-44 0s-36-7-53 1c-17 9-27 9-45-1-18-9-27-10-35-2s-20 8-39 1c-20-7-35-6-51 2-17 9-27 9-45-1-27-14-48-3-21 12 13 8 15 17 11 37-4 15-11 30-17 33-5 4-5 9 2 13 14 9 15 63 1 71-6 4-5 12 4 21 11 10 12 22 6 44-5 17-5 43 0 59 6 22 4 33-6 41-11 10-11 14 1 26 10 11 11 22 4 46-5 18-9 33-9 33h440l-6-33z" transform="matrix(.1 0 0 -.1 0 299)"/><path d="M2500 2741c-24-6-25-11-26-79-1-40 2-75 7-78s3-13-3-24c-29-46 28-102 69-68 13 10 17 10 20 1 6-16 55-17 70-2 8 8 13 8 17 0 4-6 20-11 36-11 25 0 31 5 38 33 5 19 5 37 0 44-6 7-6 19 0 30 5 10 7 27 5 38-6 27-6 46 0 72 8 33-25 58-60 46-17-7-38-7-53-1-16 6-33 5-47-1-14-7-24-7-28-1-7 11-9 11-45 1zm70-81c0-5-4-10-10-10-5 0-10 5-10 10 0 6 5 10 10 10 6 0 10-4 10-10zm0-90c0-5-4-10-9-10-6 0-13 5-16 10-3 6 1 10 9 10 9 0 16-4 16-10zm90 6c0-11-19-15-25-6-3 5 1 10 9 10 9 0 16-2 16-4zM769 2732c-17-15-19-22-10-45 7-18 7-36 1-53-14-36 3-64 39-64 38 0 55 22 47 62l-6 33h175v34c0 29-4 36-26 42-15 3-32 3-39-1-7-5-24-3-37 3-15 7-30 7-45 0-13-5-35-6-50-2-20 5-34 2-49-9zm1213 11c-23-4-23-7-20-89l3-85-32 6c-51 9-77-30-52-77 9-17 17-19 47-14l37 5v-175h-52c-35 0-49 4-43 10 14 14 12 63-2 70-10 5-10 7 0 12 6 3 12 21 12 39 0 27-5 34-26 39-56 14-64 3-61-90l2-85-27 6c-15 4-37 3-49 0-19-6-21-13-16-51 4-42 4-44-19-38-43 11-74-3-74-34 0-15 5-33 12-40 15-15 61-15 76 0 9 9 12 9 12-1 0-8 12-11 38-9l37 3-1 48c0 26 1 47 2 47 2 0 15-5 29-12 19-9 28-9 37 0 7 7 15 12 18 12s5-73 4-162c-1-90 3-171 8-180 11-22 51-23 68-3 8 9 10 29 7 49-5 34-5 34 29 29 20-3 40-1 49 7 18 15 20 66 3 74-10 5-10 7 0 12 6 3 12 19 12 35 0 37-37 58-72 42-22-10-23-9-23 43 0 30 1 54 3 54s13-5 24-11c33-18 68 6 68 48 0 19-5 33-12 33-9 0-9 3 0 12 16 16 15 65 0 72-10 5-10 7 0 12 16 7 16 74 0 74-9 0-9 3 0 12 7 7 12 24 12 38s-5 31-12 38c-9 9-9 12-1 12s12 26 11 75c0 63-3 77-18 85-10 6-20 9-22 9-2-1-13-4-26-6zm-12-683c0-5-4-10-10-10-5 0-10 5-10 10 0 6 5 10 10 10 6 0 10-4 10-10zm164 576c-10-40 4-66 34-66 41 0 54 13 50 51-3 31-6 34-40 37-33 3-38 0-44-22zm-417-63c-14-4-17-13-15-40 4-42 24-59 61-49 23 5 27 12 27 45 0 32-4 40-22 45-13 3-25 5-28 5-3-1-13-3-23-6z" transform="matrix(.1 0 0 -.1 0 299)"/><path d="M759 2462c-7-19-7-32 1-45 7-11 7-24 1-34-5-10-5-26 0-40 5-13 4-34-2-53-8-23-8-34 1-45 17-20 5-32-15-15-11 9-22 9-45 1-19-6-40-7-53-2-14 5-30 5-40 0-10-6-23-6-34 1-28 18-73-3-73-34 0-43 10-56 45-56 18 0 36 6 39 13 5 10 7 10 12 0 7-16 38-17 65-3 13 7 19 7 19 0 0-14 67-12 74 3 5 10 7 10 12 0 7-16 56-17 72-1s15 65 0 71c-7 2-10 8-5 12 4 5 19 2 33-5 21-12 29-12 46-1 24 15 33 9 20-15-6-11-6-27 0-46 8-21 16-28 37-28 15 0 32 5 38 11 8 8 13 7 19-2 4-7 3-14-4-17-7-2-12-16-12-31 0-39 39-60 76-41 22 12 27 12 34 0 8-12 15-13 41-3 36 14 49 9 31-9-15-15-15-51 0-66 6-6 9-15 5-19s-13-1-19 5c-16 16-51 15-67 0-11-10-14-10-18 0-6 16-51 15-69-2-18-19-18-53 0-72 17-16 66-19 66-4 0 14 28 12 33-2 3-10 11-10 38-1 22 9 37 9 43 3s18-10 29-10c13 0 0-17-43-57-34-31-67-68-75-83-11-22-19-26-44-22-17 2-37-1-45-7-11-9-16-9-22 0-4 7-2 15 4 17 16 5 15 55 0 70s-51 15-66 0c-18-18-23-5-10 30 11 28 10 33-11 51-22 19-42 19-68-1-7-5-14-5-18 2-3 5-19 10-35 10-23 0-31-6-36-24-12-49-2-61 49-59 44 1 60-8 37-22-15-9-12-44 4-61 17-16 66-19 66-4 0 6 4 10 8 10s8-25 8-55c-1-30-4-55-8-55-5 0-8 5-8 10 0 15-57 12-63-2-4-10-7-10-18 0-17 15-51 16-67 0-9-9-15-9-24 0-19 19-56 14-69-9-6-12-8-36-4-58 5-29 4-34-6-23-7 6-25 12-40 12s-29-6-32-12c-2-7-7-10-11-7-4 4-1 19 6 33 9 21 9 32 0 47-17 27-15 30 13 23 44-11 75 3 75 34 0 15-5 33-12 40-16 16-65 15-71 0-2-7-8-9-13-5-4 4-3 17 4 27 17 27 15 44-6 63-20 18-57 23-66 8-4-5-19-5-36 2-22 8-35 9-48 1-15-10-17-6-18 41 0 52 1 53 23 42 49-22 99 43 62 80-8 8-8 13 0 17 15 10 14 63-1 70-10 5-10 7 0 12 6 3 12 19 12 34 0 31-23 50-60 50-28 0-45-45-30-78 9-22 9-23-7-17-23 10-43 10-70 1-20-6-21-4-16 35 6 45-4 59-45 59-31 0-49-41-34-75 13-28 10-30-18-15-12 6-28 7-44 0l-25-9 2-123c2-134 5-138 63-124 23 6 24 8 20 96-2 75-1 88 11 79 7-7 28-9 46-6l32 5-2-123c-3-139 5-158 56-139 18 7 34 7 50 0s28-6 42 2c10 7 20 12 22 12 1 0 2-53 1-117-1-65 0-126 2-135 4-15 24-17 172-16 202 0 189 1 174-14-17-17-15-53 3-68 9-7 29-10 48-7l32 5-1-47c0-25-4-56-8-68s-2-32 4-43c9-17 19-20 48-18 35 3 37 5 40 41 2 22-1 37-8 37-6 0-9 3-6 8 2 4 25 6 51 4 44-4 46-6 41-28-8-32 10-64 36-64 11 0 37-15 57-32 20-18 46-40 57-48 14-10 24-29 27-56l5-41-44 5c-39 4-44 2-49-21-10-37 10-67 43-67 16 0 33 5 39 11 8 8 13 8 17 0 10-15 66-14 66 1 0 9 3 9 12 0 16-16 75-16 80 0 3 9 6 9 12 0 4-7 2-12-3-12-6 0-11-16-11-35 0-40 27-60 67-50 22 5 24 11 23 48-5 113-1 147 18 147 9 0 49 12 87 26 39 14 88 28 110 32 33 6 41 11 43 32 5 34 28 57 61 62 28 4 29 3 28-45-1-44-3-48-22-43-11 3-31 3-43-1-18-4-22-12-22-44v-39l-42-1c-134-2-133-2-136-32-6-48 11-57 102-54l81 2v-90h-260v-83l-47 1c-44 1-47 2-42 23 3 12 3 32-1 43-6 19-13 20-180 18-96-1-175-1-175 0 0 2 5 12 12 22 9 15 9 26 0 46-10 21-10 31-1 41 9 11 9 21 0 41-8 18-9 29-1 37 14 14 13 49-2 64s-61 15-76 0c-14-14-16-54-2-63 6-3 5-15-2-30-8-19-8-32 1-51l11-26-38 7c-40 6-72-11-72-38 0-42 60-73 88-45 6 6 15 9 19 5s1-13-5-19c-15-15-15-51 0-66s60-16 75-1c8 8 13 8 17 0 9-14 66-14 66 0 0 5 5 7 11 3 8-4 8-9 0-17-17-17-13-52 7-70 22-20 58-22 65-4 4 9 7 9 18 0 17-16 51-17 67-1 9 9 15 9 24 0 15-15 50-16 65-1 8 8 13 8 17 0 4-6 2-11-3-11-16 0-13-56 3-69 8-7 27-11 43-9 25 3 28 7 30 43 1 22 2 44 2 49 1 6 6 5 13-2 15-15 50-16 65-1 8 8 13 8 17 0 4-6 2-11-3-11-16 0-13-56 3-69 8-7 27-11 43-9 25 3 28 7 30 43 1 22 2 44 2 49 1 6 6 5 13-2 15-15 51-15 66 0 7 7 12 8 13 2 0-5 1-27 2-49 2-33 6-40 27-45 16-5 31-1 43 8 19 17 23 72 5 72-9 0-9 3 0 12 15 15 16 78 1 78-5 0-7 5-3 11 5 8 9 7 14-1 5-9 22-11 46-8l39 5v-93c0-80-2-93-15-88-60 25-74 12-76-74-1-77 3-92 32-96 38-6 56 13 52 55l-4 39 33-6c20-4 39-1 48 6 18 15 20 67 3 73-10 4-10 7 0 18 15 17 16 69 0 69-9 0-9 3 0 12 16 16 16 75 0 80-9 3-9 6 0 12 7 4 12 2 12-3 0-14 63-14 75-1 7 6 9-51 8-153 0-89 1-169 3-178 6-22 51-30 66-12 8 10 13 11 18 3 11-18 43-19 68-4 22 15 22 14 16-26-4-26-2-45 6-55 15-18 51-20 69-2 11 9 14 9 18 0 6-16 55-17 70-2 7 7 13 7 17 1 3-6 2-13-4-17-5-3-10-19-10-35 0-23 6-30 32-39 24-9 33-8 40 1 6 10 12 10 29 0 32-21 79 2 79 37 0 15-5 32-12 39-15 15-65 16-70 0-2-6-9-8-15-5-9 5-7 16 5 38 16 29 16 31-2 45-16 11-17 17-8 26s15 8 26-8c14-18 17-18 43-4 30 17 41 53 23 75-7 9-8 15 0 20 14 9 13 62-2 67-6 2-8 9-5 15 5 8 16 7 39-4 29-15 32-15 45 3s15 18 24 1c7-13 17-15 37-11 37 9 44 22 37 69-5 32-4 38 6 28 19-19 63-16 76 6 14 22 9 61-8 71-21 14-150 5-160-11-12-19-11-46 1-54 22-13 8-20-43-20l-54-1 11 28c8 21 7 34-2 48-7 12-8 21-2 25 13 8 13 52 0 60-7 4-7 12 0 25 15 28 12 58-7 68-10 5-73 8-141 7-112-2-122-1-109 14 8 10 11 26 8 41-6 20-14 26-43 28-44 4-49-6-44-103l3-70h-138c-87 0-135 3-129 9s10 24 10 42c0 38-8 41-113 38-67-2-77 0-66 12 6 8 9 28 6 47l-5 32h173l3 38c2 23-1 37-9 37-9 0-9 3 0 14 7 8 11 27 9 43-3 25-8 29-48 33l-45 5v40c0 38-2 40-32 43l-31 3 15 37c28 67 60 71 55 6l-4-45 43 3c40 3 44 6 47 31 2 16-1 34-7 40-8 10 2 13 43 13h52v-41l-1-40h82v-100h-82v-160l74-2c43-2 80 2 88 8 15 13 17 55 3 64-6 3-5 15 2 30 8 18 8 32 0 49-10 23-10 23 33 18 35-3 45-1 53 14 10 19 9 36-3 65-5 14 0 16 39 12 42-5 45-4 51 20 4 14 2 34-4 45-7 14-8 23-1 27 14 9 13 48-2 63-7 7-25 12-40 12-36 0-56-36-38-70 13-25 5-39-12-22-15 15-68 16-68 1 0-5-5-7-11-3-8 4-8 9 0 17 16 16 14 52-4 67-8 7-30 10-49 8-33-4-34-3-29 29 3 19 0 39-7 48-9 10-9 15-1 15 14 0 14 63 0 77-8 8-1 10 30 6 26-4 46-1 56 7 18 15 20 51 3 69-10 11-10 14 0 18 14 6 16 49 2 58-20 12-9 25 15 19 40-10 72 3 77 31 3 14-1 30-9 36-11 10-11 15 4 31 16 18 16 21 1 49-12 20-14 31-5 36 6 3 13 1 15-5 5-15 54-16 69-1 7 7 13 7 17 1 3-6 2-13-4-17-14-9-12-62 3-68 10-4 10-7 0-18-15-16-17-55-3-64 7-4 7-12 0-25-14-26-13-57 3-63 9-3 9-8 1-17-8-8-14-9-18-1-4 6-20 11-35 11-37 0-59-37-41-70 10-20 17-22 55-17l43 6-11-30c-9-22-9-34 0-48 8-12 8-22 2-28s-9-23-7-39c3-28 5-29 51-28 26 0 47-1 47-2 0-2-5-14-11-27-16-35 3-67 39-67 16 0 33 5 40 12 14 14 16 54 2 63-6 3-5 15 2 30 17 38-3 75-41 75-16 0-31-5-33-12-3-7-10-8-17-4-10 6-10 10-2 15 19 12 22 54 4 73-9 10-11 18-6 18 17 0 22 49 6 61-10 9-11 15-1 26 18 23 19 46 1 66-16 17-15 18 25 11 28-4 47-2 57 6 18 15 20 51 3 69-10 11-10 14 0 18 15 6 16 55 0 71-15 15-65 16-70 0-2-6-10-8-17-4-7 5-9 12-3 19 21 27 21 47 1 66-17 15-26 17-48 10-18-7-37-6-56 1s-31 8-39 0c-5-5-17-10-25-10-11 0-10 5 5 21 17 19 18 22 2 50-12 20-14 31-5 36 6 3 13 1 15-5 5-16 55-15 70 0 7 7 12 24 12 39 0 34-49 56-80 36-15-8-22-9-31 0-7 7-21 8-41 3-18-6-38-5-52 2-17 7-30 7-46-2-15-8-26-8-32-2s-22 7-40 1c-19-5-38-4-50 2-42 22-75-13-62-65 5-21 12-26 38-26 18 0 37 5 43 11 9 9 11-1 10-37-2-44 0-49 25-58 20-7 30-6 42 7 18 18 21 58 5 74-8 8-8 13 0 17 6 4 11 2 11-3 0-14 63-14 75-2 6 6 10-43 10-134 0-94-3-141-10-135-48 38-90 9-80-54 6-34 5-39-6-28-18 17-54 15-69-3-8-10-10-29-6-58 6-34 5-40-5-29-16 15-79 16-79 1 0-8-4-8-14 0-8 7-27 11-43 9-26-3-28-6-29-48 0-25-5-43-10-41s-16 6-24 8-22 21-31 42l-16 38 24-5c31-6 53 14 53 47 0 58-62 72-84 20l-13-31-17 23c-16 23-15 24 9 32 19 7 25 16 25 37 0 37-22 54-63 47l-33-5 3 84c3 76 2 84-18 95-15 8-28 8-45 0-22-9-23-15-21-88l2-79-42 15c-45 16-55 38-47 96 6 40-7 57-42 56-16 0-42-1-59-1-58 0-75-8-75-38 0-15 4-32 9-37 15-16-12-43-49-50-30-5-36-3-45 17-11 26-49 35-71 17-21-18-29-3-14 27 12 21 12 29 1 47-10 15-10 22-2 25 16 5 14 51-3 68-17 16-52 19-61 4-14-23-23-7-22 38l2 47-47-2c-53-1-53-1-36 26 9 15 9 26 0 47-12 25-16 26-59 20-37-5-45-4-35 6 7 7 12 24 12 39 0 21-7 29-30 38-26 9-34 7-50-9s-18-25-10-45c6-15 10-27 10-28s-24-2-54-3c-49 0-54 2-45 17 13 25 11 57-3 62-7 2-9 8-5 13 4 4 17 3 27-4 28-17 44-15 65 8 15 16 17 26 9 48-9 26-12 27-87 29-76 1-78 1-88-25zm271-232c0-5-7-10-15-10s-15 5-15 10c0 6 7 10 15 10s15-4 15-10zm82-85c0-5-5-11-11-13s-11 4-11 13 5 15 11 13 11-8 11-13zm-687-164c3-5 1-12-5-16-5-3-10 1-10 9 0 18 6 21 15 7zm1115-11c0-5-2-10-4-10-3 0-8 5-11 10-3 6-1 10 4 10 6 0 11-4 11-10zm-260-74c0-3-4-8-10-11-5-3-10-1-10 4 0 6 5 11 10 11 6 0 10-2 10-4zm1290-11c0-8-4-15-9-15-13 0-22 16-14 24 11 11 23 6 23-9zm-350-171c0-8-5-12-10-9-6 4-8 11-5 16 9 14 15 11 15-7zm-532-69c23-23 27-36 27-82 0-51-3-58-35-84-33-28-38-29-137-29h-103v-139l-42 2-43 2-3 170c-1 93 0 176 3 183 4 12 32 14 155 10 147-5 151-6 178-33zm-631-19c2-1-2-29-8-62-10-52-7-132 6-167 6-14-42-39-51-26-3 5-1 9 5 9 13 0 12 141-1 158-7 8-7 12 1 12 15 0 14 63-1 79-11 11-8 12 17 6 16-3 31-8 32-9zm1078-43c0-33-3-48-9-42-13 12-76 12-76-2 0-5-5-7-12-3-9 6-9 9 0 12 14 4 16 64 3 78-6 6 9 9 42 9h52v-52zm-1365-43c0-5-4-10-10-10-5 0-10 5-10 10 0 6 5 10 10 10 6 0 10-4 10-10zm90 6c0-11-19-15-25-6-3 5 1 10 9 10 9 0 16-2 16-4zm80-6c0-5-4-10-10-10-5 0-10 5-10 10 0 6 5 10 10 10 6 0 10-4 10-10zm0-80c0-5-4-10-10-10-5 0-10 5-10 10 0 6 5 10 10 10 6 0 10-4 10-10zm1200 0c0-5-5-10-11-10-5 0-7 5-4 10 3 6 8 10 11 10 2 0 4-4 4-10zm80-90c0-5-2-10-4-10-3 0-8 5-11 10-3 6-1 10 4 10 6 0 11-4 11-10zm90-80c0-5-5-10-11-10-5 0-7 5-4 10 3 6 8 10 11 10 2 0 4-4 4-10zm-90-170c0-5-5-10-11-10-5 0-7 5-4 10 3 6 8 10 11 10 2 0 4-4 4-10zm-789-70c31-17 22-25-31-25-27 0-50 1-50 2 0 31 43 43 81 23zm449-190c0-5-5-10-11-10-5 0-7 5-4 10 3 6 8 10 11 10 2 0 4-4 4-10zm85 0c3-5 1-10-4-10-6 0-11 5-11 10 0 6 2 10 4 10 3 0 8-4 11-10zm435 0c0-5-7-10-16-10-8 0-12 5-9 10 3 6 10 10 16 10 5 0 9-4 9-10zm85 0c3-5-1-10-10-10s-13 5-10 10c3 6 8 10 10 10s7-4 10-10zm85 0c0-5-7-10-16-10-8 0-12 5-9 10 3 6 10 10 16 10 5 0 9-4 9-10zm-1285-80c3-5-1-10-10-10s-13 5-10 10c3 6 8 10 10 10s7-4 10-10zm80 0c3-5 1-10-4-10-6 0-11 5-11 10 0 6 2 10 4 10 3 0 8-4 11-10zm260 0c3-5 1-10-4-10-6 0-11 5-11 10 0 6 2 10 4 10 3 0 8-4 11-10zm629-10c18 0 37 5 44 12 9 9 12 9 12 0 0-16 52-15 69 1 11 10 14 10 18 0 6-15 59-17 68-3 4 6 10 8 15 5 6-4 4-14-2-25-10-15-10-27-1-50 7-17 7-32 2-36-13-8-11-48 4-63 10-11 10-14 0-18-15-6-17-59-3-68 6-4 7-11 4-17-4-6-10-6-17 1-15 15-64 14-70-1-4-10-7-10-18 0-15 14-55 16-63 3-4-5-19-5-36 2-23 9-35 9-50-1-11-6-21-8-25-2-3 5-1 11 5 15 14 9 12 62-2 68-10 4-10 7 0 18 15 17 16 69 0 69-9 0-9 3 0 12 15 15 16 78 1 78-5 0-7 5-3 12 6 9 9 9 12 0 2-7 18-12 36-12zm316 10c0-5-7-10-16-10-8 0-12 5-9 10 3 6 10 10 16 10 5 0 9-4 9-10zm0-90c0-5-7-10-16-10-8 0-12 5-9 10 3 6 10 10 16 10 5 0 9-4 9-10zm0-85c0-8-7-15-15-15-16 0-20 12-8 23 11 12 23 8 23-8zm0-90c0-8-4-15-9-15-13 0-22 16-14 24 11 11 23 6 23-9zm-170-80c0-8-7-15-15-15-16 0-20 12-8 23 11 12 23 8 23-8zm90-6c0-5-7-9-15-9-15 0-20 12-9 23 8 8 24-1 24-14z" transform="matrix(.1 0 0 -.1 0 299)"/><path d="M1440 1565v-35h89c78 0 89 2 94 19 10 41-9 51-98 51h-85v-35zm872-887c-13-13-16-47-4-64 4-6 17-13 29-16 42-11 76 61 39 84-17 12-51 9-64-4zM1021 2477c-17-17-13-52 7-70 22-20 36-21 62-5 25 16 37 4 17-17-26-25 0-75 38-75 33 0 49 24 42 65-6 39-5 40 23 23 15-10 24-9 44 2 14 7 29 10 33 5 5-4 2-10-4-12-7-3-13-17-13-32s6-33 13-40c10-10 5-11-24-6-46 9-79-8-79-39 0-24 28-56 48-56 7 0 21 6 32 13 17 10 22 9 30-3 7-11 15-12 37-4l28 9 2 123c1 67-2 123-5 123-37 8-323 4-331-4zm522 7c-7-3-13-21-13-39 0-38 27-60 60-50 24 7 37 51 23 74-10 16-48 24-70 15zm617-84c-45-11-34-90 13-90 30 0 47 18 47 50 0 31-26 49-60 40zm-707-6c-18-8-16-59 1-73 8-7 27-11 43-9 25 3 28 7 28 43 0 37-2 40-30 42-16 1-36 0-42-3zm170 0c-18-8-16-59 1-73 8-7 27-11 43-9 25 3 28 7 28 43 0 37-2 40-30 42-16 1-36 0-42-3zm-80-80c-7-3-13-21-13-39 0-38 27-60 60-50 24 7 37 51 23 74-10 16-48 24-70 15zm-1360-84c-18-7-23-17-23-44 0-30 4-37 27-42 14-4 33-2 42 3 23 15 27 64 5 80-20 15-21 15-51 3zm170 0c-18-7-23-17-23-44 0-30 4-37 27-42 14-4 33-2 42 3 23 15 27 64 5 80-20 15-21 15-51 3zm2214-8c-20-22-21-41-3-64 15-20 56-24 73-7 8 8 13 8 17 0 4-6 20-11 36-11 38 0 58 48 32 80-15 18-21 20-46 10-21-8-38-8-59 0-17 5-31 10-32 10s-9-8-18-18zm271 6c-21-7-28-16-28-37 0-15 5-32 11-38 7-7 7-13 1-17-6-3-13-2-17 4-10 16-51 11-68-8-23-25-21-45 4-67 17-16 24-17 51-7 18 6 34 9 37 5 3-3 0-8-6-10-16-6-17-55-1-71 7-7 24-12 39-12 21 0 29 7 37 28 6 18 6 35 1 45-6 11-5 23 3 36 10 16 9 25-1 44s-10 29-1 46c9 18 8 27-5 47-17 27-18 27-57 12zM82 2138c-20-20-14-66 9-79 36-19 69 3 69 45 0 34-13 46-49 46-9 0-22-5-29-12zm1286-2c-47-35 3-102 57-78 18 8 25 19 25 40 0 48-43 68-82 38zm-768-86c-16-16-18-24-9-50 9-23 17-30 38-30 34 0 51 17 51 51 0 21-7 29-30 38-26 9-34 7-50-9zm2068 8c-21-7-28-16-28-37 0-34 17-51 51-51 21 0 29 7 36 28 17 49-10 77-59 60zm-1731-5c-9-8-9-46-1-67 7-19 55-21 72-4s15 65-4 72c-21 8-59 8-67-1zm-336-174c-27-29-14-73 23-77 34-4 56 13 56 43 0 42-51 64-79 34zm1467 14c-21-5-31-33-22-67 5-21 12-26 38-26 37 0 56 15 56 46 0 32-36 55-72 47zm771-7c-27-13-37-50-19-71 7-8 7-15 1-19-5-4-12-2-16 4-9 14-48 13-64-2-11-10-14-10-18 0-7 20-61 15-73-7-14-27-13-58 3-64 10-4 10-7 0-18-18-18-16-54 2-69 10-8 29-10 57-6 41 7 42 7 24-13-20-22-16-71 6-71 6 0 3-9-7-20-15-17-16-24-7-46 9-18 9-31 1-45-12-22-3-59 14-59 8 0 7-4-1-12-10-10-14-10-21 0-14 24-64 10-75-19-16-46-2-62 49-57 25 3 45 4 45 2s-5-14-11-27c-17-38 3-67 46-67 38 0 51 21 40 68-5 26-4 27 37 27 36 0 43 3 48 25 4 14 3 30-2 37-6 7-6 19 0 30 6 10 11 20 13 23 1 3-3 16-10 28-11 20-19 23-50 20l-36-3v137c0 128 4 154 20 128 9-15 41-12 56 6 17 21 20 45 8 61-6 7-7 19-2 30 10 20 10 30-1 55-11 23-29 28-57 14zm-97-171c0-5-5-11-11-13s-11 4-11 13 5 15 11 13 11-8 11-13zm88-339c0-3-4-8-10-11-5-3-10-1-10 4 0 6 5 11 10 11 6 0 10-2 10-4zM82 1798c-15-15-16-65-1-74 8-4 8-9 0-17-15-15-14-67 1-67 9 0 9-3 0-12-15-15-16-78-1-78 8 0 8-4 1-12-5-7-10-45-10-85-1-64 1-73 19-78 11-4 31-4 45-1 20 5 24 12 24 46 0 39 0 39 43 42 38 3 42 6 45 31 5 41-15 60-58 54l-35-4 2 126c1 88-2 128-10 133-18 12-52 9-65-4zm598-7c-32-61 29-112 73-63 22 24 21 45-1 65-25 23-59 21-72-2zm-428-88c-22-41-2-75 41-71 30 3 32 5 32 43s-2 40-32 43c-22 2-34-2-41-15zm89-77c-7-8-10-45-9-92l3-79-41 3c-37 3-42 1-48-22-4-15-1-36 5-47 9-18 17-20 48-15l36 5-4-45-3-46 45 3 44 4v-81c0-45 4-87 8-94 6-10 1-12-22-7-54 11-73-1-73-44v-38h85c83 0 85 1 91 26 4 14 2 34-4 44-7 10-8 20-3 23 12 8 10 138-2 154-5 6-8 12-6 13 2 0 45 1 94 2l91 2v-100h-40c-34 0-41-4-46-25-4-14-2-33 4-42 12-19 56-24 72-8 6 6 10-8 10-43v-52h-40c-34 0-41-4-46-25-4-14-2-33 4-42 12-21 56-24 74-6 9 9 12 9 12 0 0-16 67-16 74 1 5 10 7 10 12 0 7-16 56-17 71-2 8 8 13 8 17 0 4-6 20-11 35-11 36 0 59 37 42 68-8 15-8 27 0 45s8 30-1 46c-9 17-9 26 1 37 9 11 9 21 1 39-9 20-19 25-47 25s-36-4-41-24c-3-13-1-33 5-44 10-18 7-19-44-18-57 0-63 4-43 24 9 9 9 18 0 37-7 14-12 27-12 29 0 1 21 2 48 2l47-1 3 38c2 25-1 37-9 37-10 0-10 3-1 12 15 15 15 61 0 76-16 16-65 15-72 0-5-10-7-10-12 0-7 16-74 16-74 0 0-9-3-9-12 0-16 16-65 15-72 0-5-10-7-10-12 0-7 16-74 16-74 0 0-9-3-9-12 0-14 14-60 16-74 2-6-6-8 38-7 118 1 78-2 131-9 139-14 17-53 17-67-1zm429-336c0-5-4-10-10-10-5 0-10 5-10 10 0 6 5 10 10 10 6 0 10-4 10-10zm0-260c0-5-4-10-10-10-5 0-10 5-10 10 0 6 5 10 10 10 6 0 10-4 10-10zm90 6c0-3-4-8-10-11-5-3-10-1-10 4 0 6 5 11 10 11 6 0 10-2 10-4zm1452 587c-6-10-9-49-8-88l1-70h40c36 0 40 3 43 28 2 16-2 34-8 42-7 9-8 14 0 17 17 5 19 44 4 67-18 25-60 28-72 4z" transform="matrix(.1 0 0 -.1 0 299)"/><path d="M247 1268c-4-12-4-33-1-45 5-19 13-23 46-23h39l-3 43c-3 40-4 42-39 45-31 3-37-1-42-20zm1799-4c-11-43 1-64 38-64s56 15 56 45-19 45-56 45c-26 0-33-5-38-26zM77 1193c-12-12-7-60 7-72 8-7 27-11 43-9 25 3 28 7 31 46l3 42h-39c-21 0-42-3-45-7zm2737-19c-4-16-2-35 5-47 12-18 10-19-27-12-59 10-90-27-59-69 10-14 23-17 50-14l37 4-6-33c-8-40 8-63 45-63 35 0 54 31 41 65-6 17-6 33 1 49 8 17 8 29-1 45-7 14-8 27-2 34 5 7 6 23 3 37-6 20-14 26-44 28-32 3-37 0-43-24zm-2636-61c-13-3-18-15-18-43 0-39 0-39-42-42-39-3-43-6-46-31-5-41 15-60 58-54l35 4-3-43c-4-40-2-44 24-50 15-4 34-2 43 3 11 7 21 7 32 0 9-5 28-7 42-3 24 6 27 12 27 46 0 43-18 56-62 45l-24-6 3 84c3 81 2 85-19 91-13 3-25 5-28 5-3-1-13-3-22-6zm2218-9c-32-31-10-74 38-74 34 0 46 13 46 50 0 36-57 52-84 24zm170 0c-32-31-10-74 38-74 34 0 46 13 46 50 0 36-57 52-84 24zM426 934c-17-17-19-29-7-59 5-11 4-30 0-43-13-33 6-62 39-62 16 0 33 5 40 12 9 9 12 9 12 0 0-16 67-16 74 1 5 10 7 10 12 0 7-16 56-17 72-1 18 18 14 56-6 67-10 5-52 9-94 7-70-2-76 0-67 15 29 56-32 107-75 63zM83 853c-18-7-16-58 1-72 8-7 27-11 43-9 24 3 28 8 31 37 4 44-28 63-75 44zm682-8c-3-8-7-21-9-29-3-7 0-18 6-24 7-7 6-17-2-32-9-16-9-29-2-46 7-14 8-34 2-52-5-20-4-34 3-41 9-9 8-16 0-31-20-31 2-80 36-80 15 0 32 5 39 12 16 16 15 65 0 71-10 4-10 7 0 18 15 16 16 51 1 66-7 7-7 13-1 17 6 3 13 2 17-4 9-14 62-12 68 3 4 10 7 10 18 0 17-16 51-17 67-1 7 7 12 26 12 44 0 39-14 43-119 39-54-2-70 0-62 8 15 15 14 50-1 65-17 17-68 15-73-3zM82 682c-15-5-16-58-1-68 8-4 8-9 0-17-14-14-14-64-1-72 7-4 7-11 2-18-12-16-13-139-1-154 6-7 6-13 0-17-14-9-12-156 2-156 8 0 8-3-1-12-7-7-12-24-12-40 0-36 32-55 67-39 15 7 30 8 41 2 22-12 33-11 55 1 12 6 23 6 30 0 7-5 21-7 32-5 25 6 45 6 70 0 11-2 28 0 38 5 12 6 23 5 33-3 11-9 20-9 40 0 14 6 30 9 35 6 19-12 53-14 66-4 9 8 17 8 27 0 9-8 21-8 45 0 25 9 31 16 31 39 0 16-5 32-11 36-8 4-8 9 0 17 15 15 14 50-1 66-10 11-10 14 0 18 15 6 16 55 1 70-8 8-8 13 0 17 15 10 14 63-1 69-10 4-10 7 0 18 15 16 16 51 1 66-8 8-8 13 0 17 15 10 14 63-1 69-10 4-10 7 0 18 6 7 12 23 12 35 0 13-6 26-12 31-13 8-563 13-586 5zm220-81c17 4 38 5 47 0 20-11 52-6 61 9 5 9 9 9 14 1 4-6 20-11 36-11s32 5 36 11c4 7 9 7 13 2 3-6 18-13 33-17 20-4 29-2 37 11 15 27 26 6 12-21-10-18-10-28-1-45 8-16 9-31 2-51-7-19-7-31 1-39s7-17-2-35c-10-18-10-28-1-45 8-17 9-31 1-53s-8-35 0-44c9-11 8-18-1-29s-9-22-1-46c12-35 7-49-11-31-14 14-54 16-62 3-4-5-19-5-36 2-23 9-35 9-50-1-10-6-21-8-24-3-7 11-145 10-152-1-3-5-12-4-20 3-8 6-27 9-46 5l-33-6v440s15-4 33-9c24-7 36-6 45 4 10 11 14 11 26 0 9-9 22-10 43-4z" transform="matrix(.1 0 0 -.1 0 299)"/><path d="M256 511c-11-19-15-61-6-66 6-4 6-14-1-28-6-14-7-31-1-47 6-15 6-36-1-53-12-35 13-68 46-60 26 6 45 6 72 0 11-2 28 0 38 5 11 6 23 6 30 0 7-5 25-5 45 0 26 7 32 13 32 36 0 16-5 33-11 39-8 8-8 13 0 17 15 10 14 63-1 69-10 3-10 7 0 20 34 41-22 98-68 69-11-6-21-8-24-3-6 9-145 11-150 2zm174-82c0-5-4-9-10-9-5 0-10 7-10 16 0 8 5 12 10 9 6-3 10-10 10-16zm-90 1c0-5-4-10-10-10-5 0-10 5-10 10 0 6 5 10 10 10 6 0 10-4 10-10zm85-79c3-5 1-12-5-16-5-3-10 1-10 9 0 18 6 21 15 7zm595 324c-18-22-8-58 22-74 24-14 28-14 46 2 14 13 22 15 27 7 4-6-1-17-10-24-16-12-17-16-4-42 12-24 12-34 2-54-10-21-9-28 8-46 20-22 69-23 69-1 0 7 5 6 13-2 10-11 10-14 0-18-7-3-13-18-13-33 0-30 22-50 55-50 37 0 59 52 33 78-8 8-9 15-2 22 8 8 14 7 22-3 16-19 60-10 67 14 4 11 4 33 0 49-6 29 7 42 20 20 9-14 48-13 63 2 7 7 12 25 12 40 0 36-40 59-71 40-15-9-25-10-40-1-46 24-94-42-58-78 8-8 7-13-2-19-7-4-14-3-17 4-4 14-37 16-61 2-17-8-18-3-15 80 4 102 8 97-93 98-41 1-65-4-73-13zm528-75c-13-8-16-26-16-85-1-79 9-96 52-89 28 4 33 19 34 95 0 57-3 71-18 79-23 12-30 12-52 0zm1280-4c-21-15-24-56-6-74s59-15 74 6c19 24 17 46-4 65-22 20-41 21-64 3zm-1116-88c-20-20-14-66 11-79 12-7 24-11 27-10 3 2 13 7 23 12 22 13 24 74 1 83-25 9-49 7-62-6zm-946-86c-13-15-14-24-5-50 9-25 17-32 38-32 34 0 51 17 51 48 0 46-53 67-84 34zm170 0c-13-15-14-24-5-50 9-25 17-32 38-32 34 0 51 17 51 48 0 46-53 67-84 34zm522 4c-20-15-24-61-7-72 8-4 8-9 0-17-17-17-13-61 7-73 9-6 28-8 42-4 24 6 25 10 27 80 2 60-1 77-14 88-21 15-33 15-55-2zm170 0c-43-32-6-95 48-82 46 12 25 98-23 96-4 0-16-7-25-14zm350 3c-12-6-18-22-18-44 0-29 4-36 27-41 14-4 33-2 42 3 11 7 21 7 33-1 30-18 72 4 76 40 4 40-34 64-74 45-19-8-30-9-38-1-12 12-26 12-48-1zm759-7c-22-24-21-45 1-65 37-34 82-15 82 35 0 45-53 64-83 30zm-1715-84c-16-16-15-65 1-71 6-2 9-8 4-12-4-5-18-2-32 5-21 11-28 10-50-4-27-18-28-30-9-80 3-9 1-16-5-16s-11 5-11 10c0 14-54 12-68-2-38-38 14-108 59-80 13 8 25 9 36 3 11-5 26-5 42 1 17 6 32 5 48-3 18-10 28-10 48 1s27 11 41-1c9-8 18-14 18-13 19 15 50 23 59 15 14-11 35-10 55 3 7 4 21 4 30 0 25-11 35-11 55-1 11 5 23 4 31-2 12-10 46-8 66 4 6 4 18 1 27-7 9-7 17-13 17-12 1 0 11 6 24 13 16 9 22 21 22 47 0 41-19 52-61 37l-29-11 6 37c10 60-36 92-78 54-10-9-18-11-18-5 0 20-41 25-61 6-21-19-26-74-7-74 9 0 8-3-1-12-11-10-14-10-18 0-5 14-37 16-62 3-15-9-17-3-14 72 1 47-2 86-9 94-13 17-50 17-67 1-11-10-14-10-18 0-6 15-55 16-71 0zm98-78c0-5-7-10-15-10s-15 5-15 10c0 6 7 10 15 10s15-4 15-10zm-90-84c0-11-19-15-25-6-3 5 1 10 9 10 9 0 16-2 16-4zm85-6c-3-5-10-10-16-10-5 0-9 5-9 10 0 6 7 10 16 10 8 0 12-4 9-10zm255 6c0-3-4-8-10-11-5-3-10-1-10 4 0 6 5 11 10 11 6 0 10-2 10-4zm512 157c-10-20-10-228 0-238 11-11 42-13 61-3 15 8 18 19 15 47l-3 38 74-3c41-2 82 1 92 7 25 13 24 51-2 74-17 16-24 17-51 7-23-9-35-9-45 0-10 8-20 8-39-1-14-6-27-11-29-11-1 0-1 18 2 41 4 29 2 44-8 50-23 14-58 10-67-8zm940 5c-7-7-12-24-12-39 0-20 7-30 31-39 27-12 33-11 51 8 19 18 20 24 8 51-9 24-19 31-39 31-15 0-32-5-39-12zM766 251c-26-29-9-75 28-79 52-6 76 47 38 81-24 22-45 21-66-2zm782 8c-12-6-18-22-18-44 0-39 21-51 73-40 26 6 30 5 20-6-37-39 3-98 53-79 23 9 26 15 22 50-4 40-3 40 24 35 47-11 68 2 68 41 0 42-33 64-68 45-15-8-28-8-46 1-21 9-29 8-43-4-15-14-20-14-31-2-15 16-30 17-54 3zm677-5c-12-13-15-27-10-58 6-34 5-39-6-28-18 16-54 15-68-2-7-8-11-27-9-42 2-21 10-30 33-36 18-4 32-3 36 3 4 7 13 8 25 2 22-11 41-10 67 1 19 9 23 56 6 73-8 8-8 13 0 17 17 11 13 51-7 69-23 21-46 21-67 1zm170-4c-27-29-10-74 28-78 53-6 77 46 39 81-25 22-45 21-67-3zm342-88c-22-24-21-45 1-65 28-25 76-9 80 27 6 52-47 76-81 38z" transform="matrix(.1 0 0 -.1 0 299)"/></symbol><symbol id="weibo-icon" viewBox="0 0 24 18"><title>sina-weibo</title><g fill="currentColor" fill-rule="nonzero"><path d="M22.702 5.37c.097 1.245-.117 2.737-.953 2.81-1.365.121-.653-1.358-.635-2.248.05-2.58-2.189-4.372-4.383-4.372-.62 0-2.065.414-1.842-.875.1-.568.59-.56 1.08-.625 3.689-.483 6.473 2.012 6.733 5.31Zm-6.034 2.997c1.586.853 3.49 1.278 3.175 3.81-.58 4.667-10.466 7.802-16.64 4.373-1.693-.942-3.445-2.318-3.175-5.06.232-2.36 1.846-4.19 3.43-5.746 1.511-1.487 3.104-2.65 5.27-3.185 2.353-.582 3.048 1.346 2.414 3.247 1.363-.09 4.25-1.585 5.526-.125.562.644.347 1.796 0 2.686Zm-1.715 5.996c.509-.566 1.019-1.43 1.016-2.435-.01-4.161-7.229-5.09-11.178-2.81-4.494 2.593-2.597 7.255 2.922 7.62 2.924.192 5.85-.823 7.24-2.375Z" transform="translate(.387)"/><path d="M18.891 7.18c-.925.061-.58-.622-.635-1.435-.035-.501-.458-1.08-.826-1.25-.722-.333-1.842.242-1.842-.75 0-.736.65-.66 1.017-.687 3.366-.251 3.575 4.039 2.286 4.123Zm-6.731 4.436c1.352 4.022-5.698 5.892-6.987 2.436-.863-2.311 1.209-4.15 3.366-4.372 1.841-.19 3.214.733 3.62 1.936Zm-3.24.687c.286.489.946.137.888-.25-.069-.448-.895-.381-.889.25Zm-1.144 2.124c1.186-.278 1.345-2.473-.445-2.061-1.502.344-1.212 2.448.445 2.06Z" transform="translate(.387)"/></g></symbol><symbol id="weixin-icon" viewBox="0 0 23 18"><title>wechat</title><g fill="currentColor" fill-rule="nonzero"><path d="M11.537 6.87c-6.51 3.355-2.18 12.355 5.942 10.006.757.293 1.43.77 2.164 1.124-.19-.638-.392-1.27-.607-1.897 2.516-1.794 3.068-4.331 2.138-6.417-1.453-3.305-6.09-4.658-9.637-2.816Zm2.274 3.288c-.188.59-1.039.765-1.451.318-.455-.415-.278-1.28.319-1.465.66-.28 1.422.486 1.132 1.147Zm4.297.085h.012c-.23.527-1.025.652-1.415.243-.188-.173-.243-.433-.31-.66.094-.413.378-.842.836-.861.634-.088 1.201.697.877 1.278Z" transform="translate(.914)"/><path d="M15.667 5.639c-.392-1.927-1.74-3.555-3.438-4.494h.025v-.001C6.23-2.26-1.267 2.488.182 8.086c.39 1.66 1.538 3.053 2.932 3.982-.27.767-.526 1.534-.768 2.306.876-.46 1.752-.941 2.63-1.409a9.72 9.72 0 0 0 3.29.468c-1.383-3.966 2.163-8.167 7.4-7.794Zm-5.463-2.302c.706-.284 1.54.31 1.484 1.07l.002.01c.007.868-1.146 1.409-1.793.821-.672-.484-.481-1.658.307-1.901Zm-3.96 1.3c-.154.754-1.16 1.118-1.748.612-.683-.483-.491-1.68.31-1.923.784-.304 1.676.496 1.439 1.312Z" transform="translate(.914)"/></g></symbol><symbol id="xing-icon" viewBox="0 0 18 18"><title>xing</title><path d="M16.875 0H12.67L6.423 10.943 10.448 18h4.205l-4.025-7.057zM4.683 3.375H.72l2.294 4.04L0 12.375h3.965l3.012-4.96z" transform="translate(.512)" fill="currentColor" fill-rule="nonzero"/></symbol></svg></div>
+</body>
+
+</html>

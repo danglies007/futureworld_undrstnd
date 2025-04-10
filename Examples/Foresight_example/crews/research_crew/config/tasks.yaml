@@ -1,3 +1,5 @@
+# tasks - research_crew
+
 trend_research_task:
   description: >
     Conduct thorough research to identify and document potential trends and forces affecting {sector} in {geography} according to the provided section from the content plan for {report_type}.

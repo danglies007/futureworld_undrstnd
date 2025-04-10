@@ -1,0 +1,3168 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+     
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <script defer="defer" type="text/javascript" src="https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js" data-routing="env=prod,tier=publish,ams=World Bank"></script>
+<link rel="icon" type="image/x-icon" href="/content/dam/wbr-redesign/logos/favicon.ico">
+
+<link rel="icon" type="image/png" sizes="16x16" href="/content/dam/wbr-redesign/logos/wbg-favicon.png?v=10">
+<link rel="icon" type="image/png" sizes="192x192" href="/content/dam/wbr-redesign/logos/favicon-192x192.png?v=10">
+
+
+<!--<link rel='icon' href='/content/dam/wbr/social-icon/favicon.svg?v=3' type='image/svg+xml'>-->
+     <link rel="preconnect" href="https://worldbank.scene7.com/" crossorigin>
+    <meta name="viewport" content="width=device-width"/>
+    <meta charset="utf-8" />
+    <title>Digital Progress and Trends Report</title>
+    <meta name="keywords" content="Digital Economy Strategy"/>
+    <meta name="description" content="A new World Bank report tracks how digitalization is advancing globally by measuring countries’  progress on digital infrastructure, production, and adoption. "/> 
+    <meta name="language" content="en"/>
+    <link rel="canonical" href='https://www.worldbank.org/en/publication/digital-progress-and-trends-report'/>
+<meta property="og:title" content="Digital Progress and Trends Report"/>
+<meta property="og:site_name" content="World Bank"/>
+<meta property="og:description" content="A new World Bank report tracks how digitalization is advancing globally by measuring countries’  progress on digital infrastructure, production, and adoption. "/>
+<meta property="og:type" content="article"/>
+<meta property="og:test" content="https://www.worldbank.org/content/dam/wbr/share-logo/social-share.jpg"/>
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image" content="https://www.worldbank.org/content/dam/wbr/share-logo/social-share.jpg"/>
+<meta property="og:url" content="https://www.worldbank.org/en/publication/digital-progress-and-trends-report"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="World Bank"/>
+<meta name="twitter:title" content="Digital Progress and Trends Report"/>
+<meta name="twitter:description" content="A new World Bank report tracks how digitalization is advancing globally by measuring countries’  progress on digital infrastructure, production, and adoption. "/>
+<meta name="twitter:image:src" content="https://www.worldbank.org/content/dam/wbr/share-logo/social-share.jpg"/>
+<meta name="dcterms.title" content="Digital Progress and Trends Report" />
+<meta name="dcterms.type" content="Text/HTML" />
+<meta name="dcterms.identifier" content="https://www.worldbank.org/en/publication/digital-progress-and-trends-report"/>
+<meta name="dcterms.language" content="en" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<script src="/etc.clientlibs/worldbankgroup/clientlibs/vendor/jquery.js"></script>
+  
+
+
+ 
+
+
+   
+ 
+
+
+
+
+
+
+
+
+<script src="//assets.adobedtm.com/223f6e2cf7c9/3eb6c9b72a93/launch-7bc0cdc67098.min.js" async></script>
+
+
+
+<link rel="stylesheet" href="/etc.clientlibs/worldbankgroup/clientlibs/clientlibs-flagship.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/worldbankgroup/components/content/redesign_title/clientlibs/site.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/worldbankgroup/components/content/featuredcard/clientlibs/site.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/worldbankgroup/components/content/inline_search_API_new/clientlibs/site.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/worldbankgroup/components/flagship/wdr_accordion/clientlibs/site.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/worldbankgroup/components/flagship/flagshipGlobalFooter/clientlibs/site.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/worldbankgroup/components/content/redesign_related/clientlibs/site.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/worldbankgroup/components/flagship/wdr_listnav/clientlibs/site.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/worldbankgroup/components/flagship/wdr_indepth/clientlibs/site.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/worldbankgroup/components/flagship/wdr_table/clientlibs/site.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/worldbankgroup/components/content/backToTop/clientlibs/site.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/worldbankgroup/components/content/annualmeeting_schedule_download/clientlibs/site.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/worldbankgroup/components/flagship/wdrListNavigation/clientlibs/site.css" type="text/css">
+</head>
+<div class="wb_metadata">
+
+
+
+
+
+
+
+</div>
+  
+
+<body>
+    <div id="wbg-aem-target" class="wbg-aem-target"></div>
+      
+
+
+
+<div class="header flagshipHeader"> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+    <div class="lp__navbar lp__navbar_default"> 
+        <div class="container">
+            <div class="lp__navbar_header">
+                <a href="https://www.worldbank.org/" class="lp__navbar_brand">
+
+    <svg width="172" height="34" viewBox="0 0 172 34" fill="none" xmlns=http://www.w3.org/2000/svg aria-label="World Bank Group" role="img">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 17.0279C0 18.6224 0.22957 20.1637 0.648909 21.6257C0.673785 21.7249 0.69724 21.8226 0.72638 21.9204C0.732777 21.9395 0.740595 21.9558 0.748413 21.9749C2.8714 28.8167 9.27805 33.8012 16.8311 33.8012C20.3244 33.8012 23.5732 32.7345 26.2662 30.9112C26.2933 30.8964 26.3203 30.8822 26.3451 30.8652C26.5051 30.7568 26.66 30.6428 26.81 30.5238C29.9074 28.243 32.1939 24.9322 33.1569 21.1015C33.2109 20.9252 33.2578 20.746 33.2976 20.5646C33.3062 20.5221 33.309 20.4796 33.3119 20.4371C33.54 19.3364 33.6615 18.1945 33.6615 17.0279C33.6615 14.7641 33.2166 12.5668 32.3388 10.4992C32.1704 10.1025 31.7113 9.91695 31.3132 10.0848C30.9152 10.252 30.7283 10.7103 30.8967 11.107C31.6928 12.9812 32.0958 14.9737 32.0958 17.0279C32.0958 18.2866 31.9387 19.5099 31.648 20.6801C31.417 21.4189 31.0098 22.1024 30.449 22.7222C30.4625 22.4573 30.4724 22.1895 30.4724 21.9168C30.4788 18.9241 29.648 15.7635 28.1078 12.7921C29.2372 11.8252 29.9564 10.6317 30.2045 9.29574C30.2834 8.87216 30.0019 8.46558 29.5769 8.38766C29.1526 8.30762 28.7432 8.58883 28.665 9.01312C28.5015 9.89641 28.0417 10.7053 27.321 11.3952C27.0971 11.0255 26.8647 10.6607 26.6181 10.3002C25.2442 8.29274 23.6116 6.55591 21.8248 5.17041C24.1831 5.32483 26.3629 5.89433 28.1192 6.87183C28.3942 7.02837 28.7602 7.02341 29.0168 6.80949C29.3495 6.53466 29.3935 6.04095 29.1163 5.70945C26.5946 2.19329 22.2328 0.254578 16.8311 0.254578C7.55094 0.254578 0 7.7792 0 17.0279M17.2242 2.54179C16.5163 2.2712 15.8155 2.06224 15.126 1.91208C15.6797 1.85045 16.2398 1.81574 16.8091 1.81504C17.0756 1.81858 17.4026 2.13804 17.7459 2.7557C17.5724 2.68133 17.3983 2.60837 17.2242 2.54179M18.9207 1.92908C19.5561 1.9992 20.2327 2.10829 20.9293 2.27049C20.4929 2.50354 20.0408 2.79608 19.5817 3.14599C19.377 2.68558 19.1567 2.27899 18.9207 1.92908M21.5576 3.59933C22.0949 3.25295 22.5889 3.01495 23.0025 2.91649C23.7879 3.23029 24.5661 3.63049 25.3046 4.13695C24.1205 3.84299 22.8611 3.66308 21.5576 3.59933M8.85658 5.65491C9.03071 4.84599 9.51828 4.12208 10.2745 3.52424C12.1011 2.98024 14.227 3.11129 16.4615 3.92658C15.5212 4.08949 14.5816 4.30554 13.6534 4.58462C11.9263 5.10099 10.2973 5.80649 8.80469 6.66499C8.77058 6.32358 8.78693 5.98499 8.85658 5.65491M7.38818 5.08824C7.36615 5.16758 7.34341 5.24691 7.32635 5.32908C7.16785 6.06504 7.18633 6.8187 7.37326 7.56741C5.68808 8.72483 4.22324 10.0947 3.05762 11.6332C2.70154 12.1015 2.38383 12.5796 2.09598 13.0605C2.96238 9.86595 4.85012 7.08645 7.38818 5.08824M10.755 10.0593C10.1075 9.45583 9.61565 8.82541 9.28445 8.19287C10.7514 7.31312 12.3748 6.59629 14.104 6.07849C15.1324 5.77037 16.1737 5.54158 17.2114 5.38362C15.7124 7.05741 14.2156 9.18383 12.8446 11.5851C12.0613 11.1339 11.3577 10.6225 10.755 10.0593M17.4445 13.3106C16.3116 13.0697 15.2348 12.7234 14.2433 12.2892C15.7039 9.7427 17.3016 7.52845 18.8774 5.88229C19.3699 7.81249 19.7828 10.4085 19.957 13.6272C19.1275 13.5939 18.2832 13.4898 17.4445 13.3106M20.5483 6.16279C22.3287 7.48312 23.9599 9.18666 25.3245 11.1792C25.5832 11.5575 25.827 11.9414 26.0594 12.3288C24.8078 13.0492 23.2271 13.4799 21.5206 13.601C21.3756 10.9086 21.0558 8.31824 20.5483 6.16279M4.8821 20.6617C3.5523 19.4362 2.63757 18.14 2.17203 16.8522C2.54091 15.4087 3.25521 13.9608 4.30711 12.5732C5.30428 11.2571 6.54453 10.0721 7.96744 9.05349C8.37825 9.79299 8.95324 10.5148 9.68459 11.199C10.3804 11.8486 11.1921 12.4372 12.0912 12.9522C11.8438 13.4204 11.6008 13.8964 11.3648 14.3802C9.976 17.2163 8.84165 20.2593 8.17569 23.0211C6.94112 22.3262 5.82952 21.5343 4.8821 20.6617M15.0344 25.557C13.0955 25.1426 11.2632 24.5292 9.60428 23.7521C10.1487 21.3098 11.1629 18.3497 12.7714 15.0644C13.0045 14.5884 13.2433 14.1209 13.4871 13.6612C14.6115 14.1641 15.834 14.5636 17.1168 14.8363C18.092 15.0446 19.0657 15.1579 20.0209 15.1905C20.038 15.7756 20.0465 16.3791 20.0465 17.001C20.0465 20.6744 19.7516 23.7245 19.3265 26.1066C17.9257 26.0464 16.4843 25.8651 15.0344 25.557M21.6116 17.001C21.6116 16.3918 21.6031 15.7798 21.5853 15.17C23.532 15.041 25.3359 14.5367 26.8128 13.6902C28.1789 16.3862 28.9131 19.2294 28.9067 21.9133C28.9052 22.691 28.8384 23.4305 28.7148 24.1282C28.0111 24.5582 27.2023 24.9301 26.2911 25.2361C24.6749 25.778 22.8533 26.074 20.9229 26.1236C21.3877 23.3498 21.6116 20.1304 21.6116 17.001M2.15213 21.1908C2.01851 20.6836 1.93464 20.1672 1.90053 19.6424C2.42293 20.3833 3.06046 21.1086 3.81883 21.807C4.96383 22.8617 6.32349 23.8052 7.83879 24.6142C7.52962 26.3397 7.4422 27.9022 7.63836 29.1631C5.02638 27.1939 3.07255 24.408 2.15213 21.1908M10.224 30.7412C10.1779 30.7037 10.1281 30.6683 10.0727 30.6414C9.20271 30.2192 8.8516 28.2876 9.30435 25.3331C10.9746 26.0811 12.7948 26.674 14.7067 27.0813C16.1559 27.3901 17.6001 27.5807 19.0117 27.6543C18.3194 30.6534 17.4317 32.2273 16.8446 32.2273C16.8062 32.2273 16.7707 32.2337 16.7345 32.2387C14.4046 32.2231 12.1971 31.689 10.224 30.7412M20.6258 27.6862C22.8369 27.6593 24.9343 27.337 26.7901 26.7151C27.2577 26.5578 27.7027 26.385 28.1256 26.1959C27.6096 27.4539 26.8498 28.5015 25.8625 29.2821C23.9108 30.7143 21.608 31.6961 19.1083 32.0715C19.7345 30.9941 20.2391 29.4733 20.6258 27.6862" fill="#231F20"/>
+<mask id="mask0_1_206" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="34" height="34">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 17.0279C0 18.6224 0.22957 20.1637 0.648909 21.6257C0.673785 21.7249 0.69724 21.8226 0.72638 21.9204C0.732777 21.9395 0.740595 21.9558 0.748413 21.9749C2.8714 28.8167 9.27805 33.8012 16.8311 33.8012C20.3244 33.8012 23.5732 32.7345 26.2662 30.9112C26.2933 30.8964 26.3203 30.8822 26.3451 30.8652C26.5051 30.7568 26.66 30.6428 26.81 30.5238C29.9074 28.243 32.1939 24.9322 33.1569 21.1015C33.2109 20.9252 33.2578 20.746 33.2976 20.5646C33.3062 20.5221 33.309 20.4796 33.3119 20.4371C33.54 19.3364 33.6615 18.1945 33.6615 17.0279C33.6615 14.7641 33.2166 12.5668 32.3388 10.4992C32.1704 10.1025 31.7113 9.91695 31.3132 10.0848C30.9152 10.252 30.7283 10.7103 30.8967 11.107C31.6928 12.9812 32.0958 14.9737 32.0958 17.0279C32.0958 18.2866 31.9387 19.5099 31.648 20.6801C31.417 21.4189 31.0098 22.1024 30.449 22.7222C30.4625 22.4573 30.4724 22.1895 30.4724 21.9168C30.4788 18.9241 29.648 15.7635 28.1078 12.7921C29.2372 11.8252 29.9564 10.6317 30.2045 9.29574C30.2834 8.87216 30.0019 8.46558 29.5769 8.38766C29.1526 8.30762 28.7432 8.58883 28.665 9.01312C28.5015 9.89641 28.0417 10.7053 27.321 11.3952C27.0971 11.0255 26.8647 10.6607 26.6181 10.3002C25.2442 8.29274 23.6116 6.55591 21.8248 5.17041C24.1831 5.32483 26.3629 5.89433 28.1192 6.87183C28.3942 7.02837 28.7602 7.02341 29.0168 6.80949C29.3495 6.53466 29.3935 6.04095 29.1163 5.70945C26.5946 2.19329 22.2328 0.254578 16.8311 0.254578C7.55094 0.254578 0 7.7792 0 17.0279M17.2242 2.54179C16.5163 2.2712 15.8155 2.06224 15.126 1.91208C15.6797 1.85045 16.2398 1.81574 16.8091 1.81504C17.0756 1.81858 17.4026 2.13804 17.7459 2.7557C17.5724 2.68133 17.3983 2.60837 17.2242 2.54179M18.9207 1.92908C19.5561 1.9992 20.2327 2.10829 20.9293 2.27049C20.4929 2.50354 20.0408 2.79608 19.5817 3.14599C19.377 2.68558 19.1567 2.27899 18.9207 1.92908M21.5576 3.59933C22.0949 3.25295 22.5889 3.01495 23.0025 2.91649C23.7879 3.23029 24.5661 3.63049 25.3046 4.13695C24.1205 3.84299 22.8611 3.66308 21.5576 3.59933M8.85658 5.65491C9.03071 4.84599 9.51828 4.12208 10.2745 3.52424C12.1011 2.98024 14.227 3.11129 16.4615 3.92658C15.5212 4.08949 14.5816 4.30554 13.6534 4.58462C11.9263 5.10099 10.2973 5.80649 8.80469 6.66499C8.77058 6.32358 8.78693 5.98499 8.85658 5.65491M7.38818 5.08824C7.36615 5.16758 7.34341 5.24691 7.32635 5.32908C7.16785 6.06504 7.18633 6.8187 7.37326 7.56741C5.68808 8.72483 4.22324 10.0947 3.05762 11.6332C2.70154 12.1015 2.38383 12.5796 2.09598 13.0605C2.96238 9.86595 4.85012 7.08645 7.38818 5.08824M10.755 10.0593C10.1075 9.45583 9.61565 8.82541 9.28445 8.19287C10.7514 7.31312 12.3748 6.59629 14.104 6.07849C15.1324 5.77037 16.1737 5.54158 17.2114 5.38362C15.7124 7.05741 14.2156 9.18383 12.8446 11.5851C12.0613 11.1339 11.3577 10.6225 10.755 10.0593M17.4445 13.3106C16.3116 13.0697 15.2348 12.7234 14.2433 12.2892C15.7039 9.7427 17.3016 7.52845 18.8774 5.88229C19.3699 7.81249 19.7828 10.4085 19.957 13.6272C19.1275 13.5939 18.2832 13.4898 17.4445 13.3106M20.5483 6.16279C22.3287 7.48312 23.9599 9.18666 25.3245 11.1792C25.5832 11.5575 25.827 11.9414 26.0594 12.3288C24.8078 13.0492 23.2271 13.4799 21.5206 13.601C21.3756 10.9086 21.0558 8.31824 20.5483 6.16279M4.8821 20.6617C3.5523 19.4362 2.63757 18.14 2.17203 16.8522C2.54091 15.4087 3.25521 13.9608 4.30711 12.5732C5.30428 11.2571 6.54453 10.0721 7.96744 9.05349C8.37825 9.79299 8.95324 10.5148 9.68459 11.199C10.3804 11.8486 11.1921 12.4372 12.0912 12.9522C11.8438 13.4204 11.6008 13.8964 11.3648 14.3802C9.976 17.2163 8.84165 20.2593 8.17569 23.0211C6.94112 22.3262 5.82952 21.5343 4.8821 20.6617M15.0344 25.557C13.0955 25.1426 11.2632 24.5292 9.60428 23.7521C10.1487 21.3098 11.1629 18.3497 12.7714 15.0644C13.0045 14.5884 13.2433 14.1209 13.4871 13.6612C14.6115 14.1641 15.834 14.5636 17.1168 14.8363C18.092 15.0446 19.0657 15.1579 20.0209 15.1905C20.038 15.7756 20.0465 16.3791 20.0465 17.001C20.0465 20.6744 19.7516 23.7245 19.3265 26.1066C17.9257 26.0464 16.4843 25.8651 15.0344 25.557M21.6116 17.001C21.6116 16.3918 21.6031 15.7798 21.5853 15.17C23.532 15.041 25.3359 14.5367 26.8128 13.6902C28.1789 16.3862 28.9131 19.2294 28.9067 21.9133C28.9052 22.691 28.8384 23.4305 28.7148 24.1282C28.0111 24.5582 27.2023 24.9301 26.2911 25.2361C24.6749 25.778 22.8533 26.074 20.9229 26.1236C21.3877 23.3498 21.6116 20.1304 21.6116 17.001M2.15213 21.1908C2.01851 20.6836 1.93464 20.1672 1.90053 19.6424C2.42293 20.3833 3.06046 21.1086 3.81883 21.807C4.96383 22.8617 6.32349 23.8052 7.83879 24.6142C7.52962 26.3397 7.4422 27.9022 7.63836 29.1631C5.02638 27.1939 3.07255 24.408 2.15213 21.1908M10.224 30.7412C10.1779 30.7037 10.1281 30.6683 10.0727 30.6414C9.20271 30.2192 8.8516 28.2876 9.30435 25.3331C10.9746 26.0811 12.7948 26.674 14.7067 27.0813C16.1559 27.3901 17.6001 27.5807 19.0117 27.6543C18.3194 30.6534 17.4317 32.2273 16.8446 32.2273C16.8062 32.2273 16.7707 32.2337 16.7345 32.2387C14.4046 32.2231 12.1971 31.689 10.224 30.7412M20.6258 27.6862C22.8369 27.6593 24.9343 27.337 26.7901 26.7151C27.2577 26.5578 27.7027 26.385 28.1256 26.1959C27.6096 27.4539 26.8498 28.5015 25.8625 29.2821C23.9108 30.7143 21.608 31.6961 19.1083 32.0715C19.7345 30.9941 20.2391 29.4733 20.6258 27.6862" fill="white"/>
+</mask>
+<g mask="url(#mask0_1_206)">
+<rect y="0.254578" width="33.7603" height="33.6458" fill="url(#paint0_radial_1_206)"/>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M130.578 17.6423H132.746V17.7556C132.794 18.2248 132.626 18.6906 132.289 19.0214C131.951 19.3522 131.481 19.512 131.011 19.4556C129.59 19.4556 128.737 18.2869 128.737 16.3389C128.737 14.391 129.547 13.1939 130.969 13.1939C131.437 13.1939 131.887 13.3813 132.215 13.7143C132.544 14.0472 132.725 14.4977 132.717 14.9648V15.0781L134.672 14.7735V14.6885C134.568 12.737 132.899 11.2377 130.94 11.3381C128.161 11.3381 126.569 13.1585 126.569 16.3389C126.569 19.5194 128.211 21.2973 130.969 21.2973C133.726 21.2973 134.714 19.3706 134.714 17.7556V16.0344H130.578V17.6423ZM149.206 11.3381C151.339 11.3381 153.599 12.6485 153.599 16.3389C153.599 20.0294 151.332 21.2973 149.206 21.2973C147.081 21.2973 144.793 19.9868 144.793 16.3389C144.793 12.691 147.074 11.3381 149.206 11.3381ZM167.764 11.4231C170.252 11.4231 171.623 12.6202 171.623 14.8019C171.623 16.856 170.273 18.0814 168.013 18.0814H166.428V21.2264H164.331V11.4231H167.764ZM166.428 16.3814H167.686C168.901 16.3814 169.52 15.8573 169.52 14.8089C169.52 13.7606 168.844 13.1585 167.622 13.1585H166.435L166.428 16.3814ZM158.78 19.4344C159.917 19.4344 160.472 18.726 160.472 17.3094L160.436 11.4302H162.568V17.1677C162.568 20.6102 160.507 21.3185 158.78 21.3185C157.757 21.3818 156.752 21.0291 155.994 20.341C155.231 19.4668 154.854 18.3226 154.949 17.1677V11.4302H157.046V17.3094C157.046 18.726 157.643 19.4344 158.78 19.4344ZM151.431 16.3389C151.431 19.0731 150.038 19.4839 149.206 19.4839C147.785 19.4839 146.96 18.3648 146.96 16.3389C146.96 14.3131 147.785 13.1939 149.206 13.1939C150.01 13.1939 151.431 13.6048 151.431 16.3389ZM142.632 18.2585C142.973 18.9668 143.279 19.5618 143.968 19.5618H144.466V21.1768H144.395C144.061 21.248 143.72 21.2813 143.378 21.276C141.722 21.276 141.211 20.1427 140.763 19.151C140.4 18.3293 140.052 17.621 139.213 17.621H138.289V21.2264H136.157V11.4231H139.647C142.199 11.4231 143.385 12.4148 143.385 14.5398C143.413 15.6089 142.785 16.5873 141.8 17.0118C142.134 17.3803 142.403 17.8017 142.597 18.2585H142.632ZM139.427 16.006H138.254V13.1727H139.576C140.685 13.1727 141.317 13.711 141.317 14.5894C141.317 15.4677 140.592 16.006 139.427 16.006ZM121.814 11.4231H124.302L120.699 16.2681L124.508 21.2264H121.985L118.644 16.7144V21.2264H116.512V11.4231H118.644V15.8431L121.814 11.4231ZM112.447 17.4794L109.007 11.4231H106.875V21.2264H109.007V15.3756L112.44 21.2264H114.572V11.4231H112.475L112.447 17.4794ZM106.384 21.2264L102.795 11.4869L102.774 11.4231H100.691L97.0805 21.2264H99.2767L100.087 18.8252H103.363L104.209 21.2264H106.384ZM101.729 14.0935L100.663 17.1889H102.795L101.729 14.0935ZM96.8744 18.4427C96.9214 17.3403 96.1998 16.351 95.1331 16.0556H95.1686C95.6448 15.8927 96.2631 15.411 96.2631 14.0581C96.2631 12.3085 95.1899 11.4231 93.0577 11.4231H89.2694V21.2264H93.4202C95.6164 21.2264 96.8744 20.2135 96.8744 18.4427ZM92.8302 15.4323C93.7045 15.4323 94.1167 15.0639 94.1167 14.2777C94.1167 13.4914 93.5978 13.1514 92.5744 13.1514H91.4016V15.4323H92.8302ZM93.0506 19.4981H91.4088V16.9552H93.0079C93.74 16.9552 94.6142 17.1819 94.6142 18.2302C94.6142 19.0944 94.1167 19.4981 93.0506 19.4981ZM80.6765 11.4231C83.7398 11.4231 85.5664 13.3144 85.5664 16.4877C85.5664 19.4981 83.9317 21.2264 81.0888 21.2264H77.7554V11.4231H80.6765ZM81.0745 19.4981H79.8521L79.845 13.1514H80.641C82.5316 13.1514 83.484 14.2635 83.484 16.4594C83.484 18.3577 82.5813 19.4981 81.0745 19.4981ZM72.4461 11.4231H70.3139V21.2264H76.7106V19.4981H72.4461V11.4231ZM68.864 19.5618C68.1745 19.5618 67.876 18.9668 67.5278 18.2585H67.5562C67.3623 17.8017 67.0933 17.3803 66.7602 17.0118C67.7535 16.5939 68.3902 15.614 68.3664 14.5398C68.3664 12.4148 67.1795 11.4231 64.6279 11.4231H61.0742V21.2264H63.2064V17.621H64.1091C64.9478 17.621 65.296 18.3293 65.6585 19.151L65.7194 19.2765C66.1839 20.2358 66.6875 21.276 68.274 21.276C68.6155 21.2813 68.9565 21.248 69.2904 21.1768H69.3615V19.5618H68.864ZM63.2064 16.006H64.3721C65.5377 16.006 66.2626 15.4677 66.2626 14.5894C66.2626 13.711 65.6301 13.1727 64.5284 13.1727H63.2064V16.006ZM55.534 11.3381L55.5304 11.3381H55.5375L55.534 11.3381ZM51.1238 16.3389C51.1238 12.6789 53.4028 11.3396 55.534 11.3381C57.6652 11.3396 59.9228 12.6506 59.9228 16.3389C59.9228 20.0294 57.6555 21.2973 55.5304 21.2973C53.4053 21.2973 51.1238 20.001 51.1238 16.3389ZM55.5375 19.4839C56.3691 19.4839 57.7693 19.0731 57.7693 16.3389C57.7693 13.6048 56.3478 13.1939 55.5375 13.1939C54.116 13.1939 53.2916 14.3131 53.2916 16.3389C53.2916 18.3648 54.0876 19.4839 55.5375 19.4839ZM50.804 11.4231H48.4301L46.7101 18.5773L44.7911 11.4231H43.0355L41.0455 18.5773L39.3965 11.4231H36.9587L39.8017 21.2264H42.1684L43.9169 15.0781L45.6298 21.2264H47.961L50.804 11.4231Z" fill="#002F54"/>
+<defs>
+<radialGradient id="paint0_radial_1_206" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(32.3411 7.53305) scale(28.1438 28.0484)">
+<stop stop-color="white"/>
+<stop offset="0.06" stop-color="#EBF9FE"/>
+<stop offset="0.18" stop-color="#B6E8FA"/>
+<stop offset="0.36" stop-color="#60CDF5"/>
+<stop offset="0.54" stop-color="#00AEEF"/>
+<stop offset="1" stop-color="#002F54"/>
+</radialGradient>
+</defs>
+</svg>
+
+
+
+</a>
+      
+      <div class="lp__navbar_text hidden-sm hidden-xs">
+          
+          Digital Progress and Trends Report 2023
+          
+                </div>
+      </div><!-- End Logo Section -->
+ 
+<div class="lp__secondary_search">
+
+       <form name="hiddensearch" id="hiddensearchId" action="" method="get" style="display:none">
+            <input id="hiddensearch_id_txt" type="hidden" size="15" name="qterm" label="searchtexthidden" title="searchtexthidden"> 
+        </form>
+
+        <form class="lp__input_group" name="search" method="get" role="search" id="search_global" action="https://www.worldbank.org/en/search" onsubmit="javascript:searchSubmit();">                
+            <input id="qterm_id" type="search" name="qterm_test" placeholder="Search" onfocus="clearField(this)" label="searchtext" aria-label="search" class="search-input-field"> 
+            <a class="lp__submit_icon" role="button" title="Search" href="javascript:submit_search_form_mobile();">
+            </a> 
+        </form>
+    </div>
+
+</div>
+</div>
+</header>
+
+</div>
+
+<main id="main">
+ <div class="lang-toggler language_toggler parbase">
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<div  class="lp__breadcrumb  breadcrumb_13">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-5 col-sm-5 col-xs-6">
+                
+                <nav aria-label="Breadcrumb" class="lp-page-title">
+                    
+                    <ol class="lp__breadcrumb_list">
+                        
+                    </ol>
+                    
+                </nav>
+                
+            </div>
+            <!-- End Page Title -->
+            
+        </div>
+    </div>
+</div>
+<div class="clearix"></div>
+
+
+
+
+<script>
+    $(document).ready(function() {
+
+          var cuurpage = "/content/publication/digital-progress-and-trends-report/en";
+    var pageLocale = "en";
+    var activeLink =$(".lp__breadcrumb li" ).first().children("a").attr('href');    
+    if (typeof activeLink !== 'undefined'){
+        $(".lp__megamenu li.lp__megamenu_list a, .lp__megamenu li.lp__megamenu_list").removeClass("active");
+
+        //adedd for D&R to Highlight menu 
+        if(cuurpage.indexOf('publication/documents-reports') !== -1 && (cuurpage.indexOf("http") !== -1 || cuurpage.indexOf("https") !== -1)){
+            activeLink = "/" + activeLink.split("/").slice(3).join("/");                
+        }//end
+        $(".lp__megamenu li.lp__megamenu_list").each(function(index, obj) {
+            if ($(this).children("a").attr('href') == activeLink){
+                $(this).children("a").addClass("active");
+            }
+        });
+    }
+    
+    var isCPF = "false";    
+    var activeLink = "";
+    if (isCPF == "true" && typeof activeLink !== 'undefined'){		
+        $(".lp__megamenu li.lp__megamenu_list a, .lp__megamenu li.lp__megamenu_list").removeClass("active");
+        $(".lp__megamenu li.lp__megamenu_list").each(function(index, obj) {
+            
+            if ($(this).children("a").text().toLowerCase().trim() == activeLink.toLowerCase().trim())
+            {
+                $(this).addClass("active");
+                $(this).children("a").addClass("active");
+            }
+        });
+    }
+    });
+
+    
+</script>
+
+
+</div>
+
+    
+   
+    <div class="par parsys"><div class="wdr_header parbase section">
+
+
+
+
+
+ 
+
+<div id="">
+<div class="lp__flagship_banner white-text">
+    <div class="lp__flagship_bg_img full-banner banner__bg_green" id="flagshipimg">
+        
+        <img src="/content/dam/photos/1440x600/2024/feb/1440x600-DPTR-header05.png" class="img-responsive" alt="Digital Progress and Trends Report Header">
+    </div>
+
+    <div class="container lp__banner_container">
+        <div class="lp-img-overlay">
+            <div class="gridlayout">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="redesign_title parbase section">
+                            <div class="lp__heading_v1 heading-v1-right">
+                                
+                                <h1 class="h1">Digital Progress and Trends Report 2023</h1>
+                                
+                            </div> 
+                        </div><!--end Redesign Title -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                                    
+    <div class=" lp__banner_container wrap__page_tab">
+        <div class="container">
+            <div class="gridlayout">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="lp__page_tab lp__page_d_tab">
+                            <nav  id="lp__submeeting_nav">
+                                <ul class="lp__page_tablist">
+
+           
+                                    <li class="lp__page_tabitem"><a class="lp__megamenu_item active" href="#Report_chapters">Report Chapters</a></li>
+                                       
+                                    <li class="lp__page_tabitem"><a class="lp__megamenu_item " href="#Featured">Featured</a></li>
+                                       
+                                    <li class="lp__page_tabitem"><a class="lp__megamenu_item " href="#Data">Data</a></li>
+                                       
+                                    <li class="lp__page_tabitem"><a class="lp__megamenu_item " href="#Related_Links">Related Links</a></li>
+                                       
+                                    <li class="lp__page_tabitem"><a class="lp__megamenu_item " href="#Connect_With_Us">Connect With Us</a></li>
+                                     
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="lp__dropdown lp__page_m_tab">
+                            <span class="sr-only" id="sr-submeeting_nav">on selection, highlighted content</span>
+                            <div class="lp__dropdown_group primary__ghost_dropdown">
+                                <button class="lp__dropdown_toggle" data-toggle="dropdown" aria-expanded="false" aria-labelledby="sr-submeeting_nav sr-submeeting_navbtn" id="sr-submeeting_navbtn"><span class="lp__filter_option">ABOUT</span></button>
+                                <ul class="dropdown-menu lp__dropdown_menu lp__secondary_dropdown_menu" aria-labelledby="sr-submeeting_nav">
+                                       
+                                    <li class="dropdown-item"><a class="lp__megamenu_item active" href="#Report_chapters">Report Chapters</a></li> 
+                                       
+                                    <li class="dropdown-item"><a class="lp__megamenu_item " href="#Featured">Featured</a></li> 
+                                       
+                                    <li class="dropdown-item"><a class="lp__megamenu_item " href="#Data">Data</a></li> 
+                                       
+                                    <li class="dropdown-item"><a class="lp__megamenu_item " href="#Related_Links">Related Links</a></li> 
+                                       
+                                    <li class="dropdown-item"><a class="lp__megamenu_item " href="#Connect_With_Us">Connect With Us</a></li> 
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</div>
+</div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="full-row-gray-components" style=" ">
+    
+
+        
+
+        <section id="">
+            <div class="container">
+                    <div class="">
+                <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+                <div class="col-md-12 col-xs-12  colsplit 2">
+            
+			<div class="  lp__white_box" >
+				<div class="grid_12_par_0 parsys">
+    
+    
+
+
+
+		
+
+    
+    
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="redesign_title parbase section"> 
+ 
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+</div>
+
+
+
+
+
+
+<hr class="hidden-lg hidden-md " aria-hidden="true">
+
+
+
+<div class="wdr_listnav section">
+
+
+
+
+ 
+
+
+
+
+
+
+<div class="lp__list_navcomponents ">
+
+    
+    
+    <div class="lp__list_navigation_content">
+        <div class="lp__lead_paragraph_lg">
+            
+            
+            <p>Digital technologies are transforming economies, creating jobs, and improving lives. They have dramatically changed communications, business, health, education, finance and more. &nbsp;</p>
+<p>Yet the digital divide remains stark and is becoming synonymous with a development divide. Billions of people around the world are still offline, and digital advancement has been uneven, exacerbating the gap between the digital haves and the have-nots. &nbsp;</p>
+<p>This report tracks global progress of digitalization and countries’ production and use of digital technologies, from digital jobs, digital services exports, and app development to internet use, affordability, quality, and more. &nbsp;</p>
+<p>The report also highlights policy shifts and debates, with a focus on developing countries. Two clear trends have emerged that are shaping our digital future: the importance of digital public infrastructure and the transformative emergence of artificial intelligence.</p>
+<p>Closely measuring digital progress, especially in developing countries, will help policy makers and the private sector best direct their efforts to close the digital divide.&nbsp;&nbsp;</p>
+
+
+            
+        </div>
+        
+
+        <div class="lp__list_navigation_flex_btn">
+            
+            <a href="https://bit.ly/Digital_Progress_and_Trends_Report_2023" class="lp__btn lp__btn_sm lp__blackoutline_btn">FULL REPORT</a>
+            
+            
+            
+            
+        </div>
+
+    </div>
+</div>
+
+   
+
+<script>
+$(document).ready(function() {
+    var docCheck = true;
+    if(docCheck){
+        docCheck = false;        
+        
+        $( ".collapseMore" ).each(function(index) {
+            $(this).on("click", function(){
+                $(this).hide();
+                $(this).siblings('.collapseContent').show();
+                $(this).siblings('.collapseLess').show();
+                return false;
+            });
+            
+        });
+        $( ".collapseLess" ).each(function(index) {
+            $(this).on("click", function(){
+                $(this).hide();
+                $(this).siblings('.collapseContent').hide();
+                $(this).siblings('.collapseMore').show();
+                
+                return false;
+            });
+        });
+
+        $(".collapseMore").on("keydown keyup keypress",function(e){
+            var keyCode = e.keyCode || e.which;
+            if(e.keyCode == 13) {
+                e.preventDefault();
+                $(this).hide();
+                $(this).siblings('.collapseContent').show();
+                $(this).siblings('.collapseLess').show();
+                return false;
+            }
+        });
+        $(".table-showless").on("keydown keyup keypress",function(e){
+            var keyCode = e.keyCode || e.which;
+            if(e.keyCode == 13) {
+                e.preventDefault();
+                $(this).hide();
+                $(this).siblings('.collapseContent').hide();
+                $(this).siblings('.collapseMore').show();
+                return false;
+            }
+        });
+        
+    }
+});
+</script></div>
+
+
+
+</div>
+
+
+
+
+
+    
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 36px"></div>
+
+
+
+</div>
+
+</div>
+
+                </div>
+            </div>   
+        </section>
+      
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="row clearfix full-row-white-components" style=" ">
+    
+
+        
+
+        <section id="Report_chapters">
+            <div class="container">
+                    <div class="">
+                <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+                <div class="col-md-12 col-xs-12  colsplit 2">
+            
+			<div class="  lp__white_box" >
+				<div class="grid_12_par_0 parsys">
+    
+    
+
+
+
+		
+
+    
+    
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+<hr class="hidden-lg hidden-md " aria-hidden="true">
+
+
+
+<div class="redesign_title parbase section"> 
+ 
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+<div class="lp__heading_v1   heading-v1-center">
+
+    <h2 class='h2 '>Report Chapters</h2>
+
+    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+
+    
+
+
+</div>
+
+
+
+
+
+
+
+<hr aria-hidden="true">
+
+
+<div class="redesign_static_content section">
+
+ 
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<section id ="">
+    <div class="c14v1-body c14v1-body-covid c14v1-body-text flipboard-keep " >
+        
+        <p>&nbsp;</p><p><b>Chapter 1.&nbsp;</b><a target='_blank' href="https://bit.ly/DPT2023_Chapter_1">Digital Adoption: Accelerating Postpandemic, yet a Widening Divide</a><br>&nbsp;</p><p><b>Chapter&nbsp;2.&nbsp;</b><a target='_blank' href="https://bit.ly/DPT2023_Chapter_2">The Digital Sector: A Driver of Innovation, Growth, and Job Creation</a><br>&nbsp;</p><p><b>Chapter&nbsp;3.&nbsp;</b><a target='_blank' href="https://bit.ly/DPT2023_Chapter_3">Digital Infrastructure: The Continual Need for Upgrading and Greening</a><br>&nbsp;</p><p><b>Chapter&nbsp;4.&nbsp;</b><a target='_blank' href="https://bit.ly/DPT2023_Chapter_4">Digital Public Infrastructure: Transforming Service Delivery Across Sectors</a><br>&nbsp;</p><p><b>Chapter&nbsp;5.&nbsp;</b><a target='_blank' href="https://bit.ly/DPT2023_Chapter_5">Artificial Intelligence: Revolutionary Potential and Huge Uncertainties</a></p><p>&nbsp;</p><p><a target='_blank' href="https://bit.ly/DPT2023_Appendix"><b>Appendix</b></a></p>
+</div></section>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".c14v1-body table").find("td").find("div.c14v1-full").closest("td").addClass("width30");
+    });
+</script>
+
+
+
+
+
+
+<div class="clearfix"></div>
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+    
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 36px"></div>
+
+
+
+</div>
+
+</div>
+
+                </div>
+            </div>   
+        </section>
+      
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="hide" style=" ">
+    
+
+        
+
+        <section id="">
+            <div class="container">
+                    <div class="">
+                <div class="par parsys">
+</div>
+
+                </div>
+            </div>   
+        </section>
+      
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="full-row-gray-components" style="padding: 0px 0px 32px 0px; ">
+    
+
+        
+
+        <section id="Featured">
+            <div class="container">
+                    <div class="">
+                <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+                <div class="col-md-12 col-xs-12  colsplit 2">
+            
+			<div class="  " >
+				<div class="grid_12_par_0 parsys">
+    
+    
+
+
+
+		
+
+    
+    
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="redesign_title parbase section"> 
+ 
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+<div class="lp__heading_v1   heading-v1-center">
+
+    <h2 class='h2 '>Featured</h2>
+
+    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+
+    
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+    
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+<div class="carousal_container parbase section">
+
+
+
+
+
+
+
+
+<div class="lp__featured_components">
+<div class="lp__featured_components swiper-container lp__slide_3">
+    <ul class="swiper-wrapper">
+    
+
+    <li class="swiper-slide col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+        <div class="featuredcard_0 featuredcard parbase">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--section for Manual entry IMAGE-->
+
+
+
+<div class="lp__card lp__card_img_overlay ">
+    <div class="lp__card_img">   
+
+        <picture>
+            
+            <source type="image/webp" media="(min-width:768px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/digital-gap?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            <source type="image/webp" media="(min-width:320px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/digital-gap?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            
+            
+            <source media="(min-width:992px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/digital-gap?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            <source  media="(min-width:768px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/digital-gap?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            <source media="(min-width:320px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/digital-gap?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            <img src="https://worldbank.scene7.com/is/image/worldbankprod/digital-gap?wid=439&hei=439&qlt=85,0&resMode=sharp" alt="children on a laptop" title="children on a laptop" class="img-responsive card_img_cover ">
+        </picture>
+    </div>
+    
+    
+    
+    <section class="lp__card_overlay_content">
+        
+            
+            <div class="lp__hammer">Press Release</div>
+            
+            <h3 class= 'lp__card_title'><a href='https://www.worldbank.org/en/news/press-release/2024/03/05/accelerated-by-covid-and-ai-global-digital-landscape-remains-uneven' tabindex='0'>Accelerated by COVID, AI, Digitalization Still Uneven </a></h3>
+
+            
+            <p class="lp__card_description">The World Bank Group's Digital Progress and Trends Report 2023 highlights digital potential and identifies key areas to close the growing gap.</p>
+            
+            
+             
+             
+        </section>
+        
+        
+        <a href="https://www.worldbank.org/en/news/press-release/2024/03/05/accelerated-by-covid-and-ai-global-digital-landscape-remains-uneven" aria-hidden="true" tabindex="-1" class="lp__overlay-link">Accelerated by COVID, AI, Digitalization Still Uneven </a>
+        <!--section for Manual entry EMBED VIDEO-->
+    </div>
+    
+    
+    
+        
+        
+        
+        
+        
+        
+</div>
+ 
+    </li>
+
+    
+
+    <li class="swiper-slide col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+        <div class="featuredcard_2 featuredcard parbase">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--section for Manual entry IMAGE-->
+
+
+
+<div class="lp__card lp__card_img_overlay ">
+    <div class="lp__card_img">   
+
+        <picture>
+            
+            <source type="image/webp" media="(min-width:768px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/digital-divide-439x439?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            <source type="image/webp" media="(min-width:320px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/digital-divide-439x439?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            
+            
+            <source media="(min-width:992px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/digital-divide-439x439?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            <source  media="(min-width:768px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/digital-divide-439x439?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            <source media="(min-width:320px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/digital-divide-439x439?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            <img src="https://worldbank.scene7.com/is/image/worldbankprod/digital-divide-439x439?wid=439&hei=439&qlt=85,0&resMode=sharp" alt="data center image" title="data center image" class="img-responsive card_img_cover ">
+        </picture>
+    </div>
+    
+    
+    
+    <section class="lp__card_overlay_content">
+        
+            
+            <div class="lp__hammer">Immersive Story</div>
+            
+            <h3 class= 'lp__card_title'><a href='https://www.worldbank.org/en/news/immersive-story/2024/03/05/global-digitalization-in-10-charts' tabindex='0'>Measuring Digitalization to Close the Divide</a></h3>
+
+            
+            <p class="lp__card_description">These 10 revealing charts illustrate how digitalization can foster economic growth, job creation and more, and how it is advancing, or not, across the globe.  </p>
+            
+            
+             
+             
+        </section>
+        
+        
+        <a href="https://www.worldbank.org/en/news/immersive-story/2024/03/05/global-digitalization-in-10-charts" aria-hidden="true" tabindex="-1" class="lp__overlay-link">Measuring Digitalization to Close the Divide</a>
+        <!--section for Manual entry EMBED VIDEO-->
+    </div>
+    
+    
+    
+        
+        
+        
+        
+        
+        
+</div>
+ 
+    </li>
+
+    
+
+    <li class="swiper-slide col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+        <div class="featuredcard_1 featuredcard parbase">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--section for Manual entry IMAGE-->
+
+
+
+<div class="lp__card lp__card_img_overlay ">
+    <div class="lp__card_img">   
+
+        <picture>
+            
+            <source type="image/webp" media="(min-width:768px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/gender-digital2-439x439?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            <source type="image/webp" media="(min-width:320px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/gender-digital2-439x439?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            
+            
+            <source media="(min-width:992px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/gender-digital2-439x439?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            <source  media="(min-width:768px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/gender-digital2-439x439?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            <source media="(min-width:320px)" srcset="https://worldbank.scene7.com/is/image/worldbankprod/gender-digital2-439x439?wid=439&hei=439&qlt=85,0&resMode=sharp" class="img-responsive lp__cover">
+            <img src="https://worldbank.scene7.com/is/image/worldbankprod/gender-digital2-439x439?wid=439&hei=439&qlt=85,0&resMode=sharp" alt="smiling senior African woman using her smartphone" title="smiling senior African woman using her smartphone" class="img-responsive card_img_cover ">
+        </picture>
+    </div>
+    
+    
+    
+    <section class="lp__card_overlay_content">
+        
+            
+            <div class="lp__hammer">Publication</div>
+            
+            <h3 class= 'lp__card_title'><a href='https://openknowledge.worldbank.org/handle/10986/40970' tabindex='0'>Digital Progress and Trends Report 2023</a></h3>
+
+            
+            <p class="lp__card_description">Explore the World Bank's Digital Progress and Trends Report and learn about unfolding global digitalization and its impacts on economies and societies.</p>
+            
+            
+             
+             
+        </section>
+        
+        
+        <a href="https://openknowledge.worldbank.org/handle/10986/40970" aria-hidden="true" tabindex="-1" class="lp__overlay-link">Digital Progress and Trends Report 2023</a>
+        <!--section for Manual entry EMBED VIDEO-->
+    </div>
+    
+    
+    
+        
+        
+        
+        
+        
+        
+</div>
+ 
+    </li>
+
+    
+
+    </ul>
+     <div class="swiper-button-next"></div>
+					    <div class="swiper-button-prev"></div>
+					    <div class="swiper-pagination"></div>
+</div>
+</div>
+
+
+
+
+<div class="clearfix" aria-hidden="true">
+</div>   
+
+
+   <script>
+            var mobilejsImported = false;
+            var isMobile = {
+                Android: function() {
+                    return navigator.userAgent.match(/Android/i);
+                },
+                BlackBerry: function() {
+                    return navigator.userAgent.match(/BlackBerry/i);
+                },
+                iOS: function() {
+                    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+                },
+                Opera: function() {
+                    return navigator.userAgent.match(/Opera Mini/i);
+                },
+                Windows: function() {
+                    return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+                },
+                any: function() {
+                    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+                }
+            };
+
+            var targetEventsFC = document.querySelector('.lp__slide_4');
+            if( targetEventsFC == null) {
+                targetEventsFC = document.querySelector('.lp__slide_3');
+
+            }
+            
+            
+            function loadjs_cssfile(jsFilename, cssFilename){
+                var head  = document.getElementsByTagName('head')[0];
+                // import js
+                var fileref=document.createElement('script')
+                fileref.setAttribute("type","text/javascript")
+                fileref.setAttribute("src", jsFilename)
+                if (typeof fileref!="undefined") {
+                    head.appendChild(fileref)
+                }
+                // import css
+                var link  = document.createElement('link');
+                link.rel  = 'stylesheet';
+                link.type = 'text/css';
+                link.href = cssFilename;
+                link.media = 'all';
+                head.appendChild(link);
+            }
+            if(targetEventsFC!=null){
+                
+                var libraryImported = false;
+                var optionsEvents = {};
+                function handleIntersection(entries) {
+                    entries.map((entry) => {
+                                if (entry.isIntersecting) {
+                        if(!libraryImported) {
+                            loadjs_cssfile("https://wwwstg.worldbank.org/etc.clientlibs/worldbankgroup/clientlibs/clientlib-swiper.js", "https://wwwstg.worldbank.org/etc.clientlibs/worldbankgroup/clientlibs/clientlib-swiper.css");
+                            libraryImported = true;
+                        }
+                    }
+                });
+                
+            }
+            var observerEvents = new IntersectionObserver(handleIntersection, optionsEvents);
+            observerEvents.observe(targetEventsFC);
+            }
+        </script></div>
+
+</div>
+
+                </div>
+            </div>   
+        </section>
+      
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="hide" style="padding: 0px 0px 0px 0px; ">
+    
+
+        
+
+        <section id="About">
+            <div class="container">
+                    <div class="">
+                <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+                <div class="col-md-12 col-xs-12  colsplit 2">
+            
+			<div class="  lp__white_box" >
+				<div class="grid_12_par_0 parsys">
+    
+    
+
+
+
+		
+
+    
+    
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+</div>
+
+
+
+
+
+    
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+
+</div>
+
+                </div>
+            </div>   
+        </section>
+      
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="hide" style="padding: 0px 0px 0px 0px; ">
+    
+
+        
+
+        <section id="Videos">
+            <div class="container">
+                    <div class="">
+                <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+                <div class="col-md-12 col-xs-12  colsplit 2">
+            
+			<div class="  " >
+				<div class="grid_12_par_0 parsys">
+    
+    
+
+
+
+		
+
+    
+    
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="redesign_title parbase section"> 
+ 
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+<div class="lp__heading_v1   heading-v1-center">
+
+    <section id='Videos'></section><h2 class='h2 '>Digital transformation can close the digital divide</h2>
+
+    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+
+    
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+    
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+<div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+                <div class="col-md-12 col-xs-12  colsplit 2">
+            
+			<div class="  lp__white_box" >
+				<div class="grid_12_par_0 parsys">
+    
+    
+
+
+
+		
+
+    
+    
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="embedcode section"> 
+ 
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+<div class="clearfix" aria-hidden="true"></div>
+
+
+
+
+    
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+    
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+
+</div>
+
+                </div>
+            </div>   
+        </section>
+      
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="hide" style="padding: 0px 0px 0px 0px; ">
+    
+
+        
+
+        <section id="Report_Chapters">
+            <div class="container">
+                    <div class="">
+                <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+                <div class="col-md-12 col-xs-12  colsplit 2">
+            
+			<div class="  " >
+				<div class="grid_12_par_0 parsys">
+    
+    
+
+
+
+		
+
+    
+    
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+</div>
+
+
+
+
+
+    
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+
+</div>
+
+                </div>
+            </div>   
+        </section>
+      
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="hide" style="padding: 0px 0px 0px 0px; ">
+    
+
+        
+
+        <section id="">
+            <div class="container">
+                    <div class="">
+                <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row mar-0">
+
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+<div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row mar-0">
+
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+
+</div>
+
+                </div>
+            </div>   
+        </section>
+      
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="hide" style="padding: 0px 0px 0px 0px; ">
+    
+
+        
+
+        <section id="">
+            <div class="container">
+                    <div class="">
+                <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row mar-0">
+
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+
+</div>
+
+                </div>
+            </div>   
+        </section>
+      
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="row clearfix full-row-white-components" style="padding: 0px 0px 0px 0px; background-color:#efefef">
+    
+
+        
+
+        <section id="Data">
+            <div class="container">
+                    <div class="">
+                <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+                <div class="col-md-12 col-xs-12  colsplit 2">
+            
+			<div class="  " >
+				<div class="grid_12_par_0 parsys">
+    
+    
+
+
+
+		
+
+    
+    
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+</div>
+
+
+
+
+
+    
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+<div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+                <div class="col-md-12 col-xs-12  colsplit 2">
+            
+			<div class="  lp__white_box" >
+				<div class="grid_12_par_0 parsys">
+    
+    
+
+
+
+		
+
+    
+    
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="redesign_title parbase section"> 
+ 
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+<div class="lp__heading_v1   heading-v1-center">
+
+    <section id='Index'></section><h2 class='h2 '>Data</h2>
+
+    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+
+    
+
+
+</div>
+
+
+
+
+
+
+
+<div class="embedcode section"> 
+ 
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+<div class="embed">
+    
+    
+    <div class=" lp__responsive ">
+        <div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<table style="width:85%; height: 100%" class="key-findings-data-wrap-table" >
+<tbody>
+<tr>
+
+<tr>
+		<td valign="top"><p style="font-size:130%"><b>Digital  Services Sector Growth</b> </p>
+<p><i>The digital sector is an engine for economic growth and job creation, but the benefits are concentrated in a few leading economies. </i><br><br>
+The information technology (IT) services sector, such as tech consulting and software development, grew twice as fast as the rest of the economy, creating jobs at six times the rate of the global economy.  But this phenomenal growth was highly concentrated, with the top six economies accounting for 70 percent of global value added in IT services. </p></td></tr>
+		
+<tr>
+<td valign="top">
+<div class="flourish-embed flourish-chart" data-src="visualisation/16894287?1129498"><script src="https://public.flourish.studio/resources/embed.js"></script></div></div>
+</tr>
+
+</td>
+
+</tr>
+</tbody>
+</table> 
+
+<style>
+.key-findings-data-wrap-table
+{
+	background-color: white;
+	min-height: 500px;
+}
+.key-findings-data-wrap-table tbody tr td
+	{
+		padding: 10px;
+	}
+.key-findings-data-wrap-table tbody tr td iframe
+{
+	width: 100%;
+	height: 1300px;
+}
+@media (max-width: 768px)
+{
+	.key-findings-data-wrap-table tbody tr td
+	{
+		display: block;
+		min-height: 500px;
+	}
+	.key-findings-data-wrap-table tbody tr td:first-child
+	{
+		border-bottom: 2px solid gray;
+	}
+	.key-findings-data-wrap-table
+	{
+		min-height: 1000px;
+	}
+}
+</style>
+
+
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<table style="width:85%; height: 100%" class="key-findings-data-wrap-table" >
+<tbody>
+<tr>
+
+<tr>
+		<td valign="top" width="90%"><p style="font-size:130%"><b>Business Digitalization</b> </p>
+<p><i>Businesses in East Asia are racing ahead, embracing digitalization to engage online with customers, suppliers, and employees. Small firms in lower-income countries lag behind.</i><br><br>
+
+East Asia has been the clear front runner in business digitalization among developing regions, with the share of firms investing in digital solutions quadrupling from 13 percent to 54 percent between 2020 and 2022. In other regions, less than 30 percent of firms did so by the end of 2022. 
+
+ <br><br>
+
+From April 2020 to December 2022, the percentage of micro firms (zero to four employees) investing in digital solutions doubled from 10 percent to 20 percent but for large firms (more than 100 employees) it tripled from 20 percent to 60 percent.  
+
+ <br><br>
+
+While companies in high-income countries continue to integrate digital solutions to streamline processes and improve efficiency, many companies in low- and middle-income countries were without a computer or internet connection in 2022, particularly small and medium enterprises. 
+</p></td></tr>
+		
+<tr>
+<td valign="top">
+<div class="flourish-embed flourish-chart" data-src="visualisation/16894351?1129498"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+</tr>
+
+</td>
+
+</tr>
+</tbody>
+</table> 
+
+<style>
+.key-findings-data-wrap-table
+{
+	background-color: white;
+	min-height: 500px;
+}
+.key-findings-data-wrap-table tbody tr td
+	{
+		padding: 10px;
+	}
+.key-findings-data-wrap-table tbody tr td iframe
+{
+	width: 100%;
+	height: 1300px;
+}
+@media (max-width: 768px)
+{
+	.key-findings-data-wrap-table tbody tr td
+	{
+		display: block;
+		min-height: 500px;
+	}
+	.key-findings-data-wrap-table tbody tr td:first-child
+	{
+		border-bottom: 2px solid gray;
+	}
+	.key-findings-data-wrap-table
+	{
+		min-height: 1000px;
+	}
+}
+</style>
+
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<table style="width:85%; height: 100%" class="key-findings-data-wrap-table" >
+<tbody>
+<tr>
+
+<tr>
+		<td valign="top" width="90%"><p style="font-size:130%"><b>Local Digital Firms</b> </p>
+<p>
+<i>Since the pandemic, the app market has become more local, especially in large countries with unique languages, strong cultural identities, and talented entrepreneurs. </i><br><br>
+
+Domestic digital firms in low- and middle-income countries are gaining momentum. These countries received an influx of venture capital funding for their online startups during 2020 to 2022. While the app market is also becoming more localized, homegrown success in these developing economies may not be transferrable to foreign markets. 
+  </p></td></tr>
+		
+<tr>
+<td valign="top">
+<div class="flourish-embed flourish-scatter" data-src="visualisation/16806372?1129498"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+</tr>
+
+</td>
+
+</tr>
+</tbody>
+</table> 
+
+<style>
+.key-findings-data-wrap-table
+{
+	background-color: white;
+	min-height: 500px;
+}
+.key-findings-data-wrap-table tbody tr td
+	{
+		padding: 10px;
+	}
+.key-findings-data-wrap-table tbody tr td iframe
+{
+	width: 100%;
+	height: 1300px;
+}
+@media (max-width: 768px)
+{
+	.key-findings-data-wrap-table tbody tr td
+	{
+		display: block;
+		min-height: 500px;
+	}
+	.key-findings-data-wrap-table tbody tr td:first-child
+	{
+		border-bottom: 2px solid gray;
+	}
+	.key-findings-data-wrap-table
+	{
+		min-height: 1000px;
+	}
+}
+</style>
+
+</div>
+</div>
+</div>
+</div>
+    
+    
+</div>   
+
+
+
+
+
+<div class="clearfix" aria-hidden="true"></div>
+
+
+
+
+    
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+    
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+
+</div>
+
+                </div>
+            </div>   
+        </section>
+      
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="hide" style="padding: 0px 0px 0px 0px; ">
+    
+
+        
+
+        <section id="Data">
+            <div class="container">
+                    <div class="">
+                <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row mar-0">
+
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+<div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row mar-0">
+
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+
+</div>
+
+                </div>
+            </div>   
+        </section>
+      
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="full-row-gray-components" style="padding: 0px 0px 0px 0px; ">
+    
+
+        
+
+        <section id="Related_Links">
+            <div class="container">
+                    <div class="">
+                <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+                <div class="col-md-12 col-xs-12  colsplit 2">
+            
+			<div class="  lp__white_box" >
+				<div class="grid_12_par_0 parsys">
+    
+    
+
+
+
+		
+
+    
+    
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+<div class="row mar-0">
+
+                <div class="col-md-12 col-xs-12  pad-0 colsplit 2">
+            
+			<div class="  " >
+				<div class="grid_12_par_0 parsys">
+    
+    
+
+
+
+		
+
+    
+    
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="redesign_static_content section"> 
+ 
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+<!--<script type="module" src="/apps/worldbankgroup/components/content/body_content_scene7/clientlibs/site/js/component.js" defer></script>-->
+<!--<script type="module" src="/apps/worldbankgroup/components/content/body_content_scene7/clientlibs/site/js/twitter.js" defer></script>-->
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section >
+    <article class="lp__body_content section   " >
+
+        <h2 class='lp__lead_lgtitle' style="text-align: center;">Related Links</h2><p>Press Release in Languages:&nbsp; <a href="https://www.albankaldawli.org/ar/news/press-release/2024/03/05/accelerated-by-covid-and-ai-global-digital-landscape-remains-uneven">Arabic</a>&nbsp; |&nbsp; <a href="https://www.shihang.org/zh/news/press-release/2024/03/05/accelerated-by-covid-and-ai-global-digital-landscape-remains-uneven">Chinese</a>&nbsp; |&nbsp; <a href="https://www.banquemondiale.org/fr/news/press-release/2024/03/05/accelerated-by-covid-and-ai-global-digital-landscape-remains-uneven">French</a>&nbsp; |&nbsp; <a href="https://www.worldbank.org/ja/news/press-release/2024/03/05/accelerated-by-covid-and-ai-global-digital-landscape-remains-uneven">Japanese</a>&nbsp; |&nbsp; <a href="https://www.worldbank.org/pt/news/press-release/2024/03/05/accelerated-by-covid-and-ai-global-digital-landscape-remains-uneven">Portuguese</a>&nbsp; |&nbsp; <a href="https://www.vsemirnyjbank.org/ru/news/press-release/2024/03/05/accelerated-by-covid-and-ai-global-digital-landscape-remains-uneven">Russian</a>&nbsp; |&nbsp; <a href="https://www.bancomundial.org/es/news/press-release/2024/03/05/accelerated-by-covid-and-ai-global-digital-landscape-remains-uneven">Spanish</a></p><p>Interactive Charts:&nbsp; <a href="https://www.worldbank.org/en/data/interactive/2024/03/04/digital-progress-and-trends-report-interactive-charts">Digital Adoption</a>&nbsp; |&nbsp; <a href="https://www.worldbank.org/en/data/interactive/2024/03/04/digital-progress-and-trends-report-interactive-charts-digital-sector-development">Digital Sector Development</a>&nbsp; |&nbsp; <a href="https://www.worldbank.org/en/data/interactive/2024/03/04/digital-progress-and-trends-report-interactive-charts-digital-infrastructure">Digital Infrastructure</a></p>
+</article></section>
+
+
+
+<div class="clearfix"></div>
+
+
+
+
+    
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+    
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 36px"></div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="redesign_title parbase section"> 
+ 
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+</div>
+
+
+
+
+
+
+
+<div class="redesign_static_content section"> 
+ 
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+<!--<script type="module" src="/apps/worldbankgroup/components/content/body_content_scene7/clientlibs/site/js/component.js" defer></script>-->
+<!--<script type="module" src="/apps/worldbankgroup/components/content/body_content_scene7/clientlibs/site/js/twitter.js" defer></script>-->
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section >
+    <article class="lp__body_content section   " >
+
+        <p><i><span class="lp__lead_paragraph_sm">The report was supported by the Digital Development Partnership, which aims to advance digital transformation in low and middle-income countries by building strong digital foundations and accelerators, facilitating digital use cases for the digital economy to thrive.</span></i></p>
+</article></section>
+
+
+
+<div class="clearfix"></div>
+
+
+
+
+    
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+    
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+
+</div>
+
+                </div>
+            </div>   
+        </section>
+      
+    </div>
+    
+
+
+    </div>
+<div class="supergrid parbase section">
+
+
+
+
+    
+    <div class="full-row-gray-components" style="padding: 0px 0px 0px 0px; ">
+    
+
+        
+
+        <section id="Connect_With_Us">
+            <div class="container">
+                    <div class="">
+                <div class="par parsys"><div class="gridlayout parbase section">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row ">
+
+		    <div class="col-md-12  colsplit" id="">
+	        
+			<div class=" ">
+				<div class="grid_12_par_0 parsys">
+    
+
+
+<div style="padding-left:0px;padding-right:0px;" class="remove-padding-grid" >
+    
+    
+
+
+
+
+<div class="redesign_title parbase section"> 
+ 
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+<div class="lp__heading_v1   heading-v1-center">
+
+    <h2 class='h2 '>Connect With Us</h2>
+
+    
+</div>
+<div class="clearfix" aria-hidden="true"></div>
+
+
+
+    
+
+
+</div>
+
+
+
+
+
+
+
+<div class="contactus parbase section">
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <div class="lp__contacts_wrapper">    
+         
+         <div class="lp__name">World Bank Group</div>  
+         
+         <address> 1818 H Street, N.W. Washington, DC 20433 USA
+ </address>  
+         
+         
+         
+         
+    </div>
+     
+
+
+
+
+
+<div class="clearfix" aria-hidden="true"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="wdr_stayconnected parbase section">
+
+
+
+
+ 
+
+
+
+  
+
+
+
+
+            <div class="row">
+              
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="socialshare_card">
+                        <a href="https://x.com/WBG_Digital"><img src="/content/dam/photos/220x220/2024/feb/X-logo-220x220.png" alt="Twitter new logo"></a>
+                        <div class="socialshare_cardlable">X: World Bank Digital</div>
+                    </div>
+                </div>
+
+              
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="socialshare_card">
+                        <a href="https://www.facebook.com/worldbank/"><img src="/content/dam/photos/220x220/2024/feb/fb-logo-220x220.png" alt="Facebook Logo"></a>
+                        <div class="socialshare_cardlable">Facebook: The World Bank</div>
+                    </div>
+                </div>
+
+              
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="socialshare_card">
+                        <a href="https://www.linkedin.com/company/the-world-bank"><img src="/content/dam/photos/220x220/2024/feb/linkedIn-logo-220x220.png" alt="LinkedIn logo"></a>
+                        <div class="socialshare_cardlable">LinkedIn: The World Bank</div>
+                    </div>
+                </div>
+
+              
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="socialshare_card">
+                        <a href="https://www.worldbank.org/en/topic/digital"><img src="/content/dam/photos/220x220/2024/feb/digital-dev-220x220.png" alt="digital devt"></a>
+                        <div class="socialshare_cardlable">World Bank Digital Transformation</div>
+                    </div>
+                </div>
+
+              
+            </div>
+
+              
+              <div class="clearfix"></div>
+
+    
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+			</div>
+			
+		    </div>
+		    
+</div>
+<div class="clearfix"></div>
+
+
+	<div style="margin-bottom: 0px"></div>
+
+
+
+</div>
+
+</div>
+
+                </div>
+            </div>   
+        </section>
+      
+    </div>
+    
+
+
+    </div>
+<div class="backToTop parbase section">  
+
+
+
+
+
+
+
+
+
+
+
+<div class="lp__back_top">
+    <a href="#sr__leftnav1" class="lp__back_topbtn" style="display:none;"><span>Back to Top</span></a>
+</div>
+</div>
+
+</div>
+
+</main>
+  <div class="simplified-footer">
+         
+
+
+
+<footer class="simplified-footer">
+<div class="container">
+    <div class="lp__footer_bottom_left">
+        <ul>
+            <li><a href="https://www.worldbank.org">
+                <img src="/content/dam/wbr/logo/logo-wbg-footer-en.svg" class="footer-logo" title="World Bank Group logo" alt="World Bank Group logo"></a>
+            </li>
+            <li><a class="lp__wbgpartnership" title="International Bank for Reconstruction and Development" href="https://www.worldbank.org/en/who-we-are/ibrd">IBRD</a></li>
+            <li><a class="lp__wbgpartnership" title="International Development Association" href="https://ida.worldbank.org/">IDA</a></li>
+            <li><a class="lp__wbgpartnership" title="International Finance Corporation" href="https://www.ifc.org">IFC</a></li>
+            <li><a class="lp__wbgpartnership" title="Multilateral Investment Guarantee Agency" href="https://www.miga.org/">MIGA</a></li>
+            <li><a class="lp__wbgpartnership" title="International Centre for Settlement of Investment Disputes" href="https://icsid.worldbank.org">ICSID</a></li>
+        </ul>
+    </div><!-- End logo and Wbg partnership -->
+            <div class="lp__footer_bottom">
+                <div class="row">
+                    <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12">
+                        <div class="lp__listinline">
+                            <ul>
+                                <li class="disclaimer"><a href="https://www.worldbank.org/en/about/legal">Legal</a></li>
+                                <li class="disclaimer"><a href="https://www.worldbank.org/en/about/legal/privacy-notice">Privacy Notice</a></li>
+                                <li class="disclaimer"><a href="https://www.worldbank.org/en/who-we-are/site-accessibility">Site Accessibility</a></li>
+                                <li class="disclaimer"><a href="https://www.worldbank.org/en/access-to-information">Access to Information</a></li>
+                                <li class="disclaimer"><a href="https://www.worldbank.org/en/about/careers">Jobs</a></li>           
+                                <li class="disclaimer"><a href="https://www.worldbank.org/en/about/contacts">Contact</a></li>           
+                            </ul>
+                        </div>
+                        <div class="lp__copyright">
+                        © <span id="footer-year">2023</span>
+                        <script language="JavaScript">
+                        <!-- Begin
+                        var time=new Date();
+                        var year=time.getYear();
+                        if (year < 2000)
+                        year = year + 1900;
+document.getElementById("footer-year").innerHTML = year;
+                        // End -->
+                        </script>
+                        The World Bank Group, All Rights Reserved.
+                </div>
+                    </div><!-- End disclaimer-->
+                    <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12">
+                        <div class="lp__footer_fraud">
+                            <a href="https://wbgcmsprod.microsoftcrmportals.com/en-US/anonymous-users/int-fraud-management/create-new-complaint/">REPORT FRAUD OR CORRUPTION</a></div>
+
+                        </div>
+                    </div>
+                </div><!-- End disclaimer and copy right -->
+                  </div>
+    </footer>
+
+ 
+    </div>
+
+     <script src="/etc/designs/wbr/components/wbgajax.js"></script>
+
+    <div data-ajax-component-wbg data-url="/wbg/aem/service/ampopup" data-ajax-query-parameters='language=en&pageName=/content/publication/digital-progress-and-trends-report/en' ></div>
+
+    <script src="/etc.clientlibs/worldbankgroup/clientlibs/clientlibs-flagship.js"></script>
+<script src="/etc.clientlibs/worldbankgroup/components/content/redesign_title/clientlibs/site.js"></script>
+<script src="/etc.clientlibs/worldbankgroup/components/content/featuredcard/clientlibs/site.js"></script>
+<script src="/etc.clientlibs/worldbankgroup/components/content/inline_search_API_new/clientlibs/site.js"></script>
+<script src="/etc.clientlibs/worldbankgroup/components/content/redesign_related/clientlibs/site.js"></script>
+<script src="/etc.clientlibs/worldbankgroup/components/flagship/wdr_table/clientlibs/site.js"></script>
+<script src="/etc.clientlibs/worldbankgroup/components/content/backToTop/clientlibs/site.js"></script>
+
+
+      
+
+
+
+
+
+ 
+
+<!--cookie consent starts-->
+<section id="cookieconsentpopup" class="lp__cookie_tooltip" style="display: none;">
+    <div class="container">
+    <p>This site uses cookies to optimize functionality and give you the best possible experience. If you continue to navigate this website beyond this page, cookies will be placed on your browser. To learn more about cookies, <a href="https://www.worldbank.org/en/about/legal/privacy-notice">click here</a>. </p>
+    <button type="button" class="close accept-consent" aria-label="close cookies policy notification" tabindex="0">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+</section>
+    <script> 
+        function wb_consent_setcookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expiration = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; " + expiration;
+        }        
+    </script>
+    <script>
+        jQuery(document).ready(function($) {
+            var consent_note = document.cookie.replace(/(?:(?:^|.*;\s*)consent_cookie\s*\=\s*([^;]*).*$)|^.*$/, '$1');
+            if(consent_note.indexOf("1")<0) {			
+                $("#cookieconsentpopup").show(); 
+            }else{
+                $("#cookieconsentpopup").hide(); 
+                
+            }
+            $(document).on("click", ".close", function(c) {
+                wb_consent_setcookie('consent_cookie','1',365);                    
+                $(this).closest(".lp__cookie_tooltip").hide();
+            })
+        });
+    </script>
+    <!--cookie consent ends-->
+
+        
+
+
+
+
+
+<script type="text/javascript">
+var appInsights=window.appInsights||function(a){
+  function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+  }({
+      instrumentationKey:"2ddee9f8-57ef-4c0e-8810-a2f743116654"
+  });
+
+window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+</script>
+
+
+
+		
+ 
+
+    
+
+
+
+
+
+<script type="text/javascript" src="/etc/designs/wbg/clientlib/js/WebStatsUtil.js?q=nocache"></script>
+
+
+
+
+
+
+
+<script>   
+    
+    var filters = [], queryParamValue,section=[],sFilters="",sSection="";
+    var query_string = window.location.search;
+    var paramMap = {
+        'displayconttype_exact': 'type',
+        'topic_exact': 'topic',
+        'admreg_exact':'region',
+        'count_exact':'country',
+        'strdate':'startdate',
+        'enddate':'enddate',
+        'lang_exact':'language',
+        'tf':'timeframe',
+        'docty_exact':'document type',
+        'lang_spoken_exact':'languages spoken',
+        'job_title_exact':'role',
+        'unit_exact':'unit',
+        'first_name_AlphaBucket_exact':'first name',
+        'surname_AlphaBucket_exact':'last name',
+        'sector_exact':'sector',
+        'status_exact':'status',
+        'majdocty_exact':'major document type',
+        'majtheme_exact':'theme',
+        'teratopic_exact':'topic'
+        
+    };
+    
+    if(query_string){
+        var queryPair = query_string.slice(1).split('&');
+        for (var i = 0; i < queryPair.length; i++) {
+            queryParamValue = queryPair[i].split('=')[1];
+            
+            queryParamName = queryPair[i].split('=')[0];
+            
+            if((typeof paramMap[queryParamName]!='undefined')  && (queryParamName!='lang_exact') && (queryParamName!='pastevents') && (queryParamName!='futureevents') && (queryParamName!='srt') && (queryParamName!='qterm') && (queryParamName!='x')&&(queryParamName!='y')){
+                
+                
+                section.push(paramMap[queryParamName]);
+                
+                
+            }
+            
+            
+            if((queryParamName!='qterm') && (queryParamName!='futureevents') && (queryParamName!='pastevents') && (queryParamName!='srt') && (queryParamName!='os') && (queryParamName!='x') && (queryParamName!='lang_exact') &&(queryParamName!='y')){
+                if(queryParamValue != ''){
+                    filters.push(queryParamValue);
+                }
+            }
+        }
+        sFilters = filters.join(':');
+        sSection = section.join(':');
+        
+        sSection = decodeURIComponent(sSection);
+        
+        sSection = sSection.replace(new RegExp("\\+","g"),' ');
+        
+        //s.eVar50= section;
+        
+        sFilters = decodeURIComponent(sFilters);
+        
+        sFilters = sFilters.replace(new RegExp("\\+","g"),' ');
+        //s.list1 =filters;
+    } 
+</script> 
+
+
+
+<script> 
+    var wbgData = wbgData || {};
+    wbgData.page = {
+        pageInfo: {
+            pageName: "en:publication:digital-progress-and-trends-report",
+            pageCategory: "sub navigation",
+            pageUid: "57edd2dd-3a8a-450d-a98f-8fb5ce34958c", 
+            pageFirstPub: "06-04-2017", 
+            pageLastMod: "07-31-2024", 
+            contentType:"Publication",
+            topicTag:"digital economy strategy",
+            hier1:"ecrcc~other~digital progress and trends report",
+            channel:"",
+            webpackage:"digitalprogress",
+            
+        },
+        sectionInfo: {
+            siteSection: "other",
+            subsectionP2:"digital progress and trends report",
+            subsectionP3:"",
+            subsectionP4:"",
+            subsectionP5:""
+            
+        }
+    },
+        wbgData.site = {
+            siteInfo: {
+                siteLanguage: "en", 
+                siteCountry: "", 
+                siteEnv: "prod", 
+                userIpaddressType:"10.48.0.54",
+                siteRegion:"",
+                siteType:"main",
+            },
+            
+            techInfo: {
+                cmsType: "AEM",
+                bussVPUnit: "ECRCC",
+                bussUnit: "ECRCC",
+                bussUserGroup: "External",
+                bussAgency: "ibrd"
+            }
+            
+			  
+            
+            
+        }
+        
+        
+        
+         
+            
+            
+            
+            
+            
+                
+</script>
+
+
+<script type="text/javascript">
+    var wbgDataOld = {};
+    wbgDataOld.page= {
+        pageInfo: {
+            pageName: "en:publication>digital-progress-and-trends-report",
+            pageTitle:"Digital Progress and Trends Report",
+            pageDate:"2024/03/05",
+            hier1: "ecrcc~other~digital progress and trends report", 
+            hier2: "wbg~en~english~other~digital progress and trends report",
+            server:"10.48.0.181",
+            channel:""
+            
+        },
+        docInfo: {
+            docAuthor: "",//Document author  						  
+            docDate:"",//Document date					  
+            docRegion:"",//Region								  
+            docCountry:"" 
+        },
+        
+        teragramInfo: {													 	
+            teragramTopic:"",  										  
+            teragramKeyword:"digital economy strategy"	
+        },
+        siteInfo: {
+            siteSection:"other",                                 
+            subSection1:"other~digital progress and trends report",						      
+            subSection2:"other~digital progress and trends report",              
+            subSection3:"other~digital progress and trends report",              
+            siteLanguage:"English",                                        
+            siteRank:"1",											  
+            contentType:"other"   										  
+        },
+        packageInfo:{
+            
+            webpackage:"digitalprogress"
+            
+        },
+        
+        
+        
+           
+            vpuInfo: {
+                vpuLegacy:"ECRCC",											 
+                    vpu:"ECRCC"													 
+            },
+                
+    }
+    
+    
+    
+    
+    
+    
+    var opsAanalytics ={
+        "projectId" :"NODATA", 
+        "upi":"NODATA",
+        "pageName":"other", 
+        "tabName":"other", 
+        "serverDate":"",  
+        "clientDate":new Date().getTime(), 
+        "totalResponseTime":"",
+        "pageUrl":(document.URL).replace("https://","").replace("http://",""),
+        "userAgent" :navigator.userAgent,
+        "server":"www.worldbank.org", 
+        "appId":"wbgext", 
+        "key1":"digital progress and trends report",
+        "key2":"",
+        "key3":"",
+        "key4":"",
+        "key5":"",
+        "key6":"Anonymous",
+        "key7":"",
+        "key8":"",
+        "key9":"", 
+        "key10":""
+    };
+    
+    
+    
+</script>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+</body>    </html>

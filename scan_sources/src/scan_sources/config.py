@@ -11,7 +11,7 @@ USER_INPUT_VARIABLES = {
     "company": "", # add company name
     "company_short": "", # add short company name
     "company_website": "", # add company website
-    "minimum_forces": "10"
+    "minimum_forces": 10
 } 
 
 # Sources for research

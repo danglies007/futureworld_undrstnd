@@ -1,0 +1,9 @@
+    Research_Strategy,
+    Market_Force_Plan,
+    InternetResearch,
+    NewsAnalysis,
+    PatentResearch,
+    ConsultingInsights,
+    FutureTrends,
+    DocumentAnalysis,
+    ResearchSynthesis
