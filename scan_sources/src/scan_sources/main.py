@@ -45,7 +45,7 @@ class ScanFlow(Flow):
         Run the crew.
         """
         inputs = {
-            'topic': 'Coal Mining',
+            'topic': 'Generative AI in Financial Services',
             'date': datetime.now().strftime('%Y-%m-%d'),
             'sources_futurists': SOURCES_FUTURISTS
         }

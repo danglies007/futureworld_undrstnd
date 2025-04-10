@@ -1,49 +1,60 @@
 futurist_research:
   description: >
-    Conduct EXTENSIVE research to identify market forces impacting {topic} from futurist and foresight sources, the current date is {date}.
+    Conduct EXTENSIVE research to identify market forces impacting {topic} focus on futurist and foresight sources, the current date is {date}.
     
-    Expected research scope:
-    - Minimum of 15 respected futurist and foresight publications or thought leaders
-    - At least 15 distinct market forces identified
-    - Minimum of 3 specific examples for each market force
-    - Cover multiple domains (example: technology, society, economics, environment)
+    Expected research scope - minimum requirements:
+    - Minimum of 15 respected futurist and foresight publications or thought leaders.
+    - At least 15 distinct market forces identified.
+    - Minimum of 3 specific examples for each market force.
+    - Cover multiple domains.
     - Do not conclude your research until you have gathered a comprehensive set of market forces.
-    - Your thoroughness is critical to the success of the overall project.      
+    - Your thoroughness is critical to the success of the overall project.
     - Your research is not complete until you've met or exceeded these minimum requirements.
 
     Research process:
-    1. As part of your research process, you must search the {sources_futurists}
-    1. Identify initial set of market forces from each source
-    2. For each market force, ask yourself: "What related or adjacent market forces might this indicate?"
-    3. Expand your list with these adjacent forces
-    4. For any new force identified, repeat steps 2-3
-    5. Continue until you have at least 15 market forces
+    1. As part of your research process, you must include the {sources_futurists} in your searches.
+    2. Identify initial set of market forces from each source.
+    3. For each market force, capture the relevenat details according to the MarketForce format, then ask yourself: "What related or adjacent market forces might this indicate?"
+    4. Expand your list with these adjacent forces.
+    5. For any new force identified, repeat steps 3-4.
+    6. Continue until you have at least 15 market forces.
+    7. Do not include sources over 1 year old, considering the current date is {date}
     
     Remember: Thorough research requires multiple iterations of discovery and expansion.
 
+    Attribution requirements:
+    1. For every fact, statistic, quote, example, or finding you include, you MUST provide:
+       - The exact URL where the information was found.
+       - The specific paragraph or section containing the information, including the exact wording.
+       - The name of the source.
+    2. Do not paraphrase information - retain key details and numbers as found in the source.
+    3. Structure all attributed content according to the AttributedItem format with "content", "source_url", "source_paragraph", and "source_name" fields.
+
     Research quality:
     1. Compile findings with true and accurate citations and source attributions, ensuring all information is traceable.
-    2. **PROVIDE REAL WORKING URLS FOR ALL CONTENT - DO NOT PROVIDE FAKE OR MOCKED CONTENT**  
-    3. **IF CONTENT CANNOT BE FOUND, INDICATE SO, DO NOT MAKE UP CONTENT OR SOURCES**
-    4. **ALWAYS EXTRACT AND USE THE ACTUAL PUBLICATION DATE FROM THE SOURCE - DO NOT USE TODAY'S DATE**
-    5. **IF A PUBLICATION DATE IS NOT CLEARLY VISIBLE, MAKE A REASONABLE ESTIMATE BASED ON CONTENT OR MARK AS UNKNOWN - NEVER DEFAULT TO TODAY'S DATE**
+    2. **PROVIDE REAL WORKING URLS FOR ALL CONTENT - DO NOT PROVIDE FAKE OR MOCKED CONTENT.**
+    3. **IF CONTENT CANNOT BE FOUND, INDICATE SO, DO NOT MAKE UP CONTENT OR SOURCES.**
+    4. **ALWAYS EXTRACT AND USE THE ACTUAL PUBLICATION DATE FROM THE SOURCE - DO NOT USE TODAY'S DATE.**
+    5. **IF A PUBLICATION DATE IS NOT CLEARLY VISIBLE, MAKE A REASONABLE ESTIMATE BASED ON CONTENT OR MARK AS UNKNOWN - NEVER DEFAULT TO TODAY'S DATE.**
 
-    Performace and incentive:
+    Performance and incentive:
     1. Your performance will be evaluated based on the quantity and quality of market forces identified.
-    2. The breadth of your sources
-    3. The depth of your analysis (detailed market force descriptions)
-    4. The quantity of market forces identified (aim for 15+)
-    5. The diversity of domains covered (technology, business, social, environmental)
-    6. You will be rewarded for meeting or exceeding the minimum requirements.
-    7. You will be penalized for not meeting the minimum requirements.
+    2. The breadth and accuracy of your sources.
+    3. The depth of your analysis (detailed market force descriptions).
+    4. The quality and accuracy of your attributions and citations (exact URLs, paragraphs, and sources).
+    5. The quantity of market forces identified (aim for 15+).
+    6. The diversity of domains covered.
+    7. You will be rewarded for meeting or exceeding the minimum requirements.
+    8. You will be penalized for not meeting the minimum requirements.
     
     The most valuable insights often come from comprehensive research that goes beyond
-    obvious sources and findings. Your goal is to deliver the most thorough analysis possible.
+    obvious sources and findings. Your goal is to deliver the most accurate, comprehensive and thorough analysis possible.
 
-    Your output MUST be formatted as a valid JSON object following the ResearchOutput schema.
+    Your output MUST be formatted as a valid JSON object following the ResearchOutput schema,
+    with each fact, statistic, quote, finding, and example properly attributed using the AttributedItem structure.
     Set the source_category to "Futurist" in your response.
   expected_output: >
-    A structured list of market forces relating to {topic} from respected futurist and foresight sources
+    A structured list of market forces relating to {topic} from respected futurist and foresight sources,with detailed attribution for all claims, facts, statistics, and quotes.
   agent: futurist_researcher
 
 reporting_task:

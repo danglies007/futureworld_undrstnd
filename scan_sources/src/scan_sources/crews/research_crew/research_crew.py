@@ -57,11 +57,13 @@ from scan_sources.models import (
 # Import LLMs
 from scan_sources.llm_config import (
 	llm_gpt4o, 
-	llm_gpt4o_mini
+	llm_gpt4o_mini,
+	llm_gpt4o_mini_accurate,
+	llm_gpt4o_accurate
 )
 
 # Import CrewAI tools
-from crewai_tools import SerperDevTool, PDFSearchTool
+from crewai_tools import SerperDevTool, PDFSearchTool,ScrapeWebsiteTool
 
 # Import Custom tools
 from scan_sources.tools.file_downloader import FileDownloaderTool
@@ -82,8 +84,8 @@ class ResearchCrew():
 	def futurist_researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['futurist_researcher'],
-			llm=llm_gpt4o_mini,
-			tools=[SerperDevTool(), FileDownloaderTool()],
+			llm=llm_gpt4o_mini_accurate,
+			tools=[SerperDevTool(), FileDownloaderTool(), ScrapeWebsiteTool()],
 			verbose=True
 		)
 

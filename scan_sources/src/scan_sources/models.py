@@ -4,6 +4,21 @@ import uuid
 import json
 from datetime import datetime
 
+class AttributedItem(BaseModel):
+    """Base model for any item that needs attribution."""
+    content: str = Field(..., description="The actual content (fact, statistic, quote, etc.)")
+    source_url: str = Field(..., description="URL where this information was found")
+    source_paragraph: Optional[str] = Field(None, description="Original paragraph or context from the source")
+    source_name: Optional[str] = Field(None, description="Name of the source")
+
+class SearchMetadata(BaseModel):
+    """Metadata about the search that produced this market force."""
+    search_query: str = Field(..., description="The exact search query used to find this information")
+    search_timestamp: str = Field(..., description="When the search was conducted")
+    search_engine: str = Field(default="Default Search Tool", description="The search engine or tool used")
+    search_results_count: Optional[int] = Field(None, description="Number of total results found")
+    search_position: Optional[int] = Field(None, description="Position in search results where this was found")
+
 class RawMarketForce(BaseModel):
     title: str = Field(..., description="Brief title of the identified market force")
     raw_description: str = Field(..., description="The original description as found in the source")
@@ -13,11 +28,12 @@ class RawMarketForce(BaseModel):
     source_date: Optional[str] = Field(None, description="Date of publication")
     key_terms: List[str] = Field(default_factory=list, description="List of key terms associated with this market force")
     mentioned_entities: List[str] = Field(default_factory=list, description="Companies, technologies, or other entities mentioned")
-    raw_findings: List[str] = Field(default_factory=list, description="List of raw findings associated with this market force")
-    raw_examples: List[str] = Field(default_factory=list, description="Examples of the market force in action")
-    interesting_facts: List[str] = Field(default_factory=list, description="Interesting facts associated with this market force")
-    interesting_statistics: List[str] = Field(default_factory=list, description="Interesting statistics associated with this market force")
-    interesting_quotes: List[str] = Field(default_factory=list, description="Interesting quotes associated with this market force")
+    raw_findings: List[AttributedItem] = Field(default_factory=list, description="List of raw findings with sources")
+    raw_examples: List[AttributedItem] = Field(default_factory=list, description="Examples of the market force in action with sources")
+    relevant_facts: List[AttributedItem] = Field(default_factory=list, description="Relevant facts with sources")
+    relevant_statistics: List[AttributedItem] = Field(default_factory=list, description="Relevant statistics with sources")
+    relevant_data: List[AttributedItem] = Field(default_factory=list, description="Relevant data with sources")
+    relevant_quotes: List[AttributedItem] = Field(default_factory=list, description="Relevant quotes with sources")    
     relevance: str = Field(..., description="Relevance of the market force to the research topic")
     related_trends: List[str] = Field(default_factory=list, description="List of related trends associated with this market force")
     related_mega_trends: List[str] = Field(default_factory=list, description="List of related mega trends associated with this market force")
@@ -28,6 +44,71 @@ class RawMarketForce(BaseModel):
         description="Sources with title and URL for each key term",
         default_factory=list
     )
+    search_metadata: Optional[SearchMetadata] = Field(
+        None, 
+        description="Metadata about the search that found this market force"
+    )
+    agent_notes: Optional[str] = Field(
+        None, 
+        description="Agent's notes about finding or processing this market force"
+    )
+
+    @field_validator('source_date')
+    def validate_date(cls, v, info):
+        """Validate that the source_date is not today's date unless confirmed."""
+        today = datetime.now().strftime("%Y-%m-%d")
+        
+        # If source_date is missing, set it to "Unknown" rather than today's date
+        if not v:
+            return "Unknown"
+            
+        # If source_date is the same as today, check if it's legitimate
+        if v == today:
+            # Get the source URL from the data that's being validated
+            # In Pydantic v2, we need to use info.data instead of values
+            source_url = info.data.get('source_url', '') if hasattr(info, 'data') else ''
+            
+            # Look for indicators that this is actually published today
+            indicators_of_today = [
+                'news.', 'daily.', 'today.', '/blog/', '/latest/',
+                '/news/', '/daily/', '/today/', '/current/'
+            ]
+            
+            # If none of the indicators are present, mark as unknown
+            if not any(indicator in source_url.lower() for indicator in indicators_of_today):
+                return "Unknown"  # Suspicious date, mark as unknown
+                
+        return v
+
+    class Config:
+        """Configuration for the model."""
+        schema_extra = {
+            "example": {
+                "title": "Rise of Edge Computing",
+                "raw_description": "Edge computing is growing rapidly as IoT devices proliferate",
+                "source_name": "Gartner",
+                "source_url": "https://www.gartner.com/smarterwithgartner/what-edge-computing-means-for-infrastructure-and-operations-leaders",
+                "source_date": "2018-10-03",
+                "key_terms": ["edge computing", "IoT", "decentralized computing"],
+                "mentioned_entities": ["Gartner", "AWS", "Microsoft"],
+                "raw_findings": [
+                    {
+                        "content": "40% of organizations will have edge computing initiatives by 2023",
+                        "source_url": "https://www.gartner.com/smarterwithgartner/what-edge-computing-means-for-infrastructure-and-operations-leaders",
+                        "source_paragraph": "Gartner predicts that by 2023, more than 50% of enterprise-generated data will be created and processed outside the data center or cloud, up from less than 10% in 2019. And by 2023, 40% of organizations will have edge computing initiatives, up from about 1% in 2019.",
+                        "source_name": "Gartner"
+                    }
+                ],
+                "interesting_facts": [
+                    {
+                        "content": "Edge computing can reduce latency to under 5ms in many cases",
+                        "source_url": "https://www.example.com/edge-computing-whitepaper",
+                        "source_paragraph": "Our tests showed that implementing edge computing reduced latency from 100ms to under 5ms for most IoT applications, representing a 95% improvement in response time.",
+                        "source_name": "Example Research"
+                    }
+                ]
+            }
+        }
 
 class ResearchOutput(BaseModel):
     source_category: str = Field(..., description="Category of the research source")
