@@ -3,11 +3,16 @@ import json
 import sys
 import warnings
 import traceback
+from crew_perplexity import PerplexityLLM  # Import our custom LLM
 from datetime import datetime
 from typing import Dict, Any
 from dotenv import load_dotenv
 load_dotenv()
                 
+# Patch for Perplexity LLM - but the LLM seems to work through the OPENAI API
+import litellm_patch 
+
+
 from pydantic import BaseModel, PydanticDeprecatedSince20
 
 # Suppress specific pydantic deprecation warnings
@@ -47,12 +52,13 @@ class ScanFlow(Flow):
         Run the crew.
         """
         inputs = {
-            'topic': 'Generative AI in Financial Services',
+            'topic': 'Food & beverage industry',
             'date': datetime.now().strftime('%Y-%m-%d'),
             'research_sources': SOURCES_FUTURISTS,
             'specialisation': 'Futurist & Foresight',
             'minimum_number_of_forces': 20,
-            'minimum_number_of_sources': 15
+            'minimum_number_of_sources': 15,
+            'specific_points_of_interest': []
         }
         FuturistResearchCrew().crew().kickoff(inputs=inputs).pydantic
         return "Research completed"

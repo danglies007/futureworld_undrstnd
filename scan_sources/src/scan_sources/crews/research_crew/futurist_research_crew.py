@@ -1,7 +1,11 @@
-from crewai import Agent, Crew, Process, Task
+from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from dotenv import load_dotenv
 load_dotenv()
+
+# Custom Perplexity patch - using crew_perplexity.py
+from scan_sources.crew_perplexity import PerplexityLLM  # Import our custom LLM
+# Custom Perplexity patch - using litellm_patch.py
 
 # Ignore warnings
 import warnings
@@ -20,6 +24,10 @@ warnings.filterwarnings("ignore", category=PydanticDeprecatedSince20)
 # File management imports
 import os
 import datetime
+
+# Debugging imports
+import litellm
+litellm._turn_on_debug()
 
 # Pydantic and model imports
 from pydantic import BaseModel
@@ -51,8 +59,11 @@ from scan_sources.llm_config import (
 	llm_gpt4o, 
 	llm_gpt4o_mini,
 	llm_gpt4o_mini_accurate,
-	llm_gpt4o_accurate
+	llm_gpt4o_accurate,
+	llm_perplexity_via_openai,
+	llm_perplexity_custom_patch
 )
+llm_perplexity_custom_crew_patch = PerplexityLLM()
 
 # Import CrewAI tools
 from crewai_tools import (
@@ -92,7 +103,7 @@ class FuturistResearchCrew():
 	def futurist_researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['futurist_researcher'],
-			llm=llm_gpt4o_mini_accurate,
+			llm=llm_perplexity_custom_patch,
 			tools=[SerperDevTool(),scrapfly_scrape_tool, FileDownloaderTool()],
 			verbose=True
 		)

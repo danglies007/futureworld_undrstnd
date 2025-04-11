@@ -3,10 +3,6 @@ import os
 # Custom Perplexity patch - using litellm_patch.py
 import litellm_patch
 
-# Importing patch PerplexityLLM
-from crew_perplexity import PerplexityLLM
-
-
 from crewai import LLM
 
 # Define LLMs with token tracking
@@ -51,25 +47,19 @@ lmm_perplexity_litellm_patch = LLM(
 )
 
 
-# Perplexity via OpenAI client approach
-perplexity_api_key = os.environ.get("PERPLEXITY_API_KEY")
+# Configure LiteLLM with provider-specific API keys
+litellm.set_provider_api_key("perplexity", os.environ.get("PERPLEXITY_API_KEY"))
+litellm.set_provider_api_key("openai", os.environ.get("OPENAI_API_KEY"))
 
-# Create a Perplexity LLM using OpenAI client
+# Now create your Perplexity LLM using OpenAI client
 llm_perplexity_via_openai = LLM(
-    provider="openai",  # Use OpenAI as provider
-    model="perplexity/sonar",  # Perplexity model
-    api_key=perplexity_api_key,  # Use Perplexity API key
+    provider="openai",  # Use OpenAI provider
+    model="perplexity/sonar",  # Perplexity model name
     config={
         "api_base": "https://api.perplexity.ai",
-        "extra_headers": {
-            "x-api-type": "perplexity"  # Tell LiteLLM this is Perplexity
+        "litellm_params": {
+            "custom_llm_provider": "perplexity",  # Tell LiteLLM this is actually Perplexity
+            "force_timeout": 120
         }
     }
-)
-
-
-# Perplexity via custom PerplexityLLM
-llm_perplexity_custom_patch = PerplexityLLM(
-    model="perplexity/sonar",  # Or "perplexity/sonar-pro" for the pro version
-    api_key=os.environ.get("PERPLEXITYAI_API_KEY")
 )

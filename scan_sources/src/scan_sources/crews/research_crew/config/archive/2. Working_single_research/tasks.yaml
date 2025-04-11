@@ -3,14 +3,14 @@
 futurist_research:
   description: >
     You have these 4 key objectives
-    1. Conduct EXTENSIVE research to identify market forces impacting {topic}.
+    1. Conduct EXTENSIVE research to identify no less than {minimum_number_of_forces} market forces impacting {topic}.
     2. Focus on {specialisation} sources, the current date is {date}.  
-    3. Search for content from these sources: {sources}.
+    3. Search for content from these sources at minimum: {research_sources}.
     4. Your primary goal is to scan reputable sources to develop a long list of market forces.
     
     Expected research scope - minimum requirements:
-    - Minimum of 15 respected {specialisation} publications or thought leaders.
-    - At least 15 distinct market forces identified.
+    - Minimum of {minimum_number_of_sources} respected {specialisation} publications or thought leaders.
+    - At least {minimum_number_of_forces} distinct market forces identified.
     - Minimum of 3 specific examples for each market force.
     - Cover multiple domains.
     - Do not conclude your research until you have gathered a comprehensive set of market forces.
@@ -18,13 +18,15 @@ futurist_research:
     - Your research is not complete until you've met or exceeded these minimum requirements.
 
     Research process:
-    1. As part of your research process, you must include the {sources} in your searches.
+    1. As part of your research process, you must include the {research_sources} in your searches.
     2. Identify initial set of market forces from each source.
-    3. For each market force, capture the relevant details according to the MarketForce format, then ask yourself: "What related or adjacent market forces might this indicate?"
-    4. Expand your list with these adjacent forces.
-    5. For any new force identified, repeat steps 3-4.
-    6. Continue until you have at least 15 market forces.
-    7. Do not include sources over 1 year old, considering the current date is {date}
+    3. If the user has provided a list of specific points of interest: {specific_points_of_interest}, use them to guide your research.
+    4. For each market force, capture the relevant details according to the RawMarketForce format, then ask yourself: "What related or adjacent market forces might this indicate?"
+    5. Use the URL and scrape tool to extract the content you require.
+    6. Expand your list with these adjacent forces.
+    7. For any new force identified, repeat steps 4-6.
+    8. Continue until you have at least {minimum_number_of_forces} market forces.
+    9. Do not include sources over 1 year old, considering the current date is {date}
     
     Remember: Thorough research requires multiple iterations of discovery and expansion.
 
@@ -46,12 +48,12 @@ futurist_research:
     Performance and incentive:
     1. Your performance will be evaluated based on the quantity and quality of market forces identified.
     2. The breadth and accuracy of your sources.
-    3. The depth of your analysis (detailed market force descriptions).
+    3. The depth of your analysis (detailed market force descriptions, content, examples, key terms, mentioned entities).
     4. The quality and accuracy of your attributions and citations (exact URLs, paragraphs, and sources).
-    5. The quantity of market forces identified (aim for 15+).
+    5. The quantity of market forces identified, meeting or exceeding the {minimum_number_of_forces} requirement.
     6. The diversity of domains covered.
-    7. You will be rewarded for meeting or exceeding the minimum requirements.
-    8. You will be penalized for not meeting the minimum requirements.
+    7. You will be rewarded for meeting or exceeding the minimum of {minimum_number_of_forces} market forces requirement.
+    8. You will be penalized for not meeting the minimum of {minimum_number_of_forces} market forces requirement.
     
     The most valuable insights often come from comprehensive research that goes beyond
     obvious sources and findings. Your goal is to deliver the most accurate, comprehensive and thorough analysis possible.
@@ -60,7 +62,7 @@ futurist_research:
     with each fact, statistic, quote, finding, and example properly attributed using the AttributedItem structure.
     Set the source_category to "{specialisation}" in your response.
   expected_output: >
-    A structured list of market forces relating to {topic} from respected {specialisation} sources,with detailed attribution for all claims, facts, statistics, and quotes.
+    A structured list of NO LESS THAN {minimum_number_of_forces} market forces relating to {topic} from respected {specialisation} sources, with detailed attribution for all claims, facts, statistics, and quotes.
   agent: futurist_researcher
 
 futurist_reporting_task:
@@ -72,6 +74,7 @@ futurist_reporting_task:
     Report process:
     1. Do not lose any content from the context, make sure include and where relevant expand on the context create all the required report outputs (e.g. key findings, possible signals, possible structural shifts, implications on future of sector, sources)
     2. **PRESERVE THE ORIGINAL SOURCE DATES FROM THE INPUT - DO NOT REPLACE THEM WITH TODAY'S DATE**
+    3. Use the URL and scrape tool to extract the content you require.
 
     Report quality:
     1. Ensure all information from the context is comprehensively and accurately included in the report.
@@ -137,17 +140,9 @@ futurist_structure_market_forces:
     2. Ensure structured output maintains appropriate professional tone
     3. Preserve industry-specific nuances in the structured format
     
-   Your output MUST be formatted as a valid JSON OBJECT with a "market_forces" field containing an ARRAY of StructuredMarketForce objects.
+    Your output MUST be formatted as a valid JSON OBJECT with a "market_forces" field containing an ARRAY of StructuredMarketForce objects.
   expected_output: >
     A JSON object containing a "market_forces" array of StructuredMarketForce objects with standardised formatting and enhanced structure.
     The array should contain one object for EACH raw market force from the previous research task.
-
-#this was the old content
-    Your output MUST be formatted as a valid JSON array of objects following the StructuredMarketForce schema.
-    Each object must include all required fields: id, source_category, short_description, long_description,
-    examples, source_name, and optionally source_url, source_date, key_terms, and mentioned_entities.
-
-    expected_output: >
-      A JSON array of StructuredMarketForce objects with standardised formatting and enhanced structure
-    agent: futurist_market_force_extractor
-    context: [futurist_research]
+  agent: futurist_market_force_extractor
+  context: [futurist_research]
