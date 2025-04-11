@@ -1,32 +1,81 @@
 # tasks.yaml - futurist_research_crew
 
-futurist_research:
+futurist_source_identification:
   description: >
-    You have these 4 key objectives
-    1. Conduct EXTENSIVE research to identify no less than {minimum_number_of_forces} market forces impacting {topic}.
-    2. Focus on {specialisation} sources, the current date is {date}.  
-    3. Search for content from these sources at minimum: {research_sources}.
-    4. Your primary goal is to scan reputable sources to develop a long list of market forces.
-    
-    Expected research scope - minimum requirements:
+    You have these key objectives for SOURCE IDENTIFICATION:
+    1. Identify no less than {minimum_number_of_sources} high-quality sources for researching market forces impacting {topic}.
+    2. Focus solely on {specialisation} sources, the current date is {date}.
+    3. Include at minimum these sources in your search: {research_sources}.
+    4. Your primary goal is to identify reputable sources that will yield valuable market forces.
+
+    Expected source identification scope:
     - Minimum of {minimum_number_of_sources} respected {specialisation} publications or thought leaders.
-    - At least {minimum_number_of_forces} distinct market forces identified.
-    - Minimum of 3 specific examples for each market force.
-    - Cover multiple domains.
-    - Do not conclude your research until you have gathered a comprehensive set of market forces.
+    - Cover multiple domains relevant to {topic}.
+    - Prioritise sources published within the last year, considering the current date is {date}.
+    - Your thoroughness at this stage is critical to the success of the overall project.
+
+    Source identification process:
+    1. Begin by exploring the {research_sources} specified.
+    2. If the user has provided specific points of interest: {specific_points_of_interest}, use them to guide your search.
+    3. For each potential source, evaluate:
+      - Relevance to {topic}
+      - Credibility in the field of {specialisation}
+      - Publication date (preferring recent content)
+      - Potential for yielding multiple market forces
+    4. Use the internet search tool to identify promising sources.
+    5. After initial extraction, ask yourself: "What related or adjacent market forces might this indicate?"
+    6. Keep track of ALL identified source URLs and basic information.
+    7. Do not attempt to extract detailed content from sources at this stage.
+
+    Source quality requirements:
+    1. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
+    2. **VERIFY THAT EACH SOURCE IS ACCESSIBLE AND CONTAINS RELEVANT CONTENT**
+    3. **ALWAYS EXTRACT AND USE THE ACTUAL PUBLICATION DATE FROM THE SOURCE - DO NOT USE TODAY'S DATE**
+    4. **IF A PUBLICATION DATE IS NOT CLEARLY VISIBLE, MAKE A REASONABLE ESTIMATE BASED ON CONTENT OR MARK AS UNKNOWN**
+
+    Performance and incentive:
+    1. Your performance will be evaluated based on the quantity and quality of sources identified.
+    2. The breadth and diversity of your sources.
+    3. The relevance of sources to {topic} and {specialisation}.
+    4. The recency and credibility of your sources.
+
+    Your output MUST be formatted as a valid JSON object following this SourceIdentificationResults schema.
+
+  expected_output: >
+    A structured JSON object containing NO LESS THAN {minimum_number_of_sources} high-quality sources
+    for researching market forces relating to {topic} from respected {specialisation} sources,
+    with each source properly documented with a unique ID, URL, title, publisher, publication date, and relevance details.
+  agent: futurist_source_identifier
+
+
+futurist_market_force_extraction:
+  description: >
+    Using the URLs from the sources identified in the previous task, conduct EXTENSIVE content extraction to identify market forces relevant to {topic}.
+    
+    IMPORTANT INSTRUCTIONS FOR ACCESSING URLs:
+    1. The output from the previous task (futurist_source_identification) is available to you.
+    2. This output contains a 'sources' field, which is a list of sources.
+    3. Each source in the list has a 'url' field.
+    4. You should extract content from ALL these URLs.
+    
+    For each URL in the 'sources' array from the previous task output:
+      - Use the URL and scrape tool to extract the content.
+      - Identify all market forces mentioned in the source.
+    
+    Expected research extraction scope - minimum requirements:
+    - Extract content from ALL source URLs identified in the previous task.
+    - Identify as many distinct market forces as possible.
+    - Find relevant specific examples for each market force.
+    - Do not conclude your extraction until you have gathered a comprehensive set of market forces across all the source URLs provided.
     - Your thoroughness is critical to the success of the overall project.
     - Your research is not complete until you've met or exceeded these minimum requirements.
 
-    Research process:
-    1. As part of your research process, you must include the {research_sources} in your searches.
-    2. Identify initial set of market forces from each source.
-    3. If the user has provided a list of specific points of interest: {specific_points_of_interest}, use them to guide your research.
-    4. For each market force, capture the relevant details according to the RawMarketForce format, then ask yourself: "What related or adjacent market forces might this indicate?"
-    5. Use the URL and scrape tool to extract the content you require.
-    6. Expand your list with these adjacent forces.
-    7. For any new force identified, repeat steps 4-6.
-    8. Continue until you have at least {minimum_number_of_forces} market forces.
-    9. Do not include sources over 1 year old, considering the current date is {date}
+    Research extraction process:
+    1. For each source_url identified in the previous task:
+      - Use the URL and scrape tool to extract the content.
+      - Identify all market forces mentioned in the source.
+    2. For each market force, capture the relevant details according to the RawMarketForce format.
+    3. Continue until you have identified all relevant market forces.
     
     Remember: Thorough research requires multiple iterations of discovery and expansion.
 
@@ -38,32 +87,28 @@ futurist_research:
     2. Do not paraphrase information - retain key details and numbers as found in the source.
     3. Structure all attributed content according to the AttributedItem format with "content", "source_url", "source_paragraph", and "source_name" fields.
 
-    Research quality:
+    Research extraction quality:
     1. Compile findings with true and accurate citations and source attributions, ensuring all information is traceable.
-    2. **PROVIDE REAL WORKING URLS FOR ALL CONTENT - DO NOT PROVIDE FAKE OR MOCKED CONTENT.**
+    2. **DO NOT PROVIDE FAKE OR MOCKED CONTENT.**
     3. **IF CONTENT CANNOT BE FOUND, INDICATE SO, DO NOT MAKE UP CONTENT OR SOURCES.**
     4. **ALWAYS EXTRACT AND USE THE ACTUAL PUBLICATION DATE FROM THE SOURCE - DO NOT USE TODAY'S DATE.**
     5. **IF A PUBLICATION DATE IS NOT CLEARLY VISIBLE, MAKE A REASONABLE ESTIMATE BASED ON CONTENT OR MARK AS UNKNOWN - NEVER DEFAULT TO TODAY'S DATE.**
 
     Performance and incentive:
     1. Your performance will be evaluated based on the quantity and quality of market forces identified.
-    2. The breadth and accuracy of your sources.
     3. The depth of your analysis (detailed market force descriptions, content, examples, key terms, mentioned entities).
     4. The quality and accuracy of your attributions and citations (exact URLs, paragraphs, and sources).
-    5. The quantity of market forces identified, meeting or exceeding the {minimum_number_of_forces} requirement.
-    6. The diversity of domains covered.
-    7. You will be rewarded for meeting or exceeding the minimum of {minimum_number_of_forces} market forces requirement.
-    8. You will be penalized for not meeting the minimum of {minimum_number_of_forces} market forces requirement.
     
     The most valuable insights often come from comprehensive research that goes beyond
-    obvious sources and findings. Your goal is to deliver the most accurate, comprehensive and thorough analysis possible.
+    the obvious. Your goal is to deliver the most accurate, comprehensive and thorough analysis possible.
 
     Your output MUST be formatted as a valid JSON object following the ResearchOutput schema,
     with each fact, statistic, quote, finding, and example properly attributed using the AttributedItem structure.
     Set the source_category to "{specialisation}" in your response.
   expected_output: >
-    A structured list of NO LESS THAN {minimum_number_of_forces} market forces relating to {topic} from respected {specialisation} sources, with detailed attribution for all claims, facts, statistics, and quotes.
-  agent: futurist_researcher
+    A structured list of market forces based on the source URLs provided in the previous task, relating to {topic}, with detailed attribution for all claims, facts, statistics, and quotes.
+  agent: futurist_content_extractor
+  context: [futurist_source_identification]
 
 futurist_reporting_task:
   description: >
@@ -89,7 +134,7 @@ futurist_reporting_task:
   expected_output: >
     A fully fledge reports with all the main topics, each with a full section of information.
   agent: futurist_reporting_analyst
-  context: [futurist_research]
+  context: [futurist_market_force_extraction]
 
 futurist_formatting_task:
   description: >
@@ -111,7 +156,7 @@ futurist_formatting_task:
     A beautifully formatted markdown report with proper structure, spacing,
     citations, and visual elements that enhance readability and presentation.
   agent: futurist_formatter
-  context: [futurist_research, futurist_reporting_task]
+  context: [futurist_market_force_extraction, futurist_reporting_task]
 
 futurist_structure_market_forces:
   description: >
@@ -145,4 +190,4 @@ futurist_structure_market_forces:
     A JSON object containing a "market_forces" array of StructuredMarketForce objects with standardised formatting and enhanced structure.
     The array should contain one object for EACH raw market force from the previous research task.
   agent: futurist_market_force_extractor
-  context: [futurist_research]
+  context: [futurist_market_force_extraction]

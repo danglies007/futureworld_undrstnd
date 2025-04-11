@@ -220,3 +220,25 @@ class MarketForceReport(BaseModel):
         description="All sources used in the report",
         default_factory=list
     )
+
+
+class Source(BaseModel):
+    source_id: str
+    title: str
+    url: str
+    publisher: str
+    publication_date: str
+    author: str
+    relevance_score: float
+    domain_category: str
+    description: str
+
+class SourceIdentificationResults(BaseModel):
+    topic: str
+    specialisation: str
+    date_of_research: str
+    total_sources_found: int
+    sources: List[Source]
+
+class SourceIdentificationOutput(BaseModel):
+    source_identification_results: SourceIdentificationResults

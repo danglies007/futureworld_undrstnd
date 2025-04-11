@@ -50,6 +50,7 @@ from scan_sources.models import (
 	ResearchOutput,
 	MarketForceReportSection,
 	MarketForceReport,
+    SourceIdentificationResults,
 	StructuredMarketForce,
 	ListStructuredMarketForce
 )
@@ -100,11 +101,20 @@ class FuturistResearchCrew():
 	# If you would like to add tools to your agents, you can learn more about it here:
 	# https://docs.crewai.com/concepts/agents#agent-tools
 	@agent
-	def futurist_researcher(self) -> Agent:
+	def futurist_source_identifier(self) -> Agent:
 		return Agent(
-			config=self.agents_config['futurist_researcher'],
-			llm=llm_perplexity_custom_patch,
-			tools=[SerperDevTool(),scrapfly_scrape_tool, FileDownloaderTool()],
+			config=self.agents_config['futurist_source_identifier'],
+			llm=llm_gpt4o_mini_accurate,
+			tools=[SerperDevTool()],
+			verbose=True
+		)
+
+	@agent
+	def futurist_content_extractor(self) -> Agent:
+		return Agent(
+			config=self.agents_config['futurist_content_extractor'],
+			llm=llm_gpt4o_mini_accurate,
+			tools=[ScrapeWebsiteTool(), FileDownloaderTool()],
 			verbose=True
 		)
 
@@ -139,11 +149,19 @@ class FuturistResearchCrew():
 	# https://docs.crewai.com/concepts/tasks#overview-of-a-task
 
 	@task
-	def futurist_research(self) -> Task:
+	def futurist_source_identification(self) -> Task:
 		return Task(
-			config=self.tasks_config['futurist_research'],
-			output_file=f'outputs/futurist_research_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-			output_pydantic=ResearchOutput
+			config=self.tasks_config['futurist_source_identification'],
+			output_file=f'outputs/futurist_source_identification_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+			output_pydantic=SourceIdentificationResults
+		)
+
+	@task
+	def futurist_market_force_extraction(self) -> Task:
+		return Task(
+			config=self.tasks_config['futurist_market_force_extraction'],
+			output_file=f'outputs/futurist_market_force_extraction_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+			output_pydantic=ResearchOutput,
 		)
 
 	@task

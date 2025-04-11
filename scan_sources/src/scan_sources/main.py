@@ -52,7 +52,7 @@ class ScanFlow(Flow):
         Run the crew.
         """
         inputs = {
-            'topic': 'Food & beverage industry',
+            'topic': 'Generative AI in Financial Services',
             'date': datetime.now().strftime('%Y-%m-%d'),
             'research_sources': SOURCES_FUTURISTS,
             'specialisation': 'Futurist & Foresight',

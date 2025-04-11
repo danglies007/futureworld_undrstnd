@@ -14,8 +14,11 @@
 - ScrapFly - works nicely
   - Maybe need to go off serper as search
   - Need to find a nice combination
-- Perplexity - needed to apply some patches to get it to work
-  - Hallucinating
-  - Timing out do to patch
-  - might try openrouter
+- Perplexity -
+  - needed to apply some patches to get it to work
+    - Hallucinating
+    - Timing out do to patch
+    - might try openrouter
   - WORKS through crew_perplexty.py patch but very slow
+  - Works well throuhg openAI API
+    - uses about 10-20USc per research query
