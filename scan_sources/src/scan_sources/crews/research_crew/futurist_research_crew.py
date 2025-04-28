@@ -51,6 +51,7 @@ from scan_sources.models import (
 	MarketForceReportSection,
 	MarketForceReport,
     SourceIdentificationResults,
+    SourceLink,
 	StructuredMarketForce,
 	ListStructuredMarketForce,
 	SourceIdentificationResultsURLonly
@@ -109,7 +110,7 @@ class FuturistResearchCrew():
 	def futurist_source_identifier(self) -> Agent:
 		return Agent(
 			config=self.agents_config['futurist_source_identifier'],
-			llm=llm_gemini_2_5_flash,
+			llm=llm_gpt4o_mini_accurate,
 			tools=[SerperDevTool()],
 			verbose=True
 		)
@@ -118,12 +119,12 @@ class FuturistResearchCrew():
 	def futurist_content_extractor(self) -> Agent:
 		return Agent(
 			config=self.agents_config['futurist_content_extractor'],
-			llm=llm_gemini_2_5_flash,
+			llm=llm_gpt4o_mini_accurate,
 			tools=[ScrapeWebsiteTool(), FileDownloaderTool(), PDFSearchTool()],
 			verbose=True,
 			respect_context_window=True,
 			cache=True,
-			function_calling_llm=llm_gemini_2_5_flash,
+			function_calling_llm=llm_gpt4o_mini_accurate,
 			max_retry_limit=3
 		)
 

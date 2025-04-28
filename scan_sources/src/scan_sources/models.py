@@ -19,6 +19,11 @@ class SearchMetadata(BaseModel):
     search_results_count: Optional[int] = Field(None, description="Number of total results found")
     search_position: Optional[int] = Field(None, description="Position in search results where this was found")
 
+class SourceLink(BaseModel):
+    """Represents a link to a source with its title."""
+    title: str = Field(..., description="Title of the source or key term link")
+    url: str = Field(..., description="URL of the source link")
+
 class RawMarketForce(BaseModel):
     title: str = Field(..., description="Brief title of the identified market force")
     raw_description: str = Field(..., description="The original description as found in the source")
@@ -40,16 +45,16 @@ class RawMarketForce(BaseModel):
     # possible_signals: List[str] = Field(default_factory=list, description="List of possible signals associated with this market force")
     # possible_structural_shifts: List[str] = Field(default_factory=list, description="List of possible structural shifts associated with this market force")
     # implications_on_future_of_sector: List[str] = Field(default_factory=list, description="List of implications on future of sector associated with this market force")
-    sources: List[Dict[str, str]] = Field(
+    sources: List[SourceLink] = Field(
         description="Sources with title and URL for each key term",
         default_factory=list
     )
     search_metadata: Optional[SearchMetadata] = Field(
-        None, 
+        None,
         description="Metadata about the search that found this market force"
     )
     agent_notes: Optional[str] = Field(
-        None, 
+        None,
         description="Agent's notes about finding or processing this market force"
     )
 
