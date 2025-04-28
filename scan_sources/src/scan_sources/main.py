@@ -9,9 +9,27 @@ from typing import Dict, Any
 from dotenv import load_dotenv
 load_dotenv()
                 
-# Patch for Perplexity LLM - but the LLM seems to work through the OPENAI API
-import litellm_patch 
+# # Patch for Perplexity LLM - but the LLM seems to work through the OPENAI API
+# import litellm_patch 
 
+# # Patch for Gemini 2.5pro API
+# from patches import apply_patches
+# import litellm
+
+# # Apply the patches early
+# apply_patches()
+
+# # Add Gemini model cost mapping
+# litellm.model_cost = {
+#     **litellm.model_cost,  # Keep existing mappings
+#     "gemini-2.5-pro-exp-03-25": {
+#         "input_cost_per_token": 0.00001,
+#         "output_cost_per_token": 0.00003,
+#         "max_tokens": 128000
+#     }
+# }
+
+# # End of Gemini 2.5pro API patch
 
 from pydantic import BaseModel, PydanticDeprecatedSince20
 
@@ -57,7 +75,7 @@ class ScanFlow(Flow):
             'research_sources': SOURCES_FUTURISTS,
             'specialisation': 'Futurist & Foresight',
             'minimum_number_of_forces': 20,
-            'minimum_number_of_sources': 15,
+            'minimum_number_of_sources': 25,
             'specific_points_of_interest': []
         }
         FuturistResearchCrew().crew().kickoff(inputs=inputs).pydantic

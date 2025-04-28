@@ -228,29 +228,29 @@ class MarketForceReport(BaseModel):
 
 # 
 class SourceURL(BaseModel):
-    url: str = Field(..., description="URL of the source")
+    url: str
 
 class SourceIdentificationResultsURLonly(BaseModel):
-    # name: Literal["SourceIdentificationResultsURLonly"] = "SourceIdentificationResultsURLonly" Removed to make Gemini work
-    sources: List[SourceURL] = Field(..., description="List of source URLs")
+    name: Literal["SourceIdentificationResultsURLonly"] = "SourceIdentificationResultsURLonly"
+    sources: List[SourceURL]
     
 class Source(BaseModel):
-    source_id: str = Field(..., description="Unique identifier for the source")
-    title: str = Field(..., description="Title of the source")
-    url: str = Field(..., description="URL of the source")
-    publisher: str = Field(..., description="Publisher of the source")
-    publication_date: str = Field(..., description="Date of publication")
-    author: str = Field(..., description="Author of the source")
-    relevance_score: float = Field(..., description="Relevance score of the source")
-    domain_category: str = Field(..., description="Category of the domain")
-    description: str = Field(..., description="Description of the source")
+    source_id: str
+    title: str
+    url: str
+    publisher: str
+    publication_date: str
+    author: str
+    relevance_score: float
+    domain_category: str
+    description: str
 
 class SourceIdentificationResults(BaseModel):
-    topic: str = Field(..., description="Topic of the research")
-    specialisation: str = Field(..., description="Specialisation of the research")
-    date_of_research: str = Field(..., description="Date when the research was conducted")
-    total_sources_found: int = Field(..., description="Total number of sources found")
-    sources: List[Source] = Field(..., description="List of sources found")
+    topic: str
+    specialisation: str
+    date_of_research: str
+    total_sources_found: int
+    sources: List[Source]
 
 class SourceIdentificationOutput(BaseModel):
-    source_identification_results: SourceIdentificationResults = Field(..., description="Results of source identification")
+    source_identification_results: SourceIdentificationResults

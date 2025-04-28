@@ -15,14 +15,14 @@ futurist_source_identification:
     - Your thoroughness at this stage is critical to the success of the overall project.
 
     Source identification process:
-    1. Use the internet search tool to identify promising sources.
-    2. Begin by exploring the {research_sources} specified.
-    3. If the user has provided specific points of interest: {specific_points_of_interest}, use them to guide your search.
-    4. For each potential source, evaluate:
+    1. Begin by exploring the {research_sources} specified.
+    2. If the user has provided specific points of interest: {specific_points_of_interest}, use them to guide your search.
+    3. For each potential source, evaluate:
       - Relevance to {topic}
       - Credibility in the field of {specialisation}
       - Publication date (preferring recent content)
       - Potential for yielding multiple market forces
+    4. Use the internet search tool to identify promising sources.
     5. After initial extraction, ask yourself: "What related or adjacent market forces might this indicate?"
     6. Keep track of ALL identified source URLs and basic information.
     7. Do not attempt to extract detailed content from sources at this stage.
@@ -39,44 +39,46 @@ futurist_source_identification:
     3. The relevance of sources to {topic} and {specialisation}.
     4. The recency and credibility of your sources.
 
-    Your outputs MUST be formatted according to the pydantic output SourceIdentificationResultsURLonly schema.
-    Make sure you do not include any markdown formatting that could affect the JSON structure e.g. '''.
+    Your outputs MUST be formatted as a valid JSON objects. following this SourceIdentificationResultsURLonly schema.
 
   expected_output: >
-    You will produce a "Source results URL list" aligned to the  SourceIdentificationResultsURLonly pydantic schema.  Do not include any markdown formatting especially '''
-    This output should contain NO LESS THAN {minimum_number_of_sources} high-quality sources for researching market forces relating to {topic} from respected {specialisation} sources. 
+    You will produce 2 structured JSON objects, containing NO LESS THAN {minimum_number_of_sources} high-quality sources for researching market forces relating to {topic} from respected {specialisation} sources.  
+    1. Source results detailed list, which includes sources with each source properly documented with a unique ID, URL, title, publisher, publication date, and relevance details according to the SourceIdentificationResults schema.
+    2. Source results URL list, which ONLY includes the URL of each source according to the SourceIdentificationResultsURLonly schema.
   agent: futurist_source_identifier
 
 
 futurist_market_force_extraction:
   description: >
-    Using only the URLs from the "Source results URL list" identified in the previous task related to the SourceIdentificationResultsURLonly schema.  Your MANDATORY objective is to process EACH AND EVERY URL provided in the "Source results URL list" from the 'futurist_source_identification' task to extract market forces related to {topic}. FAILURE TO PROCESS ALL URLS WILL RESULT IN AN INCOMPLETE TASK.
+    Using only the URLs from the source results URL list identified in the previous task, conduct EXTENSIVE content extraction to identify market forces relevant to {topic}.
     
     IMPORTANT INSTRUCTIONS FOR ACCESSING URLs:
-    1.  Access the "Source results URL list" output JSON provided in the context from the previous task.
-    2.  Locate the 'sources' field, which is a list of URL source objects.
-    3.  **ITERATE THROUGH THE ENTIRE 'sources' LIST, one by one. For EACH source object URL in the list:**
-        a. Extract the value of the 'url' field.
-        b. **Use the scrape tool to retrieve the full content from this specific URL.** If scraping fails for a URL after 3 attempts, log the URL as failed and CONTINUE to the next URL in the list. DO NOT STOP the entire process for one failed URL.
-        c. Analyze the retrieved content to identify ALL mentioned market forces relevant to {topic}.
-        d. For each market force found in this specific source, capture the relevant details according to the RawMarketForce format, ensuring correct attribution to *this* source URL and name.
-    4.  Do not follow links and scrape URLs referred to in the content of the URLs provided in the 'sources' list.  Only scrape the URLs provided in the 'sources' list.
-    5. Do not directly open PDFs and/or pass the links into the LLM context, if you are required to look at the content of a PDF first download the file using the File Downloader tool then use a PDF search tool to read the file.
-    6.  **DO NOT STOP until you have attempted to process every single URL** present in the 'sources' list from the input context.
-    7.  Compile ALL extracted market forces from ALL processed sources into the final output.
-    8.  Before finishing, mentally (or explicitly state) confirm: "Have I attempted to scrape and analyze every URL provided in the 'sources' list?"
-
+    1. The output from the previous task (futurist_source_identification) is available to you.
+    2. This output contains a 'sources' field, which is a list of sources.
+    3. Each source in the list has a 'url' field.
+    4. You should extract content from ALL these URLs.
+    
+    For each URL in the 'sources' array from the previous task output:
+      - Use the URL and scrape tool to extract the content.
+      - Identify all market forces mentioned in the source.
+    
     Expected research extraction scope - minimum requirements:
-    - Extract content from ALL source URLs identified in "Source results URL list" from the previous task's context.
-    - Identify as many distinct market forces as possible related to the {topic}.
+    - Extract content from ALL source URLs identified in the previous task.
+    - Identify as many distinct market forces as possible.
     - Find relevant specific examples for each market force.
-    - Do not conclude your extraction until you have gathered a comprehensive set of market forces across all the source URLs provided in the 'sources' list.
+    - Do not conclude your extraction until you have gathered a comprehensive set of market forces across all the source URLs provided.
     - Your thoroughness is critical to the success of the overall project.
     - Your research is not complete until you've met or exceeded these minimum requirements.
 
     Research extraction process:
-    Follow the numbered iteration steps 1-7 above meticulously.
+    1. For each source_url identified in the previous task:
+      - Use the URL and scrape tool to extract the content.
+      - Identify all market forces mentioned in the source.
+    2. For each market force, capture the relevant details according to the RawMarketForce format.
+    3. Continue until you have identified all relevant market forces.
     
+    Remember: Thorough research requires multiple iterations of discovery and expansion.
+
     Attribution requirements:
     1. For every fact, statistic, quote, example, or finding you include, you MUST provide:
        - The exact URL where the information was found.
@@ -94,15 +96,17 @@ futurist_market_force_extraction:
 
     Performance and incentive:
     1. Your performance will be evaluated based on the quantity and quality of market forces identified.
-    2. The depth of your analysis (detailed market force descriptions, content, examples, key terms, mentioned entities).
-    3. The quality and accuracy of your attributions and citations (exact URLs, paragraphs, and sources).
+    3. The depth of your analysis (detailed market force descriptions, content, examples, key terms, mentioned entities).
+    4. The quality and accuracy of your attributions and citations (exact URLs, paragraphs, and sources).
     
-    The most valuable insights often come from comprehensive research that goes beyond the obvious. Your goal is to deliver the most accurate, comprehensive and thorough analysis possible.
+    The most valuable insights often come from comprehensive research that goes beyond
+    the obvious. Your goal is to deliver the most accurate, comprehensive and thorough analysis possible.
 
-    Your output MUST be formatted as a valid JSON object following the ResearchOutput schema (without '''), with each fact, statistic, quote, finding, and example properly attributed using the AttributedItem structure.
+    Your output MUST be formatted as a valid JSON object following the ResearchOutput schema,
+    with each fact, statistic, quote, finding, and example properly attributed using the AttributedItem structure.
     Set the source_category to "{specialisation}" in your response.
   expected_output: >
-    A structured list of ALL market forces identified by processing EVERY source URL provided in the SourceIdentificationResultsURLonly context from the previous task, relating to {topic}, with detailed attribution.  This must be in JSON format, Do not include any markdown formatting especially '''
+    A structured list of market forces based on the source URLs provided in the previous task, relating to {topic}, with detailed attribution for all claims, facts, statistics, and quotes.
   agent: futurist_content_extractor
   context: [futurist_source_identification]
 
@@ -110,13 +114,12 @@ futurist_reporting_task:
   description: >
     Review the context you got and expand each market force into a full section for a report.
     Make sure the report is detailed and contains any and all relevant information.
-    The report should be dated {date}. The document should be written for an expert audience with deep knowledge about the {topic}.
+    The report should be dated {date}. The audience should be experts with deep knowledge about the {topic}.
 
     Report process:
-    1. Do not lose any content from the context, make sure to include, and where relevant expand on the context, create all the required report outputs (e.g. key findings, possible signals, possible structural shifts, implications on future of sector, sources)
+    1. Do not lose any content from the context, make sure include and where relevant expand on the context create all the required report outputs (e.g. key findings, possible signals, possible structural shifts, implications on future of sector, sources)
     2. **PRESERVE THE ORIGINAL SOURCE DATES FROM THE INPUT - DO NOT REPLACE THEM WITH TODAY'S DATE**
-    3. Include the following line just below the Title: "Produced by Futureworld & NexusPlus Undrstnd.AI" without quotation marks
-    4. Include a copyright notice at the end of the document
+    3. Use the URL and scrape tool to extract the content you require.
 
     Report quality:
     1. Ensure all information from the context is comprehensively and accurately included in the report.
@@ -138,19 +141,17 @@ futurist_formatting_task:
     Format the executive report into a beautiful markdown document without '```'.
     Follow these guidelines:
     1. Use proper markdown headers (#, ##, ###)
-    2. Include the following line just below the Title: "Produced by Futureworld & NexusPlus Undrstnd.AI" without quotation marks
-    3. Include emojis from the section_emoji field
-    4. Format market forces and key findings as bullet points
-    5. Add proper spacing and sections breaks
-    6. Make implications, signals and structural shifts stand out using blockquotes
-    7. Ensure the date is properly formatted
-    8. Add a table of contents at the beginning
-    9. Use horizontal rules (---) to separate major sections
-    10. Add inline citations for each major claim using (Author, Year, URL) format
-    11. Include a Sources section at the end with numbered references
-    12. Each source should include title, publisher/author, and URL
-    13. Link inline citations to the corresponding entry in the Sources section
-    14. Include a copyright notice at the end of the document
+    2. Include emojis from the section_emoji field
+    3. Format market forces and key findings as bullet points
+    4. Add proper spacing and sections breaks
+    5. Make implications, signals and structural shifts stand out using blockquotes
+    6. Ensure the date is properly formatted
+    7. Add a table of contents at the beginning
+    8. Use horizontal rules (---) to separate major sections
+    9. Add inline citations for each major claim using (Author, Year, URL) format
+    10. Include a Sources section at the end with numbered references
+    11. Each source should include title, publisher/author, and URL
+    12. Link inline citations to the corresponding entry in the Sources section
   expected_output: >
     A beautifully formatted markdown report with proper structure, spacing,
     citations, and visual elements that enhance readability and presentation.

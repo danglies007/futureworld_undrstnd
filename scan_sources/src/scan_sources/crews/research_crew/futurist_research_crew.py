@@ -52,7 +52,8 @@ from scan_sources.models import (
 	MarketForceReport,
     SourceIdentificationResults,
 	StructuredMarketForce,
-	ListStructuredMarketForce
+	ListStructuredMarketForce,
+	SourceIdentificationResultsURLonly
 )
 
 # Import LLMs
@@ -62,7 +63,11 @@ from scan_sources.llm_config import (
 	llm_gpt4o_mini_accurate,
 	llm_gpt4o_accurate,
 	llm_perplexity_via_openai,
-	llm_perplexity_custom_patch
+	llm_perplexity_custom_patch,
+	llm_gemini_2_5_pro,
+	llm_gemini_2_0_flash,
+	llm_gemini_2_5_flash,
+	llm_gpt_4_1_mini
 )
 llm_perplexity_custom_crew_patch = PerplexityLLM()
 
@@ -75,7 +80,7 @@ from crewai_tools import (
 	PDFSearchTool,
 	ScrapeWebsiteTool,
 	BraveSearchTool,
-	ScrapflyScrapeWebsiteTool
+	ScrapflyScrapeWebsiteTool,
 )
 
 # Import Custom tools
@@ -104,7 +109,7 @@ class FuturistResearchCrew():
 	def futurist_source_identifier(self) -> Agent:
 		return Agent(
 			config=self.agents_config['futurist_source_identifier'],
-			llm=llm_gpt4o_mini_accurate,
+			llm=llm_gemini_2_5_flash,
 			tools=[SerperDevTool()],
 			verbose=True
 		)
@@ -113,9 +118,13 @@ class FuturistResearchCrew():
 	def futurist_content_extractor(self) -> Agent:
 		return Agent(
 			config=self.agents_config['futurist_content_extractor'],
-			llm=llm_gpt4o_mini_accurate,
-			tools=[ScrapeWebsiteTool(), FileDownloaderTool()],
-			verbose=True
+			llm=llm_gemini_2_5_flash,
+			tools=[ScrapeWebsiteTool(), FileDownloaderTool(), PDFSearchTool()],
+			verbose=True,
+			respect_context_window=True,
+			cache=True,
+			function_calling_llm=llm_gemini_2_5_flash,
+			max_retry_limit=3
 		)
 
 	@agent
@@ -123,7 +132,7 @@ class FuturistResearchCrew():
 		return Agent(
 			config=self.agents_config['futurist_reporting_analyst'],
 			llm=llm_gpt4o_mini,
-			tools=[scrapfly_scrape_tool],
+			tools=[ScrapeWebsiteTool()],
 			verbose=True
 		)
 
@@ -153,7 +162,7 @@ class FuturistResearchCrew():
 		return Task(
 			config=self.tasks_config['futurist_source_identification'],
 			output_file=f'outputs/futurist_source_identification_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-			output_pydantic=SourceIdentificationResults
+			output_pydantic=SourceIdentificationResultsURLonly
 		)
 
 	@task
@@ -161,7 +170,8 @@ class FuturistResearchCrew():
 		return Task(
 			config=self.tasks_config['futurist_market_force_extraction'],
 			output_file=f'outputs/futurist_market_force_extraction_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-			output_pydantic=ResearchOutput,
+			context=[self.futurist_source_identification()],
+			output_pydantic=ResearchOutput
 		)
 
 	@task
@@ -169,6 +179,7 @@ class FuturistResearchCrew():
 		return Task(
 			config=self.tasks_config['futurist_structure_market_forces'],
 			output_file=f'outputs/futurist_structured_market_forces_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+			# context=[self.futurist_market_force_extraction()],
 			output_pydantic=ListStructuredMarketForce
 		)
 
@@ -177,6 +188,7 @@ class FuturistResearchCrew():
 		return Task(
 			config=self.tasks_config['futurist_reporting_task'],
 			output_file=f'outputs/futurist_report_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+			# context=[self.futurist_structure_market_forces(), self.futurist_source_identification()],
 			output_pydantic=MarketForceReport
 		)
 

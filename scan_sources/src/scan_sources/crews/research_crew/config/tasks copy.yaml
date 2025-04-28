@@ -39,11 +39,11 @@ futurist_source_identification:
     3. The relevance of sources to {topic} and {specialisation}.
     4. The recency and credibility of your sources.
 
-    Your outputs MUST be formatted according to the pydantic output SourceIdentificationResultsURLonly schema.
+    Your outputs MUST be formatted as a valid JSON objects following the SourceIdentificationResultsURLonly schema 
     Make sure you do not include any markdown formatting that could affect the JSON structure e.g. '''.
 
   expected_output: >
-    You will produce a "Source results URL list" aligned to the  SourceIdentificationResultsURLonly pydantic schema.  Do not include any markdown formatting especially '''
+    You will produce a JSON object, "Source results URL list", which ONLY includes the URL of each source according to the SourceIdentificationResultsURLonly schema.  Do not include any markdown formatting especially '''
     This output should contain NO LESS THAN {minimum_number_of_sources} high-quality sources for researching market forces relating to {topic} from respected {specialisation} sources. 
   agent: futurist_source_identifier
 
