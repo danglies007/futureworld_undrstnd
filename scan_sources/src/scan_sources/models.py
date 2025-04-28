@@ -23,6 +23,7 @@ class SourceLink(BaseModel):
     """Represents a link to a source with its title."""
     title: str = Field(..., description="Title of the source or key term link")
     url: str = Field(..., description="URL of the source link")
+    date: Optional[str] = Field(None, description="Optional publication date for the source")
 
 class RawMarketForce(BaseModel):
     title: str = Field(..., description="Brief title of the identified market force")
@@ -46,7 +47,7 @@ class RawMarketForce(BaseModel):
     # possible_structural_shifts: List[str] = Field(default_factory=list, description="List of possible structural shifts associated with this market force")
     # implications_on_future_of_sector: List[str] = Field(default_factory=list, description="List of implications on future of sector associated with this market force")
     sources: List[SourceLink] = Field(
-        description="Sources with title and URL for each key term",
+        description="List of unique source documents (title, URL, date) relevant to this market force finding.",
         default_factory=list
     )
     search_metadata: Optional[SearchMetadata] = Field(
@@ -159,7 +160,7 @@ class ConsolidatedMarketForce(BaseModel):
     canonical_description: str = Field(..., description="Standardised short description")
     consolidated_description: str = Field(..., description="Comprehensive description combining insights from all sources")
     all_examples: List[str] = Field(default_factory=list, description="Combined examples from all sources")
-    all_sources: List[Dict[str, str]] = Field(default_factory=list, description="All source references")
+    all_sources: List[SourceLink] = Field(default_factory=list, description="All source references")
     first_identified: Optional[str] = Field(None, description="Earliest date this market force was identified")
     
     @field_validator('consolidated_id', mode='before')
@@ -189,10 +190,27 @@ class ConsolidatorOutput(BaseModel):
 #             return ConsolidatorOutput(consolidated_forces=[])
 #         return None
 
+class KeyFinding(BaseModel):
+    """Represents a key finding with its source attribution."""
+    insight: str = Field(..., description="The key insight or finding stated concisely")
+    source_author: str = Field(..., description="The author of the source")
+    source_name: str = Field(..., description="The name of the source")
+    source_url: str = Field(..., description="The URL of the source")
+
+class KeyInsight(BaseModel):
+    """Represents a key insight, interpreting findings with implications."""
+    insight: str = Field(..., description="The key interpretive insight derived from findings (the 'so what?').")
+    sources: List[SourceLink] = Field(
+        description="List of SourceLinks that contributed to this insight.",
+        default_factory=list
+    )
+    explanation: Optional[str] = Field(None, description="Brief explanation of why this insight matters or the underlying drivers.")
+    implications: Optional[str] = Field(None, description="Key implications of this insight for the topic/sector.")
+
 class MarketForceReportSection(BaseModel):
     section_title: str = Field(description="Section title")
     section_content: str = Field(description="Main content of the section")
-    key_insights: List[str] = Field(description="Key insights from this section")
+    key_insights: List[KeyInsight] = Field(description="Key insights from this section")
     possible_signals: List[str] = Field(
         default_factory=list,
         description="Optional recommendations indicating any changes of this market force, based on findings"
@@ -205,7 +223,7 @@ class MarketForceReportSection(BaseModel):
         default_factory=list,
         description="Optional recommendations indicating any implications on future of sector of this market force, based on findings"
     )
-    sources: List[Dict[str, str]] = Field(
+    sources: List[SourceLink] = Field(
         description="Sources with title and URL for this section",
         default_factory=list
     )
@@ -214,14 +232,14 @@ class MarketForceReport(BaseModel):
     report_title: str = Field(description="Title of the report")
     generation_date: str = Field(description="Report generation date")
     executive_summary: str = Field(description="A concise executive summary")
-    key_findings: List[Dict[str, str]] = Field(
+    key_findings: List[KeyFinding] = Field(
         description="List of key findings with their sources",
         default_factory=list
     )
     report_sections: List[MarketForceReportSection] = Field(
         description="Detailed report sections"
     )
-    sources: List[Dict[str, str]] = Field(
+    sources: List[SourceLink] = Field(
         description="All sources used in the report",
         default_factory=list
     )

@@ -136,11 +136,11 @@ class MarketForcesScrapeWebsiteTool(BaseTool):
         Your goal is to extract key information relevant ONLY to the topic: "{self.topic}".
 
         Focus on identifying:
-        - Market forces, trends, drivers, or shifts related to the topic.
+        - Explicit mentions of market forces, trends, drivers, or shifts related to the topic.
         - Key statistics, facts, or figures relevant to the topic.
         - Specific examples or case studies mentioned related to the topic.
         - Relevant quotes from individuals or organizations about the topic.
-        - Any direct insights or predictions about the future of "{self.topic}".ß
+        - Any direct insights or predictions about the future of "{self.topic}".
 
         Keep the output concise and focused ONLY on information directly pertaining to "{self.topic}". Ignore irrelevant sections, boilerplate text, ads, navigation elements, etc. If no relevant information is found, state that explicitly.
 
@@ -155,42 +155,25 @@ class MarketForcesScrapeWebsiteTool(BaseTool):
             response = litellm.completion(
                 model=self.analysis_model,
                 messages=[{"role": "user", "content": analysis_prompt}],
-                max_tokens=2000,
-                temperature=0.1,
-                # Consider adding retry logic here if needed for APIConnectionErrors
-                max_retries=3,
+                max_tokens=1000, # Limit output size
+                temperature=0.1, # Low temp for factual extraction
             )
 
-            # --- IMPROVED ERROR HANDLING FOR LLM RESPONSE ---
-            if not response or not response.choices or not response.choices[0].message or not response.choices[0].message.content:
-                 # Log details before returning error string
-                 print(f"Internal LLM analysis returned no content for {website_url}. Response: {response}")
-                 return f"TOOL_ANALYSIS_ERROR: Internal LLM analysis returned no content for {website_url}."
-
+            # Extract the response content
             analysis_result = response.choices[0].message.content.strip()
 
             if not analysis_result:
-                 print(f"Internal LLM analysis returned empty string for {website_url}. Response: {response}")
-                 return f"TOOL_ANALYSIS_ERROR: Internal LLM analysis returned empty content for {website_url}."
-            # --- END IMPROVED HANDLING ---
+                return f"Analysis of {website_url} completed, but the LLM returned no relevant information for the topic '{self.topic}'."
 
             # Prepend the source URL to the analysis for clarity
             return f"Analysis results for {website_url}:\n\n{analysis_result}"
 
-        except litellm.exceptions.APIConnectionError as e:
-             print(f"Internal LLM API connection error for {website_url}: {e}")
-             print(traceback.format_exc())
-             return f"TOOL_ANALYSIS_ERROR: Internal LLM API connection error for {website_url}: {e}"
-        except litellm.exceptions.BadRequestError as e:
-             print(f"Internal LLM BadRequest error for {website_url}: {e}")
-             print(traceback.format_exc())
-             # This might happen if the analysis prompt + text is too large for the analysis model
-             return f"TOOL_ANALYSIS_ERROR: Internal LLM BadRequest for {website_url}: {e}"
         except Exception as e:
-            # Catch any other unexpected errors during the LLM call
-            print(f"An unexpected error occurred during internal LLM analysis for {website_url}: {e}")
+            # Log the full error for debugging
+            print(f"Error during internal LLM analysis for {website_url}:")
             print(traceback.format_exc())
-            return f"TOOL_ANALYSIS_ERROR: Unexpected error during internal LLM analysis for {website_url}: {e}"
+            return f"Error analyzing content from {website_url} with LLM {self.analysis_model}: {e}"
+
 
 # Example of how you might instantiate this tool later in your crew setup:
 # from .llm_config import llm_gpt4o_mini # Assuming your llm configs are here

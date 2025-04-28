@@ -88,6 +88,7 @@ from crewai_tools import (
 from scan_sources.tools.file_downloader import FileDownloaderTool
 from scan_sources.tools.exa_search_tool import Exa_search_tool
 from scan_sources.tools.exa_crawl_tool import Exa_crawl_scrape_tool
+from scan_sources.tools.custom_web_scrape_market_forces import MarketForcesScrapeWebsiteTool
 
 scrapfly_scrape_tool = ScrapflyScrapeWebsiteTool(api_key="scp-live-74020f77bb114ac985986486ae6a95eb")
 # firecrawl_crawl_tool = FirecrawlCrawlWebsiteTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
@@ -104,27 +105,39 @@ class FuturistResearchCrew():
 	agents_config = 'config/agents.yaml'
 	tasks_config = 'config/tasks.yaml'
 
+	# --- ADD __init__ to store topic and analysis LLM config ---
+	# def __init__(self, topic: str):
+	# 	self.topic = "Generative AI in Financial Services"
+	# 	self.analysis_llm = llm_gemini_2_5_flash # Choose LLM for the tool's internal use
+	# # --- End of __init__ ---
+
 	# If you would like to add tools to your agents, you can learn more about it here:
 	# https://docs.crewai.com/concepts/agents#agent-tools
 	@agent
 	def futurist_source_identifier(self) -> Agent:
 		return Agent(
 			config=self.agents_config['futurist_source_identifier'],
-			llm=llm_gpt4o_mini_accurate,
+			llm=llm_gemini_2_5_flash,
 			tools=[SerperDevTool()],
 			verbose=True
 		)
 
 	@agent
 	def futurist_content_extractor(self) -> Agent:
+		# --- Instantiate the custom tool HERE, inside the agent method ---
+		scrape_market_forces_tool = MarketForcesScrapeWebsiteTool(
+			llm=llm_gemini_2_5_flash, # Pass the chosen LLM config from __init__
+			topic="Generative AI in Financial Services"      # Pass the research topic from __init__
+		)
+		# --- End of tool instantiation ---
 		return Agent(
 			config=self.agents_config['futurist_content_extractor'],
-			llm=llm_gpt4o_mini_accurate,
-			tools=[ScrapeWebsiteTool(), FileDownloaderTool(), PDFSearchTool()],
+			llm=llm_gemini_2_5_flash,
+			tools=[scrape_market_forces_tool, FileDownloaderTool(), PDFSearchTool()],
 			verbose=True,
 			respect_context_window=True,
 			cache=True,
-			function_calling_llm=llm_gpt4o_mini_accurate,
+			function_calling_llm=llm_gemini_2_5_flash,
 			max_retry_limit=3
 		)
 
@@ -132,7 +145,7 @@ class FuturistResearchCrew():
 	def futurist_reporting_analyst(self) -> Agent:
 		return Agent(
 			config=self.agents_config['futurist_reporting_analyst'],
-			llm=llm_gpt4o_mini,
+			llm=llm_gemini_2_5_flash,
 			tools=[ScrapeWebsiteTool()],
 			verbose=True
 		)
@@ -141,7 +154,7 @@ class FuturistResearchCrew():
 	def futurist_formatter(self) -> Agent:
 		return Agent(
 			config=self.agents_config['futurist_formatter'],
-			llm=llm_gpt4o_mini,
+			llm=llm_gemini_2_5_flash,
 			verbose=True
 		)
 
