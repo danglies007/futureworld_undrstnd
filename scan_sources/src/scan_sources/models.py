@@ -33,31 +33,31 @@ class RawMarketForce(BaseModel):
     source_url: Optional[str] = Field(None, description="URL or reference to the source")
     source_date: Optional[str] = Field(None, description="Date of publication")
     key_terms: List[str] = Field(default_factory=list, description="List of key terms associated with this market force")
-    mentioned_entities: List[str] = Field(default_factory=list, description="Companies, technologies, or other entities mentioned")
+    # mentioned_entities: List[str] = Field(default_factory=list, description="Companies, technologies, or other entities mentioned")
     raw_findings: List[AttributedItem] = Field(default_factory=list, description="List of raw findings with sources")
-    raw_examples: List[AttributedItem] = Field(default_factory=list, description="Examples of the market force in action with sources")
-    relevant_facts: List[AttributedItem] = Field(default_factory=list, description="Relevant facts with sources")
-    relevant_statistics: List[AttributedItem] = Field(default_factory=list, description="Relevant statistics with sources")
-    relevant_data: List[AttributedItem] = Field(default_factory=list, description="Relevant data with sources")
-    relevant_quotes: List[AttributedItem] = Field(default_factory=list, description="Relevant quotes with sources")    
-    relevance: str = Field(..., description="Relevance of the market force to the research topic")
-    related_trends: List[str] = Field(default_factory=list, description="List of related trends associated with this market force")
-    related_mega_trends: List[str] = Field(default_factory=list, description="List of related mega trends associated with this market force")
+    # raw_examples: List[AttributedItem] = Field(default_factory=list, description="Examples of the market force in action with sources")
+    # relevant_facts: List[AttributedItem] = Field(default_factory=list, description="Relevant facts with sources")
+    # relevant_statistics: List[AttributedItem] = Field(default_factory=list, description="Relevant statistics with sources")
+    # relevant_data: List[AttributedItem] = Field(default_factory=list, description="Relevant data with sources")
+    # relevant_quotes: List[AttributedItem] = Field(default_factory=list, description="Relevant quotes with sources")    
+    # relevance: str = Field(..., description="Relevance of the market force to the research topic")
+    # related_trends: List[str] = Field(default_factory=list, description="List of related trends associated with this market force")
+    # related_mega_trends: List[str] = Field(default_factory=list, description="List of related mega trends associated with this market force")
     # possible_signals: List[str] = Field(default_factory=list, description="List of possible signals associated with this market force")
     # possible_structural_shifts: List[str] = Field(default_factory=list, description="List of possible structural shifts associated with this market force")
     # implications_on_future_of_sector: List[str] = Field(default_factory=list, description="List of implications on future of sector associated with this market force")
-    sources: List[SourceLink] = Field(
-        description="List of unique source documents (title, URL, date) relevant to this market force finding.",
-        default_factory=list
-    )
-    search_metadata: Optional[SearchMetadata] = Field(
-        None,
-        description="Metadata about the search that found this market force"
-    )
-    agent_notes: Optional[str] = Field(
-        None,
-        description="Agent's notes about finding or processing this market force"
-    )
+    # sources: List[SourceLink] = Field(
+    #     description="List of unique source documents (title, URL, date) relevant to this market force finding.",
+    #     default_factory=list
+    # )
+    # search_metadata: Optional[SearchMetadata] = Field(
+    #     None,
+    #     description="Metadata about the search that found this market force"
+    # )
+    # agent_notes: Optional[str] = Field(
+    #     None,
+    #     description="Agent's notes about finding or processing this market force"
+    # )
 
     @field_validator('source_date')
     def validate_date(cls, v, info):
@@ -118,6 +118,7 @@ class RawMarketForce(BaseModel):
 
 class ResearchOutput(BaseModel):
     source_category: str = Field(..., description="Category of the research source")
+    url: str = Field(..., description="URL of the research source")
     summary: str = Field(..., description="Summary of the research findings")
     raw_market_forces: List[RawMarketForce] = Field(..., description="List of identified market forces")
 
@@ -255,7 +256,7 @@ class SourceURL(BaseModel):
 
 class SourceIdentificationResultsURLonly(BaseModel):
     # name: Literal["SourceIdentificationResultsURLonly"] = "SourceIdentificationResultsURLonly" Removed to make Gemini work
-    sources: List[SourceURL] = Field(..., description="List of source URLs")
+    urls: List[SourceURL] = Field(..., description="List of source URLs")
     
 class Source(BaseModel):
     source_id: str = Field(..., description="Unique identifier for the source")

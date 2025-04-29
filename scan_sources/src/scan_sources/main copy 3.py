@@ -53,17 +53,16 @@ class ScanFlow(Flow[ScanState]):
     @listen(identify_sources)
     def identify_market_forces(self, sources_result):
         self.state.research_context = self.research_inputs
-        final_content = []
+        # final_content = ResearchOutput()
         for url in sources_result.urls:
             # forces_inputs = self.state.research_context.copy()
             forces_inputs = self.research_inputs.copy()
             forces_inputs['url'] = url.model_dump_json()
             forces_result = MarketForceExtractionCrew().crew().kickoff(forces_inputs).pydantic
-            final_content.append(forces_result)
-        self.state.extraction_results = final_content
-        # print("Extraction Results:", self.state.extraction_results) # this provides a full view of all of the analysis 
-        print(final_content) # this also provides a full view of all of the analysis 
-        return final_content
+            # final_content.append(forces_result)
+        self.state.extraction_results = forces_result
+        print(forces_result)
+        return forces_result
 
     # @listen(identify_sources)
     # def identify_market_forces(self, sources_result) -> ResearchOutput:

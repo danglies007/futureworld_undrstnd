@@ -1,0 +1,48 @@
+# tasks.yaml - futurist_source_identification
+
+futurist_source_identification:
+  description: >
+    You have these key objectives for SOURCE IDENTIFICATION:
+    1. Identify no less than {minimum_number_of_sources} high-quality sources for researching market forces impacting {topic}.
+    2. Focus solely on {specialisation} sources, the current date is {date}.
+    3. Include at minimum these sources in your search: {research_sources}.
+    4. Your primary goal is to identify reputable sources that will yield valuable market forces.
+
+    Expected source identification scope:
+    - Minimum of {minimum_number_of_sources} respected {specialisation} publications or thought leaders.
+    - Cover multiple domains relevant to {topic}.
+    - Prioritise sources published within the last year, considering the current date is {date}.
+    - Your thoroughness at this stage is critical to the success of the overall project.
+
+    Source identification process:
+    1. Use the internet search tool to identify promising sources.
+    2. Begin by exploring the {research_sources} specified.
+    3. If the user has provided specific points of interest: {specific_points_of_interest}, use them to guide your search.
+    4. For each potential source, evaluate:
+      - Relevance to {topic}
+      - Credibility in the field of {specialisation}
+      - Publication date (preferring recent content)
+      - Potential for yielding multiple market forces
+    5. After initial extraction, ask yourself: "What related or adjacent market forces might this indicate?"
+    6. Keep track of ALL identified source URLs and basic information.
+    7. Do not attempt to extract detailed content from sources at this stage.
+
+    Source quality requirements:
+    1. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
+    2. **VERIFY THAT EACH SOURCE IS ACCESSIBLE AND CONTAINS RELEVANT CONTENT**
+    3. **ALWAYS EXTRACT AND USE THE ACTUAL PUBLICATION DATE FROM THE SOURCE - DO NOT USE TODAY'S DATE**
+    4. **IF A PUBLICATION DATE IS NOT CLEARLY VISIBLE, MAKE A REASONABLE ESTIMATE BASED ON CONTENT OR MARK AS UNKNOWN**
+
+    Performance and incentive:
+    1. Your performance will be evaluated based on the quantity and quality of sources identified.
+    2. The breadth and diversity of your sources.
+    3. The relevance of sources to {topic} and {specialisation}.
+    4. The recency and credibility of your sources.
+
+    Your outputs MUST be formatted according to the pydantic output SourceIdentificationResultsURLonly schema.
+    Make sure you do not include any markdown formatting that could affect the structure e.g. '''.
+
+  expected_output: >
+    You will produce a "Source results URL list" aligned to the  SourceIdentificationResultsURLonly pydantic schema.  Do not include any markdown formatting especially '''
+    This output should contain NO LESS THAN {minimum_number_of_sources} high-quality sources for researching market forces relating to {topic} from respected {specialisation} sources. 
+  agent: futurist_source_identifier
