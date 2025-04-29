@@ -68,7 +68,8 @@ from scan_sources.llm_config import (
 	llm_gemini_2_5_pro,
 	llm_gemini_2_0_flash,
 	llm_gemini_2_5_flash,
-	llm_gpt_4_1_mini
+	llm_gpt_4_1_mini,
+    llm_gpt_4_1
 )
 llm_perplexity_custom_crew_patch = PerplexityLLM()
 
@@ -111,8 +112,10 @@ class ReportingCrew():
     def futurist_reporting_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['futurist_reporting_analyst'],
-            llm=llm_gemini_2_5_flash,
-            tools=[ScrapeWebsiteTool()],
+            llm=llm_gpt_4_1,
+            tools=[ScrapeWebsiteTool(),FileDownloaderTool(),PDFSearchTool()],
+            respect_context_window=True,
+            cache=True,
             verbose=True
         )
 
@@ -124,7 +127,6 @@ class ReportingCrew():
         return Task(
             config=self.tasks_config['futurist_reporting_task'],
             output_file=f'outputs/futurist_report_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            # context=[self.futurist_structure_market_forces(), self.futurist_source_identification()],
             output_pydantic=MarketForceReport
         )
 

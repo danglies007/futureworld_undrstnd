@@ -3,7 +3,7 @@
 futurist_source_identification:
   description: >
     You have these key objectives for SOURCE IDENTIFICATION:
-    1. Identify no less than {minimum_number_of_sources} high-quality sources for researching market forces impacting {topic}.
+    1. Identify no less than {minimum_number_of_sources} and no more than {maximum_number_of_sources} high-quality sources for researching market forces impacting {topic}.
     2. Focus solely on {specialisation} sources, the current date is {date}.
     3. Include at minimum these sources in your search: {research_sources}.
     4. Your primary goal is to identify reputable sources that will yield valuable market forces.

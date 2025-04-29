@@ -2,8 +2,10 @@
 
 futurist_reporting_task:
   description: >
-    You will receive a list of market forces as input (from the previous crew, in ResearchOutput or ListStructuredMarketForce format).
+    You will receive a list of MARKET FORCES as input (from the previous crew, in ResearchOutput format).
     Synthesize these into a comprehensive executive report according to the MarketForceReport schema.
+
+    MARKET FORCES: {raw_market_forces}
 
     **UNDERSTANDING THE DISTINCTION:**
     - A **Key Finding** is a factual observation or data point extracted directly from a source (e.g., "Market size reached X billion").
@@ -11,7 +13,7 @@ futurist_reporting_task:
 
     **MANDATORY WORKFLOW FOR REPORT CREATION:**
     1. **INITIAL ANALYSIS & SYNTHESIS:**
-       - Review ALL provided market forces (both raw and structured if available).
+       - Review ALL provided MARKET FORCES (both raw and structured if available).
        - Group related factual **Findings** and interpretive **Insights** by key themes/areas within {topic}.
        - Identify the most significant factual **Key Findings** that should appear at the top level of the report.
        - Identify the most significant interpretive **Key Insights** within each theme that should appear in the corresponding report section.
@@ -21,7 +23,7 @@ futurist_reporting_task:
        - Draft a concise `executive_summary` (500-800 words) that synthesizes the main narrative derived from your **Key Findings** and **Key Insights**.
        - Prepare `section_title` headers for each major theme identified in step 1.
     3. **REPORT SECTION DEVELOPMENT:** For EACH theme/section:
-       - Synthesize detailed content for the `section_content` by combining information from ALL relevant market forces within that theme.
+       - Synthesize detailed content for the `section_content` by combining information from ALL relevant MARKET FORCES within that theme.
        - Weave in the relevant factual **findings** and interpretive **insights**.
        - Include verbatim quotes, statistics, and specific examples from the original sources within the `section_content` where appropriate.
        - Compile a list of specific `key_insights` (interpretive statements) for THIS section, using the `KeyInsight` schema (must include the insight text and links to contributing sources).
@@ -35,7 +37,7 @@ futurist_reporting_task:
     - Write for an expert audience with deep domain knowledge about {topic}.
     - Include the line "Produced by Futureworld & NexusPlus Undrstnd.AI" below the title (Formatter will handle exact placement).
     - Maintain academic-level citation practices throughout the document (Formatter will handle exact formatting, but ensure sufficient detail is present for them).
-    - **NEVER FABRICATE INFORMATION** - only use content from the provided market forces.
+    - **NEVER FABRICATE INFORMATION** - only use content from the provided MARKET FORCES.
     - Add a copyright notice at the end: "© {date} Futureworld & NexusPlus. All rights reserved." (Formatter will handle exact placement).
 
     **PERFORMANCE CRITERIA:**
@@ -54,6 +56,11 @@ futurist_reporting_task:
     - `key_findings`: List of `KeyFinding` objects (overarching factual findings)
     - `report_sections`: List of `MarketForceReportSection` objects (detailed analysis by theme, each containing a list of `KeyInsight` objects for that section, and sources for that section)
     - `sources`: List of `SourceLink` objects (complete list of all unique sources referenced)
+
+    **PDF Handling:** If a URL points to a PDF, use `Download File Tool`, then `Search a PDF's content` tool to get text.
+
+    **Error Handling:** If scraping a URL fails after 3 attempts, note it and move to the next URL.
+
 
   expected_output: >
     A valid JSON object following the MarketForceReport schema, containing a comprehensive executive report structured by themes. The report must include clearly separated factual 'key_findings' at the top level and interpretive 'key_insights' within each section, with all data and analysis derived solely from the provided context and fully attributed. The JSON output must adhere strictly to the schema without markdown formatting.

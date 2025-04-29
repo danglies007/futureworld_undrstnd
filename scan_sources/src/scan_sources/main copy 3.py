@@ -78,29 +78,29 @@ class ScanFlow(Flow[ScanState]):
     #     return forces_result
 
 
-    # @listen(identify_market_forces)
-    # def develop_report(self, extraction_results: ResearchOutput) -> MarketForceReport:
-    #     report_inputs = {**self.state.research_context, 'market_forces': extraction_results.raw_market_forces}
-    #     reporting_result = ReportingCrew().crew().kickoff(inputs=report_inputs).pydantic
-    #     # if not isinstance(result, MarketForceReport):
-    #     #     raise TypeError(f"Expected MarketForceReport, got {type(result)}: {result}")
-    #     self.state.report = reporting_result
-    #     return reporting_result
+    @listen(identify_market_forces)
+    def develop_report(self, extraction_results: ResearchOutput) -> MarketForceReport:
+        report_inputs = {**self.state.research_context, 'market_forces': extraction_results.raw_market_forces}
+        reporting_result = ReportingCrew().crew().kickoff(inputs=report_inputs).pydantic
+        # if not isinstance(result, MarketForceReport):
+        #     raise TypeError(f"Expected MarketForceReport, got {type(result)}: {result}")
+        self.state.report = reporting_result
+        return reporting_result
 
-    # @listen(develop_report)
-    # def format_report(self, report: MarketForceReport) -> str:
-    #     format_inputs = {**self.state.research_context, 'report': report.model_dump()}
-    #     formatting_result = FormattingCrew().crew().kickoff(inputs=format_inputs).raw
-    #     if not isinstance(formatting_result, str):
-    #         # If the formatting crew returns an object with a 'raw' attribute, use it
-    #         if hasattr(formatting_result, 'raw'):
-    #             formatting_result = formatting_result.raw
-    #         else:
-    #             raise TypeError(f"Expected str or object with 'raw', got {type(result)}: {result}")
-    #     self.state.markdown_report = formatting_result
-    #     print("Final Markdown Report:\n")
-    #     print(formatting_result)
-    #     return formatting_result
+    @listen(develop_report)
+    def format_report(self, report: MarketForceReport) -> str:
+        format_inputs = {**self.state.research_context, 'report': report.model_dump()}
+        formatting_result = FormattingCrew().crew().kickoff(inputs=format_inputs).raw
+        if not isinstance(formatting_result, str):
+            # If the formatting crew returns an object with a 'raw' attribute, use it
+            if hasattr(formatting_result, 'raw'):
+                formatting_result = formatting_result.raw
+            else:
+                raise TypeError(f"Expected str or object with 'raw', got {type(result)}: {result}")
+        self.state.markdown_report = formatting_result
+        print("Final Markdown Report:\n")
+        print(formatting_result)
+        return formatting_result
 
 def kickoff():
     scan_flow = ScanFlow()

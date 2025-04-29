@@ -68,7 +68,8 @@ from scan_sources.llm_config import (
 	llm_gemini_2_5_pro,
 	llm_gemini_2_0_flash,
 	llm_gemini_2_5_flash,
-	llm_gpt_4_1_mini
+	llm_gpt_4_1_mini,
+    llm_gpt_4_1
 )
 llm_perplexity_custom_crew_patch = PerplexityLLM()
 
@@ -111,7 +112,7 @@ class FormattingCrew():
     def futurist_formatter(self) -> Agent:
         return Agent(
             config=self.agents_config['futurist_formatter'],
-            llm=llm_gemini_2_5_flash,
+            llm=llm_gpt_4_1,
             verbose=True
         )
 

@@ -1,5 +1,9 @@
 # General Notes
 
+## To Do
+
+1. Check LLM temperature for scrape
+
 ## Tools
 
 - Brave - Seems to hallucinate, if just using it as standard
@@ -22,7 +26,6 @@
   - WORKS through crew_perplexty.py patch but very slow
   - Works well throuhg openAI API
     - uses about 10-20USc per research query
-
 
 ## Outputs
 

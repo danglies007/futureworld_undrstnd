@@ -46,10 +46,10 @@ class RawMarketForce(BaseModel):
     # possible_signals: List[str] = Field(default_factory=list, description="List of possible signals associated with this market force")
     # possible_structural_shifts: List[str] = Field(default_factory=list, description="List of possible structural shifts associated with this market force")
     # implications_on_future_of_sector: List[str] = Field(default_factory=list, description="List of implications on future of sector associated with this market force")
-    # sources: List[SourceLink] = Field(
-    #     description="List of unique source documents (title, URL, date) relevant to this market force finding.",
-    #     default_factory=list
-    # )
+    sources: List[SourceLink] = Field(
+        description="List of unique source documents (title, URL, date) relevant to this market force finding.",
+        default_factory=list
+    )
     # search_metadata: Optional[SearchMetadata] = Field(
     #     None,
     #     description="Metadata about the search that found this market force"

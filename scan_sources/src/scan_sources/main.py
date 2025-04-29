@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
                 
 from pydantic import BaseModel
-from crewai.flow import Flow, start, listen
+from crewai.flow import Flow, start, listen, and_, or_
 from scan_sources.crews.source_identification_crew.source_identification_crew import SourceIdentificationCrew
 from scan_sources.crews.market_force_extraction_crew.market_force_extraction_crew import MarketForceExtractionCrew
 from scan_sources.crews.reporting_crew.reporting_crew import ReportingCrew
@@ -32,8 +32,9 @@ class ScanFlow(Flow[ScanState]):
         'topic': 'Generative AI in Financial Services',
         'specialisation': 'Futurist & Foresight',
         'research_sources': SOURCES_FUTURISTS,
-        'minimum_number_of_sources': 3,
-        'minimum_number_of_forces': 3,
+        'minimum_number_of_sources': 2,
+        'maximum_number_of_sources': 2,
+        'minimum_number_of_forces': 1,
         'specific_points_of_interest': [],
         'date': datetime.now().strftime('%Y-%m-%d')
     }
@@ -43,50 +44,96 @@ class ScanFlow(Flow[ScanState]):
     # def identify_sources(self) -> SourceIdentificationResultsURLonly:
     def identify_sources(self):
         self.state.research_context = self.research_inputs
-        # Crew is configured to output SourceIdentificationResultsURLonly
         sources_result = SourceIdentificationCrew().crew().kickoff(self.research_inputs).pydantic
-        # if not isinstance(result, SourceIdentificationResultsURLonly):
-        #     raise TypeError(f"Expected SourceIdentificationResultsURLonly, got {type(result)}: {result}")
         self.state.source_results = sources_result
         return sources_result
 
     @listen(identify_sources)
     def identify_market_forces(self, sources_result):
         self.state.research_context = self.research_inputs
-        final_content = []
+        forces_final_content = []
         for url in sources_result.urls:
             # forces_inputs = self.state.research_context.copy()
             forces_inputs = self.research_inputs.copy()
             forces_inputs['url'] = url.model_dump_json()
             forces_result = MarketForceExtractionCrew().crew().kickoff(forces_inputs).pydantic
-            final_content.append(forces_result)
-        self.state.extraction_results = final_content
+            forces_final_content.append(forces_result)
+        self.state.extraction_results = forces_final_content
         # print("Extraction Results:", self.state.extraction_results) # this provides a full view of all of the analysis 
-        print(final_content) # this also provides a full view of all of the analysis 
-        return final_content
+        print(forces_final_content) # this also provides a full view of all of the analysis 
+        return forces_final_content
 
-    # @listen(identify_sources)
-    # def identify_market_forces(self, sources_result) -> ResearchOutput:
+    @listen(identify_market_forces)
+    def develop_report(self, forces_final_content):
+        self.state.research_context = self.research_inputs
+        report_final_content = []
+        report_final_content_json = []
+        report_final_content_dict = []
+        for raw_market_forces in forces_final_content:
+            reporting_inputs = self.research_inputs.copy()
+            reporting_inputs['raw_market_forces'] = raw_market_forces.model_dump_json()
+            reporting_result = ReportingCrew().crew().kickoff(reporting_inputs).pydantic
+            report_final_content.append(reporting_result)
+            report_final_content_json.append(reporting_result.model_dump_json())
+            report_final_content_dict.append(reporting_result.model_dump())
+        self.state.report = report_final_content
+        return report_final_content_dict
+
+    @listen(and_(develop_report, identify_market_forces, identify_sources))
+    def print_outputs(self):
+        print("=== Sources Result ===\n", self.state.source_results, "\n")
+        print("=== Forces Final Content ===\n", self.state.extraction_results, "\n")
+        print("=== Reporting Result ===\n", self.state.report, "\n")
+
+    @listen(develop_report)
+    def format_report(self, report_final_content_dict):
+        self.state.research_context = self.research_inputs
+        formatting_inputs = self.research_inputs.copy()
+        formatting_inputs['report_final_content'] = report_final_content_dict
+        formatting_result = FormattingCrew().crew().kickoff(inputs=formatting_inputs).raw
+        self.state.markdown_report = formatting_result
+        print("Final Markdown Report:\n")
+        print(formatting_result)
+        return formatting_result
+
+
+    # @listen(develop_report)
+    # def format_report(self, report_final_content_json):
     #     self.state.research_context = self.research_inputs
-    #     # Prep forces inputs
-    #     forces_inputs = self.state.research_context.copy()
-    #     forces_inputs['urls'] = sources_result.urls
-        
-    #     forces_result = MarketForceExtractionCrew().crew().kickoff(forces_inputs).pydantic
-    #     # if not isinstance(result, ResearchOutput):
-    #     #     raise TypeError(f"Expected ResearchOutput, got {type(result)}: {result}")
-    #     self.state.extraction_results = forces_result
-    #     return forces_result
+    #     report_final_content = report_final_content_json
+    #     formatting_result = FormattingCrew().crew().kickoff(report_final_content).raw
+    #     self.state.markdown_report = formatting_result
+    #     print("Final Markdown Report:\n")
+    #     print(formatting_result)
+    #     return formatting_result
+
+    # @listen(develop_report)
+    # def format_report(self, report_final_content):
+    #     self.state.research_context = self.research_inputs
+    #     # Convert list of dicts to JSON string
+    #     if isinstance(report_final_content, list):
+    #         formatting_input = json.dumps(report_final_content)
+    #     else:
+    #         formatting_input = report_final_content.model_dump_json()
+    #     formatting_result = FormattingCrew().crew().kickoff(formatting_input).raw
+    #     self.state.markdown_report = formatting_result
+    #     print("Final Markdown Report:\n")
+    #     print(formatting_result)
+    #     return formatting_result
 
 
-    # @listen(identify_market_forces)
-    # def develop_report(self, extraction_results: ResearchOutput) -> MarketForceReport:
-    #     report_inputs = {**self.state.research_context, 'market_forces': extraction_results.raw_market_forces}
-    #     reporting_result = ReportingCrew().crew().kickoff(inputs=report_inputs).pydantic
-    #     # if not isinstance(result, MarketForceReport):
-    #     #     raise TypeError(f"Expected MarketForceReport, got {type(result)}: {result}")
-    #     self.state.report = reporting_result
-    #     return reporting_result
+
+
+    # @listen(develop_report)
+    # def format_report(self, report_final_content):
+    #     self.state.research_context = self.research_inputs
+    #     report_final_content = report_final_content.model_dump()
+    #     formatting_result = FormattingCrew().crew().kickoff(report_final_content).raw
+    #     self.state.markdown_report = formatting_result
+    #     print("Final Markdown Report:\n")
+    #     print(formatting_result)
+    #     return formatting_result
+
 
     # @listen(develop_report)
     # def format_report(self, report: MarketForceReport) -> str:

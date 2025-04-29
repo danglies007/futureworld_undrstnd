@@ -132,7 +132,6 @@ class MarketForceExtractionCrew():
         return Task(
             config=self.tasks_config['futurist_market_force_extraction'],
             output_file=f'outputs/futurist_market_force_extraction_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            # expected_output=self.tasks_config['futurist_market_force_extraction']['expected_output'],
             output_pydantic=ResearchOutput
 		)
 
