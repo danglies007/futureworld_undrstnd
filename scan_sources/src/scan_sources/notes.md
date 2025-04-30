@@ -2,10 +2,48 @@
 
 ## To Do
 
-1. Check LLM temperature for scrape
-2. Improve the agent outputs for the source identification to ensure the date is correct etc.
+### Priority 1
 
-## Tools
+#### Optimise (current features)
+
+1. [ ] Improve the agent outputs for the source identification to ensure the date is correct etc.
+2. [ ] Improve url search
+3. [ ] Fix agents and tasks
+4. [X] Cleanup code base
+5. [ ] Optimise LLMs and defnitions
+6. [ ] Refine report format
+7. [ ] Refine pydantic models
+8. [ ] Update source url models
+9. [ ] Parameterize inputs
+1. [ ] Parameterise LLMs
+
+#### Quality
+
+* [ ] Check and develop logs and tracking
+* [ ] Check how the PDF search tool works
+* [ ] Convert interim files for audit
+* [ ] Sort out custom scrape tool llm defaults
+* [ ] Check LLM temperature for scrape
+
+#### Improve (new features)
+
+1. [ ] Look at what crew and agent definitions from crewai can be used
+
+### Priority 2
+
+1. [ ] Improve crew naming
+2. [ ] Tools improvement and additions
+3. [ ] Think about scaling
+4. [ ] See if states can be used better
+5. [ ] Think about the endpoint and deployment
+6. [ ] Improve or understand virtual environment usage
+
+
+
+---
+
+
+
 
 - Brave - Seems to hallucinate, if just using it as standard
 - Serperdev - working okay but gets stuck in a single souce
