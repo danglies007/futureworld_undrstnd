@@ -32,9 +32,9 @@ class ScanFlow(Flow[ScanState]):
         'topic': 'Generative AI in Financial Services',
         'specialisation': 'Futurist & Foresight',
         'research_sources': SOURCES_FUTURISTS,
-        'minimum_number_of_sources': 2,
-        'maximum_number_of_sources': 2,
-        'minimum_number_of_forces': 1,
+        'minimum_number_of_sources': 15,
+        'maximum_number_of_sources': 25,
+        'minimum_number_of_forces': 3,
         'specific_points_of_interest': [],
         'date': datetime.now().strftime('%Y-%m-%d')
     }
@@ -52,30 +52,49 @@ class ScanFlow(Flow[ScanState]):
     def identify_market_forces(self, sources_result):
         self.state.research_context = self.research_inputs
         forces_final_content = []
+        forces_final_content_dict = []
         for url in sources_result.urls:
             # forces_inputs = self.state.research_context.copy()
             forces_inputs = self.research_inputs.copy()
             forces_inputs['url'] = url.model_dump_json()
             forces_result = MarketForceExtractionCrew().crew().kickoff(forces_inputs).pydantic
             forces_final_content.append(forces_result)
+            forces_final_content_dict.append(forces_result.model_dump())
         self.state.extraction_results = forces_final_content
         # print("Extraction Results:", self.state.extraction_results) # this provides a full view of all of the analysis 
         print(forces_final_content) # this also provides a full view of all of the analysis 
-        return forces_final_content
+        return forces_final_content_dict
+
+
+# This report crew cycles through the report and does not generate the full view of the marekt research
+    # @listen(identify_market_forces)
+    # def develop_report(self, forces_final_content):
+    #     self.state.research_context = self.research_inputs
+    #     report_final_content = []
+    #     report_final_content_json = []
+    #     report_final_content_dict = []
+    #     for raw_market_forces in forces_final_content:
+    #         reporting_inputs = self.research_inputs.copy()
+    #         reporting_inputs['raw_market_forces'] = raw_market_forces.model_dump_json()
+    #         reporting_result = ReportingCrew().crew().kickoff(reporting_inputs).pydantic
+    #         report_final_content.append(reporting_result)
+    #         report_final_content_json.append(reporting_result.model_dump_json())
+    #         report_final_content_dict.append(reporting_result.model_dump())
+    #     self.state.report = report_final_content
+    #     return report_final_content_dict
 
     @listen(identify_market_forces)
-    def develop_report(self, forces_final_content):
+    def develop_report(self, forces_final_content_dict):
         self.state.research_context = self.research_inputs
         report_final_content = []
         report_final_content_json = []
         report_final_content_dict = []
-        for raw_market_forces in forces_final_content:
-            reporting_inputs = self.research_inputs.copy()
-            reporting_inputs['raw_market_forces'] = raw_market_forces.model_dump_json()
-            reporting_result = ReportingCrew().crew().kickoff(reporting_inputs).pydantic
-            report_final_content.append(reporting_result)
-            report_final_content_json.append(reporting_result.model_dump_json())
-            report_final_content_dict.append(reporting_result.model_dump())
+        reporting_inputs = self.research_inputs.copy()
+        reporting_inputs['raw_market_forces'] = forces_final_content_dict
+        reporting_result = ReportingCrew().crew().kickoff(reporting_inputs).pydantic
+        report_final_content.append(reporting_result)
+        report_final_content_json.append(reporting_result.model_dump_json())
+        report_final_content_dict.append(reporting_result.model_dump())
         self.state.report = report_final_content
         return report_final_content_dict
 
