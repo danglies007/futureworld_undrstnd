@@ -90,7 +90,6 @@ from scan_sources.tools.exa_search_tool import Exa_search_tool
 from scan_sources.tools.exa_crawl_tool import Exa_crawl_scrape_tool
 from scan_sources.tools.custom_web_scrape_market_forces import MarketForcesScrapeWebsiteTool
 
-scrapfly_scrape_tool = ScrapflyScrapeWebsiteTool(api_key="scp-live-74020f77bb114ac985986486ae6a95eb")
 # firecrawl_crawl_tool = FirecrawlCrawlWebsiteTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
 # firecrawl_search_tool = FirecrawlSearchTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
 # firecrawl_scrape_tool = FirecrawlScrapeWebsiteTool(api_key=os.getenv("FIRECRAWL_API_KEY"))

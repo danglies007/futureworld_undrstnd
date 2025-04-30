@@ -14,7 +14,7 @@ from scan_sources.crews.source_identification_crew.source_identification_crew im
 from scan_sources.crews.market_force_extraction_crew.market_force_extraction_crew import MarketForceExtractionCrew
 from scan_sources.crews.reporting_crew.reporting_crew import ReportingCrew
 from scan_sources.crews.formatting_crew.formatting_crew import FormattingCrew
-from scan_sources.config import SOURCES_FUTURISTS
+from scan_sources.config import SOURCES_FUTURISTS, MARKET_FORCE_DEFINITIONS
 from scan_sources.models import (
     RawMarketForce, SourceIdentificationResultsURLonly, SourceURL,
     ResearchOutput, ExtractorOutput, MarketForceReport,
@@ -28,17 +28,32 @@ class ScanState(BaseModel):
     markdown_report: str = None
 
 class ScanFlow(Flow[ScanState]):
+    # research_inputs = {
+    #     'topic': 'Generative AI in Financial Services',
+    #     'specialisation': 'Futurist & Foresight',
+    #     'research_sources': SOURCES_FUTURISTS,
+    #     'minimum_number_of_sources': 10,
+    #     'maximum_number_of_sources': 15,
+    #     'minimum_number_of_forces': 10,
+    #     'specific_points_of_interest': [],
+    #     'date': datetime.now().strftime('%Y-%m-%d'),
+    #     'market_force_definition': 'A market force is a significant external driver that influences how industries, markets, and societies evolve over time. It represents a broad pattern or pressure — legal, economic, technological, regulatory, environmental, or social — that shapes behaviors, decisions, and value creation. Market forces often persist over the medium to long term, exhibit measurable or emerging momentum, and may carry varying levels of impact and uncertainty. Identifying market forces helps organizations anticipate change, uncover opportunities or threats, and inform strategic responses.'
+    # }
+    
     research_inputs = {
-        'topic': 'Generative AI in Financial Services',
         'specialisation': 'Futurist & Foresight',
+        'topic': 'Generative AI in Financial Services',
+        'market': 'Financial Services',
+        'business': '',
+        'specific_points_of_interest': [],
         'research_sources': SOURCES_FUTURISTS,
         'minimum_number_of_sources': 2,
         'maximum_number_of_sources': 2,
-        'minimum_number_of_forces': 2,
-        'specific_points_of_interest': [],
-        'date': datetime.now().strftime('%Y-%m-%d')
+        'minimum_number_of_forces': 0,
+        'date': datetime.now().strftime('%Y-%m-%d'),
+        'market_force_definition': MARKET_FORCE_DEFINITIONS
     }
-    
+
     @start()
     # generate the list of URLs to Search
     # def identify_sources(self) -> SourceIdentificationResultsURLonly:

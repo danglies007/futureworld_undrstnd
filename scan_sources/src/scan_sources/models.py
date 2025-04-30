@@ -8,7 +8,7 @@ class AttributedItem(BaseModel):
     """Base model for any item that needs attribution."""
     content: str = Field(..., description="The actual content (fact, statistic, quote, etc.)")
     source_url: str = Field(..., description="URL where this information was found")
-    source_paragraph: Optional[str] = Field(None, description="Original paragraph or context from the source")
+    source_paragraph: Optional[str] = Field(None, description="Extual word for word extract of the Original paragraph or sentence from the source")
     source_name: Optional[str] = Field(None, description="Name of the source")
 
 class SearchMetadata(BaseModel):
@@ -36,16 +36,16 @@ class RawMarketForce(BaseModel):
     # mentioned_entities: List[str] = Field(default_factory=list, description="Companies, technologies, or other entities mentioned")
     raw_findings: List[AttributedItem] = Field(default_factory=list, description="List of raw findings with sources")
     # raw_examples: List[AttributedItem] = Field(default_factory=list, description="Examples of the market force in action with sources")
-    # relevant_facts: List[AttributedItem] = Field(default_factory=list, description="Relevant facts with sources")
-    # relevant_statistics: List[AttributedItem] = Field(default_factory=list, description="Relevant statistics with sources")
-    # relevant_data: List[AttributedItem] = Field(default_factory=list, description="Relevant data with sources")
-    # relevant_quotes: List[AttributedItem] = Field(default_factory=list, description="Relevant quotes with sources")    
+    relevant_facts: List[AttributedItem] = Field(default_factory=list, description="Relevant facts with sources")
+    relevant_statistics: List[AttributedItem] = Field(default_factory=list, description="Relevant statistics with sources")
+    relevant_data: List[AttributedItem] = Field(default_factory=list, description="Relevant data with sources")
+    relevant_quotes: List[AttributedItem] = Field(default_factory=list, description="Relevant quotes with sources")    
     # relevance: str = Field(..., description="Relevance of the market force to the research topic")
-    # related_trends: List[str] = Field(default_factory=list, description="List of related trends associated with this market force")
-    # related_mega_trends: List[str] = Field(default_factory=list, description="List of related mega trends associated with this market force")
-    # possible_signals: List[str] = Field(default_factory=list, description="List of possible signals associated with this market force")
-    # possible_structural_shifts: List[str] = Field(default_factory=list, description="List of possible structural shifts associated with this market force")
-    # implications_on_future_of_sector: List[str] = Field(default_factory=list, description="List of implications on future of sector associated with this market force")
+    related_trends: List[str] = Field(default_factory=list, description="List of related trends associated with this market force")
+    related_mega_trends: List[str] = Field(default_factory=list, description="List of related mega trends associated with this market force")
+    possible_signals: List[str] = Field(default_factory=list, description="List of possible signals associated with this market force")
+    possible_structural_shifts: List[str] = Field(default_factory=list, description="List of possible structural shifts associated with this market force")
+    implications_on_future_of_sector: List[str] = Field(default_factory=list, description="List of implications on future of sector associated with this market force")
     sources: List[SourceLink] = Field(
         description="List of unique source documents (title, URL, date) relevant to this market force finding.",
         default_factory=list
@@ -193,7 +193,7 @@ class ConsolidatorOutput(BaseModel):
 
 class KeyFinding(BaseModel):
     """Represents a key finding with its source attribution."""
-    insight: str = Field(..., description="The key insight or finding stated concisely")
+    finding: str = Field(..., description="The key insight or finding stated concisely")
     source_author: str = Field(..., description="The author of the source")
     source_name: str = Field(..., description="The name of the source")
     source_url: str = Field(..., description="The URL of the source")
@@ -245,12 +245,75 @@ class MarketForceReport(BaseModel):
         default_factory=list
     )
 
+class MarketForceImpact(BaseModel):
+    """Assessment of a market force's impact."""
+    impact_level: str = Field(..., description="Level of potential impact (High, Medium, Low)")
+    uncertainty_level: str = Field(..., description="Level of uncertainty about this impact (High, Medium, Low)")
+    time_horizon: str = Field(..., description="Expected time frame for impact (e.g., '1-3 years', '3-5 years')")
+    impact_rationale: Optional[str] = Field(None, description="Brief explanation of why this impact assessment was given")
+
+class MarketForce(BaseModel):
+    """Information about a specific market force."""
+    force_name: str = Field(..., description="Name of the market force")
+    force_type: str = Field(..., description="Category of the market force (e.g., Technological, Economic)")
+    description: str = Field(..., description="Description of the market force")
+    sectors_affected: List[str] = Field(default_factory=list, description="Economic or business sectors most likely to be affected")
+    impact_assessment: MarketForceImpact = Field(..., description="Assessment of the potential impact")
+    key_findings: List[KeyFinding] = Field(default_factory=list, description="Key factual findings related to this force")
+    key_insights: List[KeyInsight] = Field(default_factory=list, description="Key insights derived from this force or related to this force")
+    business_implications: List[str] = Field(default_factory=list, description="Business implications of this force")
+    related_forces: List[str] = Field(default_factory=list, description="Names of related market forces")
+    early_signals: List[str] = Field(default_factory=list, description="Early signals of this market force")
+    sources: List[str] = Field(default_factory=list, description="Source references for this force")
+
+class MarketForceCategory(BaseModel):
+    """A category of market forces."""
+    category_name: str = Field(..., description="Name of the category (e.g., 'Technological Forces')")
+    description: str = Field(..., description="Description of this category of market forces")
+    market_forces: List[MarketForce] = Field(default_factory=list, description="Market forces in this category")
+    key_insights: List[str] = Field(default_factory=list, description="Key insights for this category")
+
+class MarketForceInteraction(BaseModel):
+    """Description of interaction between market forces."""
+    forces_involved: List[str] = Field(..., description="Names of the market forces that interact")
+    interaction_type: str = Field(..., description="Type of interaction (e.g., 'Reinforcing', 'Counteracting')")
+    description: str = Field(..., description="Description of how these forces interact")
+    potential_outcomes: List[str] = Field(default_factory=list, description="Potential outcomes from this interaction")
+
+class MarketForceAnalysisReport(BaseModel):
+    """Comprehensive report on market forces."""
+    report_title: str = Field(..., description="Title of the report")
+    generation_date: str = Field(..., description="Report generation date")
+    executive_summary: str = Field(..., description="A concise executive summary")
+    key_findings: List[str] = Field(
+        default_factory=list, 
+        description="Overall key factual findings across all market forces"
+    )
+    force_categories: List[MarketForceCategory] = Field(
+        ...,
+        description="Categories of market forces with analysis"
+    )
+    force_interactions: List[MarketForceInteraction] = Field(
+        default_factory=list,
+        description="Analysis of how different market forces interact"
+    )
+    uncertainty_impact_matrix: Dict[str, List[str]] = Field(
+        default_factory=dict,
+        description="Matrix categorizing forces by uncertainty and impact levels"
+    )
+    strategic_implications: List[str] = Field(
+        default_factory=list,
+        description="Strategic implications derived from market force analysis"
+    )
+    sources: List[str] = Field(
+        default_factory=list,
+        description="All sources used in the report"
+    )
 
 # Source Identification
 
 # Simple source for source identification
 
-# 
 class SourceURL(BaseModel):
     url: str = Field(..., description="URL of the source")
 
@@ -266,7 +329,7 @@ class Source(BaseModel):
     publication_date: str = Field(..., description="Date of publication")
     author: str = Field(..., description="Author of the source")
     relevance_score: float = Field(..., description="Relevance score of the source")
-    domain_category: str = Field(..., description="Category of the domain")
+    # domain_category: str = Field(..., description="Category of the domain")
     description: str = Field(..., description="Description of the source")
 
 class SourceIdentificationResults(BaseModel):
@@ -274,7 +337,7 @@ class SourceIdentificationResults(BaseModel):
     specialisation: str = Field(..., description="Specialisation of the research")
     date_of_research: str = Field(..., description="Date when the research was conducted")
     total_sources_found: int = Field(..., description="Total number of sources found")
-    sources: List[Source] = Field(..., description="List of sources found")
+    urls: List[Source] = Field(..., description="List of sources found")
 
 class SourceIdentificationOutput(BaseModel):
     source_identification_results: SourceIdentificationResults = Field(..., description="Results of source identification")

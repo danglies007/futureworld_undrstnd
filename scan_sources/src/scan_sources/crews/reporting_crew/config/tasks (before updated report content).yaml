@@ -1,0 +1,68 @@
+# tasks.yaml - futurist_reporting_crew
+
+futurist_reporting_task:
+  description: >
+    You will receive a list of MARKET FORCES as input (from the previous crew, in ResearchOutput format).
+    Synthesize these into a comprehensive executive report according to the MarketForceReport schema.
+
+    MARKET FORCES: {raw_market_forces}
+
+    **UNDERSTANDING THE DISTINCTION:**
+    - A market force is {market_force_definition}
+    - A **Key Finding** is a factual observation or data point extracted directly from a source (e.g., "Market size reached X billion").
+    - A **Key Insight** is an interpretation of one or more findings, explaining the "so what?" and its significance or implications (e.g., "The market size growth indicates rapid adoption driven by Y factors, implying Z for future strategy").
+
+    **MANDATORY WORKFLOW FOR REPORT CREATION:**
+    1. **INITIAL ANALYSIS & SYNTHESIS:**
+       - Review ALL provided MARKET FORCES (both raw and structured if available).
+       - Group related factual **Findings** and interpretive **Insights** by key themes/areas within {topic}.
+       - Identify the most significant factual **Key Findings** that should appear at the top level of the report.
+       - Identify the most significant interpretive **Key Insights** within each theme that should appear in the corresponding report section.
+    2. **REPORT STRUCTURE & OVERVIEW:**
+       - Create a compelling `report_title` reflecting the {topic}.
+       - Set the `generation_date` to "{date}".
+       - Draft a concise `executive_summary` (500-800 words) that synthesizes the main narrative derived from your **Key Findings** and **Key Insights**.
+       - Prepare `section_title` headers for each major theme identified in step 1.
+    3. **REPORT SECTION DEVELOPMENT:** For EACH theme/section:
+       - Synthesize detailed content for the `section_content` by combining information from ALL relevant MARKET FORCES within that theme.
+       - Weave in the relevant factual **findings** and interpretive **insights**.
+       - Include verbatim quotes, statistics, and specific examples from the original sources within the `section_content` where appropriate.
+       - Compile a list of specific `key_insights` (interpretive statements) for THIS section, using the `KeyInsight` schema (must include the insight text and links to contributing sources).
+       - Compile a list of `sources` (SourceLink schema) referenced specifically within THIS section.
+       - **PRESERVE ALL SOURCE ATTRIBUTION** within the `section_content` (e.g., using inline references like (Source Name, Year)).
+       - **PRESERVE ALL ORIGINAL SOURCE DATES** - do not substitute with current date.
+    4. **TOP-LEVEL KEY FINDINGS COMPILATION:** Compile the list of the most significant factual `key_findings` using the `KeyFinding` schema (must include the finding text and link(s) to supporting source(s)). These are the overarching facts from the research.
+    5. **OVERALL SOURCES DOCUMENTATION:** Compile a comprehensive list of ALL unique `sources` (SourceLink schema) referenced anywhere in the report (executive summary, key findings, all sections).
+
+    **REPORT QUALITY REQUIREMENTS:**
+    - Write for an expert audience with deep domain knowledge about {topic}.
+    - Include the line "Produced by Futureworld & NexusPlus Undrstnd.AI" below the title (Formatter will handle exact placement).
+    - Maintain academic-level citation practices throughout the document (Formatter will handle exact formatting, but ensure sufficient detail is present for them).
+    - **NEVER FABRICATE INFORMATION** - only use content from the provided MARKET FORCES.
+    - Add a copyright notice at the end: "© {date} Futureworld & NexusPlus. All rights reserved." (Formatter will handle exact placement).
+
+    **PERFORMANCE CRITERIA:**
+    Your performance will be evaluated on:
+    - Comprehensive inclusion of relevant information from the input.
+    - Clear distinction and accurate population of **Key Findings** (factual) and **Key Insights** (interpretive).
+    - Depth and quality of analysis and synthesis in `section_content`.
+    - Accuracy and completeness of all source attribution (`KeyFinding`, `KeyInsight`, `report_sections.sources`, `sources`).
+    - Logical organization and flow of information.
+    - Relevance and actionability of interpretive insights for the target audience.
+
+    **FINAL OUTPUT:** A valid JSON object following the MarketForceReport schema containing ALL the below fields, populated according to the above workflow and quality requirements:
+    - `report_title`: string
+    - `generation_date`: string ("{date}")
+    - `executive_summary`: string (500-800 words)
+    - `key_findings`: List of `KeyFinding` objects (overarching factual findings)
+    - `report_sections`: List of `MarketForceReportSection` objects (detailed analysis by theme, each containing a list of `KeyInsight` objects for that section, and sources for that section)
+    - `sources`: List of `SourceLink` objects (complete list of all unique sources referenced)
+
+    **PDF Handling:** If a URL points to a PDF, use `Download File Tool`, then `Search a PDF's content` tool to get text.
+
+    **Error Handling:** If scraping a URL fails after 3 attempts, note it and move to the next URL.
+
+
+  expected_output: >
+    A valid JSON object following the MarketForceReport schema, containing a comprehensive executive report structured by themes. The report must include clearly separated factual 'key_findings' at the top level and interpretive 'key_insights' within each section, with all data and analysis derived solely from the provided context and fully attributed. The JSON output must adhere strictly to the schema without markdown formatting.
+  agent: futurist_reporting_analyst

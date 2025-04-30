@@ -3,7 +3,10 @@
 futurist_market_force_extraction:
   description: >
     You will receive a list of source URLs as input (from the previous crew, in SourceIdentificationResultsURLonly format).
-    For each URL, extract all relevant market forces for the topic. Output must conform to the ResearchOutput schema.
+
+    For each URL, extract all relevant market forces considering the {topic} and {specialisation}. Output must conform to the ResearchOutput schema.
+
+    URL: {url}
 
     **MANDATORY WORKFLOW PER URL:**
     1.  Get the next URL from the input list.
@@ -27,7 +30,7 @@ futurist_market_force_extraction:
 
     **Final Output:** Compile ALL market forces extracted from ALL *successfully processed* URLs into a single JSON object conforming to the `ResearchOutput` schema. Set `source_category` to "{specialisation}". Include a summary reflecting the process (e.g., number of URLs processed, number failed, number of forces found).
 
-    **(Constraint Reminder):** Adhere strictly to the attribution requirements and quality standards previously mentioned (no mocking, use real dates, attribute accurately).
+    **(Constraint Reminder):** Adhere strictly to the attribution requirements and quality standards previously mentioned (no mocking, use real dates, attribute accurately).  
   expected_output: >
     A valid ResearchOutput object containing all raw_market_forces extracted from the provided URLs.
   agent: futurist_content_extractor

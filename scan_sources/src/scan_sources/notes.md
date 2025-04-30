@@ -16,6 +16,9 @@
 8. [ ] Update source url models
 9. [ ] Parameterize inputs
 1. [ ] Parameterise LLMs
+1. [ ] Consider the Market force definitions from Futureworld
+1. [ ] Optimise token usage with system prompts and other usefule tools and techniques
+1. [ ] Sort out names of agents and tasks in the .yaml files remove futurist references and make them more generic
 
 #### Quality
 
@@ -28,6 +31,8 @@
 #### Improve (new features)
 
 1. [ ] Look at what crew and agent definitions from crewai can be used
+2. [ ] Enable continuation of flow if files already exist
+3. [ ] check or Enable Youtube extraction
 
 ### Priority 2
 
@@ -38,6 +43,11 @@
 5. [ ] Think about the endpoint and deployment
 6. [ ] Improve or understand virtual environment usage
 
+---
+
+Questions
+
+* How dynamic should we make the market forces, should it be an overall repository that is updated once a year or periodically ?
 
 
 ---

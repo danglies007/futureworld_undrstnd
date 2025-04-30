@@ -50,6 +50,7 @@ from scan_sources.models import (
 	ResearchOutput,
 	MarketForceReportSection,
 	MarketForceReport,
+    MarketForceAnalysisReport,
     SourceIdentificationResults,
     SourceLink,
 	StructuredMarketForce,
@@ -127,7 +128,7 @@ class ReportingCrew():
         return Task(
             config=self.tasks_config['futurist_reporting_task'],
             output_file=f'outputs/futurist_report_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            output_pydantic=MarketForceReport
+            output_pydantic=MarketForceAnalysisReport
         )
 
 

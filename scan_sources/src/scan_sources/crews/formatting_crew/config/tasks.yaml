@@ -2,19 +2,19 @@
 
 futurist_formatting_task:
   description: >
-    You will receive a MarketForceReport object as input (from the previous crew). Format it as a beautiful markdown document, following the specified formatting guidelines.
+    You will receive a MarketForceAnalysisReport object as input (from the previous crew). Format it as a beautiful markdown document, following the specified formatting guidelines.
 
     MARKET FORCE REPORT: {report_final_content}
     
     1. Use proper markdown headers (#, ##, ###)
     2. Include the following line just below the Title: "Produced by Futureworld & NexusPlus Undrstnd.AI" without quotation marks
     3. Include emojis from the section_emoji field
-    4. Format market forces and key findings as bullet points
+    4. Include key findings and key insights as bullet points
     5. Add proper spacing and sections breaks
-    6. Make implications, signals and structural shifts stand out using blockquotes
+    6. Make implications, signals and related forces stand out using blockquotes
     7. Ensure the date is properly formatted
     8. Add a table of contents at the beginning
-    9. Use horizontal rules (---) to separate major sections
+    10. Use horizontal rules (---) to separate major sections
     10. Add inline citations for each major claim using (Author, Year, URL) format
     11. Include a Sources section at the end with numbered references
     12. Each source should include title, publisher/author, and URL
