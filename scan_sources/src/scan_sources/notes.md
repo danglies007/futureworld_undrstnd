@@ -24,7 +24,11 @@
 #### Quality
 
 * [ ] Check and develop logs and tracking
+* [ ] Improve quality of source links sometimes landing pages are provided not the detailed content - e.g. https://www.fanaticalfuturist.com/2025/03/ambition-power-opportunity-mbp-partners-uk-matthew-griffin-motivational-keynote-speaker/
+* [ ] Dates still not working 100%
 * [ ] Check how the PDF search tool works
+* [ ] **Improve PDF market force extraction**
+  * [ ] Consider creating a deidicated Marekt_force extraction tool or using another tool better suited to searching PDFs
 * [ ] Convert interim files for audit
 * [ ] Sort out custom scrape tool llm defaults
 * [ ] Check LLM temperature for scrape

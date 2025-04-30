@@ -24,29 +24,50 @@ futurist_market_force_extraction:
     2.  Determine if URL points to PDF or HTML content.
     
     **For HTML Content:**
-    1.  Use the `Scrape and Analyze Website Content` tool for this URL. Let the result be `Observation_HTML`.
-    2.  **IMMEDIATE NEXT STEP:** Your *only* goal now is to analyze `Observation_HTML`.
+    3.  Use the `Scrape and Analyze Website Content` tool for this URL. Let the result be `Observation_HTML`.
+    4.  **IMMEDIATE NEXT STEP:** Your *only* goal now is to analyze `Observation_HTML`.
         Think: "I need to extract market forces from the HTML I just received."
         Formulate an internal request to the LLM (yourself) like: "Extract all market forces related to '{topic}' found in this text: [Paste the *full* Observation_HTML here]. Structure the output for just these forces according to the RawMarketForce fields needed (title, raw_description, source_name, source_url, source_date, key_terms, etc.)."
         *You will internally process this request*. The result is `Extracted_Forces_For_This_URL`.
-    3.  **AFTER EXTRACTION:**
+    5.  **AFTER EXTRACTION:**
         Think: "I have now extracted the forces from URL [current URL]. I have accumulated X forces so far. I need to process the next URL OR if this was the last URL, I need to compile the final answer."
         *Crucially, do NOT include the raw `Observation_HTML` in this thought process or subsequent actions.* Only refer to `Extracted_Forces_For_This_URL` if needed.
         Accumulate `Extracted_Forces_For_This_URL` into a master list.
     
-    **PDF Handling:** 
-        If a URL points to a PDF, use `Download File Tool`, then `Search a PDF's content` tool to get text, then follow the same analysis steps (3 & 4) for the retrieved text.
-
-
+    **For PDF Content:**
+    6.  If a URL points to a PDF, use `Download File Tool` to download it, then use the RAG-based `Search a PDF's content` tool with this comprehensive search strategy:
+        a. First, use a broad query with the primary topic, include market details in the query if provided (market: "{market}"): 
+           query: "{topic}"
+           Store the result as `Observation_PDF_extract_1`.
+        b. Then perform additional targeted semantic searches e.g. include market details in the query if provided (market: "{market}"):
+           - query: "What are the key trends related to {topic}?" → `Observation_PDF_extract_2`
+           - query: "What challenges or barriers exist for {topic}?" → `Observation_PDF_extract_3`
+           - query: "What regulatory factors affect {topic}?" → `Observation_PDF_extract_4`
+           - query: "What are the main market drivers for {topic}?" → `Observation_PDF_extract_5`
+           - query: "From a {specialisation} perspective, how will {topic} evolve?" → `Observation_PDF_extract_6`
+           - query: "What external drivers influence {topic}?" → `Observation_PDF_extract_7`
+           - query: "What significant market forces are shaping {topic}?" → `Observation_PDF_extract_8`
+    7.  **IMMEDIATE NEXT STEP:** For each separate `Observation_PDF_extract_N`:
+        a. Think: "I need to extract market forces from this semantic search result."
+        b. Formulate an internal request to the LLM (yourself) like: "Extract all market forces related to '{topic}' found in this text: [Paste the *full* current Observation_PDF_extract_N here]. Structure the output for just these forces according to the RawMarketForce fields needed."
+        c. *You will internally process this request for each extract separately*. The result for each is `Extracted_Forces_For_This_PDF_Extract_N`.
+        d. *Crucially, do NOT include the raw `Observation_PDF_extract_N` in subsequent thought processes or actions.* Only refer to `Extracted_Forces_For_This_PDF_Extract_N`.
+        e. Accumulate all `Extracted_Forces_For_This_PDF_Extract_N` into `Extracted_Forces_For_This_PDF`.
+        f. Deduplicate any identical or very similar market forces found across different extracts.
+    8.  **AFTER EXTRACTION:**
+        Think: "I have now extracted the forces from all PDF extracts for [current PDF URL]. I have accumulated X forces so far. I need to process the next URL OR if this was the last URL, I need to compile the final answer."
+        *Crucially, do NOT include any raw PDF extracts in this thought process or subsequent actions.*
+        Accumulate `Extracted_Forces_For_This_PDF` into the master list.
+    
     **Source Date Extraction:**
-    1.  When extracting dates from sources:
+    9.  When extracting dates from sources:
         a. Always look for actual publication dates in metadata, bylines, or document properties
         b. Never generate or assume a date - only use dates explicitly stated in the source document
         c. If no date is found after thorough searching, set source_date to "Unknown"
         d. Validate all extracted dates using the source_date validator in the RawMarketForce model
     
     **Zero Results Handling:**
-    1. If no market forces are found after initial analysis:
+    10. If no market forces are found after initial analysis:
         a. Broaden the interpretation while staying true to the definition
         b. Look for implicit market forces in the already extracted content (do NOT re-include the full raw content)
         c. Document broadening steps in your process notes

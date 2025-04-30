@@ -40,8 +40,8 @@ class ScanFlow(Flow[ScanState]):
         'audience': 'Expert',
         'specific_points_of_interest': [],
         'research_sources': SOURCES_FUTURISTS,
-        'minimum_number_of_sources': 20,
-        'maximum_number_of_sources': 30,
+        'minimum_number_of_sources': 2,
+        'maximum_number_of_sources': 2,
         'minimum_number_of_forces': 0,
         'date': datetime.now().strftime('%Y-%m-%d'),
         'market_force_definition': MARKET_FORCE_DEFINITIONS
