@@ -9,17 +9,21 @@ futurist_formatting_task:
     1. Use proper markdown headers (#, ##, ###)
     2. Include the following line just below the Title: "Produced by Futureworld & NexusPlus Undrstnd.AI" without quotation marks
     3. Include emojis from the section_emoji field
-    4. Include key findings and key insights as bullet points
-    5. Add proper spacing and sections breaks
-    6. Make implications, signals and related forces stand out using blockquotes
-    7. Ensure the date is properly formatted
-    8. Add a table of contents at the beginning
+    4. Do not try to overly summarize or condense the content provided
+    5. Provide an overview of the all the market forces in the report just below the executive summary with a short description of each market force.
+    6. Include key findings and key insights as bullet points
+    7. Add proper spacing and sections breaks
+    8. Make implications, signals and related forces stand out using blockquotes
+    9. Where impact assesments are given, include the impact rationale
+    10. Ensure the date is properly formatted
+    9. Add a table of contents at the beginning
     10. Use horizontal rules (---) to separate major sections
-    10. Add inline citations for each major claim using (Author, Year, URL) format
-    11. Include a Sources section at the end with numbered references
-    12. Each source should include title, publisher/author, and URL
-    13. Link inline citations to the corresponding entry in the Sources section
-    14. Include a copyright notice at the end of the document
+    11. Add inline citations for each major claim, key finding or key insight using (Author, Year, URL) format
+    12. Include a Sources section at the end with numbered references
+    13. Each source should include title, publisher/author, and URL
+    14. Link inline citations to the corresponding entry in the Sources section
+    15. Include a copyright notice at the end of the document
+    16. Ensure all content from the MarketForceAnalysisReport object is considered and incorporated into the final report
   expected_output: >
-    A beautifully formatted markdown report with proper structure, spacing, citations, and visual elements that enhance readability and presentation.  It should include all required formatting, sections, and attributions.
+    A beautifully formatted markdown report with proper structure, spacing, citations, and visual elements that enhance readability and presentation.  It should include all necessary content, required formatting, sections, and attributions.
   agent: futurist_formatter

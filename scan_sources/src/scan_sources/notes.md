@@ -11,13 +11,14 @@
 3. [ ] Fix agents and tasks
 4. [X] Cleanup code base
 5. [ ] Optimise LLMs and defnitions
-6. [ ] Refine report format
+6. [X] Refine report format*sorted this out a bit into a market forces report, need to integrate this with other sources*
 7. [ ] Refine pydantic models
-8. [ ] Update source url models
+8. [X] Update source url models
 9. [ ] Parameterize inputs
 1. [ ] Parameterise LLMs
-1. [ ] Consider the Market force definitions from Futureworld
+1. [X] Consider the Market force definitions from Futureworld*captured some context here and have tried to incorporate it into the reports*
 1. [ ] Optimise token usage with system prompts and other usefule tools and techniques
+     1. [ ] See claude suggestions re:pydantic model optionsisation and optional text
 1. [ ] Sort out names of agents and tasks in the .yaml files remove futurist references and make them more generic
 
 #### Quality
@@ -49,11 +50,7 @@ Questions
 
 * How dynamic should we make the market forces, should it be an overall repository that is updated once a year or periodically ?
 
-
 ---
-
-
-
 
 - Brave - Seems to hallucinate, if just using it as standard
 - Serperdev - working okay but gets stuck in a single souce

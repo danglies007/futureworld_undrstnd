@@ -6,7 +6,7 @@ futurist_market_force_extraction:
 
     URL: {url}
 
-    For each URL, extract all relevant market forces considering the {topic} and {specialisation}. 
+    For each URL, extract all relevant market forces considering the {topic}, {market}, {business} and {specialisation}. 
     Output must conform to the ResearchOutput schema.
 
     MARKET FORCE DEFINITION: {market_force_definition}
@@ -14,7 +14,7 @@ futurist_market_force_extraction:
     **Market Force Qualification Criteria:**
     To qualify as a market force per the definition, extracted forces MUST:
       1. Represent external drivers (not internal company strategies)
-      2. Show evidence of influence on the {topic} domain
+      2. Show evidence of influence on the {topic} (and {market}, and {business} if provided)
       3. Demonstrate persistence over medium to long term
       4. Exhibit measurable or emerging momentum
       5. Have potential impact on strategic decision-making
@@ -36,10 +36,10 @@ futurist_market_force_extraction:
     
     **For PDF Content:**
     6.  If a URL points to a PDF, use `Download File Tool` to download it, then use the RAG-based `Search a PDF's content` tool with this comprehensive search strategy:
-        a. First, use a broad query with the primary topic: 
+        a. First, use a broad query with the primary topic, include market details in the query if provided (market: "{market}"): 
            query: "{topic}"
            Store the result as `Observation_PDF_extract_1`.
-        b. Then perform additional targeted semantic searches:
+        b. Then perform additional targeted semantic searches e.g. include market details in the query if provided (market: "{market}"):
            - query: "What are the key trends related to {topic}?" → `Observation_PDF_extract_2`
            - query: "What challenges or barriers exist for {topic}?" → `Observation_PDF_extract_3`
            - query: "What regulatory factors affect {topic}?" → `Observation_PDF_extract_4`
@@ -97,6 +97,7 @@ futurist_market_force_extraction:
         d. Confirm all sources have accurate attribution with real dates (not assumed)
         e. Check that each force is distinct (no duplicates)
         f. Ensure all forces actually relate to {topic} and {specialisation}
+        g. Ensure all forces actually relate to {market} and {business} if they are provided
     
     **Final Output:**
     16. Compile ALL market forces into a single ResearchOutput object with:

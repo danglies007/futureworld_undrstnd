@@ -7,6 +7,7 @@ futurist_source_identification:
     2. Focus solely on {specialisation} sources with relevant to the {topic} and {market}, the current date is {date}.
     3. Include at minimum these sources in your search: {research_sources}.
     4. Your primary goal is to identify reputable sources that will yield valuable and relevant market forces.
+    5. Your audience is {audience}.
 
     Market Force Definition: {market_force_definition}
 

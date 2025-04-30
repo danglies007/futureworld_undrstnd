@@ -36,13 +36,13 @@ futurist_reporting_task:
        
     7. **KEY FINDINGS & STRATEGIC IMPLICATIONS:** 
        - List the most significant key findings across all market forces.
-       - Identify strategic implications for the environment, (and for the market and business if they have been provided).  Note that the market and business are optional.
+       - Identify strategic implications for the environment, (and for the market and business if they have been provided).  Note that the market and business are optional.  Make sure you explicity mention the implications for each of these.
        
     8. **SOURCES:** 
        - Compile a list of all source references used in the report.
 
     **REPORT QUALITY REQUIREMENTS:**
-    - Write for an expert audience with domain knowledge about {topic}, {market} and {business}.
+    - Write for an {audience} audience with domain knowledge about {topic}, {market} and {business}.
     - Include the line "Produced by Futureworld & NexusPlus Undrstnd.AI" below the title.
     - Maintain proper citation throughout the document.
     - **NEVER FABRICATE INFORMATION** - only use content from the provided MARKET FORCES.
@@ -56,9 +56,10 @@ futurist_reporting_task:
     - Quality of interaction analysis between different market forces
     - Practical value of strategic implications
     - Accuracy of all information and source attribution
+    - Appropriate levels of detail and supporting information for the {audience} audience.
 
     **FINAL OUTPUT:** A valid JSON object following the MarketForceAnalysisReport schema
 
   expected_output: >
-    A valid JSON object following the MarketForceAnalysisReport schema, containing a clear market force analysis with categorised forces, impact assessments, key interactions, and strategic implications. All information must be derived solely from the provided market forces with proper attribution.
+    A valid JSON object following the MarketForceAnalysisReport schema, containing a clear market force analysis with all information reuqred from the MarketForceAnalysisReport schema. All information must be derived solely from the provided market forces with proper attribution.
   agent: futurist_reporting_analyst
