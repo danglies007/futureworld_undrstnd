@@ -32,9 +32,9 @@ class ScanFlow(Flow[ScanState]):
         'topic': 'Generative AI in Financial Services',
         'specialisation': 'Futurist & Foresight',
         'research_sources': SOURCES_FUTURISTS,
-        'minimum_number_of_sources': 15,
-        'maximum_number_of_sources': 25,
-        'minimum_number_of_forces': 3,
+        'minimum_number_of_sources': 2,
+        'maximum_number_of_sources': 2,
+        'minimum_number_of_forces': 2,
         'specific_points_of_interest': [],
         'date': datetime.now().strftime('%Y-%m-%d')
     }

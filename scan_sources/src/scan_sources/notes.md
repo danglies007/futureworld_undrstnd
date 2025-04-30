@@ -3,6 +3,7 @@
 ## To Do
 
 1. Check LLM temperature for scrape
+2. Improve the agent outputs for the source identification to ensure the date is correct etc.
 
 ## Tools
 
