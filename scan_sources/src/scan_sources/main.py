@@ -9,36 +9,28 @@ from dotenv import load_dotenv
 load_dotenv()
                 
 from pydantic import BaseModel
-from crewai.flow import Flow, start, listen, and_, or_
+from crewai.flow import Flow, start, router,listen, and_, or_
 from scan_sources.crews.source_identification_crew.source_identification_crew import SourceIdentificationCrew
 from scan_sources.crews.market_force_extraction_crew.market_force_extraction_crew import MarketForceExtractionCrew
 from scan_sources.crews.reporting_crew.reporting_crew import ReportingCrew
 from scan_sources.crews.formatting_crew.formatting_crew import FormattingCrew
 from scan_sources.config import SOURCES_FUTURISTS, MARKET_FORCE_DEFINITIONS
 from scan_sources.models import (
-    RawMarketForce, SourceIdentificationResultsURLonly, SourceURL,
-    ResearchOutput, ExtractorOutput, MarketForceReport,
+    MarketForceAnalysisReport, RawMarketForce, SourceIdentificationResultsURLonly, SourceURL,
+    ResearchOutput, ExtractorOutput, MarketForceReport, SourceIdentificationResults
 )
 
 class ScanState(BaseModel):
     research_context: dict = None
-    source_results: SourceIdentificationResultsURLonly = None
+    source_results: SourceIdentificationResults = None
     extraction_results: ResearchOutput = None
-    report: MarketForceReport = None
+    report: MarketForceAnalysisReport = None
     markdown_report: str = None
+    markdown_report_from_saved: str = None
+    saved_research_context: dict = None
+    saved_report: MarketForceAnalysisReport = None
 
 class ScanFlow(Flow[ScanState]):
-    # research_inputs = {
-    #     'topic': 'Generative AI in Financial Services',
-    #     'specialisation': 'Futurist & Foresight',
-    #     'research_sources': SOURCES_FUTURISTS,
-    #     'minimum_number_of_sources': 10,
-    #     'maximum_number_of_sources': 15,
-    #     'minimum_number_of_forces': 10,
-    #     'specific_points_of_interest': [],
-    #     'date': datetime.now().strftime('%Y-%m-%d'),
-    #     'market_force_definition': 'A market force is a significant external driver that influences how industries, markets, and societies evolve over time. It represents a broad pattern or pressure — legal, economic, technological, regulatory, environmental, or social — that shapes behaviors, decisions, and value creation. Market forces often persist over the medium to long term, exhibit measurable or emerging momentum, and may carry varying levels of impact and uncertainty. Identifying market forces helps organizations anticipate change, uncover opportunities or threats, and inform strategic responses.'
-    # }
     
     research_inputs = {
         'specialisation': 'Futurist & Foresight',
@@ -48,14 +40,40 @@ class ScanFlow(Flow[ScanState]):
         'audience': 'Expert',
         'specific_points_of_interest': [],
         'research_sources': SOURCES_FUTURISTS,
-        'minimum_number_of_sources': 10,
-        'maximum_number_of_sources': 10,
+        'minimum_number_of_sources': 20,
+        'maximum_number_of_sources': 30,
         'minimum_number_of_forces': 0,
         'date': datetime.now().strftime('%Y-%m-%d'),
         'market_force_definition': MARKET_FORCE_DEFINITIONS
     }
 
+    REPORT_FILE = "saved_report.json"
+    REPORT_PATH = "Resume_files/saved_report.json"
+
+
     @start()
+    def market_forces_flow(self):
+        """Initial method to check for report"""
+        # if os.path.exists(self.REPORT_PATH):
+        #     print("Found existing report, resuming...")
+        #     return "resume"
+        print("starting new flow...")
+        return "start_flow"
+
+    @router(market_forces_flow)
+    def entry_router(self):
+        report_path = os.path.join("Resume_files", "saved_report.json")
+        if os.path.exists(report_path):
+            with open(report_path, "r") as f:
+                report_final_content_dict_saved = json.load(f)
+                print(report_final_content_dict_saved)          
+            self.state.saved_report = report_final_content_dict_saved
+            self.state.saved_research_context = self.research_inputs
+            return "report_found"
+        else:
+            return "report_not_found"
+
+    @listen("report_not_found")
     # generate the list of URLs to Search
     # def identify_sources(self) -> SourceIdentificationResultsURLonly:
     def identify_sources(self):
@@ -131,6 +149,16 @@ class ScanFlow(Flow[ScanState]):
         print(formatting_result)
         return formatting_result
 
+    @listen("report_found")
+    def format_saved_report(self):
+        self.state.saved_research_context = self.research_inputs
+        formatting_inputs_from_saved = self.research_inputs.copy()
+        formatting_inputs_from_saved['report_final_content'] = [self.state.saved_report]
+        formatting_result_from_saved = FormattingCrew().crew().kickoff(inputs=formatting_inputs_from_saved).raw
+        self.state.markdown_report_from_saved = formatting_result_from_saved
+        print("Final Markdown Report:\n")
+        print(formatting_result_from_saved)
+        return formatting_result_from_saved
 
     # @listen(develop_report)
     # def format_report(self, report_final_content_json):

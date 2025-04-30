@@ -2,9 +2,9 @@
 
 futurist_formatting_task:
   description: >
-    You will receive a MarketForceAnalysisReport object as input (from the previous crew). Format it as a beautiful markdown document, following the specified formatting guidelines.
+    You will receive a Market Force Analysis Report as input. Format it as a beautiful markdown document, following the specified formatting guidelines.
 
-    MARKET FORCE REPORT: {report_final_content}
+    MARKET FORCE ANALYSIS REPORT: {report_final_content}
     
     1. Use proper markdown headers (#, ##, ###)
     2. Include the following line just below the Title: "Produced by Futureworld & NexusPlus Undrstnd.AI" without quotation marks
