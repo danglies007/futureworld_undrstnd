@@ -14,7 +14,7 @@ from scan_sources.crews.source_identification_crew.source_identification_crew im
 from scan_sources.crews.market_force_extraction_crew.market_force_extraction_crew import MarketForceExtractionCrew
 from scan_sources.crews.reporting_crew.reporting_crew import ReportingCrew
 from scan_sources.crews.formatting_crew.formatting_crew import FormattingCrew
-from scan_sources.config import SOURCES_FUTURISTS, MARKET_FORCE_DEFINITIONS
+from scan_sources.config import SOURCES_FUTURISTS, MARKET_FORCE_DEFINITIONS, SOURCES_CONSULTING_FIRMS, SOURCES_NEWS_SOURCES
 from scan_sources.models import (
     MarketForceAnalysisReport, RawMarketForce, SourceIdentificationResultsURLonly, SourceURL,
     ResearchOutput, ExtractorOutput, MarketForceReport, SourceIdentificationResults
@@ -33,15 +33,15 @@ class ScanState(BaseModel):
 class ScanFlow(Flow[ScanState]):
     
     research_inputs = {
-        'specialisation': 'Futurist & Foresight',
-        'topic': 'Generative AI',
-        'market': 'Financial Services',
+        'specialisation': 'News Sources',
+        'topic': 'Global Market Forces',
+        'market': '',
         'business': '',
         'audience': 'Expert',
         'specific_points_of_interest': [],
-        'research_sources': SOURCES_FUTURISTS,
-        'minimum_number_of_sources': 2,
-        'maximum_number_of_sources': 2,
+        'research_sources': SOURCES_NEWS_SOURCES,
+        'minimum_number_of_sources': 15,
+        'maximum_number_of_sources': 20,
         'minimum_number_of_forces': 0,
         'date': datetime.now().strftime('%Y-%m-%d'),
         'market_force_definition': MARKET_FORCE_DEFINITIONS

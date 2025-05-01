@@ -155,7 +155,7 @@ class MarketForcesScrapeWebsiteTool(BaseTool):
             response = litellm.completion(
                 model=self.analysis_model,
                 messages=[{"role": "user", "content": analysis_prompt}],
-                max_tokens=2000,
+                max_tokens=8000,
                 temperature=0.1,
                 # Consider adding retry logic here if needed for APIConnectionErrors
                 max_retries=3,

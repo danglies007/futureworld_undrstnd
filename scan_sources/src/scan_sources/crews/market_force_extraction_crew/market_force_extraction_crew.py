@@ -69,6 +69,7 @@ from scan_sources.llm_config import (
 	llm_gemini_2_0_flash,
 	llm_gemini_2_5_flash,
 	llm_gpt_4_1_mini,
+    llm_gpt_4_1_accurate,
     llm_gpt_4_1
 )
 llm_perplexity_custom_crew_patch = PerplexityLLM()
@@ -119,12 +120,12 @@ class MarketForceExtractionCrew():
         # --- End of tool instantiation ---
         return Agent(
             config=self.agents_config['futurist_content_extractor'],
-            llm=llm_gpt_4_1,
-            tools=[scrape_market_forces_tool, FileDownloaderTool(), PDFSearchTool()],
+            llm=llm_gpt_4_1_accurate,
+            tools=[ScrapeWebsiteTool(), FileDownloaderTool(), PDFSearchTool()],
             verbose=True,
             respect_context_window=True,
             cache=True,
-            function_calling_llm=llm_gpt_4_1,
+            function_calling_llm=llm_gpt_4_1_accurate,
             max_retry_limit=3
         )
 

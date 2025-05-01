@@ -30,12 +30,22 @@ SOURCES_GOV_NON_PROFIT = [
 
 SOURCES_NEWS_SOURCES = [
     "https://www.economist.com",
-    "https://www.wired.com",
-    "https://www.technologyreview.com",
     "https://www.forbes.com",
-    "https://www.newscientist.com",
     "https://www.bloomberg.com",
-    "https://www.cbinsights.com",
+    "Financial Times",
+    "The Wall Street Journal",
+    "Reuters Business",
+    "CNBC",
+    "Business Insider",
+    "The Information",
+    "The Times – Business Section",
+]
+
+SOURCES_ACADEMIC = [
+    "https://www.technologyreview.com",
+    "https://www.newscientist.com",
+    "https://www.wired.com",
+
 ]
 
 SOURCES_FUTURISTS = [
@@ -53,6 +63,7 @@ SOURCES_FUTURISTS = [
 SOURCES_VENTURE_CAPITAL = [
     "a16z",
     "sequoia"
+    "https://www.cbinsights.com",
 ]
 
 

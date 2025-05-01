@@ -35,7 +35,7 @@ futurist_market_force_extraction:
         Accumulate `Extracted_Forces_For_This_URL` into a master list.
     
     **PDF Handling:** 
-        If a URL points to a PDF, use `Download File Tool`, then `Search a PDF's content` tool to get text, then follow the same analysis steps (3 & 4) for the retrieved text.
+        If a URL points to a PDF, never try and open the PDF and pass it directly into the LLM context. Rather Use `Download File Tool`, then `Search a PDF's content` tool to get text, then follow the same analysis steps (3 & 4) for the retrieved text.
 
 
     **Source Date Extraction:**

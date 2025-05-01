@@ -31,6 +31,8 @@ llm_gemini_2_0_flash_lite = LLM(model="gemini/gemini-2.0-flash-lite") # Fast int
 
 
 # Customised
+llm_gpt_4_1_accurate = LLM(model="gpt-4.1-2025-04-14", temperature=0.1)
+
 llm_gpt4o_accurate = LLM(model="gpt-4o-2024-11-20", temperature=0.1, max_completion_tokens=8000, max_tokens=8000)
 llm_gpt4o_mini_accurate = LLM(model="gpt-4o-mini-2024-07-18", temperature=0.1, max_completion_tokens=8000, max_tokens=8000)
 

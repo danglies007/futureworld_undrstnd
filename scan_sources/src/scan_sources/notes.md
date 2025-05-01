@@ -20,6 +20,7 @@
 1. [ ] Optimise token usage with system prompts and other usefule tools and techniques
      1. [ ] See claude suggestions re:pydantic model optionsisation and optional text
 1. [ ] Sort out names of agents and tasks in the .yaml files remove futurist references and make them more generic
+1. [ ] Linked in posts are causing issues with comments - eclude for now
 
 #### Quality
 
