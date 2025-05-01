@@ -1,5 +1,22 @@
 # General Notes
 
+## Points for discussion
+
+1. Good progress, refining how oututs are developed and the content of the report
+2. Moved from a crew to a flow to ensure consistancy of outputs and manage context length issues
+   1. Need to work on quality of inputs
+   2. Detail in pydantic models
+   3. Refining tasks - consider additional splitting tasks to get more refinement
+   4. Optimising LLM usage
+   5. Enalbe direct inout of a report to be generated in order to refine final outputs
+3. Some challenges getting to this point (futurist content quality, PDF extraction) - often quite simple fixes
+4. Key next steps
+   1. Plan to get an integrated view of all market forces across sources for Steercom (e.g. Global Market Forces across futurists, consulting firms, news sources etc...)
+   2. Enhance the Extraction crew with mutiple tasks essentially splitting url and pdf search and extraction
+   3. Enhance the Report generating crew to effectivly interprete and package content from market force extraction
+   4. Consider an intermediary crew between extraction and reporting to consolidate research prior to reporting
+   5. Potentially develop some alternative output formats
+
 ## To Do
 
 ### Priority 1
@@ -33,6 +50,7 @@
 * [ ] Convert interim files for audit
 * [ ] Sort out custom scrape tool llm defaults
 * [ ] Check LLM temperature for scrape
+* [ ] Some challenges with Futurists as thier content is a bit patchy and click-bait like
 
 #### Improve (new features)
 

@@ -14,7 +14,7 @@ futurist_source_identification:
     Expected source identification scope:
     - Minimum of {minimum_number_of_sources} respected {specialisation} publications or thought leaders.
     - Cover multiple domains relevant to {topic}.
-    - Prioritise sources published within the last year, considering the current date is {date}.
+    - Prioritise sources published that are published more recently, considering the current date is {date}.
     - Your thoroughness at this stage is critical to the success of the overall project.
 
     Source identification process:

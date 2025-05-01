@@ -41,13 +41,14 @@ futurist_reporting_task:
     8. **SOURCES:** 
        - Compile a list of all source references used in the report.
 
+    9. **GLOSSARY:**
+       - Provide a glossary at the end of the report, this should include definitions for any acronyms or terms used in the report.  In addition it should explain key schema fields used in the report e.g. uncertainty_level in the MarketForce schema.
+
     **REPORT QUALITY REQUIREMENTS:**
     - Write for an {audience} audience with domain knowledge about {topic}, {market} and {business}.
-    - Include the line "Produced by Futureworld & NexusPlus Undrstnd.AI" below the title.
     - Maintain proper citation throughout the document.
     - **NEVER FABRICATE INFORMATION** - only use content from the provided MARKET FORCES.
     - Focus on clarity and accessibility without sacrificing depth of analysis.
-    - Add a copyright notice at the end: "© {date} Futureworld & NexusPlus. All rights reserved."
 
     **PERFORMANCE CRITERIA:**
     Your performance will be evaluated on:

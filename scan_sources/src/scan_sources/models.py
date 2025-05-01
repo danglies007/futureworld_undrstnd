@@ -187,7 +187,7 @@ class ConsolidatorOutput(BaseModel):
 
 class KeyFinding(BaseModel):
     """Represents a key finding with its source attribution."""
-    finding: str = Field(..., description="The key insight or finding stated concisely")
+    finding: str = Field(..., description="The key finding stated concisely")
     source_author: str = Field(..., description="The author of the source")
     source_name: str = Field(..., description="The name of the source")
     source_url: str = Field(..., description="The URL of the source")
@@ -249,8 +249,8 @@ class MarketForceImpact(BaseModel):
 class MarketForce(BaseModel):
     """Information about a specific market force."""
     force_name: str = Field(..., description="Name of the market force")
-    force_type: str = Field(..., description="Category of the market force (e.g., Technological, Economic)")
-    description: str = Field(..., description="Description of the market force")
+    force_category_name: str = Field(..., description="Name of the category within which the market force is grouped (e.g., 'Technological', 'Economic', 'Political', 'Environmental', 'Social', 'Regulatory')")
+    description: str = Field(..., description="Detailed description of the market force")
     sectors_affected: List[str] = Field(default_factory=list, description="Economic or business sectors most likely to be affected")
     impact_assessment: MarketForceImpact = Field(..., description="Assessment of the potential impact")
     key_findings: List[KeyFinding] = Field(default_factory=list, description="Key factual findings related to this force")
@@ -262,10 +262,10 @@ class MarketForce(BaseModel):
 
 class MarketForceCategory(BaseModel):
     """A category of market forces."""
-    category_name: str = Field(..., description="Name of the category (e.g., 'Technological Forces')")
-    description: str = Field(..., description="Description of this category of market forces")
+    force_category_name: str = Field(..., description="Name of the category within which the market force is grouped (e.g., 'Technological', 'Economic', 'Political', 'Environmental', 'Social', 'Regulatory')")
+    force_category_description: str = Field(..., description="Description of this category of market forces")
     market_forces: List[MarketForce] = Field(default_factory=list, description="Market forces in this category")
-    key_insights: List[str] = Field(default_factory=list, description="Key insights for this category")
+    force_category_key_insights: List[str] = Field(default_factory=list, description="Key insights for this category")
 
 class MarketForceInteraction(BaseModel):
     """Description of interaction between market forces."""
@@ -279,10 +279,15 @@ class MarketForceAnalysisReport(BaseModel):
     report_title: str = Field(..., description="Title of the report")
     generation_date: str = Field(..., description="Report generation date")
     executive_summary: str = Field(..., description="A concise executive summary")
-    key_findings: List[str] = Field(
+    overall_key_findings: List[str] = Field(
         default_factory=list, 
         description="Overall key factual findings across all market forces"
     )
+    overall_key_insights: List[str] = Field(
+        default_factory=list, 
+        description="Overall key insights across all market forces based on the overall key findings"
+    )
+
     force_categories: List[MarketForceCategory] = Field(
         ...,
         description="Categories of market forces with analysis"
@@ -312,7 +317,6 @@ class SourceURL(BaseModel):
     url: str = Field(..., description="URL of the source")
 
 class SourceIdentificationResultsURLonly(BaseModel):
-    # name: Literal["SourceIdentificationResultsURLonly"] = "SourceIdentificationResultsURLonly" Removed to make Gemini work
     urls: List[SourceURL] = Field(..., description="List of source URLs")
     
 class Source(BaseModel):
