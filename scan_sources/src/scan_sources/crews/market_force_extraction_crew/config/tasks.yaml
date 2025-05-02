@@ -1,13 +1,17 @@
-# tasks.yaml - futurist_market_force_extraction_crew
+# tasks.yaml - market_force_extraction_crew
 
-futurist_market_force_extraction:
+html_market_force_extraction:
   description: >
-    You will receive a list of source URLs as input (from the previous crew).
+    You will receive a list of Source objects as input in a SourceIdentificationResults object (from the previous crew).
+    Before doing any work, you must first check if the {source_type} is "website". If it is not a website, you must skip it.
 
     URL: {url}
+    SOURCE TYPE: {source_type}
+    SOURCE DATE: {source_date}
 
-    For each URL, extract all relevant market forces considering the {topic}, {market}, {business} and {specialisation}. 
+    For each source where SOURCE TYPE is "website", extract all relevant market forces considering the {topic} (and {market}, {business} if provided). 
     Output must conform to the ResearchOutput schema.
+    You must only work on sources with a website SOURCE TYPE.   
 
     MARKET FORCE DEFINITION: {market_force_definition}
 
@@ -19,32 +23,36 @@ futurist_market_force_extraction:
       4. Exhibit measurable or emerging momentum
       5. Have potential impact on strategic decision-making
 
-    **MANDATORY WORKFLOW PER URL:**
-    1.  Get the next URL from the input list.
-    2.  Determine if URL points to PDF or HTML content.
-    
-    **For HTML Content:**
-    1.  Use the `Scrape and Analyze Website Content` tool for this URL. Let the result be `Observation_HTML`.
-    2.  **IMMEDIATE NEXT STEP:** Your *only* goal now is to analyze `Observation_HTML`.
+    **MANDATORY WORKFLOW PER SOURCE:**
+    1.  Get the next Source from the input list where SOURCE TYPE is "website".
+    2.  Use the `Scrape and Analyze Website Content` tool for this Source's URL. Let the result be `Observation_HTML`.
+    3.  **IMMEDIATE NEXT STEP:** Your *only* goal now is to analyze `Observation_HTML`.
         Think: "I need to extract market forces from the HTML I just received."
         Formulate an internal request to the LLM (yourself) like: "Extract all market forces related to '{topic}' found in this text: [Paste the *full* Observation_HTML here]. Structure the output for just these forces according to the RawMarketForce fields needed (title, raw_description, source_name, source_url, source_date, key_terms, etc.)."
         *You will internally process this request*. The result is `Extracted_Forces_For_This_URL`.
-    3.  **AFTER EXTRACTION:**
+    4.  If the site is primarily a landing page or has no relevant content, skip to step 4. This type of page could have a large proportion of ads, or a large proportion links to other pages that are not relevant to the topic. e.g.:
+        - 2025 US Venture Capital Outlook – download here
+        - 2025 US Private Equity Outlook – download here
+        - 2025 EMEA Private Capital Outlook – download here
+        - 2025 APAC Private Capital Outlook – download here
+        - Article 1 - click here
+        - Article 2 - click here
+        - Article 3 - click here
+        - Article 4 - click here
+        - Article 5 - click here
+        If some of the links / articles on these types of pages seem relevant or interesting, capture them in them (with the relevant urls in your summary).
+    4.  **AFTER EXTRACTION:**
         Think: "I have now extracted the forces from URL [current URL]. I have accumulated X forces so far. I need to process the next URL OR if this was the last URL, I need to compile the final answer."
         *Crucially, do NOT include the raw `Observation_HTML` in this thought process or subsequent actions.* Only refer to `Extracted_Forces_For_This_URL` if needed.
         Accumulate `Extracted_Forces_For_This_URL` into a master list.
-    
-    **PDF Handling:** 
-        If a URL points to a PDF, never try and open the PDF and pass it directly into the LLM context. Rather Use `Download File Tool`, then `Search a PDF's content` tool to get text, then follow the same analysis steps (3 & 4) for the retrieved text.
-
 
     **Source Date Extraction:**
     1.  When extracting dates from sources:
-        a. Always look for actual publication dates in metadata, bylines, or document properties
-        b. Never generate or assume a date - only use dates explicitly stated in the source document
+        a. Use the SOURCE DATE already provided in the Source object
+        b. If additional dates are found in the content, only use dates explicitly stated in the source document
         c. If no date is found after thorough searching, set source_date to "Unknown"
         d. Validate all extracted dates using the source_date validator in the RawMarketForce model
-    
+
     **Zero Results Handling:**
     1. If no market forces are found after initial analysis:
         a. Broaden the interpretation while staying true to the definition
@@ -61,12 +69,8 @@ futurist_market_force_extraction:
     
     **Error Handling:**
     14. If scraping a URL fails or if the PDF search tool returns errors:
-        a. For HTML content issues, retry up to 3 times with different approaches
-        b. For PDF search issues:
-           - Ensure the PDF was downloaded correctly
-           - Try with simpler, shorter queries if the semantic search is failing
-           - If using specific PDF path references, verify the path is correct
-        c. After 3 failed attempts, document the failed URL and move on
+        a. For website content issues, retry up to 3 times with different approaches
+        b. After 3 failed attempts, document the failed URL and move on
     
     **Quality Control Checklist:** 
     15. Before finalizing output:
@@ -75,7 +79,7 @@ futurist_market_force_extraction:
         c. Validate that descriptions truly reflect external forces (not just product features)
         d. Confirm all sources have accurate attribution with real dates (not assumed)
         e. Check that each force is distinct (no duplicates)
-        f. Ensure all forces actually relate to {topic} and {specialisation}
+        f. Ensure all forces actually relate to {topic}
         g. Ensure all forces actually relate to {market} and {business} if they are provided
     
     **Final Output:**
@@ -89,7 +93,152 @@ futurist_market_force_extraction:
     17. Ensure final output strictly adheres to the ResearchOutput schema
 
     **(Constraint Reminder):** Adhere strictly to the attribution requirements and quality standards.
+
+    **No Website Sources:**
+    18. If no website sources exist, indicate that no website sources were found.
     
   expected_output: >
-    A valid ResearchOutput object containing at least {minimum_number_of_forces} market forces extracted from the provided URLs.
-  agent: futurist_content_extractor
+    A valid ResearchOutput object containing market forces extracted from the provided HTML sources.
+  agent: html_market_force_extractor
+
+
+pdf_market_force_extraction:
+  description: >
+    You will receive a list of Source objects as input (from the previous crew).
+    Before doing any work, you must first check if the {source_type} is "PDF". If it is not a PDF, you must skip it.
+
+    URL: {url}
+    SOURCE TYPE: {source_type}
+    SOURCE DATE: {source_date}
+
+    For each source where SOURCE TYPE is "PDF", extract all relevant market forces considering the {topic}, (and {market}, {business} if provided). 
+    Output must conform to the ResearchOutput schema.  
+    You MUST ONLY work on sources with a PDF SOURCE TYPE.
+
+    MARKET FORCE DEFINITION: {market_force_definition}
+
+    **Market Force Qualification Criteria:**
+    To qualify as a market force per the definition, extracted forces MUST:
+      1. Represent external drivers (not internal company strategies)
+      2. Show evidence of influence on the {topic} (and {market}, and {business} if provided)
+      3. Demonstrate persistence over medium to long term
+      4. Exhibit measurable or emerging momentum
+      5. Have potential impact on strategic decision-making
+
+    **MANDATORY WORKFLOW PER SOURCE:**
+    1.  Get the next Source from the input list where source_type is "PDF".
+    2.  First download the PDF:
+        Action: Download File Tool
+        Action Input: 
+        url: [SOURCE URL]
+
+    3.  Then search the downloaded PDF. Look at the result from the download step which will be in the format "Successfully downloaded file: [filename]". Extract this filename and use it in the following format:
+        Action: Search a PDF's content
+        Action Input: 
+        pdf: reference/[EXTRACTED FILENAME]
+        query: Extract all market forces related to {topic} (include the context of {market}, {business} if provided)
+    
+    4.  **IMMEDIATE NEXT STEP:** Your *only* goal now is to analyze the PDF search results.
+        Think: "I need to extract market forces from the PDF search results I just received."
+        Formulate an internal request to the LLM (yourself) like: "Extract all market forces related to '{topic}' found in this text: [PDF search results here]. Structure the output for just these forces according to the RawMarketForce fields needed (title, raw_description, source_name, source_url, source_date, key_terms, etc.)."
+        *You will internally process this request*. The result is `Extracted_Forces_For_This_URL`.
+    
+    5.  **AFTER EXTRACTION:**
+        Think: "I have now extracted the forces from URL [current URL]. I have accumulated X forces so far. I need to process the next URL OR if this was the last URL, I need to compile the final answer."
+        Accumulate `Extracted_Forces_For_This_URL` into a master list.
+
+    **Source Date Extraction:**
+    1.  When extracting dates from sources:
+        a. Use the SOURCE DATE already provided in the Source object
+        b. If additional dates are found in the content, only use dates explicitly stated in the source document
+        c. If no date is found after thorough searching, set source_date to "Unknown"
+        d. Validate all extracted dates using the source_date validator in the RawMarketForce model
+  
+    **Zero Results Handling:**
+    1. If no market forces are found after initial analysis:
+        a. Broaden the interpretation while staying true to the definition
+        b. Look for implicit market forces in the already extracted content (do NOT re-include the full raw content)
+        c. Document broadening steps in your process notes
+    
+    **Minimum Output Requirements:**
+    11. Must extract at least {minimum_number_of_forces} distinct market forces across all sources
+        If still insufficient after broadening, document the limitations of the source material
+    
+    **After Complete URL Processing:**
+    12. If there are more URLs in the input list, go back to step 1 for the next URL.
+    13. If all URLs are processed, proceed to format the Final Answer.
+    
+    **Error Handling:**
+    14. If scraping a URL fails or if the PDF search tool returns errors:
+        a. For PDF search issues:
+           - Ensure the PDF was downloaded correctly
+           - Try with simpler, shorter queries if the semantic search is failing
+           - If using specific PDF path references, verify the path is correct
+        b. After 3 failed attempts, document the failed URL and move on
+    
+    **Quality Control Checklist:** 
+    15. Before finalizing output:
+        a. Verify each market force has all required fields from the RawMarketForce schema
+        b. Ensure each force's description is substantial (min 20 words)
+        c. Validate that descriptions truly reflect external forces (not just product features)
+        d. Confirm all sources have accurate attribution with real dates (not assumed)
+        e. Check that each force is distinct (no duplicates)
+        f. Ensure all forces actually relate to {topic}
+        g. Ensure all forces actually relate to {market} and {business} if they are provided
+    
+    **Final Output:**
+    16. Compile ALL market forces into a single ResearchOutput object with:
+        - source_category: Set to {specialisation}
+        - url: URL being processed
+        - summary: Processing summary including statistics
+        - raw_market_forces: Array of RawMarketForce objects
+    
+    **Schema Validation:**
+    17. Ensure final output strictly adheres to the ResearchOutput schema
+
+    **(Constraint Reminder):** Adhere strictly to the attribution requirements and quality standards.
+
+    **No PDF Sources:**
+    18. If no PDF sources exist, indicate that no PDF sources were found.
+  expected_output: >
+    A valid ResearchOutput object containing market forces extracted from the provided PDF sources.
+  agent: pdf_market_force_extractor
+
+combine_market_forces:
+  description: >
+    You will receive two separate ResearchOutput objects:
+    1. One containing market forces extracted from HTML sources
+    2. One containing market forces extracted from PDF sources
+    
+    Your task is to STRICTLY combine these into a single comprehensive ResearchOutput object WITHOUT creating any new market forces or modifying the existing schema structure.
+    
+    **MANDATORY CONSTRAINTS:**
+    - Do NOT create any new market forces
+    - Do NOT modify the schema structure
+    - Do NOT alter the core content of any market force
+    - ONLY combine and deduplicate the existing market forces
+    
+    **MANDATORY WORKFLOW:**
+    1. Analyze both input ResearchOutput objects to understand their structure
+    2. Identify exact or near-duplicate market forces across the two sets of results
+       - Two forces are considered duplicates if they describe the same underlying market phenomenon
+       - For duplicates, combine the content from both sources into a single market force, essentially use the best of both sources to enrich the content
+    3. Combine all unique market forces into a single ResearchOutput object
+    4. Maintain all original source attributions exactly as they appear in the inputs
+    
+    **Quality Control Checklist:**
+    1. Verify that NO new market forces have been created
+    2. Confirm that all schema fields match the original ResearchOutput structure
+    3. Ensure all source attributions are preserved exactly as in the original inputs
+    4. Check that no content has been invented or fabricated
+    
+    **Final Output:**
+    1. Produce a single ResearchOutput object containing:
+       - source_category: Maintained from inputs
+       - url: List of all URLs processed from both inputs (unchanged)
+       - summary: Processing summary including statistics and a simple statement of sources combined (e.g., "Combined 15 market forces from HTML sources and 12 from PDF sources")
+       - raw_market_forces: Combined array of deduplicated RawMarketForce objects with no modifications
+
+  expected_output: >
+    A ResearchOutput object containing only the combined and deduplicated market forces from both HTML and PDF sources, with no new content created.
+  agent: market_force_combiner

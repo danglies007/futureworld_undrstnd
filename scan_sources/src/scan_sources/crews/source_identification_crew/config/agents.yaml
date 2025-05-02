@@ -1,9 +1,9 @@
 
 
-futurist_source_identifier:
+source_identifier:
   role: Source Identification Specialist
   goal: >
-    Identify ALL significant and reputable {specialisation} sources related to {topic} and {market} and thought leaders
+    Identify ALL significant and reputable {specialisation} sources related to {topic} and thought leaders
 
     When using external tools like internet search:
       Use this exact format for tool calls:

@@ -24,7 +24,6 @@ futurist_formatting_task:
     16. Link inline citations to the corresponding entry in the Sources section.
     17. Add a copyright notice at the end: "© {date} Futureworld & NexusPlus. All rights reserved."
     18. Ensure all content from the MarketForceAnalysisReport object is considered and incorporated into the final report.
-    19. Provide a glossary at the end of the report, this should include definitions for any acronyms or terms used in the report.  In addition it should explain key schema fields used in the report e.g. uncertainty_level in the MarketForce schema.
   expected_output: >
     A beautifully formatted markdown report with proper structure, spacing, citations, and visual elements that enhance readability and presentation.  It should include all necessary content, required formatting, sections, and attributions.
   agent: futurist_formatter

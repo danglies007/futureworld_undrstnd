@@ -18,9 +18,6 @@ SOURCES_GOV_NON_PROFIT = [
 ]
 
 SOURCES_NEWS_SOURCES = [
-    "https://www.economist.com",
-    "https://www.forbes.com",
-    "https://www.bloomberg.com",
     "Financial Times",
     "The Wall Street Journal",
     "Reuters Business",
@@ -28,13 +25,20 @@ SOURCES_NEWS_SOURCES = [
     "Business Insider",
     "The Information",
     "The Times – Business Section",
+    "The Economist",
+    "The Times",
+    "Bloomberg",
+    "Forbes",
+    "Bloomberg Businessweek",
+    "Fast Company",
+    "Inc."
 ]
 
 SOURCES_ACADEMIC = [
-    "https://www.technologyreview.com",
-    "https://www.newscientist.com",
-    "https://www.wired.com",
-
+    "technology review",
+    "newscientist",
+    "MIT Sloan Management Review",
+    "Harvard Business Review"
 ]
 
 SOURCES_FUTURISTS = [
@@ -50,11 +54,28 @@ SOURCES_FUTURISTS = [
 ]
 
 SOURCES_VENTURE_CAPITAL = [
-    "a16z",
-    "sequoia"
-    "https://www.cbinsights.com",
+    "Andreessen Horowitz",
+    "ycombinator",
+    "cbinsights",
+    "pitchbook",
+    "crunchbase",
+    "sequoia capital",
+    "General Catalyst",
+    "Khosla Ventures"
 ]
 
+BUSINESS_INTELLIGENCE_SOURCES = [
+    "Pitchbook",
+    "Crunchbase",
+    "CB Insights",
+    "Tracxn",
+    "PrivCo",
+    "Owler",
+    "Dealroom",
+    "Preqin",
+    "S&P Capital IQ",
+    "FactSet"
+]
 
 SOURCES_FUTURISTS_OLD = [
     "https://futuristspeaker.com/",
@@ -114,15 +135,16 @@ MARKET_FORCE_DEFINITIONS = {
 
 
 RESEARCH_INPUTS = {
-    'specialisation': 'News Sources',
-    'topic': 'Global Market Forces impacting Mobility industry',
+    'specialisation': 'VC',
+    'topic': 'Global Market Forces affecting Mobility Industry',
+    'topic_short': 'Mobility_forces', # used for file naming
     'market': '',
     'business': '',
     'audience': 'Expert',
-    'specific_points_of_interest': [],
-    'research_sources': SOURCES_NEWS_SOURCES,
-    'minimum_number_of_sources': 15,
-    'maximum_number_of_sources': 20,
+    'specific_points_of_interest': ['PDF files'],
+    'research_sources': SOURCES_VENTURE_CAPITAL + SOURCES_CONSULTING_FIRMS + SOURCES_GOV_NON_PROFIT + SOURCES_NEWS_SOURCES + SOURCES_ACADEMIC + SOURCES_FUTURISTS + SOURCES_PATENTS,
+    'minimum_number_of_sources': 20,
+    'maximum_number_of_sources': 30,
     'minimum_number_of_forces': 0,
     'date': datetime.now().strftime('%Y-%m-%d'),
     'market_force_definition': MARKET_FORCE_DEFINITIONS

@@ -96,14 +96,15 @@ from scan_sources.tools.custom_web_scrape_market_forces import MarketForcesScrap
 # firecrawl_search_tool = FirecrawlSearchTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
 # firecrawl_scrape_tool = FirecrawlScrapeWebsiteTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
 
+# Import Research variables to support naming
+from scan_sources.config import RESEARCH_INPUTS
 
 @CrewBase
 class MarketForceExtractionCrew():
     """MarketForceExtractionCrew crew"""
 
-    # Learn more about YAML configuration files here:
-    # Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
-    # Tasks: https://docs.crewai.com/concepts/tasks#yaml-configuration-recommended
+    research_inputs = RESEARCH_INPUTS
+
     agents_config = 'config/agents.yaml'
     tasks_config = 'config/tasks.yaml'
 
@@ -111,7 +112,7 @@ class MarketForceExtractionCrew():
     # https://docs.crewai.com/concepts/agents#agent-tools
     
     @agent
-    def futurist_content_extractor(self) -> Agent:
+    def html_market_force_extractor(self) -> Agent:
         # --- Instantiate the custom tool HERE, inside the agent method ---
         scrape_market_forces_tool = MarketForcesScrapeWebsiteTool(
             llm=llm_gemini_2_5_flash, # Pass the chosen LLM config from __init__
@@ -119,9 +120,9 @@ class MarketForceExtractionCrew():
         )
         # --- End of tool instantiation ---
         return Agent(
-            config=self.agents_config['futurist_content_extractor'],
+            config=self.agents_config['html_market_force_extractor'],
             llm=llm_gpt_4_1_accurate,
-            tools=[ScrapeWebsiteTool(), FileDownloaderTool(), PDFSearchTool()],
+            tools=[ScrapeWebsiteTool()],
             verbose=True,
             respect_context_window=True,
             cache=True,
@@ -129,13 +130,61 @@ class MarketForceExtractionCrew():
             max_retry_limit=3
         )
 
+    @agent
+    def pdf_market_force_extractor(self) -> Agent:
+        return Agent(
+            config=self.agents_config['pdf_market_force_extractor'],
+            llm=llm_gpt_4_1_accurate,
+            tools=[FileDownloaderTool(), PDFSearchTool()],
+            verbose=True,
+            respect_context_window=True,
+            cache=True,
+            function_calling_llm=llm_gpt_4_1_accurate,
+            max_retry_limit=3
+        )
+
+    @agent
+    def market_force_combiner(self) -> Agent:
+        return Agent(
+            config=self.agents_config['market_force_combiner'],
+            llm=llm_gpt4o_mini,
+            verbose=True,
+            respect_context_window=True,
+            cache=True,
+        )
+
     @task
-    def futurist_market_force_extraction(self) -> Task:
+    def html_market_force_extraction(self) -> Task:
+        specialisation = self.research_inputs.get("specialisation")
+        topic_short = self.research_inputs.get("topic_short")
         return Task(
-            config=self.tasks_config['futurist_market_force_extraction'],
-            output_file=f'outputs/futurist_market_force_extraction_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+            config=self.tasks_config['html_market_force_extraction'],
+            output_file=f'outputs/html_market_force_extraction_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+            async_execution=True,
             output_pydantic=ResearchOutput
 		)
+
+    @task
+    def pdf_market_force_extraction(self) -> Task:
+        specialisation = self.research_inputs.get("specialisation")
+        topic_short = self.research_inputs.get("topic_short")
+        return Task(
+            config=self.tasks_config['pdf_market_force_extraction'],
+            output_file=f'outputs/pdf_market_force_extraction_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+            async_execution=True,
+            output_pydantic=ResearchOutput
+		)
+
+    @task
+    def combine_market_forces(self) -> Task:
+        specialisation = self.research_inputs.get("specialisation")
+        topic_short = self.research_inputs.get("topic_short")
+        return Task(
+            config=self.tasks_config['combine_market_forces'],
+            output_file=f'outputs/combined_market_forces_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+            context=[self.html_market_force_extraction(),self.pdf_market_force_extraction()],
+            output_pydantic=ResearchOutput
+        )
 
     @crew
     def crew(self) -> Crew:

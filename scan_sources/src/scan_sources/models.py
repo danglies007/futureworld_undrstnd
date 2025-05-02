@@ -11,7 +11,7 @@ class AttributedItem(BaseModel):
     """Base model for any item that needs attribution."""
     content: str = Field(..., description="The actual content (fact, statistic, quote, etc.)")
     source_url: str = Field(..., description="URL where this information was found")
-    source_paragraph: Optional[str] = Field(None, description="Extual word for word extract of the Original paragraph or sentence from the source")
+    source_text: Optional[str] = Field(None, description="Exact actual word for word extract of the Original paragraph or sentence extracted directly from the source")
     source_name: Optional[str] = Field(None, description="Name of the source")
 
 class SearchMetadata(BaseModel):
@@ -328,7 +328,7 @@ class Source(BaseModel):
     url: str = Field(..., description="URL of the source")
     source_type: str = Field(..., description="is it a PDF, website, youtube or other")
     publisher: str = Field(..., description="Publisher of the source")
-    publication_date: str = Field(..., description="Date of publication")
+    source_date: str = Field(..., description="Date of publication")
     author: str = Field(..., description="Author of the source")
     relevance_score: float = Field(..., description="Relevance score of the source")
     description: str = Field(..., description="Description of the source")

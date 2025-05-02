@@ -79,19 +79,39 @@ class ScanFlow(Flow[ScanState]):
     # def identify_sources(self) -> SourceIdentificationResultsURLonly:
     def identify_sources(self):
         self.state.research_context = self.research_inputs
-        sources_result = SourceIdentificationCrew().crew().kickoff(self.research_inputs).pydantic
+        sources_inputs = self.research_inputs.copy()
+        sources_result = SourceIdentificationCrew().crew().kickoff(sources_inputs).pydantic
         self.state.source_results = sources_result
         return sources_result
+
+    # @listen(identify_sources)
+    # def identify_market_forces(self, sources_result):
+    #     self.state.research_context = self.research_inputs
+    #     forces_final_content = []
+    #     forces_final_content_dict = []
+    #     for url in sources_result.urls:
+    #         # forces_inputs = self.state.research_context.copy()
+    #         forces_inputs = self.research_inputs.copy()
+    #         forces_inputs['url'] = url.model_dump_json()
+    #         forces_result = MarketForceExtractionCrew().crew().kickoff(forces_inputs).pydantic
+    #         forces_final_content.append(forces_result)
+    #         forces_final_content_dict.append(forces_result.model_dump())
+    #     self.state.extraction_results = forces_final_content
+    #     # print("Extraction Results:", self.state.extraction_results) # this provides a full view of all of the analysis 
+    #     print(forces_final_content) # this also provides a full view of all of the analysis 
+    #     return forces_final_content_dict
 
     @listen(identify_sources)
     def identify_market_forces(self, sources_result):
         self.state.research_context = self.research_inputs
         forces_final_content = []
         forces_final_content_dict = []
-        for url in sources_result.urls:
+        for source in sources_result.urls:
             # forces_inputs = self.state.research_context.copy()
             forces_inputs = self.research_inputs.copy()
-            forces_inputs['url'] = url.model_dump_json()
+            forces_inputs['url'] = source.url
+            forces_inputs['source_type'] = source.source_type
+            forces_inputs['source_date'] = source.source_date
             forces_result = MarketForceExtractionCrew().crew().kickoff(forces_inputs).pydantic
             forces_final_content.append(forces_result)
             forces_final_content_dict.append(forces_result.model_dump())
@@ -99,7 +119,6 @@ class ScanFlow(Flow[ScanState]):
         # print("Extraction Results:", self.state.extraction_results) # this provides a full view of all of the analysis 
         print(forces_final_content) # this also provides a full view of all of the analysis 
         return forces_final_content_dict
-
 
 # This report crew cycles through the report and does not generate the full view of the marekt research
     # @listen(identify_market_forces)

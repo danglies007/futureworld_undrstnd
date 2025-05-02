@@ -96,19 +96,18 @@ from scan_sources.tools.custom_web_scrape_market_forces import MarketForcesScrap
 # firecrawl_search_tool = FirecrawlSearchTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
 # firecrawl_scrape_tool = FirecrawlScrapeWebsiteTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
 
+# Import Research variables to support naming
+from scan_sources.config import RESEARCH_INPUTS
 
 @CrewBase
 class ReportingCrew():
     """ReportingCrew crew"""
 
-    # Learn more about YAML configuration files here:
-    # Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
-    # Tasks: https://docs.crewai.com/concepts/tasks#yaml-configuration-recommended
+    research_inputs = RESEARCH_INPUTS
+
     agents_config = 'config/agents.yaml'
     tasks_config = 'config/tasks.yaml'
 
-    # If you would like to add tools to your agents, you can learn more about it here:
-    # https://docs.crewai.com/concepts/agents#agent-tools
     @agent
     def futurist_reporting_analyst(self) -> Agent:
         return Agent(
@@ -120,18 +119,15 @@ class ReportingCrew():
             verbose=True
         )
 
-    # To learn more about structured task outputs,
-    # task dependencies, and task callbacks, check out the documentation:
-    # https://docs.crewai.com/concepts/tasks#overview-of-a-task
     @task
     def futurist_reporting_task(self) -> Task:
+        specialisation = self.research_inputs.get("specialisation")
+        topic_short = self.research_inputs.get("topic_short")
         return Task(
             config=self.tasks_config['futurist_reporting_task'],
-            output_file=f'outputs/futurist_report_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+            output_file=f'outputs/futurist_report_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             output_pydantic=MarketForceAnalysisReport
         )
-
-
 
     @crew
     def crew(self) -> Crew:

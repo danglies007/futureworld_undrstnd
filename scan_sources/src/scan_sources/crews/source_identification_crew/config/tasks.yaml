@@ -1,10 +1,10 @@
-# tasks.yaml - futurist_source_identification
+# tasks.yaml - source_identification
 
-futurist_source_identification:
+source_identification:
   description: >
     You have these key objectives for SOURCE IDENTIFICATION:
     1. Identify no less than {minimum_number_of_sources} and no more than {maximum_number_of_sources} high-quality sources for researching market forces impacting {topic}.
-    2. Focus solely on {specialisation} sources with relevant to the {topic}, the current date is {date}.
+    2. Focus on sources with relevance to the {topic}, the current date is {date}.
     3. Include at minimum these sources in your search: {research_sources}.
     4. Your primary goal is to identify reputable sources that will yield valuable and relevant market forces.
     5. Your audience is {audience}.
@@ -12,14 +12,14 @@ futurist_source_identification:
     Market Force Definition: {market_force_definition}
 
     Expected source identification scope:
-    - Minimum of {minimum_number_of_sources} respected {specialisation} publications or thought leaders.
+    - Minimum of {minimum_number_of_sources} from respected sources or thought leaders.
     - Cover multiple domains relevant to {topic}.
-    - Prioritise sources published that are published more recently, considering the current date is {date}.
+    - Prioritise sources published that are published more recently, considering the current date is {date}.  Do not include sources more than 2 years old.
     - Your thoroughness at this stage is critical to the success of the overall project.
 
     Source identification process:
     1. Use the internet search tool to identify promising sources.
-    2. Begin by exploring the {research_sources} specified.
+    2. Begin by exploring the research_sources specified.
     3. If the user has provided specific points of interest: {specific_points_of_interest}, use them to guide your search.
     4. For each potential source, evaluate:
       - Relevance to {topic}
@@ -48,11 +48,43 @@ futurist_source_identification:
     **Source Date Extraction:**
     When extracting dates from sources:
       a. Always look for actual publication dates:
-        - This is normally shown near the top or the bottom of the source in a variety of formats e.g. "Published on  Feb 26, 2025" or "Date: 2025-02-26". or "Jan 22, 2025 at 03:57am EST", "November 18, 2021" 
-        - Otherwise look in metadata, bylines, or document properties, sometimes its classifed as "datepublished" or "datecreated". e.g. "datePublished" content="2025-02-26T20:00:00Z", itemProp="datePublished" content="2025-01-22"
+        - This is normally shown near the top or the bottom of the page in a variety of formats e.g. 
+          - "Published on  Feb 26, 2025"
+          - "Date: 2025-02-26"
+          - "Jan 22, 2025 at 03:57am EST"
+          - "November 18, 2021"
+          - "PUBLISHED DECEMBER 9, 2024"
+          - "April 19, 2023"
+          - Sometimes it can also be shown over multiple lines.
+        - If you cannot find a publication date on the actual website page/content, look in metadata, bylines, or source properties, sometimes its classifed as: 
+          - "datepublished"
+          - "datecreated"
+          - "datemodified"
+        examples could look like:
+          - "dateCreated":"2018-04-22T23:15:43.909Z"
+          - "datePublished":"2018-04-22T23:15:43.909Z"
+          - "dateModified":"2018-11-05T23:53:54.652Z"
+          - "itemProp="datePublished" content="2025-01-22"
+          - "dateModified" content="2025-01-22"
+          - "datePublished">February 16, 2023
+          - "<time datetime="2023-02-08T19:36:12.192Z" itemprop="datePublished">February 16, 2023</time>"
+          - "OriginalPublicationDate": "1/3/2022"
+          - "DisplayDate": "1/3/2022"
+          - "Last Published: Thu May 01 2025 20:52:29 GMT+0000 (Coordinated Universal Time)"
+          - "<meta itemProp="datePublished" content="2024-05-23T19:00:00Z"/>"
+          - "<meta name="article.updated" content="2024-05-23T19:00:00Z"/>"
+          - "<meta itemProp="dateModified" content="2025-04-13T09:51:00Z"/>"
+          - "<meta name="article.created" content="2024-05-23T19:00:00Z"/>"
+          - "<meta itemProp="dateCreated" content="2024-05-23T19:00:00Z"/>"
+          - "<meta name="dateLastPubbed" content="2025-04-13T09:51:00Z"/>"  
       b. structure the dates in this format YYYY-MM-DD e.g. (2023-08-10 or 2021-01-04)
-      b. Never generate or assume a date - only use dates explicitly stated in the source document
-      c. If no date is found after thorough searching, set source_date to "Unknown"
+      c. Never generate or assume a date - only use dates explicitly stated in the source document
+      d. If no date is found after thorough searching, set source_date to "Unknown"
+
+    **Source Extraction Rules:**
+    1. You have a scrape website tool which can be used to Read website content.  This tool should ONLY be used to help you identify the content required for the source identification to help you populate the SourceIdentificationResults schema.
+    2. YOU SHOULD NOT CLICK ON ANY LINKS TO PDF FILES OR OTHER DOCUMENTS - JUST EXTRACT THE URL AND TITLE and other relevant content from the source e.g. DATE, AUTHOR, etc.
+    
 
     Performance and incentive:
     1. Your performance will be evaluated based on the quantity and quality of sources identified.
@@ -65,5 +97,5 @@ futurist_source_identification:
 
   expected_output: >
     You will produce a "Source results list" aligned to the SourceIdentificationResults pydantic schema.  Do not include any markdown formatting especially '''
-    This output should contain NO LESS THAN {minimum_number_of_sources} and no more than {maximum_number_of_sources} high-quality sources for researching market forces relating to {topic} from respected {specialisation} sources. 
-  agent: futurist_source_identifier
+    This output should contain NO LESS THAN {minimum_number_of_sources} and no more than {maximum_number_of_sources} high-quality sources for researching market forces relating to {topic} from respected sources. 
+  agent: source_identifier

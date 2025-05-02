@@ -95,27 +95,34 @@ from scan_sources.tools.custom_web_scrape_market_forces import MarketForcesScrap
 # firecrawl_search_tool = FirecrawlSearchTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
 # firecrawl_scrape_tool = FirecrawlScrapeWebsiteTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
 
+# Import Research variables to support naming
+from scan_sources.config import RESEARCH_INPUTS
+
 @CrewBase
 class SourceIdentificationCrew():
     """SourceIdentificationCrew crew"""
+
+    research_inputs = RESEARCH_INPUTS
 
     agents_config = 'config/agents.yaml'
     tasks_config = 'config/tasks.yaml'
 
     @agent
-    def futurist_source_identifier(self) -> Agent:
+    def source_identifier(self) -> Agent:
         return Agent(
-            config=self.agents_config['futurist_source_identifier'],
+            config=self.agents_config['source_identifier'],
             llm=llm_gpt_4_1,
-            tools=[SerperDevTool()],
+            tools=[SerperDevTool(),ScrapeWebsiteTool()],
             verbose=True
         )
 
     @task
-    def futurist_source_identification(self) -> Task:
+    def source_identification(self) -> Task:
+        specialisation = self.research_inputs.get("specialisation")
+        topic_short = self.research_inputs.get("topic_short")
         return Task(
-            config=self.tasks_config['futurist_source_identification'],
-            output_file=f'outputs/futurist_source_identification_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+            config=self.tasks_config['source_identification'],
+            output_file=f'outputs/sources_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             output_pydantic=SourceIdentificationResults
         )
 
