@@ -3,6 +3,9 @@ from pydantic import BaseModel, Field, field_validator
 import uuid
 import json
 from datetime import datetime
+from config import RESEARCH_INPUTS
+
+specialisation = RESEARCH_INPUTS['specialisation']
 
 class AttributedItem(BaseModel):
     """Base model for any item that needs attribution."""
@@ -242,7 +245,7 @@ class MarketForceReport(BaseModel):
 class MarketForceImpact(BaseModel):
     """Assessment of a market force's impact."""
     impact_level: str = Field(..., description="Level of potential impact (High, Medium, Low)")
-    uncertainty_level: str = Field(..., description="Level of uncertainty about this impact (High, Medium, Low)")
+    uncertainty_level: str = Field(..., description="Level of uncertainty about relating to how the market force will evolve (High, Medium, Low)")
     time_horizon: str = Field(..., description="Expected time frame for impact (e.g., '1-3 years', '3-5 years')")
     impact_rationale: Optional[str] = Field(None, description="Brief explanation of why this impact assessment was given")
 
@@ -323,16 +326,16 @@ class Source(BaseModel):
     source_id: str = Field(..., description="Unique identifier for the source")
     title: str = Field(..., description="Title of the source")
     url: str = Field(..., description="URL of the source")
+    source_type: str = Field(..., description="is it a PDF, website, youtube or other")
     publisher: str = Field(..., description="Publisher of the source")
     publication_date: str = Field(..., description="Date of publication")
     author: str = Field(..., description="Author of the source")
     relevance_score: float = Field(..., description="Relevance score of the source")
-    # domain_category: str = Field(..., description="Category of the domain")
     description: str = Field(..., description="Description of the source")
 
 class SourceIdentificationResults(BaseModel):
     topic: str = Field(..., description="Topic of the research")
-    specialisation: str = Field(..., description="Specialisation of the research")
+    specialisation: str = Field(default=specialisation, description="Specialisation of the research")
     date_of_research: str = Field(..., description="Date when the research was conducted")
     total_sources_found: int = Field(..., description="Total number of sources found")
     urls: List[Source] = Field(..., description="List of sources found")

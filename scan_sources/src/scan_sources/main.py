@@ -14,7 +14,7 @@ from scan_sources.crews.source_identification_crew.source_identification_crew im
 from scan_sources.crews.market_force_extraction_crew.market_force_extraction_crew import MarketForceExtractionCrew
 from scan_sources.crews.reporting_crew.reporting_crew import ReportingCrew
 from scan_sources.crews.formatting_crew.formatting_crew import FormattingCrew
-from scan_sources.config import SOURCES_FUTURISTS, MARKET_FORCE_DEFINITIONS, SOURCES_CONSULTING_FIRMS, SOURCES_NEWS_SOURCES
+from scan_sources.config import RESEARCH_INPUTS, SOURCES_FUTURISTS, MARKET_FORCE_DEFINITIONS, SOURCES_CONSULTING_FIRMS, SOURCES_NEWS_SOURCES
 from scan_sources.models import (
     MarketForceAnalysisReport, RawMarketForce, SourceIdentificationResultsURLonly, SourceURL,
     ResearchOutput, ExtractorOutput, MarketForceReport, SourceIdentificationResults
@@ -31,21 +31,22 @@ class ScanState(BaseModel):
     saved_report: MarketForceAnalysisReport = None
 
 class ScanFlow(Flow[ScanState]):
-    
-    research_inputs = {
-        'specialisation': 'News Sources',
-        'topic': 'Global Market Forces impacting Telecoms industry',
-        'market': '',
-        'business': '',
-        'audience': 'Expert',
-        'specific_points_of_interest': [],
-        'research_sources': SOURCES_NEWS_SOURCES,
-        'minimum_number_of_sources': 3,
-        'maximum_number_of_sources': 5,
-        'minimum_number_of_forces': 0,
-        'date': datetime.now().strftime('%Y-%m-%d'),
-        'market_force_definition': MARKET_FORCE_DEFINITIONS
-    }
+
+    research_inputs = RESEARCH_INPUTS    
+    # research_inputs = {
+    #     'specialisation': 'News Sources',
+    #     'topic': 'Global Market Forces impacting Telecoms industry',
+    #     'market': '',
+    #     'business': '',
+    #     'audience': 'Expert',
+    #     'specific_points_of_interest': [],
+    #     'research_sources': SOURCES_NEWS_SOURCES,
+    #     'minimum_number_of_sources': 3,
+    #     'maximum_number_of_sources': 5,
+    #     'minimum_number_of_forces': 0,
+    #     'date': datetime.now().strftime('%Y-%m-%d'),
+    #     'market_force_definition': MARKET_FORCE_DEFINITIONS
+    # }
 
     REPORT_FILE = "saved_report.json"
     REPORT_PATH = "Resume_files/saved_report.json"

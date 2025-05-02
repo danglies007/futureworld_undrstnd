@@ -38,12 +38,13 @@
      1. [ ] See claude suggestions re:pydantic model optionsisation and optional text
 1. [ ] Sort out names of agents and tasks in the .yaml files remove futurist references and make them more generic
 1. [ ] Linked in posts are causing issues with comments - eclude for now
+1. [ ] Try Reader view to read ppopup blocked sites
 
 #### Quality
 
 * [ ] Check and develop logs and tracking
 * [ ] Improve quality of source links sometimes landing pages are provided not the detailed content - e.g. https://www.fanaticalfuturist.com/2025/03/ambition-power-opportunity-mbp-partners-uk-matthew-griffin-motivational-keynote-speaker/
-* [ ] Dates still not working 100%
+* [X] Dates still not working 100% *Dates fixed*
 * [ ] Check how the PDF search tool works
 * [ ] **Improve PDF market force extraction**
   * [ ] Consider creating a deidicated Marekt_force extraction tool or using another tool better suited to searching PDFs

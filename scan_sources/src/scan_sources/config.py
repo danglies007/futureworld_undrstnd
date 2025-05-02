@@ -1,18 +1,7 @@
 #config.py
 
 import os
-
-USER_INPUT_VARIABLES = {
-    "work_type": "Tsunamis of Change - Signal Scanner",
-    "current_year": "2025",
-    "topic": "Mega Trends",
-    "industry": "",
-    "market": "Globally", # define the market for analysis
-    "company": "", # add company name
-    "company_short": "", # add short company name
-    "company_website": "", # add company website
-    "minimum_forces": 10
-} 
+from datetime import datetime
 
 # Sources for research
 SOURCES_CONSULTING_FIRMS = [
@@ -121,4 +110,20 @@ MARKET_FORCE_DEFINITIONS = {
     "key_finding_definition": "A key finding is a factual observation or data point extracted directly from a source (e.g., 'Market size reached X billion').",
     
     "key_insight_definition": "A key insight is an interpretation of one or more findings, explaining the 'so what?' and its significance or implications (e.g., 'The market size growth indicates rapid adoption driven by Y factors, implying Z for future strategy').",
+}
+
+
+RESEARCH_INPUTS = {
+    'specialisation': 'News Sources',
+    'topic': 'Global Market Forces impacting Mobility industry',
+    'market': '',
+    'business': '',
+    'audience': 'Expert',
+    'specific_points_of_interest': [],
+    'research_sources': SOURCES_NEWS_SOURCES,
+    'minimum_number_of_sources': 15,
+    'maximum_number_of_sources': 20,
+    'minimum_number_of_forces': 0,
+    'date': datetime.now().strftime('%Y-%m-%d'),
+    'market_force_definition': MARKET_FORCE_DEFINITIONS
 }
