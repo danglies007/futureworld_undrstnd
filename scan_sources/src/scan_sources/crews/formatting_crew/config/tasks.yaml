@@ -1,6 +1,6 @@
 # tasks.yaml - futurist_formatting_crew
 
-futurist_formatting_task:
+markdown_formatting_task:
   description: >
     You will receive a Market Force Analysis Report as input. Format it as a beautiful markdown document, following the specified formatting guidelines.
 
@@ -26,4 +26,27 @@ futurist_formatting_task:
     18. Ensure all content from the MarketForceAnalysisReport object is considered and incorporated into the final report.
   expected_output: >
     A beautifully formatted markdown report with proper structure, spacing, citations, and visual elements that enhance readability and presentation.  It should include all necessary content, required formatting, sections, and attributions.
-  agent: futurist_formatter
+  agent: markdown_formatter
+
+
+table_formatting_task:
+  description: >
+    You will receive a Market Force Analysis Report as input. Format it as a well structured, comprehensive table or tables showing all the information captured in the report related to {topic} and {market} and {business} if they are provided.  Your audience is {audience}. 
+
+    MARKET FORCE ANALYSIS REPORT: {report_final_content}
+    
+    1. Use clear table structure and titles etc.
+    2. Use proper markdown headers (#, ##, ###), and other markdown formatting to generate the table.
+    3. Do not try to overly summarize or condense the content provided.
+    4. Do not rename any of the market forces provided anywhere in the report as cross referenceing may be required. 
+    5. Include all content from the report in the table or tables, e.g. key findings and key insights, implications and explanations, signals etc..  
+    6. Ensure dates is properly formatted in this format: YYYY-MM-DD.
+    7. Add inline citations where sources are required (Author, Year, URL) format.
+    8. Include a Sources section at the end with numbered references.
+    9. Each source should include title, publisher/author, and URL.
+    10. Link inline citations to the corresponding entry in the Sources section.
+    11. Add a copyright notice at the end: "© {date} Futureworld & NexusPlus. All rights reserved."
+    12. Ensure all content from the MarketForceAnalysisReport object are considered and incorporated into the final report.
+  expected_output: >
+    A beautifully formatted table or set of tables, with proper structure, headings, titles spacing, citations, and visual elements that enhance readability and presentation.  It should include all necessary content, required formatting, and attributions.
+  agent: table_formatter

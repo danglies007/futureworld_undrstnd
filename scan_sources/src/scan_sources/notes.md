@@ -25,14 +25,15 @@
 
 1. ** Add second and 3rd order implications of the forces ?**
 
-2. [ ] Improve the agent outputs for the source identification to ensure the date is correct etc.
-3. [ ] Conside adding a quality / relevance score to the sources
-4. [X] Improve url search
-5. [X] Fix agents and tasks
-6. [X] Cleanup code base
-7. [ ] Optimise LLMs and defnitions
-8. [X] Refine report format*sorted this out a bit into a market forces report, need to integrate this with other sources*
-9. [ ] Refine pydantic models
+2. [ ] Make sure that relevant content is passed from one task to the next and then into the final report  - e.g. number of sources used etc.
+3. [ ] Improve the agent outputs for the source identification to ensure the date is correct etc.
+4. [ ] Conside adding a quality / relevance score to the sources
+5. [X] Improve url search
+6. [X] Fix agents and tasks
+7. [X] Cleanup code base
+8. [ ] Optimise LLMs and defnitions
+9. [X] Refine report format*sorted this out a bit into a market forces report, need to integrate this with other sources*
+1. [ ] Refine pydantic models
 1. [X] Update source url models
 1. [X] Parameterize inputs
 1. [ ] Parameterise LLMs

@@ -108,24 +108,38 @@ class FormattingCrew():
     tasks_config = 'config/tasks.yaml'
 
     @agent
-    def futurist_formatter(self) -> Agent:
+    def markdown_formatter(self) -> Agent:
         return Agent(
-            config=self.agents_config['futurist_formatter'],
+            config=self.agents_config['markdown_formatter'],
             llm=llm_gpt_4_1,
             verbose=True
         )
 
-    # To learn more about structured task outputs,
-    # task dependencies, and task callbacks, check out the documentation:
-    # https://docs.crewai.com/concepts/tasks#overview-of-a-task
+    @agent
+    def table_formatter(self) -> Agent:
+        return Agent(
+            config=self.agents_config['table_formatter'],
+            llm=llm_gpt_4_1,
+            verbose=True
+        )
 
     @task
-    def futurist_formatting_task(self) -> Task:
+    def markdown_formatting_task(self) -> Task:
         specialisation = self.research_inputs.get("specialisation")
         topic_short = self.research_inputs.get("topic_short")
         return Task(
-            config=self.tasks_config['futurist_formatting_task'],
-            output_file=f'outputs/futurist_report_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
+            config=self.tasks_config['markdown_formatting_task'],
+            output_file=f'outputs/markdown_report_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
+        )
+
+    @task
+    def table_formatting_task(self) -> Task:
+        specialisation = self.research_inputs.get("specialisation")
+        topic_short = self.research_inputs.get("topic_short")
+        return Task(
+            async_execution=True,
+            config=self.tasks_config['table_formatting_task'],
+            output_file=f'outputs/table_report_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
         )
 
     @crew
