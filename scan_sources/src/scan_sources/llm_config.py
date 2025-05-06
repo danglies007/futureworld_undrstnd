@@ -18,19 +18,29 @@ llm_gemini_2_5_pro = LLM(model="gemini/gemini-2.5-pro-exp-03-25", max_rpm=5) #
 llm_gemini_2_5_pro_preview = LLM(model="gemini/gemini-2.5-pro-preview") # Pro reasoning $2.50/$15
 
 # Chat
+# llm_gpt_4_1 = LLM(model="gpt-4o-2024-11-20") # $2.00/$8.00
 llm_gpt_4_1 = LLM(model="gpt-4.1-2025-04-14") # $2.00/$8.00
+
 llm_gpt_4_1_mini = LLM(model="gpt-4.1-mini-2025-04-14") # $0.4/$1.60
 llm_gpt4o_mini = LLM(model="gpt-4o-mini-2024-07-18") # Fast and cheap $0.15/$0.60
 llm_claude_3_5_hauku = LLM(model="claude-3-5-hauku-latest") # Fast and cheap $.80/$4
 llm_gpt4o = LLM(model="gpt-4o-2024-11-20") # Fast intelligent $2.50/$10
-llm_claude_3_7_sonnet = LLM(model="claude-3-7-sonnet-latest")# Fast intelligent $3/$15 - May need rate limiting via litellm.rate_limit_config
+llm_claude_3_7_sonnet = LLM(
+    model="claude-3-7-sonnet-20250219", 
+    temperature=0.1, 
+    max_completion_tokens=5000, 
+    max_tokens=5000
+)# Fast intelligent $3/$15 - May need rate limiting via litellm.rate_limit_config
+llm_claude_3_7_sonnet_old = LLM(model="claude-3-7-sonnet-latest")# Fast intelligent $3/$15 - May need rate limiting via litellm.rate_limit_config
 llm_claude_3_5_sonnet = LLM(model="claude-3-5-sonnet-latest") # Fast intelligent $3/$15
 llm_gemini_2_0_flash = LLM(model="gemini/gemini-2.0-flash") # Fast intelligent $0.1/$0.4
 llm_gemini_2_5_flash = LLM(model="gemini/gemini-2.5-flash-preview-04-17") # Fast intelligent $0.15/$0.6
 llm_gemini_2_0_flash_lite = LLM(model="gemini/gemini-2.0-flash-lite") # Fast intelligent $.075/$0.30
 
 
+
 # Customised
+# llm_gpt_4_1_accurate = LLM(model="gpt-4o-2024-11-20", temperature=0.1)
 llm_gpt_4_1_accurate = LLM(model="gpt-4.1-2025-04-14", temperature=0.1)
 
 llm_gpt4o_accurate = LLM(model="gpt-4o-2024-11-20", temperature=0.1, max_completion_tokens=8000, max_tokens=8000)

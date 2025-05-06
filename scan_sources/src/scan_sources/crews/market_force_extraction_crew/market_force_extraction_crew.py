@@ -17,10 +17,6 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
 warnings.filterwarnings("ignore", category=PydanticDeprecatedSince20)
 
-# If you want to run a snippet of code before or after the crew starts, 
-# you can use the @before_kickoff and @after_kickoff decorators
-# https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
-
 # File management imports
 import os
 import datetime
@@ -32,16 +28,6 @@ litellm._turn_on_debug()
 # Pydantic and model imports
 from pydantic import BaseModel
 from typing import List
-
-# # Import User Inputs from config.py
-# from scan_sources.config import (
-# 	USER_INPUT_VARIABLES,
-# 	SOURCES_CONSULTING_FIRMS,
-# 	SOURCES_FUTURISTS,
-# 	SOURCES_NEWS_SOURCES,
-# 	SOURCES_GOV_NON_PROFIT,
-# 	SOURCES_PATENTS
-# )
 
 # Import Pydantic models - Used to generate Market Force research and report
 from scan_sources.models import (
@@ -63,6 +49,7 @@ from scan_sources.llm_config import (
 	llm_gpt4o_mini,
 	llm_gpt4o_mini_accurate,
 	llm_gpt4o_accurate,
+    llm_claude_3_7_sonnet,
 	llm_perplexity_via_openai,
 	llm_perplexity_custom_patch,
 	llm_gemini_2_5_pro,
@@ -107,9 +94,6 @@ class MarketForceExtractionCrew():
 
     agents_config = 'config/agents.yaml'
     tasks_config = 'config/tasks.yaml'
-
-    # If you would like to add tools to your agents, you can learn more about it here:
-    # https://docs.crewai.com/concepts/agents#agent-tools
     
     @agent
     def html_market_force_extractor(self) -> Agent:
@@ -126,8 +110,7 @@ class MarketForceExtractionCrew():
             verbose=True,
             respect_context_window=True,
             cache=True,
-            function_calling_llm=llm_gpt_4_1_accurate,
-            max_retry_limit=3
+            function_calling_llm=llm_gpt_4_1,
         )
 
     @agent
@@ -139,15 +122,14 @@ class MarketForceExtractionCrew():
             verbose=True,
             respect_context_window=True,
             cache=True,
-            function_calling_llm=llm_gpt_4_1_accurate,
-            max_retry_limit=3
+            function_calling_llm=llm_gpt_4_1,
         )
 
     @agent
     def market_force_combiner(self) -> Agent:
         return Agent(
             config=self.agents_config['market_force_combiner'],
-            llm=llm_gpt4o_mini,
+            llm=llm_gpt4o_mini_accurate,
             verbose=True,
             respect_context_window=True,
             cache=True,

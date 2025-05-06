@@ -17,10 +17,6 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
 warnings.filterwarnings("ignore", category=PydanticDeprecatedSince20)
 
-# If you want to run a snippet of code before or after the crew starts, 
-# you can use the @before_kickoff and @after_kickoff decorators
-# https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
-
 # File management imports
 import os
 import datetime
@@ -32,16 +28,6 @@ litellm._turn_on_debug()
 # Pydantic and model imports
 from pydantic import BaseModel
 from typing import List
-
-# # Import User Inputs from config.py
-# from scan_sources.config import (
-# 	USER_INPUT_VARIABLES,
-# 	SOURCES_CONSULTING_FIRMS,
-# 	SOURCES_FUTURISTS,
-# 	SOURCES_NEWS_SOURCES,
-# 	SOURCES_GOV_NON_PROFIT,
-# 	SOURCES_PATENTS
-# )
 
 # Import Pydantic models - Used to generate Market Force research and report
 from scan_sources.models import (
@@ -63,12 +49,14 @@ from scan_sources.llm_config import (
 	llm_gpt4o_mini,
 	llm_gpt4o_mini_accurate,
 	llm_gpt4o_accurate,
+    llm_claude_3_7_sonnet,
 	llm_perplexity_via_openai,
 	llm_perplexity_custom_patch,
 	llm_gemini_2_5_pro,
 	llm_gemini_2_0_flash,
 	llm_gemini_2_5_flash,
 	llm_gpt_4_1_mini,
+    llm_gpt_4_1_accurate,
     llm_gpt_4_1
 )
 llm_perplexity_custom_crew_patch = PerplexityLLM()
@@ -111,8 +99,10 @@ class SourceIdentificationCrew():
     def source_identifier(self) -> Agent:
         return Agent(
             config=self.agents_config['source_identifier'],
-            llm=llm_gpt_4_1,
+            llm=llm_gpt_4_1_accurate,
             tools=[SerperDevTool(),ScrapeWebsiteTool()],
+            respect_context_window=True,
+            cache=True,
             verbose=True
         )
 

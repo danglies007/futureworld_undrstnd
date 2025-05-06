@@ -1,6 +1,6 @@
 # tasks.yaml - futurist_reporting_crew - Purly focused on developing market force overview
 
-futurist_reporting_task:
+reporting_task:
   description: >
     You will receive a list of MARKET FORCES as input (from the previous crew, in ResearchOutput format).
     Synthesise these into a comprehensive market force overview according to the MarketForceAnalysisReport schema.
@@ -63,4 +63,4 @@ futurist_reporting_task:
 
   expected_output: >
     A valid JSON object following the MarketForceAnalysisReport schema, containing a clear market force analysis with all information reuqred from the MarketForceAnalysisReport schema. All information must be derived solely from the provided market forces with proper attribution.
-  agent: futurist_reporting_analyst
+  agent: reporting_analyst

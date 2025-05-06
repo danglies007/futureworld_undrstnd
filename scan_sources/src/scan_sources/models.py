@@ -2,8 +2,11 @@ from typing import List, Optional, Dict, Any, Literal
 from pydantic import BaseModel, Field, field_validator
 import uuid
 import json
-from datetime import datetime
+from datetime import date, datetime, time, timedelta
+
+
 from config import RESEARCH_INPUTS
+
 
 specialisation = RESEARCH_INPUTS['specialisation']
 
@@ -22,6 +25,15 @@ class SearchMetadata(BaseModel):
     search_results_count: Optional[int] = Field(None, description="Number of total results found")
     search_position: Optional[int] = Field(None, description="Position in search results where this was found")
 
+# Not using this yet, want to use this to capture the details of the crew used to generate this market report
+class Crewdetails(BaseModel):
+    """Details about the CrewAI flow and crew used to generate this market report."""
+    topic: str = Field(..., description="The topic of the overall output")
+    crew_name: str = Field(..., description="The crew used to generate this output")
+    start_time: str = Field(..., description="When this crew started")
+    end_time: str = Field(..., description="When this crew ended")
+    llm_used: str = Field(..., description="The LLM used to generate this output")
+
 class SourceLink(BaseModel):
     """Represents a link to a source with its title."""
     title: str = Field(..., description="Title of the source or key term link")
@@ -29,7 +41,7 @@ class SourceLink(BaseModel):
     date: Optional[str] = Field(None, description="Optional publication date for the source")
 
 class RawMarketForce(BaseModel):
-    title: str = Field(..., description="Brief title of the identified market force")
+    raw_market_force_title: str = Field(..., description="Brief title of the identified market force")
     raw_description: str = Field(..., description="The original description as found in the source")
     # source_origin: str = Field(..., description="Category of the research source", enum=["Futurist", "Academic Paper", "Patent", "Consultant Report", "Industry Publication", "News Article", "Market Research", "Government Report", "Think Tank", "Social Media", "Other"])
     # source_name: str = Field(..., description="Name of the specific source")

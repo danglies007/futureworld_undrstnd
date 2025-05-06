@@ -17,10 +17,6 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
 warnings.filterwarnings("ignore", category=PydanticDeprecatedSince20)
 
-# If you want to run a snippet of code before or after the crew starts, 
-# you can use the @before_kickoff and @after_kickoff decorators
-# https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
-
 # File management imports
 import os
 import datetime
@@ -32,16 +28,6 @@ litellm._turn_on_debug()
 # Pydantic and model imports
 from pydantic import BaseModel
 from typing import List
-
-# # Import User Inputs from config.py
-# from scan_sources.config import (
-# 	USER_INPUT_VARIABLES,
-# 	SOURCES_CONSULTING_FIRMS,
-# 	SOURCES_FUTURISTS,
-# 	SOURCES_NEWS_SOURCES,
-# 	SOURCES_GOV_NON_PROFIT,
-# 	SOURCES_PATENTS
-# )
 
 # Import Pydantic models - Used to generate Market Force research and report
 from scan_sources.models import (
@@ -63,6 +49,7 @@ from scan_sources.llm_config import (
 	llm_gpt4o_mini,
 	llm_gpt4o_mini_accurate,
 	llm_gpt4o_accurate,
+    llm_claude_3_7_sonnet,
 	llm_perplexity_via_openai,
 	llm_perplexity_custom_patch,
 	llm_gemini_2_5_pro,
@@ -112,6 +99,8 @@ class FormattingCrew():
         return Agent(
             config=self.agents_config['markdown_formatter'],
             llm=llm_gpt_4_1,
+            respect_context_window=True,
+            cache=True,
             verbose=True
         )
 
@@ -120,6 +109,8 @@ class FormattingCrew():
         return Agent(
             config=self.agents_config['table_formatter'],
             llm=llm_gpt_4_1,
+            respect_context_window=True,
+            cache=True,
             verbose=True
         )
 
@@ -132,15 +123,15 @@ class FormattingCrew():
             output_file=f'outputs/markdown_report_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
         )
 
-    @task
-    def table_formatting_task(self) -> Task:
-        specialisation = self.research_inputs.get("specialisation")
-        topic_short = self.research_inputs.get("topic_short")
-        return Task(
-            async_execution=True,
-            config=self.tasks_config['table_formatting_task'],
-            output_file=f'outputs/table_report_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
-        )
+    # @task
+    # def table_formatting_task(self) -> Task:
+    #     specialisation = self.research_inputs.get("specialisation")
+    #     topic_short = self.research_inputs.get("topic_short")
+    #     return Task(
+    #         async_execution=True,
+    #         config=self.tasks_config['table_formatting_task'],
+    #         output_file=f'outputs/table_report_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
+    #     )
 
     @crew
     def crew(self) -> Crew:

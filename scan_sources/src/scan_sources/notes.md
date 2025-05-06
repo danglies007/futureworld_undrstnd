@@ -23,8 +23,6 @@
 
 #### Optimise (current features)
 
-1. ** Add second and 3rd order implications of the forces ?**
-
 2. [ ] Make sure that relevant content is passed from one task to the next and then into the final report  - e.g. number of sources used etc.
 3. [ ] Improve the agent outputs for the source identification to ensure the date is correct etc.
 4. [ ] Conside adding a quality / relevance score to the sources
@@ -39,6 +37,7 @@
 1. [ ] Parameterise LLMs
 1. [X] Consider the Market force definitions from Futureworld*captured some context here and have tried to incorporate it into the reports*
 1. [ ] Optimise token usage with system prompts and other usefule tools and techniques
+
      1. [ ] See claude suggestions re:pydantic model optionsisation and optional text
 1. [X] Sort out names of agents and tasks in the .yaml files remove futurist references and make them more generic
 1. [ ] Linked in posts are causing issues with comments - exclude for now

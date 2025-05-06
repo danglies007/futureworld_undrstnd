@@ -78,15 +78,15 @@ BUSINESS_INTELLIGENCE_SOURCES = [
 ]
 
 SOURCES_FUTURISTS_OLD = [
-    "https://futuristspeaker.com/",
-    "https://www.futuristgerd.com/",
-    "https://burrus.com/",
-    "https://www.diamandis.com/",
-    "https://www.pearson.uk.com/",
-    "https://www.matthewgriffin.info/",
-    "https://www.kurzweilai.net/",
-    "https://richardvanhooijdonk.com/en/",
-    "https://www.amywebb.com/"
+    "Ian Pearson",
+    "Matthew Griffin",
+    "Ray Kurzweil",
+    "Richard Van Hooijdonk",
+    "Amy Webb",
+    "Thomas Frey",
+    "Gerd Leonhard",
+    "Daniel Burrus"
+    "Peter Diamandis"
 ]
 
 SOURCES_PATENTS = [
@@ -95,8 +95,69 @@ SOURCES_PATENTS = [
     "https://www.lens.org",
     "https://www.epo.org/en",
     "https://worldwide.espacenet.com"
-
 ]
+
+SOURCES_MINING = [
+    "MiningGlobal.com",
+    "Mining.com",
+    "Mining Magazine",
+    "Mining Journal",
+    "Mining Technology",
+    "Mining Weekly",
+    "Mining News"
+]
+
+SOURCES_FAVOURITE_SHORT = [
+    "Mckinsey",
+    "Bain",
+    "BCG",
+    "WEF",
+    "IMF",
+    "World Bank",
+    "patents.google.com"
+]
+
+# Favourite sources
+SOURCES_FAVOURITE = [
+    "Mckinsey",
+    "Bain",
+    "BCG",
+    "WEF",
+    "IMF",
+    "Financial Times",
+    "The Wall Street Journal",
+    "Reuters",
+    "CNBC",
+    "Business Insider",
+    "The Information",
+    "The Economist",
+    "The Times",
+    "Bloomberg",
+    "Forbes",
+    "Bloomberg Businessweek",
+    "Fast Company",
+    "Inc.",
+    "technology review",
+    "newscientist",
+    "MIT Sloan Management Review",
+    "Harvard Business Review",
+    "Andreessen Horowitz",
+    "ycombinator",
+    "Amy Webb",
+    "Peter Diamandis",
+    "Gerd Leonhard",
+    "Thomas Frey",
+    "MiningGlobal.com",
+    "Mining.com",
+    "Mining Magazine",
+    "Mining Journal",
+    "Mining Technology",
+    "Mining Weekly",
+    "Mining News"
+]
+
+
+
 # Combined dictionary for backward compatibility
 SPECIFIED_SOURCES = {
     "consulting_firms": SOURCES_CONSULTING_FIRMS,
@@ -124,7 +185,7 @@ MARKET_FORCE_DEFINITIONS = {
     
     "market_definition": "Context (the how): The market refers to the specific industries including competitors, customer demographics and demand trends.​ Impact (the why): Analysing the market helps businesses identify opportunities, understand their competitive position, and tailor strategies to meet market demands.",
 
-    "business_definition": "Context (the how): The business models that will be required to be successful in the market and environment. This encompasses internal operations, resources, and capabilities, such as organisational structure, technology, partnerships and capital.​ Impact (the why): Businesses need to configure their business models to optimise performance, leverage strengths, and align capabilities with external opportunities.",
+    "business_definition": "Context (the hoßw): The business models that will be required to be successful in the market and environment. This encompasses internal operations, resources, and capabilities, such as organisational structure, technology, partnerships and capital.​ Impact (the why): Businesses need to configure their business models to optimise performance, leverage strengths, and align capabilities with external opportunities.",
     
     "market_force_definition": "Global market forces set the stage for business environments by driving shifts in supply, demand, and competition across industries. A market force is a significant external driver that influences how industries, markets, and societies evolve over time. It represents a broad pattern or pressure — legal, economic, technological, regulatory, environmental, or social — that shapes behaviors, decisions, and value creation. Market forces often persist over the medium to long term, exhibit measurable or emerging momentum, and may carry varying levels of impact and uncertainty. Identifying market forces helps organizations anticipate change, uncover opportunities or threats, and inform strategic responses. examples include Russia / Ukraine conflict​, Climate change​, Inflation and rising costs, Energy security Growing middle class, Rapid urbanisation",
     
@@ -135,16 +196,16 @@ MARKET_FORCE_DEFINITIONS = {
 
 
 RESEARCH_INPUTS = {
-    'specialisation': 'VC',
-    'topic': 'Global Market Forces affecting Mobility Industry',
-    'topic_short': 'Mobility_forces', # used for file naming
+    'specialisation': 'Various',
+    'topic': 'Global Market Forces affecting the Energy and Chemicals Industry',
+    'topic_short': 'Energy_chem_forces', # used for file naming
     'market': '',
     'business': '',
     'audience': 'Expert',
     'specific_points_of_interest': ['PDF files'],
-    'research_sources': SOURCES_VENTURE_CAPITAL + SOURCES_CONSULTING_FIRMS + SOURCES_GOV_NON_PROFIT + SOURCES_NEWS_SOURCES + SOURCES_ACADEMIC + SOURCES_FUTURISTS + SOURCES_PATENTS,
+    'research_sources': SOURCES_FAVOURITE_SHORT,
     'minimum_number_of_sources': 20,
-    'maximum_number_of_sources': 30,
+    'maximum_number_of_sources': 25,
     'minimum_number_of_forces': 0,
     'date': datetime.now().strftime('%Y-%m-%d'),
     'market_force_definition': MARKET_FORCE_DEFINITIONS

@@ -1,0 +1,21 @@
+research_task:
+  description: >
+    Conduct a thorough analysis of {topic} using your data analysis capabilities.
+    Examine any numerical data, identify trends, and perform statistical analysis where appropriate.
+    Consider the context that the current year is {current_year} when interpreting results.
+  expected_output: >
+    A comprehensive analysis report with:
+    1. Key statistical findings
+    2. Identified trends and patterns
+    3. Data visualizations (described in text)
+    4. Recommendations based on the analysis
+  agent: interpreter_agent
+
+reporting_task:
+  description: >
+    Review the context you got and expand each topic into a full section for a report.
+    Make sure the report is detailed and contains any and all relevant information.
+  expected_output: >
+    A fully fledged report with the main topics, each with a full section of information.
+    Formatted as markdown without '```'
+  agent: reporting_analyst
