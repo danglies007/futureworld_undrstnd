@@ -18,12 +18,13 @@ markdown_formatting_task:
     10. Ensure the date is properly formatted.
     11. Add a table of contents at the beginning.
     12. Use horizontal rules (---) to separate major sections.
-    13. Add inline clickable citations for each major claim, key finding or key insight using (Author, URL) format.
+    13. Add inline clickable citations for each major claim, key finding or key insight using (Author, URL) format.  Make these a different color to the standard text.
     14. Include a Sources section at the end with numbered references.
-    15. Each source should include title, publisher/author, and URL.
+    15. Each source should include title, date, publisher/author, and URL.
     16. Link inline citations to the corresponding entry in the Sources section.
-    17. Add a copyright notice at the end: "© {date} Futureworld & NexusPlus. All rights reserved."
-    18. Ensure all content from the MarketForceAnalysisReport object are considered and incorporated into the final report.
+    17. Add a glossary at the end.
+    18. Add a copyright notice at the end: "© {date} Futureworld & NexusPlus. All rights reserved."
+    19. Ensure all content from the MarketForceAnalysisReport object are considered and incorporated into the final report.
   expected_output: >
     A beautifully formatted markdown report with proper structure, spacing, citations, and visual elements that enhance readability and presentation.  It should include all content, required formatting, sections, and attributions.
   agent: markdown_formatter

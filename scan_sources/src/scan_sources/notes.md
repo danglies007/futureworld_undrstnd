@@ -1,5 +1,32 @@
 # General Notes
 
+## Planning states
+
+1. Sources
+   1. have a proposed sources
+   2. Have an approved sources
+   3. have an additional source
+2. Flow
+   1. Flow starts
+      1. Loads an overview of the key inputs (Topic, Preferred Sources, start time, date)
+      2. Stores this in a Flow overview state
+   2. Then goes to the Scan sources
+      1. If there is a file that starts with "proposed_sources" in the flow_status folder:
+
+         1. Ask the user to review this file
+         2. The user can review and save the file with a filename start of "approved_sources" in flow_status folder, here the user will indicate that an approved_sources file has been saved, or
+         3. The user can accept the file as is
+      2. Once the user has reviewed:
+
+         1. If the user accepts the file, Save the file
+
+         * 1. with a filename start of "approved_sources" in flow_status folder.
+           2. Set the sources_result state to sources_result - this is essentially a user approved list of sources to review
+         * If there is a file that starts with "additional_sources" in the flow_status folder, then
+           1. Take the additional_sources and set them as sources_result so they can be passed onto the market_force extraction.
+           2. During this step we must make sure that the existing market_forces file is added as context to the crew and the new additional_sources are appended to the initial file, this iwll ensure the additional sources market forces do not overide the existing forces
+      3. 
+
 ## Points for discussion
 
 1. Good progress, refining how oututs are developed and the content of the report

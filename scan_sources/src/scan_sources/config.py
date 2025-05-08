@@ -114,7 +114,21 @@ SOURCES_FAVOURITE_SHORT = [
     "WEF",
     "IMF",
     "World Bank",
-    "patents.google.com"
+    "patents.google.com",
+    "Financial Times",
+    "The Wall Street Journal",
+    "Reuters Business",
+    "CNBC",
+    "Business Insider",
+    "The Information",
+    "The Times – Business Section",
+    "The Economist",
+    "The Times",
+    "Bloomberg",
+    "Forbes",
+    "Bloomberg Businessweek",
+    "Fast Company",
+    "Inc."
 ]
 
 # Favourite sources

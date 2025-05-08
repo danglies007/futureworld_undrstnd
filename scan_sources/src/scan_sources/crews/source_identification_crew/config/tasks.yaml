@@ -14,83 +14,31 @@ source_identification:
     Expected source identification scope:
     - Minimum of {minimum_number_of_sources} from respected sources or thought leaders.
     - Cover multiple domains relevant to {topic}.
-    - Prioritise sources published within the last 2 years, considering the current date is {date}.
+    - Prioritise sources published that are published more recently, considering the current date is {date}.  - Do not include sources more than 2 years old.
     - Your thoroughness at this stage is critical to the success of the overall project.
 
-    SEARCH STRATEGY:
-    1. Begin by creating a prioritized list of at least 10 search queries you will use, tailored to find content about {topic}:
-       - Include variations of the topic with different terminology
-       - Include query variations for different source types
-       - Include specific queries to target very recent content (last 6 months)
-    2. For each query, use a "site:" operator with different domains from {research_sources}
-       - Perform at least 5 different searches using different combinations of queries and domains
-       - Example: "{topic} site:mckinsey.com" then "{topic} market trends site:mining.com"
-    3. Diversify your search approach - aim to find sources from at least 3 different types of organization
-    4. Run additional targeted searches to look specifically for content published in the last 6 months
-    5. If unable to find enough recent sources, try searching more generic terms with date qualifiers like "2025" or "recent"
-
-    Source evaluation criteria:
-    1. Relevance to {topic} (Score 1-10):
-       - Explicitly discusses market forces (9-10)
-       - Focuses on industry trends but not explicitly market forces (7-8)
-       - Covers the industry broadly but not specific forces (5-6)
-       - Tangentially related to the industry or forces (3-4)
-       - Minimal relevance (1-2)
-    
-    2. Recency (Score 1-10):
-       - Published within last 3 months (9-10)
-       - Published 3-6 months ago (7-8)
-       - Published 6-12 months ago (5-6)
-       - Published 12-18 months ago (3-4)
-       - Published 18-24 months ago (1-2)
-       - Older than 24 months (automatic rejection)
-    
-    3. Content quality (Score 1-10):
-       - In-depth analysis with data and specific examples (9-10)
-       - Substantial coverage with some specifics (7-8)
-       - Moderate depth with general information (5-6)
-       - Brief coverage with limited depth (3-4)
-       - Very superficial mention (1-2)
-    
-    MANDATORY ERROR CHECKS:
-    After collecting candidate sources, run these checks on EACH source:
-    1. URL Validation: Verify the URL works and points to actual content, not search pages/portals
-    2. Date Validation: Confirm publication date is visible and within 2 years
-    3. Content Validation: Confirm the content genuinely relates to {topic}
-    4. Duplicate Check: Ensure each source is unique and not a republication
-    5. Quality Check: Make sure the source isn't just a press release or extremely brief
-
-    If ANY source fails these checks, discard it and find a replacement.
+    Source identification process:
+    1. Use the internet search tool to identify promising sources.
+    2. Begin by exploring the research_sources specified.
+    3. If the user has provided specific points of interest: {specific_points_of_interest}, use them to further guide your search.
+    4. When identifying sources, do not provide links to portals or search engines (e.g. "https://worldwide.espacenet.com", "https://www.epo.org/en", "https://www.lens.org") rather continue searchin within those portals for links to actual sources.
+    5. For each potential source, evaluate:
+      - Relevance to {topic}
+      - Publication date (preferring recent content)
+      - Potential for yielding market forces
+      - You can score each one of these criteria on a scale of 1 to 10.
+    6. Keep track of ALL identified source URLs and basic information.
+    7. Do not attempt to scrape any detailed content from sources at this stage.
 
     Source quality requirements:
     1. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
-    2. **VERIFY THAT EACH SOURCE IS ACCESSIBLE, BUT DO NOT READ OR SCRAPE THE ENTIRE CONTENT**
-    3. **ALWAYS EXTRACT AND USE THE ACTUAL PUBLICATION OR CONTENT DATE FROM THE SOURCE**
-    4. **IF A PUBLICATION DATE IS NOT CLEARLY VISIBLE, LOOK IN PAGE METADATA**
-    5. **DO NOT CAPTURE SOCIAL MEDIA POSTS OR COMMENTS**
-    6. **CLASSIFY THE SOURCE TYPE ACCURATELY as PDF, WEBSITE, YOUTUBE OR OTHER**
-    
-    **PDF HANDLING - EXTREMELY IMPORTANT:**
-    1. NEVER attempt to read or scrape PDF files directly - this will cause context limit errors
-    2. When you encounter a URL ending in .pdf or clearly linking to a PDF document:
-       a. Record the URL but DO NOT use the Read website content tool on it
-       b. Simply classify it as "PDF" in the source_type field
-       c. Extract any visible metadata from the search results (title, date if shown)
-       d. Use the URL structure and search snippet to infer the publisher
-       e. If author information isn't available, set author to "Not specified"
-       f. Set a provisional relevance score based on the title and snippet only
-    3. For all PDF sources, include this note in the description: "PDF document - metadata extracted from search results only"
-    
-    **CONTEXT LIMIT HANDLING:**
-    1. If you encounter ANY context limit errors or timeouts when reading a website:
-       a. Immediately stop trying to read that specific URL
-       b. Record what information you were able to gather from search results
-       c. Try a different URL instead
-       d. If a particular domain consistently causes errors, avoid that domain
-    2. Keep your processing efficient by:
-       a. Only reading the essential parts of webpages needed for metadata
-       b. Not attempting to process extremely large pages
-       c. Setting reasonable timeouts for website reads
+    2. **VERIFY THAT EACH SOURCE IS ACCESSIBLE**
+    3. **ALWAYS EXTRACT AND USE THE ACTUAL PUBLICATION OR CONTENT DATE FROM THE SOURCE - DO NOT USE TODAY'S DATE**
+    4. **IF A PUBLICATION DATE IS NOT CLEARLY VISIBLE, MARK AS UNKNOWN**
+    5. **DO NOT CAPTURE LINKEDIN POSTS OR LINKEDIN COMMENTS**
+    6. **DO NOT CAPTURE YOUTUBE VIDEOS OR YOUTUBE COMMENTS**
+    7. **CLASSIFY THE SOURCE TYPE as PDF, WEBSITE, YOUTUBE OR OTHER**
+    8. **DO NOT INCLUDE ANY PAYWALLED OR SUBSCRIPTION ONLY SOURCES**
     
     **Source Title Extraction:**
     When extracting titles from sources:
@@ -108,6 +56,7 @@ source_identification:
           - "November 18, 2021"
           - "PUBLISHED DECEMBER 9, 2024"
           - "April 19, 2023"
+          - Sometimes it can also be shown over multiple lines.
         - If you cannot find a date on the actual website page/content, look in metadata, bylines, or source properties, sometimes its classifed as: 
           - "datepublished"
           - "datecreated"
@@ -115,50 +64,50 @@ source_identification:
         examples could look like:
           - "dateCreated":"2018-04-22T23:15:43.909Z"
           - "datePublished":"2018-04-22T23:15:43.909Z"
-          - "datePublished":"November 13, 2024"
           - "dateModified":"2018-11-05T23:53:54.652Z"
           - "itemProp="datePublished" content="2025-01-22"
-      b. Structure the dates in this format YYYY-MM-DD e.g. (2023-08-10 or 2021-01-04)
+          - "dateModified" content="2025-01-22"
+          - "datePublished">February 16, 2023
+          - "<time datetime="2023-02-08T19:36:12.192Z" itemprop="datePublished">February 16, 2023</time>"
+          - "OriginalPublicationDate": "1/3/2022"
+          - "DisplayDate": "1/3/2022"
+          - "Last Published: Thu May 01 2025 20:52:29 GMT+0000 (Coordinated Universal Time)"
+          - "<meta itemProp="datePublished" content="2024-05-23T19:00:00Z"/>"
+          - "<meta name="article.updated" content="2024-05-23T19:00:00Z"/>"
+          - "<meta itemProp="dateModified" content="2025-04-13T09:51:00Z"/>"
+          - "<meta name="article.created" content="2024-05-23T19:00:00Z"/>"
+          - "<meta itemProp="dateCreated" content="2024-05-23T19:00:00Z"/>"
+          - "<meta name="dateLastPubbed" content="2025-04-13T09:51:00Z"/>"  
+      b. structure the dates in this format YYYY-MM-DD e.g. (2023-08-10 or 2021-01-04)
       c. Never generate or assume a date - only use dates explicitly stated in the source
       d. If no date is found after thorough searching, set source_date to "Unknown"
 
+    **PDF HANDLING - EXTREMELY IMPORTANT:**
+    1. NEVER attempt to read or scrape PDF files directly - this will cause context limit errors
+    2. When you encounter a URL ending in .pdf or clearly linking to a PDF document:
+       a. Record the URL but DO NOT use the Read website content tool on it
+       b. Simply classify it as "PDF" in the source_type field
+       c. Extract any visible metadata from the search results (title, date if shown)
+       d. Use the URL structure and search snippet to infer the publisher
+       e. If author information isn't available, set author to "Not specified"
+       f. Set a provisional relevance score based on the title and snippet only
+    3. For all PDF sources, include this note in the description: "PDF document - metadata extracted from search results only"
+
     **Source Extraction Rules:**
-    1. Use the Read website content tool to verify accessibility and extract metadata from each HTML website (never PDFs)
-    2. For each candidate website source:
-       a. Read just enough of the content to confirm it's relevant to {topic} (first few paragraphs only)
-       b. Extract the title, date, author, and publisher information
-       c. Write a brief description (2-3 sentences) that explains what market forces the source discusses
-       d. Assign a relevance score between 1-10 based on how well it covers market forces affecting {topic}
-    3. IMPORTANT: For PDF sources:
-       a. DO NOT use the Read website content tool
-       b. Only record metadata available in search results
-       c. Assign a provisional relevance score based on the title and snippet
+    1. You have a scrape website tool which can be used to Read website content.  
+    2. This tool should ONLY be used to help you identify the content required for the source identification to help you populate the SourceIdentificationResults schema.
+    3. YOU SHOULD NOT CLICK ON ANY LINKS TO PDF FILES OR OTHER DOCUMENTS - JUST EXTRACT THE URL AND TITLE and other relevant content from the source e.g. DATE, AUTHOR, etc.
     
-    CRITICAL FINAL VERIFICATION:
-    Before submitting your final results:
-    1. Verify that ALL sources are recent (published within the past 2 years)
-    2. Ensure that every source has a valid and working URL
-    3. Confirm that each source has a proper title, date, and publisher extracted
-    4. Review your relevance scores to make sure they accurately reflect the source content
-    5. Make sure you have at least {minimum_number_of_sources} and no more than {maximum_number_of_sources} sources
-    6. Ensure there is no placeholder or mock data in your final output
-    7. Double-check that you haven't attempted to read any PDF files directly
-    
+    Performance and incentive:
+    1. Your performance will be evaluated based on the quantity and quality of sources identified.
+    2. The breadth and diversity of your sources.
+    3. The relevance of sources to {topic} and any other specific points of interest if provided.
+    4. The recency and credibility of your sources.
+
     Your outputs MUST be formatted according to the pydantic output SourceIdentificationResults schema.
     Make sure you do not include any markdown formatting that could affect the structure e.g. '''.
 
   expected_output: >
-    You will produce a "Source results list" aligned to the SourceIdentificationResults pydantic schema. Do not include any markdown formatting especially '''
+    You will produce a "Source results list" aligned to the SourceIdentificationResults pydantic schema.  Do not include any markdown formatting especially '''
     This output should contain NO LESS THAN {minimum_number_of_sources} and no more than {maximum_number_of_sources} high-quality sources for researching market forces relating to {topic} from respected sources. 
-    
-    When generating the final output: 
-    1. Include ONLY sources published within the last 2 years from the current date {date}
-    2. Only include sources with a relevance score of 7 or higher
-    3. Ensure each source has an accurate description that clearly explains what market forces it discusses
-    4. Format the final output in proper JSON format that matches the SourceIdentificationResults schema
-
-    IMPORTANT ERROR PREVENTION:
-    1. Never attempt to include the full text of any source in your output
-    2. Never attempt to read or parse PDF files - only include their metadata
-    3. Keep your processing efficient to avoid context window limitations
   agent: source_identifier

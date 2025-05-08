@@ -7,8 +7,8 @@ from datetime import datetime
 from typing import Dict, Any
 from dotenv import load_dotenv
 load_dotenv()
-import agentops
-agentops.init()
+# import agentops
+# agentops.init()
                 
 from pydantic import BaseModel
 from crewai.flow import Flow, start, router,listen, and_, or_
@@ -25,6 +25,7 @@ from scan_sources.models import (
 class ScanState(BaseModel):
     research_context: dict = None
     source_results: SourceIdentificationResults = None
+    aggregated_market_forces: list = None
     extraction_results: ResearchOutput = None
     report: MarketForceAnalysisReport = None
     markdown_report: str = None
@@ -85,6 +86,7 @@ class ScanFlow(Flow[ScanState]):
         # If no user urls found, check for a saved report to move directly to formatting
         else:
             report_path = os.path.join("Resume_files", "saved_report.json")
+            aggregated_market_forces_path = os.path.join("Resume_files", "aggregated_market_forces.json")
             if os.path.exists(report_path):
                 with open(report_path, "r") as f:
                     report_final_content_dict_saved = json.load(f)
@@ -92,6 +94,13 @@ class ScanFlow(Flow[ScanState]):
                 self.state.saved_report = report_final_content_dict_saved
                 self.state.saved_research_context = self.research_inputs
                 return "report_found"
+            elif os.path.exists(aggregated_market_forces_path):
+                with open(aggregated_market_forces_path, "r") as f:
+                    aggregated_market_forces_content_dict_saved = json.load(f)
+                    print(aggregated_market_forces_content_dict_saved)          
+                self.state.aggregated_market_forces = aggregated_market_forces_content_dict_saved
+                self.state.saved_research_context = self.research_inputs
+                return "aggregated_market_forces_found"
             else:
                 return "report_not_found"
 
@@ -223,6 +232,21 @@ class ScanFlow(Flow[ScanState]):
         self.state.report = report_final_content
         return report_final_content_dict
 
+    @listen("aggregated_market_forces_found")
+    def develop_saved_report(self):
+        self.state.research_context = self.research_inputs
+        report_final_content = []
+        report_final_content_json = []
+        report_final_content_dict = []
+        reporting_inputs = self.research_inputs.copy()
+        reporting_inputs['raw_market_forces'] = self.state.aggregated_market_forces
+        reporting_result = ReportingCrew().crew().kickoff(reporting_inputs).pydantic
+        report_final_content.append(reporting_result)
+        report_final_content_json.append(reporting_result.model_dump_json())
+        report_final_content_dict.append(reporting_result.model_dump())
+        self.state.report = report_final_content
+        return report_final_content_dict
+
     @listen(and_(develop_report, identify_market_forces, identify_sources))
     def print_outputs(self):
         print("=== Sources Result ===\n", self.state.source_results, "\n")
@@ -230,7 +254,7 @@ class ScanFlow(Flow[ScanState]):
         print("=== Reporting Result ===\n", self.state.report, "\n")
 
     # Format the report into markdown from within the normal flow
-    @listen(develop_report)
+    @listen(or_(develop_report, develop_saved_report))
     def format_report(self, report_final_content_dict):
         self.state.research_context = self.research_inputs
         formatting_inputs = self.research_inputs.copy()
