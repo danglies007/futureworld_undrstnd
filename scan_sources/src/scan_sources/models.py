@@ -41,16 +41,13 @@ class SourceLink(BaseModel):
     date: Optional[str] = Field(None, description="Optional publication date for the source")
 
 class RawMarketForce(BaseModel):
-    raw_market_force_title: str = Field(..., description="Brief title of the identified market force")
+    raw_market_force_id: str = Field(..., description="Unique identifier for this market force")
+    raw_market_force_name: str = Field(..., description="Brief name of the identified market force")
     raw_description: str = Field(..., description="The original description as found in the source")
-    # source_origin: str = Field(..., description="Category of the research source", enum=["Futurist", "Academic Paper", "Patent", "Consultant Report", "Industry Publication", "News Article", "Market Research", "Government Report", "Think Tank", "Social Media", "Other"])
-    # source_name: str = Field(..., description="Name of the specific source")
-    # source_url: Optional[str] = Field(None, description="URL or reference to the source")
-    # source_date: Optional[str] = Field(None, description="Date of publication")
     key_terms: List[str] = Field(default_factory=list, description="List of key terms associated with this market force")
-    # mentioned_entities: List[str] = Field(default_factory=list, description="Companies, technologies, or other entities mentioned")
+    mentioned_entities: List[str] = Field(default_factory=list, description="Companies, technologies, or other entities mentioned")
     raw_findings: List[AttributedItem] = Field(default_factory=list, description="List of raw findings with sources")
-    # raw_examples: List[AttributedItem] = Field(default_factory=list, description="Examples of the market force in action with sources")
+    raw_examples: List[AttributedItem] = Field(default_factory=list, description="Examples of the market force in action with sources")
     relevant_facts: List[AttributedItem] = Field(default_factory=list, description="Relevant facts with sources")
     relevant_statistics: List[AttributedItem] = Field(default_factory=list, description="Relevant statistics with sources")
     relevant_data: List[AttributedItem] = Field(default_factory=list, description="Relevant data with sources")
@@ -65,6 +62,11 @@ class RawMarketForce(BaseModel):
         description="List of unique source documents (title, URL, date) relevant to this market force finding.",
         default_factory=list
     )
+
+    @field_validator('raw_market_force_id', mode='before')
+    @classmethod
+    def set_id_if_none(cls, v):
+        return v or f"MF-{uuid.uuid4().hex[:8]}"
     # search_metadata: Optional[SearchMetadata] = Field(
     #     None,
     #     description="Metadata about the search that found this market force"
@@ -378,7 +380,7 @@ class SourceIdentificationResults(BaseModel):
     topic: str = Field(..., description="Topic of the research")
     specialisation: str = Field(default=specialisation, description="Specialisation of the research")
     date_of_research: str = Field(..., description="Date when the research was conducted")
-    # total_sources_found: int = Field(..., description="Total number of sources found")
+    total_sources_found: int = Field(..., description="Total number of sources found")
     urls: List[EvaluatedSource] = Field(..., description="List of sources found")
 
 class SourceURL(BaseModel):
@@ -386,3 +388,67 @@ class SourceURL(BaseModel):
 
 class SourceIdentificationResultsURLonly(BaseModel):
     urls: List[SourceURL] = Field(..., description="List of source URLs")
+
+
+# Models for Implications (1st, 2nd and 3rd order)
+class ImplicationOrder(BaseModel):
+    """Represents the order of an implication (1st, 2nd, or 3rd)."""
+    order: int = Field(..., description="Order of implication (1, 2, or 3)")
+    description: str = Field(..., description="Description of what this order means")
+
+class ImplicationCategory(BaseModel):
+    """Category for grouping implications."""
+    name: str = Field(..., description="Name of the implication category")
+    description: str = Field(..., description="Description of this category")
+
+class Implication(BaseModel):
+    """Represents a specific implication derived from market forces."""
+    implication_id: str = Field(..., description="Unique identifier for this implication")
+    implication_order: int = Field(..., description="Order of implication (1, 2, or 3)")
+    implication_title: str = Field(..., description="Brief title of the implication")
+    implication_description: str = Field(..., description="Detailed description of the implication")
+    category: ImplicationCategory = Field(..., description="Category this implication belongs to")
+    parent_implications_ids: List[str] = Field(default_factory=list, description="IDs of parent implications (if any)")
+    parent_implications_names: List[str] = Field(default_factory=list, description="Names of parent implications (if any) obtained from FirstOrderImplication or SecondOrderImplication")
+    parent_market_forces_ids: List[str] = Field(default_factory=list, description="IDs of parent market forces (if any) - For the FirstOrderImplication, Use the raw_market_force_id from the ResearchOutput, and for the SecondOrderImplication and ThirdOrderImplication, use the parent_market_forces_id from the FirstOrderImplication or SecondOrderImplication")
+    parent_market_forces_names: List[str] = Field(default_factory=list, description="Names of parent market forces (if any) - For the FirstOrderImplication, Use the raw_market_force_name from the ResearchOutput, and for the SecondOrderImplication and ThirdOrderImplication, use the parent_market_forces_name from the FirstOrderImplication or SecondOrderImplication")
+    impact_level: str = Field(..., description="Estimated impact level (High, Medium, Low)")
+    time_horizon: str = Field(..., description="Expected time frame for manifestation")
+    uncertainty: str = Field(..., description="Level of uncertainty (High, Medium, Low)")
+    business_relevance: Optional[str] = Field(None, description="Specific relevance to the business if provided")
+    strategic_considerations: List[str] = Field(default_factory=list, description="Strategic considerations arising from this implication")
+    potential_opportunities: List[str] = Field(default_factory=list, description="Potential opportunities arising")
+    potential_threats: List[str] = Field(default_factory=list, description="Potential threats or challenges arising")
+    
+    @field_validator('implication_id', mode='before')
+    @classmethod
+    def set_id_if_none(cls, v):
+        return v or f"IMP-{uuid.uuid4().hex[:8]}"
+
+class FirstOrderImplication(BaseModel):
+    """Represents a first-order implication derived from market forces."""
+    first_order_implications: List[Implication] = Field(default_factory=list, description="List of first-order implications")
+
+class SecondOrderImplication(BaseModel):
+    """Represents a second-order implication derived from first-order implications."""
+    second_order_implications: List[Implication] = Field(default_factory=list, description="List of second-order implications")
+
+class ThirdOrderImplication(BaseModel):
+    """Represents a third-order implication derived from second-order implications."""
+    third_order_implications: List[Implication] = Field(default_factory=list, description="List of third-order implications")
+
+class ImplicationAnalysisReport(BaseModel):
+    """Complete report of implications analysis."""
+    implications_report_title: str = Field(..., description="Title of the implications analysis report")
+    implications_report_generation_date: str = Field(..., description="Report generation date")
+    topic: str = Field(..., description="The topic the implications analysis is focused on")
+    business_context: Optional[str] = Field(None, description="Business context if provided")
+    implications_report_executive_summary: str = Field(..., description="Concise executive summary of key findings")
+    implications_report_methodology: str = Field(..., description="Description of the methodology used for implications analysis")
+    first_order_implications: List[Implication] = Field(default_factory=list, description="List of first-order implications recieved from the analyse_first_order_implications task")
+    second_order_implications: List[Implication] = Field(default_factory=list, description="List of second-order implications recieved from the analyse_second_order_implications task")
+    third_order_implications: List[Implication] = Field(default_factory=list, description="List of third-order implications recieved from the analyse_third_order_implications task")
+    cross_cutting_themes: List[str] = Field(default_factory=list, description="Cross-cutting themes identified across implications")
+    strategic_recommendations: List[str] = Field(default_factory=list, description="Strategic recommendations based on implications analysis")
+    critical_uncertainties: List[str] = Field(default_factory=list, description="Critical uncertainties identified in the analysis")
+    conclusion: str = Field(..., description="Overall conclusion of the implications analysis")

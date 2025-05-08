@@ -1,0 +1,267 @@
+# implications_tasks.yaml
+
+analyse_first_order_implications:
+  description: >
+    You will receive a list of MARKET FORCES as input (from the previous crew, in ResearchOutput format).
+
+    MARKET FORCES: {raw_market_forces}
+
+    You will analyse the market forces to develop first-order implications. First-order implications are direct consequences or impacts that arise immediately from the identified market forces.
+
+
+    **Input Analysis:**
+    1. Carefully review each market force from the combined market forces output
+    2. For each market force, identify the direct consequences in these dimensions:
+       - Business models
+       - Value chains
+       - Customer behaviour
+       - Competitive dynamics
+       - Operational impacts
+       - Financial implications
+       - Regulatory considerations
+       - Workforce implications
+       - Technology adoption
+
+    **Business Context Application:**
+    If a business context is provided, tailor your analysis to consider:
+       - The business's current position in its industry
+       - Its core competencies and capabilities
+       - Its strategic direction and goals
+       - Its potential vulnerabilities to these market forces
+
+    **First-Order Implications Criteria:**
+    To qualify as a valid first-order implication, each must:
+       1. Have a direct logical connection to one or more market forces
+       2. Represent a meaningful change or shift requiring strategic attention
+       3. Have observable manifestations or measurable impacts
+       4. Be relevant to the {topic} domain and {business} context if provided
+       5. Have clear temporal dimensions (near, mid, or long-term)
+
+    **Categorisation Framework:**
+    Categorise each implication according to:
+       - Type (Opportunity, Threat, Mixed)
+       - Time Horizon (1-2 years, 3-5 years, 5+ years)
+       - Impact Level (Low, Medium, High)
+       - Uncertainty Level (Low, Medium, High)
+       - Primary Domain (Economic, Social, Technological, Environmental, Political, Legal)
+
+    **Output Structure:**
+    For each first-order implication identified, include:
+       1. A clear, concise title
+       2. A detailed description with reasoning
+       3. The parent market force(s) 
+        - Make sure you keep the wording of this exactly as it is in the market forces output 
+        - The details of the parent market force(s) are the raw_market_force_id & raw_market_force_name from the market forces output.
+        This ensures that it is clear which market force(s) an implication is derived from
+       4. Categorisation according to the framework
+       5. Business relevance if applicable
+       6. Strategic considerations
+
+    **Quality Control:**
+    Ensure each implication:
+       - Is truly first-order (direct from market forces, not derived from other implications)
+       - Is substantive (not trivial or obvious)
+       - Is well-reasoned with clear causality
+       - Avoids duplication or overlap with other implications
+       - Provides meaningful strategic value
+
+  expected_output: >
+    A comprehensive list of first-order implications derived from the market forces provided in the previous crew's output or implications_inputs, structured according to the Implication model.
+  agent: first_order_analyst
+
+analyse_second_order_implications:
+  description: >
+    Using the first-order implications as your primary input, identify and analyse second-order implications. Second-order implications emerge from the interaction, combination, or compounding of first-order implications, representing further cascading effects that are one step removed from the original market forces.
+
+    **Systems Thinking Approach:**
+    1. Consider how first-order implications interact with each other
+    2. Identify patterns, feedback loops, and non-linear relationships
+    3. Consider time-delayed effects and threshold effects
+    4. Examine cross-domain interactions (e.g., how technological implications might interact with regulatory ones)
+
+    **Second-Order Implications Framework:**
+    For each potential second-order implication, apply these qualification criteria:
+       1. Must arise from the interaction of two or more first-order implications
+       2. Represents an emergent dynamic not immediately obvious from individual market forces
+       3. Creates a meaningful shift in context or conditions for stakeholders
+       4. Has sufficient probability and impact to warrant strategic consideration
+       5. Can be reasonably traced through a causal chain to original market forces
+
+    **Analytical Dimensions:**
+    Explore second-order implications across these dimensions:
+       - Industry structure changes
+       - Value migration patterns
+       - Power relationship shifts
+       - New business model possibilities
+       - Emerging collaborative opportunities
+       - Competitive landscape reconfigurations
+       - Consumer behaviour evolutions
+       - Supply chain transformations
+       - Capability requirement shifts
+
+    **Scenario Development:**
+    For particularly significant implications:
+       1. Develop mini-scenarios illustrating how the implication might manifest
+       2. Identify key indicators or signals that would suggest the implication is emerging
+       3. Highlight critical uncertainties associated with the implication
+
+    **Business Context Integration:**
+    If a {business} context is provided:
+       - Assess how these second-order implications might specifically affect the business
+       - Identify potential strategic response options
+       - Highlight capability development needs
+
+    **Output Requirements:**
+    For each second-order implication:
+       1. Clear title and detailed description
+       2. Parent first-order implications
+       3. Ultimate parent market forces (traced back through first-order implications)
+       4. Impact and uncertainty assessment
+       5. Time horizon estimate
+       6. Strategic considerations
+       7. Business relevance if applicable
+
+    **Quality Control:**
+    Ensure implications:
+       - Are truly second-order (derived from first-order implications)
+       - Provide novel insights beyond first-order implications
+       - Have clear causal logic
+       - Avoid speculative leaps without sufficient reasoning
+       - Maintain strategic relevance to the {topic} and {business} if specified
+
+  expected_output: >
+    A detailed list of second-order implications derived from the interaction of first-order implications, structured according to the Implication model.
+  agent: second_order_analyst
+
+analyse_third_order_implications:
+  description: >
+    Building on the analysis of first and second-order implications, identify third-order implications that represent profound, systemic, or transformative changes that could emerge over longer time horizons. Third-order implications often involve paradigm shifts, new equilibrium states, or fundamental restructuring of systems.
+
+    **Third-Order Thinking Framework:**
+    1. Examine how multiple second-order implications might converge to create systemic changes
+    2. Identify potential tipping points where incremental changes could lead to transformative shifts
+    3. Consider paradigm shifts in underlying assumptions, values, or mental models
+    4. Explore possible new equilibrium states for industries, societies, or economies
+    5. Identify emergence of entirely new systems, structures, or organising principles
+
+    **Qualification Criteria:**
+    For each potential third-order implication:
+       1. Emerges from the interaction of multiple second-order implications
+       2. Represents a fundamental shift rather than an incremental change
+       3. Has the potential to transform the rules of the game within relevant domains
+       4. May involve the creation of entirely new possibilities or constraints
+       5. Often operates on longer time horizons (5+ years)
+       6. May have lower probability but potentially massive impact if realized
+
+    **Analytical Dimensions:**
+    Explore third-order implications across:
+       - Paradigm shifts
+       - New market/industry architectures
+       - Fundamental business model innovations
+       - Shifts in societal values or expectations
+       - Regulatory regime transformations
+       - Technological discontinuities
+       - Emergence of new types of organisations or institutions
+       - Redefinition of value propositions or value creation
+
+    **Strategic Futures Analysis:**
+    For significant third-order implications:
+       1. Develop alternative futures based on different manifestations
+       2. Identify wild cards or black swan events that could accelerate or trigger the shift
+       3. Consider implications for core business assumptions and orthodoxies
+       4. Explore antifragile or robust strategic responses
+
+    **Business Strategy Integration:**
+    If a {business} context is provided:
+       - Assess how the business might position for emerging paradigm shifts
+       - Identify potential "future-proofing" strategies
+       - Consider capabilities needed for a fundamentally different future state
+       - Explore potential for strategic repositioning or business model innovation
+
+    **Output Requirements:**
+    For each third-order implication:
+       1. Clear title that captures the transformative nature
+       2. Detailed description of the potential paradigm shift
+       3. Connection to parent second-order implications
+       4. Ultimate connection to market forces (through the causal chain)
+       5. Time horizon and uncertainty assessment
+       6. Strategic significance
+       7. Early warning signals to monitor
+       8. Business relevance if applicable
+
+    **Quality Standards:**
+    Ensure all third-order implications:
+       - Represent genuinely transformative potential
+       - Maintain logical connection to earlier-order implications
+       - Balance imagination with rigorous reasoning
+       - Provide meaningful strategic insight despite higher uncertainty
+       - Are expressed clearly despite their complexity
+
+  expected_output: >
+    A thought-provoking analysis of third-order implications representing potential paradigm shifts and transformative changes.
+  agent: third_order_analyst
+
+integrate_all_implications:
+  description: >
+    Synthesise the first, second, and third-order implications into a coherent, comprehensive strategic narrative and analysis report that provides actionable insights for decision-makers. Your task is to identify patterns, themes, and strategic imperatives across all levels of implications and create a compelling, integrated perspective.
+
+    **Strategic Integration Process:**
+    1. Synthesise all implications into a coherent whole, identifying:
+       - Cross-cutting themes that emerge across orders of implications
+       - Key uncertainties that will shape future developments
+       - Critical implications that warrant immediate strategic attention
+       - Longer-term transformative possibilities requiring preparation
+
+    2. Develop an implications cascade model showing:
+       - How market forces lead to first-order implications
+       - How first-order implications interact to create second-order implications
+       - How second-order implications converge to enable third-order transformations
+       - The temporal sequence and potential acceleration points
+
+    3. If {business} context is provided:
+       - Create a strategic radar identifying short, medium, and long-term implications most relevant to the business
+       - Develop strategic option spaces based on the implications analysis
+       - Identify no-regrets moves that make sense across multiple potential futures
+       - Highlight capability development priorities
+
+    **Strategic Frameworks to Apply:**
+    - Opportunity/Threat Matrix: Categorise implications by potential impact and certainty
+    - Time Horizon Analysis: Organize implications by expected time of emergence
+    - Impact/Uncertainty Matrix: Identify critical certainties vs. critical uncertainties
+    - Systems Map: Visualise interrelationships between key implications
+
+    **Narrative Development:**
+    1. Create a compelling executive summary that conveys:
+       - The most significant findings across all orders of implications
+       - The strategic imperatives that emerge from the analysis
+       - A balanced view of opportunities and challenges
+       - A sense of urgency without alarmism
+
+    2. For each major theme or cluster of implications:
+       - Synthesise the key insights
+       - Highlight strategic considerations
+       - Identify signposts to monitor
+
+    **Output Requirements:**
+    Create a comprehensive ImplicationAnalysisReport including:
+       1. An executive summary capturing the most critical insights
+       2. Methodology explanation
+       3. Organised presentation of first, second, and third-order implications
+       4. Identification of cross-cutting themes
+       5. Strategic recommendations based on the implications
+       6. Critical uncertainties to monitor
+       7. If applicable, business-specific strategy considerations
+       8. A compelling conclusion that empowers decision-making
+
+    **Quality Standards:**
+    Ensure the integrated report:
+       - Maintains analytical rigor while being accessible to decision-makers
+       - Balances detail with strategic clarity
+       - Provides actionable insights rather than just interesting observations
+       - Presents a coherent strategic narrative connecting all levels of analysis
+       - Acknowledges uncertainties while still providing clear direction
+       - Is tailored to the {topic} and {business} context if provided
+
+  expected_output: >
+    A comprehensive ImplicationAnalysisReport that integrates all levels of implications into a coherent strategic narrative with actionable insights.
+  agent: implications_integrator

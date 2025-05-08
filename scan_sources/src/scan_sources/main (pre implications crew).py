@@ -14,13 +14,12 @@ from pydantic import BaseModel
 from crewai.flow import Flow, start, router,listen, and_, or_
 from scan_sources.crews.source_identification_crew.source_identification_crew import SourceIdentificationCrew
 from scan_sources.crews.market_force_extraction_crew.market_force_extraction_crew import MarketForceExtractionCrew
-from scan_sources.crews.implications_crew.implications_crew import ImplicationsCrew
 from scan_sources.crews.reporting_crew.reporting_crew import ReportingCrew
 from scan_sources.crews.formatting_crew.formatting_crew import FormattingCrew
 from scan_sources.config import RESEARCH_INPUTS, SOURCES_FUTURISTS, MARKET_FORCE_DEFINITIONS, SOURCES_CONSULTING_FIRMS, SOURCES_NEWS_SOURCES
 from scan_sources.models import (
     MarketForceAnalysisReport, RawMarketForce, SourceIdentificationResultsURLonly, SourceURL,
-    ResearchOutput, ExtractorOutput, MarketForceReport, SourceIdentificationResults, ImplicationAnalysisReport
+    ResearchOutput, ExtractorOutput, MarketForceReport, SourceIdentificationResults
 )
 
 class ScanState(BaseModel):
@@ -35,7 +34,6 @@ class ScanState(BaseModel):
     saved_report: MarketForceAnalysisReport = None
     user_urls: dict = None
     user_urls_research_context: dict = None
-    implications_report: ImplicationAnalysisReport = None
 
 class ScanFlow(Flow[ScanState]):
 
@@ -166,6 +164,14 @@ class ScanFlow(Flow[ScanState]):
     #     return formatting_result_from_saved
 
 
+
+
+
+
+
+
+
+
     # Identify market forces from the sources
     @listen(or_(identify_sources, identify_sources_from_user_urls))
     def identify_market_forces(self, sources_result):
@@ -210,7 +216,7 @@ class ScanFlow(Flow[ScanState]):
         
         return forces_final_content_dict
 
-# Develop the report from the forces
+    # Develop the report from the forces
     @listen(identify_market_forces)
     def develop_report(self, forces_final_content_dict):
         self.state.research_context = self.research_inputs
@@ -240,23 +246,6 @@ class ScanFlow(Flow[ScanState]):
         report_final_content_dict.append(reporting_result.model_dump())
         self.state.report = report_final_content
         return report_final_content_dict
-
-# Develop Implications Report
-    @listen(identify_market_forces)
-    def develop_implications_report(self, forces_final_content_dict):
-        implications_inputs = self.research_inputs.copy()
-        implications_inputs['raw_market_forces'] = forces_final_content_dict
-        implications_result = ImplicationsCrew().crew().kickoff(implications_inputs).pydantic
-        self.state.implications_report = implications_result
-        return implications_result
-
-    @listen("aggregated_market_forces_found")
-    def develop_saved_implications_report(self):
-        implications_inputs = self.research_inputs.copy()
-        implications_inputs['raw_market_forces'] = self.state.aggregated_market_forces
-        implications_result = ImplicationsCrew().crew().kickoff(implications_inputs).pydantic
-        self.state.implications_report = implications_result
-        return implications_result
 
     @listen(and_(develop_report, identify_market_forces, identify_sources))
     def print_outputs(self):

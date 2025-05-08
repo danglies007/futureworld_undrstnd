@@ -90,6 +90,7 @@ source_evaluation:
       - author: Author if known
       - description: Brief description of the source content
 
+    Ensure you evaluate all sources to determine which are of high quality and should be approved for metadata extraction.
   expected_output: >
     A SourceEvaluationResults object containing evaluated sources ready for metadata extraction.
   agent: source_evaluator
