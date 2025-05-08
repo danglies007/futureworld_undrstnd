@@ -31,9 +31,16 @@ from typing import List
 
 # Import Pydantic models - Used to generate Market Force research and report
 from scan_sources.models import (
-    SourceDiscoveryResults,
-    SourceEvaluationResults,
+    ListStructuredMarketForce,
+    RawMarketForce,
+	ResearchOutput,
+	MarketForceReportSection,
+	MarketForceReport,
     SourceIdentificationResults,
+    SourceLink,
+	StructuredMarketForce,
+	ListStructuredMarketForce,
+	SourceIdentificationResultsURLonly
 )
 
 # Import LLMs
@@ -89,81 +96,25 @@ class SourceIdentificationCrew():
     tasks_config = 'config/tasks.yaml'
 
     @agent
-    def source_scout(self) -> Agent:
+    def source_identifier(self) -> Agent:
         return Agent(
-            config=self.agents_config['source_scout'],
+            config=self.agents_config['source_identifier'],
             llm=llm_gpt_4_1_accurate,
-            tools=[SerperDevTool(), BraveSearchTool()],
+            tools=[SerperDevTool(),ScrapeWebsiteTool()],
             respect_context_window=True,
             cache=True,
             verbose=True
         )
-    
-    @agent
-    def source_evaluator(self) -> Agent:
-        return Agent(
-            config=self.agents_config['source_evaluator'],
-            llm=llm_gpt_4_1_accurate,
-            tools=[ScrapeWebsiteTool(), SerperDevTool()],
-            respect_context_window=True,
-            cache=True,
-            delegate=True,  # Allow delegation for handling the source evaluation process
-            verbose=True
-        )
-
-    @agent
-    def metadata_extractor(self) -> Agent:
-        return Agent(
-            config=self.agents_config['metadata_extractor'],
-            llm=llm_gpt_4_1_accurate,
-            tools=[ScrapeWebsiteTool()],
-            respect_context_window=True,
-            cache=True,
-            verbose=True
-        )    
 
     @task
-    def source_discovery(self) -> Task:
+    def source_identification(self) -> Task:
         specialisation = self.research_inputs.get("specialisation")
         topic_short = self.research_inputs.get("topic_short")
         return Task(
-            config=self.tasks_config['source_discovery'],
-            output_file=f'outputs/potential_sources_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            output_pydantic=SourceDiscoveryResults
-        )
-
-    @task
-    def source_evaluation(self) -> Task:
-        specialisation = self.research_inputs.get("specialisation")
-        topic_short = self.research_inputs.get("topic_short")
-        return Task(
-            config=self.tasks_config['source_evaluation'],
-            context=[self.source_discovery()],
-            output_file=f'outputs/evaluated_sources_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            output_pydantic=SourceEvaluationResults
-        )
-
-    @task
-    def metadata_extraction(self) -> Task:
-        specialisation = self.research_inputs.get("specialisation")
-        topic_short = self.research_inputs.get("topic_short")
-        return Task(
-            config=self.tasks_config['metadata_extraction'],
-            context=[self.source_evaluation()],
-            output_file=f'outputs/final_sources_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+            config=self.tasks_config['source_identification'],
+            output_file=f'outputs/sources_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             output_pydantic=SourceIdentificationResults
         )
-
-    # Old from the previous crew with a single agent & Task
-    # @task
-    # def source_identification(self) -> Task:
-    #     specialisation = self.research_inputs.get("specialisation")
-    #     topic_short = self.research_inputs.get("topic_short")
-    #     return Task(
-    #         config=self.tasks_config['source_identification'],
-    #         output_file=f'outputs/sources_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-    #         output_pydantic=SourceIdentificationResults
-    #     )
 
     @crew
     def crew(self) -> Crew:

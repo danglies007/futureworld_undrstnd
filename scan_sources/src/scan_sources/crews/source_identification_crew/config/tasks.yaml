@@ -1,51 +1,128 @@
-# tasks.yaml - source_identification
+# tasks.yaml for source identification crew
 
-source_identification:
+source_discovery:
   description: >
-    You have these key objectives for SOURCE IDENTIFICATION:
-    1. Identify no less than {minimum_number_of_sources} and no more than {maximum_number_of_sources} high-quality sources for researching market forces impacting {topic}.
-    2. Focus on sources with relevance to the {topic}, the current date is {date}.
+    You have these key objectives for INITIAL SOURCE DISCOVERY:
+    1. Identify a broad initial pool of 15-20 potentially valuable sources for researching market forces impacting {topic}.
+    2. Focus on sources with relevance to the {topic}, considering the current date is {date}.
     3. Include at minimum these sources in your search: {research_sources}.
-    4. Your primary goal is to identify reputable sources that will yield valuable and relevant market forces.
-    5. Your audience is {audience}.
+    4. Your primary goal is to discover potentially valuable sources for further evaluation.
 
-    Market Force Definition: {market_force_definition}
-
-    Expected source identification scope:
-    - Minimum of {minimum_number_of_sources} from respected sources or thought leaders.
-    - Cover multiple domains relevant to {topic}.
-    - Prioritise sources published that are published more recently, considering the current date is {date}.  - Do not include sources more than 2 years old.
-    - Your thoroughness at this stage is critical to the success of the overall project.
-
-    Source identification process:
+    Discovery process:
     1. Use the internet search tool to identify promising sources.
     2. Begin by exploring the research_sources specified.
-    3. If the user has provided specific points of interest: {specific_points_of_interest}, use them to further guide your search.
-    4. When identifying sources, do not provide links to portals or search engines (e.g. "https://worldwide.espacenet.com", "https://www.epo.org/en", "https://www.lens.org") rather continue searchin within those portals for links to actual sources.
-    5. For each potential source, evaluate:
-      - Relevance to {topic}
-      - Publication date (preferring recent content)
-      - Potential for yielding market forces
-      - You can score each one of these criteria on a scale of 1 to 10.
-    6. Keep track of ALL identified source URLs and basic information.
-    7. Do not attempt to scrape any detailed content from sources at this stage.
-
+    3. If provided, use {specific_points_of_interest} to guide your search.
+    4. Capture basic information about each source (URL, title, apparent publication date).
+    5. DO NOT attempt to scrape or read content in detail at this stage.
+    6. Ensure diversity in source types and perspectives.
+    7. DO NOT include paywalled content, LinkedIn posts, or YouTube videos.
+    
     Source quality requirements:
     1. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
-    2. **VERIFY THAT EACH SOURCE IS ACCESSIBLE**
-    3. **ALWAYS EXTRACT AND USE THE ACTUAL PUBLICATION OR CONTENT DATE FROM THE SOURCE - DO NOT USE TODAY'S DATE**
-    4. **IF A PUBLICATION DATE IS NOT CLEARLY VISIBLE, MARK AS UNKNOWN**
-    5. **DO NOT CAPTURE LINKEDIN POSTS OR LINKEDIN COMMENTS**
-    6. **DO NOT CAPTURE YOUTUBE VIDEOS OR YOUTUBE COMMENTS**
-    7. **CLASSIFY THE SOURCE TYPE as PDF, WEBSITE, YOUTUBE OR OTHER**
-    8. **DO NOT INCLUDE ANY PAYWALLED OR SUBSCRIPTION ONLY SOURCES**
+    2. **DO NOT CAPTURE LINKEDIN POSTS OR LINKEDIN COMMENTS**
+    3. **DO NOT CAPTURE YOUTUBE VIDEOS OR YOUTUBE COMMENTS**
+    4. **CLASSIFY THE SOURCE TYPE as PDF, WEBSITE, YOUTUBE OR OTHER**
+    5. **DO NOT INCLUDE ANY PAYWALLED OR SUBSCRIPTION ONLY SOURCES**
+    
+    Your output must conform to the SourceDiscoveryResults schema with the following structure:
+    - topic: Topic of the research
+    - specialisation: Specialisation of the research
+    - date_of_discovery: Date when the sources were discovered (YYYY-MM-DD)
+    - potential_sources: List of PotentialSource objects with:
+      - url: URL of the source
+      - title: Title based on search snippet
+      - publication_date: Apparent publication date if visible
+      - source_type: Source type (PDF, Website, Other)
+      - initial_relevance: Brief reason why this source appears promising
+
+  expected_output: >
+    A SourceDiscoveryResults object containing a list of potential sources for evaluation.
+  agent: source_scout
+
+source_evaluation:
+  description: >
+    You have these key objectives for SOURCE EVALUATION:
+    1. Take the sources discovered in the previous step and evaluate each according to:
+       - Relevance to {topic} (1-10)
+       - Credibility of source/author (1-10)
+       - Recency (1-10, prioritising sources published within last 2 years given the current date is {date})
+       - Estimated value for identifying market forces (1-10)
+       - Accessibility (Yes/No - eliminate any paywalled or landing page content)
+    
+    2. Your responsibility as source_evaluator includes:
+       a. Checking if we have enough quality sources
+       b. If fewer than {minimum_number_of_sources} high-quality sources are found, initiate additional discovery
+       c. Handle the evaluation feedback loop until sufficient quality sources are obtained
+       d. Consider the diversity of sources in terms of publisher and author
+
+    Evaluation process:
+    1. For website sources, use the read website content tool to verify accessibility and quality
+    2. For PDFs, assess quality based on metadata and source reputation only - do not open or try and read any PDFs
+    3. Calculate a combined quality score (40 points possible)
+    4. Eliminate any sources scoring below 35/40
+    5. Rank and select the top sources within the required quantity range ({minimum_number_of_sources} to {maximum_number_of_sources})
+    
+    If insufficient quality sources are found:
+    1. Use your delegation ability to request the source_scout agent to find additional sources
+    2. Provide specific guidance on what types of sources to look for
+    3. Once new sources are found, re-evaluate and combine with existing quality sources
+    4. Continue this process until you have sufficient quality sources
+    
+    Your output must conform to the SourceEvaluationResults schema with the following structure:
+    - topic: Topic of the research
+    - specialisation: Specialisation of the research
+    - date_of_evaluation: Date when the evaluation was conducted (YYYY-MM-DD)
+    - total_sources_evaluated: Total number of sources evaluated
+    - total_sources_approved: Number of sources that passed quality criteria
+    - quality_threshold: Minimum quality score required for approval
+    - evaluated_sources: List of EvaluatedSource objects with:
+      - url: URL of the source
+      - title: Title of the source
+      - source_type: Source type (PDF, Website, Other)
+      - source_date: Publication date if known
+      - relevance_score: Relevance score (1-10)
+      - credibility_score: Credibility score (1-10)
+      - recency_score: Recency score (1-10)
+      - value_score: Value for identifying market forces (1-10)
+      - total_score: Combined quality score
+      - accessible: Whether the source is accessible (not paywalled)
+      - publisher: Publisher if known
+      - author: Author if known
+      - description: Brief description of the source content
+
+  expected_output: >
+    A SourceEvaluationResults object containing evaluated sources ready for metadata extraction.
+  agent: source_evaluator
+
+metadata_extraction:
+  description: >
+    You have these key objectives for METADATA EXTRACTION:
+    1. For each approved source from the evaluation phase, extract complete and accurate metadata following the strict requirements:
     
     **Source Title Extraction:**
-    When extracting titles from sources:
-      a. Always look for actual title near the top of the source or in metadata, bylines, or source properties
-      b. Never generate or assume a title - only use titles explicitly stated in the source
-      c. If no title is found after thorough searching, create your own title based on the source content, but clearly indicate that it is a generated title.
-
+    - Extract actual title from source or metadata
+    - Never generate or assume titles
+    - Only create a title when absolutely no title exists, and clearly mark as generated
+    
+    **Source Date Extraction:**
+    - Extract publication date in YYYY-MM-DD format
+    - Search for dates in standard locations and metadata as specified
+    - Set to "Unknown" only after thorough searching
+    
+    **Other Required Metadata:**
+    - Author(s)
+    - Publisher/organization
+    - Source type (Website, PDF, Other)
+    - Access status (Confirm not paywalled)
+    - Brief description of relevant content (100 words max)
+    
+    Extraction process:
+    1. For websites, use the read website content tool but limit reading to metadata sections
+    2. For PDFs, extract only metadata available from URL and search snippets - do not open or try and read any PDFs
+    3. Format all dates as YYYY-MM-DD
+    4. Generate source_id values in a consistent format
+    5. Structure output according to the SourceIdentificationResults schema
+    
     **Source Date Extraction:**
     When extracting dates from sources:
       a. Always look for actual source or publication dates:
@@ -81,7 +158,7 @@ source_identification:
       b. structure the dates in this format YYYY-MM-DD e.g. (2023-08-10 or 2021-01-04)
       c. Never generate or assume a date - only use dates explicitly stated in the source
       d. If no date is found after thorough searching, set source_date to "Unknown"
-
+    
     **PDF HANDLING - EXTREMELY IMPORTANT:**
     1. NEVER attempt to read or scrape PDF files directly - this will cause context limit errors
     2. When you encounter a URL ending in .pdf or clearly linking to a PDF document:
@@ -92,22 +169,9 @@ source_identification:
        e. If author information isn't available, set author to "Not specified"
        f. Set a provisional relevance score based on the title and snippet only
     3. For all PDF sources, include this note in the description: "PDF document - metadata extracted from search results only"
-
-    **Source Extraction Rules:**
-    1. You have a scrape website tool which can be used to Read website content.  
-    2. This tool should ONLY be used to help you identify the content required for the source identification to help you populate the SourceIdentificationResults schema.
-    3. YOU SHOULD NOT CLICK ON ANY LINKS TO PDF FILES OR OTHER DOCUMENTS - JUST EXTRACT THE URL AND TITLE and other relevant content from the source e.g. DATE, AUTHOR, etc.
     
-    Performance and incentive:
-    1. Your performance will be evaluated based on the quantity and quality of sources identified.
-    2. The breadth and diversity of your sources.
-    3. The relevance of sources to {topic} and any other specific points of interest if provided.
-    4. The recency and credibility of your sources.
-
-    Your outputs MUST be formatted according to the pydantic output SourceIdentificationResults schema.
-    Make sure you do not include any markdown formatting that could affect the structure e.g. '''.
+    Your final output must conform exactly to the SourceIdentificationResults schema.
 
   expected_output: >
-    You will produce a "Source results list" aligned to the SourceIdentificationResults pydantic schema.  Do not include any markdown formatting especially '''
-    This output should contain NO LESS THAN {minimum_number_of_sources} and no more than {maximum_number_of_sources} high-quality sources for researching market forces relating to {topic} from respected sources. 
-  agent: source_identifier
+    Complete SourceIdentificationResults object with fully extracted metadata for all sources.
+  agent: metadata_extractor

@@ -284,30 +284,105 @@ class MarketForceAnalysisReport(BaseModel):
 
 # Simple source for source identification
 
+# class SourceURL(BaseModel):
+#     url: str = Field(..., description="URL of the source")
+
+# class SourceIdentificationResultsURLonly(BaseModel):
+#     urls: List[SourceURL] = Field(..., description="List of source URLs")
+
+# This is replaced by the Evaluated source model    
+# class Source(BaseModel):
+#     source_no: int = Field(..., description="Number of the source")
+#     source_id: str = Field(..., description="Unique identifier for the source")
+#     title: str = Field(..., description="Title of the source")
+#     url: str = Field(..., description="URL of the source")
+#     source_type: str = Field(..., description="is it a PDF, website, youtube or other")
+#     publisher: str = Field(..., description="Publisher of the source")
+#     source_date: str = Field(..., description="Date of publication")
+#     author: str = Field(..., description="Author of the source")
+#     relevance_score: float = Field(..., description="Relevance score of the source")
+#     description: str = Field(..., description="Description of the source")
+
+# # This is the old source identification results - now replaced by the new source identification results below
+# class SourceIdentificationResults(BaseModel):
+#     topic: str = Field(..., description="Topic of the research")
+#     specialisation: str = Field(default=specialisation, description="Specialisation of the research")
+#     date_of_research: str = Field(..., description="Date when the research was conducted")
+#     # total_sources_found: int = Field(..., description="Total number of sources found")
+#     urls: List[SourceURL] = Field(..., description="List of sources found")
+
+# class SourceIdentificationOutput(BaseModel):
+#     source_identification_results: SourceIdentificationResults = Field(..., description="Results of source identification")
+
+
+# New models created for the better source identification process, where we have split into multiple agents
+
+class PotentialSource(BaseModel):
+    """Represents a potential source discovered in the initial discovery phase."""
+    url: str = Field(..., description="URL of the source")
+    title: str = Field(..., description="Title based on search snippet")
+    publication_date: Optional[str] = Field(None, description="Apparent publication date if visible")
+    source_type: str = Field(..., description="Source type (PDF, Website, Other)")
+    initial_relevance: str = Field(..., description="Brief reason why this source appears promising")
+
+class SourceDiscoveryResults(BaseModel):
+    """Results from the source discovery phase."""
+    topic: str = Field(..., description="Topic of the research")
+    specialisation: str = Field(..., description="Specialisation of the research")
+    date_of_discovery: str = Field(..., description="Date when the sources were discovered")
+    potential_sources: List[PotentialSource] = Field(..., description="List of potential sources discovered")
+
+
+# This replaces the old Source model
+class EvaluatedSource(BaseModel):
+    """Represents a source that has been evaluated for quality."""
+    source_no: int = Field(..., description="Number of the source")
+    source_id: str = Field(..., description="Unique identifier for the source")
+    url: str = Field(..., description="URL of the source")
+    title: str = Field(..., description="Title of the source")
+    source_type: str = Field(..., description="Source type (PDF, Website, Other)")
+    publisher: Optional[str] = Field(None, description="Publisher if known")
+    source_date: Optional[str] = Field(None, description="Publication date if known")
+    author: Optional[str] = Field(None, description="Author if known")
+    description: Optional[str] = Field(None, description="Brief description of the source content")
+    relevance_score: float = Field(..., description="Relevance score (1-10)")
+    credibility_score: float = Field(..., description="Credibility score (1-10)")
+    recency_score: float = Field(..., description="Recency score (1-10)")
+    value_score: float = Field(..., description="Value for identifying market forces (1-10)")
+    total_score: float = Field(..., description="Combined quality score")
+    accessible: bool = Field(..., description="Whether the source is accessible (not paywalled)")
+
+class SourceEvaluationResults(BaseModel):
+    """Results from the source evaluation phase."""
+    topic: str = Field(..., description="Topic of the research")
+    specialisation: str = Field(..., description="Specialisation of the research")
+    date_of_evaluation: str = Field(..., description="Date when the evaluation was conducted")
+    total_sources_evaluated: int = Field(..., description="Total number of sources evaluated")
+    total_sources_approved: int = Field(..., description="Number of sources that passed quality criteria")
+    quality_threshold: float = Field(..., description="Minimum quality score required for approval")
+    evaluated_sources: List[EvaluatedSource] = Field(..., description="List of evaluated sources")
+
+# #Renamed this from the origial SourceEvaluationResults to SourceDiscoveryResults
+# class SourceIdentificationResults(BaseModel):
+#     """Results from the source evaluation phase."""
+#     topic: str = Field(..., description="Topic of the research")
+#     specialisation: str = Field(..., description="Specialisation of the research")
+#     date_of_evaluation: str = Field(..., description="Date when the evaluation was conducted")
+#     total_sources_evaluated: int = Field(..., description="Total number of sources evaluated")
+#     total_sources_approved: int = Field(..., description="Number of sources that passed quality criteria")
+#     quality_threshold: float = Field(..., description="Minimum quality score required for approval")
+#     urls: List[EvaluatedSource] = Field(..., description="List of evaluated sources")
+
+# This is the old source identification results - now replaced by the new source identification results below
+class SourceIdentificationResults(BaseModel):
+    topic: str = Field(..., description="Topic of the research")
+    specialisation: str = Field(default=specialisation, description="Specialisation of the research")
+    date_of_research: str = Field(..., description="Date when the research was conducted")
+    # total_sources_found: int = Field(..., description="Total number of sources found")
+    urls: List[EvaluatedSource] = Field(..., description="List of sources found")
+
 class SourceURL(BaseModel):
     url: str = Field(..., description="URL of the source")
 
 class SourceIdentificationResultsURLonly(BaseModel):
     urls: List[SourceURL] = Field(..., description="List of source URLs")
-    
-class Source(BaseModel):
-    source_no: int = Field(..., description="Number of the source")
-    source_id: str = Field(..., description="Unique identifier for the source")
-    title: str = Field(..., description="Title of the source")
-    url: str = Field(..., description="URL of the source")
-    source_type: str = Field(..., description="is it a PDF, website, youtube or other")
-    publisher: str = Field(..., description="Publisher of the source")
-    source_date: str = Field(..., description="Date of publication")
-    author: str = Field(..., description="Author of the source")
-    relevance_score: float = Field(..., description="Relevance score of the source")
-    description: str = Field(..., description="Description of the source")
-
-class SourceIdentificationResults(BaseModel):
-    topic: str = Field(..., description="Topic of the research")
-    specialisation: str = Field(default=specialisation, description="Specialisation of the research")
-    date_of_research: str = Field(..., description="Date when the research was conducted")
-    total_sources_found: int = Field(..., description="Total number of sources found")
-    urls: List[Source] = Field(..., description="List of sources found")
-
-class SourceIdentificationOutput(BaseModel):
-    source_identification_results: SourceIdentificationResults = Field(..., description="Results of source identification")
