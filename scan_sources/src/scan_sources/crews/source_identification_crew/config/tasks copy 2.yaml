@@ -1,0 +1,163 @@
+# tasks.yaml for source identification crew
+
+source_discovery:
+  description: >
+    You have these key objectives for INITIAL SOURCE DISCOVERY:
+    1. Identify a broad initial pool of 15-20 potentially valuable sources for researching market forces impacting {topic}.
+    2. Focus on sources with relevance to the {topic}, considering the current date is {date}.
+    3. Include at minimum these sources in your search: {research_sources}.
+    4. Your primary goal is to discover potentially valuable sources for further evaluation.
+
+    Discovery process:
+    1. Use the internet search tool to identify promising sources.
+    2. Begin by exploring the research_sources specified.
+    3. If provided, use {specific_points_of_interest} to guide your search.
+    4. Capture basic information about each source (URL, title, apparent publication date).
+    5. DO NOT attempt to scrape or read content in detail at this stage.
+    6. Ensure diversity in source types and perspectives.
+    7. DO NOT include paywalled content, LinkedIn posts, or YouTube videos.
+    
+    Source quality requirements:
+    1. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
+    2. **DO NOT CAPTURE LINKEDIN POSTS OR LINKEDIN COMMENTS**
+    3. **DO NOT CAPTURE YOUTUBE VIDEOS OR YOUTUBE COMMENTS**
+    4. **CLASSIFY THE SOURCE TYPE as PDF, WEBSITE, YOUTUBE OR OTHER**
+    5. **DO NOT INCLUDE ANY PAYWALLED OR SUBSCRIPTION ONLY SOURCES**
+    
+    Your output must conform to the SourceDiscoveryResults schema.
+
+  expected_output: >
+    A SourceDiscoveryResults object containing a list of potential sources for evaluation.
+  agent: source_scout
+
+source_evaluation:
+  description: >
+    You will be provided with a list of sources from the source discovery in a potential_sources list.
+
+    You must evaluate EACH SOURCE ONE BY ONE according to:
+       - Relevance to {topic} (1-10)
+       - Credibility of source/author (1-10)
+       - Recency (1-10, prioritising sources published within last 2 years given the current date is {date})
+       - Accessibility (Yes/No - eliminate any paywalled or landing page content)
+    
+    **MANDATORY WORKFLOW PER SOURCE:**
+    1. Get the URL, this will be the pot_source_url
+    2. Use the ScrapeWebsiteTool for this URL. Let the result be `Observation_HTML`.
+    3. **IMMEDIATE NEXT STEP:** Your *only* goal now is to analyze `Observation_HTML`.
+       Think: "I need to evaluate this source based on the HTML I just received."
+       Formulate an internal request to yourself like: "Evaluate this source based on this content: [Paste the *full* Observation_HTML here]. Score it on relevance (1-10), credibility (1-10), and recency (1-10)."
+       *You will internally process this request*. The result is `Evaluation_For_This_URL`.
+    4. **AFTER EVALUATION:**
+       Think: "I have now evaluated the source at [current URL]. 
+        - if this total score for the source is above {source_score_threshold}/30, add it to your approved_sources list.
+        - if this total score for the source is below {source_score_threshold}/30, add it to your not_approved_sources list.
+        - if the source Accessibility is "No", add it to your not_approved_sources list.
+       *Crucially, do NOT include the raw `Observation_HTML` in this thought process or subsequent actions.* Only refer to `Evaluation_For_This_URL` if needed.
+    5. **PROCESSING NEXT SOURCE:** 
+       Think: "I have accumulated X approved sources and Y not approved sources so far. I need to process the next URL OR if this was the last URL:
+       - Check if I have at least {minimum_number_of_sources} approved sources. If so, I need to compile the final answer."
+       - If I have not accumulated at least {minimum_number_of_sources} approved sources, then:
+          1. Use your delegation ability to request the source_scout agent to find additional sources
+          2. Provide specific guidance on what types of sources to look for
+          3. Evaluate new sources using the same process (steps 1-4 in the MANDATORY WORKFLOW PER SOURCE), adding them to your results
+          4. Continue this process until you have between {minimum_number_of_sources} and {maximum_number_of_sources} approved sources
+    
+    **PDF HANDLING - EXTREMELY IMPORTANT:**
+    1. For PDF sources, do NOT use the ScrapeWebsiteTool
+    2. Instead, assess quality based on the URL and source metadata only
+    3. Include the note "PDF document - quality assessed from metadata only" in any PDF descriptions
+    
+    Your output must conform to the SourceEvaluationResults schema with the following structure:
+
+    **VERY IMPORTANT: Process each source ONE BY ONE to avoid context window limitations. Do not attempt to process all sources at once.**
+  expected_output: >
+    A SourceEvaluationResults object containing at least {minimum_number_of_sources} approved_sources ready for metadata extraction.
+  agent: source_evaluator
+
+metadata_extraction:
+  description: >
+    You must extract the necessary metadata for each source in the approved_sources list provided in the SourceEvaluationResults.
+
+    **MANDATORY WORKFLOW PER SOURCE:**
+    1. Get the next Source from the approved_sources list, it will be the appr_source_url.
+    2. Check teh appr_source_type to see if it is a website, if it is a website, use the ScrapeWebsiteTool for this Source's URL. Let the result be `Observation_HTML`.
+    3. **IMMEDIATE NEXT STEP:** Your *only* goal now is to analyze `Observation_HTML`.
+       Think: "I need to extract metadata from the HTML I just received."
+       Formulate an internal request to yourself like: "Extract all relevant metadata from this content: [Paste the *full* Observation_HTML here]. Focus on title, publication date, author, publisher, and content description."
+       *You will internally process this request*. The result is `Metadata_For_This_URL`.
+    4. **AFTER EXTRACTION:**
+       Think: "I have now extracted metadata from the source at [current URL]. I have processed X approved sources so far. I need to process the next approved source OR if this was the last approved source, I need to compile the final answer."
+       *Crucially, do NOT include the raw `Observation_HTML` in this thought process or subsequent actions.* Only refer to `Metadata_For_This_URL` if needed.
+       - Add this approved source with its complete metadata to your accumulated results
+       - Move on to the next approved source
+    
+    **Source Title Extraction:**
+    - Extract actual title from source or metadata
+    - Never generate or assume titles
+    - Only create a title when absolutely no title exists, and clearly mark as generated
+    
+    **Source Date Extraction:**
+    - Extract publication date in YYYY-MM-DD format
+    - Search for dates in standard locations and metadata as specified in the Source Date Extraction section
+    - Set to "Unknown" only after thorough searching
+    
+    **Other Required Metadata:**
+    - Author(s)
+    - Publisher/organization
+    - Source type (Website, PDF, Other)
+    - Access status (Confirm not paywalled)
+    - Brief description of relevant content (100 words max)
+    
+    **Source Date Extraction:**
+    When extracting dates from sources:
+      a. Always look for actual source or publication dates in standard locations:
+        - Near the top or bottom of the page in various formats:
+          - "Published on Feb 26, 2025"
+          - "Date: 2025-02-26"
+          - "Jan 22, 2025 at 03:57am EST"
+          - "November 18, 2021"
+          - "PUBLISHED DECEMBER 9, 2024"
+          - "April 19, 2023"
+        - In metadata, bylines, or source properties, sometimes classified as:
+          - "datepublished"
+          - "datecreated"
+          - "datemodified"
+        Examples could look like:
+          - "dateCreated":"2018-04-22T23:15:43.909Z"
+          - "datePublished":"2018-04-22T23:15:43.909Z"
+          - "dateModified":"2018-11-05T23:53:54.652Z"
+          - "itemProp="datePublished" content="2025-01-22"
+          - "dateModified" content="2025-01-22"
+          - "datePublished">February 16, 2023
+          - "<time datetime="2023-02-08T19:36:12.192Z" itemprop="datePublished">February 16, 2023</time>"
+          - "OriginalPublicationDate": "1/3/2022"
+          - "DisplayDate": "1/3/2022"
+          - "Last Published: Thu May 01 2025 20:52:29 GMT+0000 (Coordinated Universal Time)"
+          - "<meta itemProp="datePublished" content="2024-05-23T19:00:00Z"/>"
+          - "<meta name="article.updated" content="2024-05-23T19:00:00Z"/>"
+          - "<meta itemProp="dateModified" content="2025-04-13T09:51:00Z"/>"
+          - "<meta name="article.created" content="2024-05-23T19:00:00Z"/>"
+          - "<meta itemProp="dateCreated" content="2024-05-23T19:00:00Z"/>"
+          - "<meta name="dateLastPubbed" content="2025-04-13T09:51:00Z"/>"
+      b. Structure the dates in this format YYYY-MM-DD e.g. (2023-08-10 or 2021-01-04)
+      c. Never generate or assume a date - only use dates explicitly stated in the source
+      d. If no date is found after thorough searching, set source_date to "Unknown"
+    
+    **PDF HANDLING - EXTREMELY IMPORTANT:**
+    1. if the appr_source_type is PDF, do not attempt to read or scrape PDF files directly - this will cause context limit errors
+    2. When you encounter a URL ending in .pdf or clearly linking to a PDF document:
+       a. Record the URL but DO NOT use the ScrapeWebsiteTool on it
+       b. Simply classify it as "PDF" in the source_type field
+       c. Extract any visible metadata from the search results (title, date if shown)
+       d. Use the URL structure and search snippet to infer the publisher
+       e. If author information isn't available, set author to "Not specified"
+       f. Set a provisional relevance score based on the title and snippet only
+    3. For all PDF sources, include this note in the description: "PDF document - metadata extracted from search results only"
+    
+    Your final output must conform exactly to the SourceApprovedResults schema.
+
+    **VERY IMPORTANT: Process each approved source ONE BY ONE to avoid context window limitations. Do not attempt to process all approved sources at once.**
+
+  expected_output: >
+    Complete SourceApprovedResults object with fully extracted metadata for all approved sources.
+  agent: metadata_extractor

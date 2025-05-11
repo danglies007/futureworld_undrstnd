@@ -106,7 +106,7 @@ analyse_second_order_implications:
        3. Highlight critical uncertainties associated with the implication
 
     **Business Context Integration:**
-    If a {business} context is provided:
+    If a business context is provided - {business}:
        - Assess how these second-order implications might specifically affect the business
        - Identify potential strategic response options
        - Highlight capability development needs
@@ -172,7 +172,7 @@ analyse_third_order_implications:
        4. Explore antifragile or robust strategic responses
 
     **Business Strategy Integration:**
-    If a {business} context is provided:
+    If a business context is provided - {business}:
        - Assess how the business might position for emerging paradigm shifts
        - Identify potential "future-proofing" strategies
        - Consider capabilities needed for a fundamentally different future state
@@ -218,7 +218,7 @@ integrate_all_implications:
        - How second-order implications converge to enable third-order transformations
        - The temporal sequence and potential acceleration points
 
-    3. If {business} context is provided:
+    3. If a business context is provided - {business}:
        - Create a strategic radar identifying short, medium, and long-term implications most relevant to the business
        - Develop strategic option spaces based on the implications analysis
        - Identify no-regrets moves that make sense across multiple potential futures

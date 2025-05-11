@@ -111,12 +111,16 @@ SOURCES_FAVOURITE_SHORT = [
     "Mckinsey",
     "Bain",
     "BCG",
-    "WEF",
+    "World Economic Forum",
+    "amy webb",
+    "peter diamandis",
+    "The Wall Street Journal",
+    "ian pearson",
+    "gerd leonhard"
     "IMF",
     "World Bank",
     "patents.google.com",
     "Financial Times",
-    "The Wall Street Journal",
     "Reuters Business",
     "CNBC",
     "Business Insider",
@@ -128,7 +132,7 @@ SOURCES_FAVOURITE_SHORT = [
     "Forbes",
     "Bloomberg Businessweek",
     "Fast Company",
-    "Inc."
+    "Inc.",
 ]
 
 # Favourite sources
@@ -137,37 +141,51 @@ SOURCES_FAVOURITE = [
     "Bain",
     "BCG",
     "WEF",
-    "IMF",
+    "ycombinator",
+    "https://www.statista.com/outlook/fmo/banking/worldwide",
     "Financial Times",
-    "The Wall Street Journal",
-    "Reuters",
     "CNBC",
+    "The Economist",
+    "The Wall Street Journal",
+    "Research Gate",
+    "https://www.ibef.org/industry/banking-india",
+    "PWC",
+    "Accenture",
+    "EY"
+    "Deloitte",
+    "Reuters",
+    "IMF",
     "Business Insider",
     "The Information",
-    "The Economist",
     "The Times",
-    "Bloomberg",
     "Forbes",
-    "Bloomberg Businessweek",
     "Fast Company",
     "Inc.",
-    "technology review",
-    "newscientist",
+    "Andreessen Horowitz",
     "MIT Sloan Management Review",
     "Harvard Business Review",
-    "Andreessen Horowitz",
-    "ycombinator",
     "Amy Webb",
     "Peter Diamandis",
     "Gerd Leonhard",
     "Thomas Frey",
-    "MiningGlobal.com",
-    "Mining.com",
-    "Mining Magazine",
-    "Mining Journal",
-    "Mining Technology",
-    "Mining Weekly",
-    "Mining News"
+]
+
+CUSTOM_SOURCES = [
+    "https://futuristspeaker.com/future-of-banking/reinventing-the-banking-industry-how-financial-institutions/",
+    "https://www.oliverwyman.com/our-expertise/insights/2024/sep/five-key-trends-shaping-digital-banks-future.html",
+    "https://www.synpulse.com/en/insights/the-future-of-banking-technology-trends-and-developments-on-the-path-to-the-next-generation-of-banking",
+    "https://www.linkedin.com/pulse/10-most-important-banking-financial-technology-trends-bernard-marr-2bzre/",
+    "https://innowise.com/blog/digital-banking-trends/",
+    "https://innowise.com/blog/generative-ai-in-banking/",
+    "https://www.mckinsey.com/industries/financial-services/our-insights/fintechs-a-new-paradigm-of-growth#/",
+    "https://www.researchandmarkets.com/report/online-banking?utm_source=CI&utm_medium=PressRelease&utm_code=wqz9jp&utm_campaign=1600080+-+Global+Digital+Banking+Markets+Report+2021-2026+-+The+Rise+of+the+On-Demand+Economy+%26+Customer+Self-Service+Tilts+Digital+Banking+Technologies+into+the+Mass+Adoption+Stage&utm_exec=chdo54prd",
+    "https://theuxda.com/blog/5-ways-future-money-will-disrupt-banking-experience",
+    "https://www.ey.com/en_kw/industries/financial-services/unlocking-the-future-of-banking-the-transformative-power-of-generative-ai",
+    "https://www.accenture.com/us-en/insights/banking/top-10-trends-banking-2025",
+    "https://www.forbes.com/councils/forbesfinancecouncil/2025/02/05/the-future-of-banking-when-data-transforms-into-action/",
+    "https://www.weforum.org/stories/2025/05/retail-investment-participation-empowerment/",
+    "https://blogs.lse.ac.uk/internationaldevelopment/2025/05/09/the-world-bank-and-the-new-global-economic-disorder/",
+    "https://rfi.global/the-future-of-banking-five-strategies-for-banks-and-fintechs/"
 ]
 
 
@@ -210,17 +228,18 @@ MARKET_FORCE_DEFINITIONS = {
 
 
 RESEARCH_INPUTS = {
-    'specialisation': 'Various',
-    'topic': 'Global Market Forces affecting the Energy and Chemicals Industry',
-    'topic_short': 'Energy_chem_forces', # used for file naming
+    'specialisation': 'Futurists',
+    'topic': 'Global Market Forces affecting the Banking sector',
+    'topic_short': 'Banking_forces', # used for file naming
     'market': '',
     'business': '',
     'audience': 'Expert',
-    'specific_points_of_interest': ['PDF files'],
-    'research_sources': SOURCES_NEWS_SOURCES,
-    'minimum_number_of_sources': 1,
-    'maximum_number_of_sources': 1,
+    'specific_points_of_interest': [''],
+    'research_sources': CUSTOM_SOURCES,
+    'minimum_number_of_sources': 25,
+    'maximum_number_of_sources': 30,
     'minimum_number_of_forces': 0,
+    'source_score_threshold': 0,
     'date': datetime.now().strftime('%Y-%m-%d'),
     'market_force_definition': MARKET_FORCE_DEFINITIONS
 }

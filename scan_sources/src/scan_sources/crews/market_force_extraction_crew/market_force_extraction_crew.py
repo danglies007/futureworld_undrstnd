@@ -71,6 +71,7 @@ from crewai_tools import (
 	ScrapeWebsiteTool,
 	BraveSearchTool,
 	ScrapflyScrapeWebsiteTool,
+    SeleniumScrapingTool
 )
 
 # Import Custom tools
@@ -78,6 +79,7 @@ from scan_sources.tools.file_downloader import FileDownloaderTool
 from scan_sources.tools.exa_search_tool import Exa_search_tool
 from scan_sources.tools.exa_crawl_tool import Exa_crawl_scrape_tool
 from scan_sources.tools.custom_web_scrape_market_forces import MarketForcesScrapeWebsiteTool
+# from scan_sources.tools.enhanced_selenium_scraper import EnhancedSeleniumScrapeTool
 
 # firecrawl_crawl_tool = FirecrawlCrawlWebsiteTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
 # firecrawl_search_tool = FirecrawlSearchTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
@@ -106,7 +108,7 @@ class MarketForceExtractionCrew():
         return Agent(
             config=self.agents_config['html_market_force_extractor'],
             llm=llm_gpt_4_1_accurate,
-            tools=[ScrapeWebsiteTool()],
+            tools=[SeleniumScrapingTool()],
             verbose=True,
             respect_context_window=True,
             cache=True,

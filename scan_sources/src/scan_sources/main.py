@@ -18,14 +18,29 @@ from scan_sources.crews.implications_crew.implications_crew import ImplicationsC
 from scan_sources.crews.reporting_crew.reporting_crew import ReportingCrew
 from scan_sources.crews.formatting_crew.formatting_crew import FormattingCrew
 from scan_sources.config import RESEARCH_INPUTS, SOURCES_FUTURISTS, MARKET_FORCE_DEFINITIONS, SOURCES_CONSULTING_FIRMS, SOURCES_NEWS_SOURCES
+# Models for source identification crew
 from scan_sources.models import (
-    MarketForceAnalysisReport, RawMarketForce, SourceIdentificationResultsURLonly, SourceURL,
-    ResearchOutput, ExtractorOutput, MarketForceReport, SourceIdentificationResults, ImplicationAnalysisReport
+    SourceDiscoveryResults, 
+    SourceEvaluationResults, 
+    SourceApprovedResults
+)
+
+# Models for market force extraction crew
+from scan_sources.models import (
+    MarketForceAnalysisReport,
+    ResearchOutput,
+)
+
+# Models for implications crew
+from scan_sources.models import (
+    ImplicationAnalysisReport,
 )
 
 class ScanState(BaseModel):
     research_context: dict = None
-    source_results: SourceIdentificationResults = None
+    source_discovery_results: SourceDiscoveryResults = None
+    source_evaluation_results: SourceEvaluationResults = None
+    source_approved_results: SourceApprovedResults = None
     aggregated_market_forces: list = None
     extraction_results: ResearchOutput = None
     report: MarketForceAnalysisReport = None
@@ -61,12 +76,12 @@ class ScanFlow(Flow[ScanState]):
             with open(url_path, "r") as f:
                 json_content = f.read()
                 
-            # Convert the JSON string directly to a SourceIdentificationResults object
-            from scan_sources.models import SourceIdentificationResults
-            sources_result = SourceIdentificationResults.model_validate_json(json_content)
-            print(f"Loaded user_urls.json as SourceIdentificationResults")
+            # Convert the JSON string directly to a SourceApprovedResults object
+            from scan_sources.models import SourceApprovedResults
+            sources_result = SourceApprovedResults.model_validate_json(json_content)
+            print(f"Loaded user_urls.json as SourceApprovedResults")
             
-            self.state.source_results = sources_result
+            self.state.source_approved_results = sources_result
             return "user_urls_found"
 
     # def entry_router(self):
@@ -112,8 +127,11 @@ class ScanFlow(Flow[ScanState]):
     def identify_sources(self):
         self.state.research_context = self.research_inputs
         sources_inputs = self.research_inputs.copy()
+        # Add a placeholder for potential_sources if the crew expects to generate this internally
+        # sources_inputs['potential_sources'] = [] # Passes the variable to the crew as a empty list
+        # sources_inputs['approved_sources'] = []
         sources_result = SourceIdentificationCrew().crew().kickoff(sources_inputs).pydantic
-        self.state.source_results = sources_result
+        self.state.source_approved_results = sources_result
         return sources_result
 
 
@@ -134,7 +152,7 @@ class ScanFlow(Flow[ScanState]):
         # The SourceIdentificationResults model instance is already loaded and validated in entry_router
         # and stored in self.state.source_results.
         # We just need to return it.
-        sources_results = self.state.source_results
+        sources_results = self.state.source_approved_results
         # self.state.source_results = sources_results
 
         # print(f"Loaded {sources_results.total_sources_found} sources from user file.")
@@ -177,7 +195,7 @@ class ScanFlow(Flow[ScanState]):
         forces_final_content_dict = []
 
         # Loop through the URLs to extract the sources
-        for source in sources_result.urls:
+        for source in sources_result.approved_sources:
             # forces_inputs = self.state.research_context.copy()
             forces_inputs = self.research_inputs.copy()
             forces_inputs['url'] = source.url
@@ -260,7 +278,7 @@ class ScanFlow(Flow[ScanState]):
 
     @listen(and_(develop_report, identify_market_forces, identify_sources))
     def print_outputs(self):
-        print("=== Sources Result ===\n", self.state.source_results, "\n")
+        print("=== Sources Result ===\n", self.state.source_approved_results, "\n")
         print("=== Forces Final Content ===\n", self.state.extraction_results, "\n")
         print("=== Reporting Result ===\n", self.state.report, "\n")
 

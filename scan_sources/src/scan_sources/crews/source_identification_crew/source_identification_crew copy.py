@@ -38,8 +38,7 @@ from scan_sources.models import (
     PotentialSources,
     EvaluatedSources,
     NotApprovedSources,
-    ApprovedSources,
-    SourceIdentificationResults
+    ApprovedSources
 )
 
 # Import LLMs
@@ -81,7 +80,6 @@ from scan_sources.tools.exa_search_tool import Exa_search_tool
 from scan_sources.tools.exa_crawl_tool import Exa_crawl_scrape_tool
 from scan_sources.tools.custom_web_scrape_market_forces import MarketForcesScrapeWebsiteTool
 from scan_sources.tools.url_counter_tools import URLCounterTool
-# from scan_sources.tools.enhanced_selenium_scraper import EnhancedSeleniumScrapeTool
 
 # firecrawl_crawl_tool = FirecrawlCrawlWebsiteTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
 # firecrawl_search_tool = FirecrawlSearchTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
@@ -149,11 +147,9 @@ class SourceIdentificationCrew():
         return Agent(
             config=self.agents_config['metadata_extractor'],
             llm=llm_gpt_4_1_accurate,
-            tools=[SeleniumScrapingTool(), run_code],
+            tools=[SeleniumScrapingTool()],
             respect_context_window=True,
             cache=True,
-            max_iter=50,
-            max_retry_limit=50,
             verbose=True
         )    
 
@@ -178,29 +174,29 @@ class SourceIdentificationCrew():
             output_pydantic=EvaluatedSources
         )
 
-    # @task
-    # def not_approved_sources_classification(self) -> Task:
-    #     specialisation = self.research_inputs.get("specialisation")
-    #     topic_short = self.research_inputs.get("topic_short")
-    #     return Task(
-    #         config=self.tasks_config['not_approved_sources_classification'],
-    #         context=[self.source_evaluation()],
-    #         async_execution=True,
-    #         output_file=f'outputs/not_approved_sources_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-    #         output_pydantic=NotApprovedSources
-    #     )
+    @task
+    def not_approved_sources_classification(self) -> Task:
+        specialisation = self.research_inputs.get("specialisation")
+        topic_short = self.research_inputs.get("topic_short")
+        return Task(
+            config=self.tasks_config['not_approved_sources_classification'],
+            context=[self.source_evaluation()],
+            async_execution=True,
+            output_file=f'outputs/not_approved_sources_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+            output_pydantic=NotApprovedSources
+        )
 
-    # @task
-    # def approved_sources_classification(self) -> Task:
-    #     specialisation = self.research_inputs.get("specialisation")
-    #     topic_short = self.research_inputs.get("topic_short")
-    #     return Task(
-    #         config=self.tasks_config['approved_sources_classification'],
-    #         context=[self.source_evaluation()],
-    #         async_execution=True,
-    #         output_file=f'outputs/approved_sources_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-    #         output_pydantic=ApprovedSources
-    #     )
+    @task
+    def approved_sources_classification(self) -> Task:
+        specialisation = self.research_inputs.get("specialisation")
+        topic_short = self.research_inputs.get("topic_short")
+        return Task(
+            config=self.tasks_config['approved_sources_classification'],
+            context=[self.source_evaluation()],
+            async_execution=True,
+            output_file=f'outputs/approved_sources_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+            output_pydantic=ApprovedSources
+        )
 
     @task
     def metadata_extraction(self) -> Task:
@@ -208,9 +204,9 @@ class SourceIdentificationCrew():
         topic_short = self.research_inputs.get("topic_short")
         return Task(
             config=self.tasks_config['metadata_extraction'],
-            context=[self.source_evaluation()],
+            context=[self.approved_sources_classification()],
             output_file=f'outputs/final_sources_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            output_pydantic=SourceIdentificationResults
+            output_pydantic=SourceApprovedResults
         )
 
     # Old from the previous crew with a single agent & Task

@@ -318,113 +318,69 @@ class MarketForceAnalysisReport(BaseModel):
 
 
 # New models created for the better source identification process, where we have split into multiple agents
-# class PotentialSourceURLs(BaseModel):
-#     urls: List[str] = Field(..., description="List of potential source URLs")
 
-# class NotApprovedSourceURLs(BaseModel):
-#     urls: List[str] = Field(..., description="List of not approved source URLs")
-
-# class ApprovedSourceURLs(BaseModel):
-#     urls: List[str] = Field(..., description="List of approved source URLs")
-
-# Models associated with source discovery
 class PotentialSource(BaseModel):
     """Represents a potential source discovered in the initial discovery phase."""
-    no: int = Field(..., description="Number of the source")
-    # id: str = Field(..., description="Unique identifier for the source")
-    url: str = Field(..., description="URL of the source")
-    title: str = Field(..., description="Title based on search snippet")
-    source_type: str = Field(..., description="Source type (PDF, Website, Other)")
-    publication_date: Optional[str] = Field(None, description="Apparent publication date if visible")
-    initial_relevance: str = Field(..., description="Brief reason why this source appears promising")
+    pot_source_no: int = Field(..., description="Number of the source")
+    pot_source_id: str = Field(..., description="Unique identifier for the source")
+    pot_source_url: str = Field(..., description="URL of the source")
+    pot_source_title: str = Field(..., description="Title based on search snippet")
+    pot_source_publication_date: Optional[str] = Field(None, description="Apparent publication date if visible")
+    pot_source_source_type: str = Field(..., description="Source type (PDF, Website, Other)")
+    pot_source_initial_relevance: str = Field(..., description="Brief reason why this source appears promising")
 
-    # @field_validator('id', mode='before')
-    # @classmethod
-    # def set_id_if_none(cls, v):
-    #     return v or f"PSRC-{uuid.uuid4().hex[:8]}"
-
-class PotentialSources(BaseModel):
-    potential_sources: List[PotentialSource] = Field(..., description="List of potential sources")
-
-class PotentialSourceURL(BaseModel):
-    url: str = Field(..., description="URL of the source")
-
-class PotentialSourcesURLOnly(BaseModel):
-    urls: List[PotentialSourceURL] = Field(..., description="List of potential source URLs")
+    @field_validator('pot_source_id', mode='before')
+    @classmethod
+    def set_id_if_none(cls, v):
+        return v or f"PSRC-{uuid.uuid4().hex[:8]}"
 
 class SourceDiscoveryResults(BaseModel):
     """Results from the source discovery phase."""
     topic: str = Field(..., description="Topic of the research")
     specialisation: str = Field(..., description="Specialisation of the research")
     date_of_discovery: str = Field(..., description="Date when the sources were discovered")
-    total_pot_sources_found: int = Field(..., description="Total number of sources found based on the list of potential sources")
-    potential_sources: List[PotentialSource] = Field(..., description="List of potential sources for evaluation")
+    total_sources_found: int = Field(..., description="Total number of sources found based on the list of potential sources")
+    potential_sources: List[PotentialSource] = Field(..., description="List of potential sources discovered")
 
-class EvaluatedSource(BaseModel):
-    """Represents a source that has been evaluated for quality."""
-    no: int = Field(..., description="Number of the source")
-    # id: str = Field(..., description="Source ID")
-    url: str = Field(..., description="Source URL")
-    title: str = Field(..., description="Source Title")
-    source_type: str = Field(..., description="Source type (PDF, Website, Other)")
-    source_date: Optional[str] = Field(None, description="Apparent publication date if visible")
-    relevance_score: float = Field(..., description="Relevance score of the source")
-    credibility_score: float = Field(..., description="Credibility score of the source")
-    recency_score: float = Field(..., description="Recency score of the source")
-    total_score: float = Field(..., description="Sum of relevance, credibility and recency scores of the source")
-    accessible: bool = Field(..., description="Whether the source is accessible (not paywalled)")
 
-class EvaluatedSources(BaseModel):
-    evaluated_sources: List[EvaluatedSource] = Field(..., description="List of evaluated sources")
-
-# Models associated with source evaluation
+# This replaces the old Source model
 class NotApprovedSource(BaseModel):
     """Represents a source that has been evaluated for quality."""
-    no: int = Field(..., description="Number of the source")
-    id: str = Field(..., description="Source ID")
-    url: str = Field(..., description="Source URL")
-    title: str = Field(..., description="Source Title")
+    eval_source_no: int = Field(..., description="Should be the same as the pot_source_no from the SourceDiscoveryResults")
+    eval_source_id: str = Field(..., description="Should inherit from the pot_source_id from the SourceDiscoveryResults")
+    eval_source_url: str = Field(..., description="Should inherit from the pot_source_url from the SourceDiscoveryResults")
+    eval_source_title: str = Field(..., description="Should inherit from the pot_source_title from the SourceDiscoveryResults")
+    eval_source_source_type: str = Field(..., description="Should inherit from the pot_source_source_type from the SourceDiscoveryResults")
+    eval_source_publisher: Optional[str] = Field(None, description="Publisher if known")
+    publication_date: Optional[str] = Field(None, description="Publication date, if known, from the source or source metadata")
+    author: Optional[str] = Field(None, description="Author if known, if know, from the source or source metadata")
     relevance_score: float = Field(..., description="Relevance score (1-10)")
     credibility_score: float = Field(..., description="Credibility score (1-10)")
     recency_score: float = Field(..., description="Recency score (1-10)")
-    total_score: float = Field(..., description="Combined quality score (sum of relevance, credibility and recency scores)")
+    total_score: float = Field(..., description="Combined quality score")
     accessible: bool = Field(..., description="Whether the source is accessible (not paywalled)")
-
-    @field_validator('id', mode='before')
-    @classmethod
-    def set_id_if_none(cls, v):
-        return f"NASC-{uuid.uuid4().hex[:8]}"
-
-
-class NotApprovedSources(BaseModel):
-    not_approved_sources: List[NotApprovedSource] = Field(..., description="List of not approved sources")    
 
 class ApprovedSource(BaseModel):
     """Represents a source that has been evaluated for quality."""
-    no: int = Field(..., description="Number of the approved source")
-    id: str = Field(..., description="Unique identifier for the approved source")
-    url: str = Field(..., description="URL of the approved source")
-    title: str = Field(..., description="Title of the approved source")
-    source_type: str = Field(..., description="Source type (PDF, Website, Other)")
-    publisher: Optional[str] = Field(None, description="Publisher if known")
-    source_date: Optional[str] = Field(None, description="Publication date if known")
-    author: Optional[str] = Field(None, description="Author if known")
-    description: Optional[str] = Field(None, description="Brief description of the source content")
-    relevance_score: float = Field(..., description="Relevance score for the approved source")
-    credibility_score: float = Field(..., description="Credibility score for the approved source")
-    recency_score: float = Field(..., description="Recency score for the approved source")
-    total_score: float = Field(..., description="Combined quality score for the approved source (sum of relevance, credibility and recency scores)")
+    appr_source_no: int = Field(..., description="Number of the approved source")
+    appr_source_id: str = Field(..., description="Unique identifier for the approved source")
+    appr_source_url: str = Field(..., description="URL of the approved source")
+    appr_source_title: str = Field(..., description="Title of the approved source")
+    appr_source_source_type: str = Field(..., description="Source type (PDF, Website, Other)")
+    appr_source_publisher: Optional[str] = Field(None, description="Publisher if known")
+    appr_source_publication_date: Optional[str] = Field(None, description="Publication date if known")
+    appr_source_author: Optional[str] = Field(None, description="Author if known")
+    appr_source_description: Optional[str] = Field(None, description="Brief description of the source content")
+    relevance_score: float = Field(..., description="Relevance score for the source from the SourceEvaluationResults")
+    credibility_score: float = Field(..., description="Credibility score for the source from the SourceEvaluationResults")
+    recency_score: float = Field(..., description="Recency score for the source from the SourceEvaluationResults")
+    total_score: float = Field(..., description="Combined quality score for the source from the SourceEvaluationResults")
     accessible: bool = Field(..., description="Whether the source is accessible (not paywalled)")
 
-    @field_validator('id', mode='before')
+    @field_validator('appr_source_id', mode='before')
     @classmethod
     def set_id_if_none(cls, v):
         return v or f"ASRC-{uuid.uuid4().hex[:8]}"
-
-class ApprovedSources(BaseModel):
-    approved_sources: List[ApprovedSource] = Field(..., description="List of approved sources")
-
-
 
 class SourceEvaluationResults(BaseModel):
     """Results from the source evaluation phase."""
@@ -432,21 +388,12 @@ class SourceEvaluationResults(BaseModel):
     specialisation: str = Field(..., description="Specialisation of the research")
     date_of_evaluation: str = Field(..., description="Date when the evaluation was conducted")
     total_sources_not_approved: int = Field(..., description="Total number of sources that did not pass quality criteria and were not approved")
-    total_sources_approved: int = Field(..., description="Number of sources that passed quality criteria - total score above the threshold and were approved")
+    total_sources_approved: int = Field(..., description="Number of sources that passed quality criteria - total score above the threshold")
     quality_threshold: float = Field(..., description="Minimum quality score required for approval - minimum total score")
     not_approved_sources: List[NotApprovedSource] = Field(..., description="List of sources that did not pass quality criteria and were not approved")
     approved_sources: List[ApprovedSource] = Field(..., description="List of evaluated high quality sources with quality scores above the threshold")
 
 class SourceApprovedResults(BaseModel):
-    """Results approved in the source evaluation process"""
-    topic: str = Field(..., description="Topic of the research")
-    specialisation: str = Field(..., description="Specialisation of the research")
-    date_of_approval: str = Field(..., description="Date when the approval was conducted")
-    total_sources_approved: int = Field(..., description="Number of sources that passed quality criteria")
-    quality_threshold: float = Field(..., description="Minimum quality score required for approval")
-    approved_sources: List[ApprovedSource] = Field(..., description="List of evaluated sources of a high quality with quality scores above the threshold")
-
-class SourceIdentificationResults(BaseModel):
     """Results approved in the source evaluation process"""
     topic: str = Field(..., description="Topic of the research")
     specialisation: str = Field(..., description="Specialisation of the research")
@@ -485,12 +432,12 @@ class EvaluatedSource(BaseModel):
     accessible: bool = Field(..., description="Whether the source is accessible (not paywalled)")
 
 
-# class SourceIdentificationResults(BaseModel):
-#     topic: str = Field(..., description="Topic of the research")
-#     specialisation: str = Field(default=specialisation, description="Specialisation of the research")
-#     date_of_research: str = Field(..., description="Date when the research was conducted")
-#     total_sources_found: int = Field(..., description="Total number of sources found")
-#     urls: List[EvaluatedSource] = Field(..., description="List of sources found")
+class SourceIdentificationResults(BaseModel):
+    topic: str = Field(..., description="Topic of the research")
+    specialisation: str = Field(default=specialisation, description="Specialisation of the research")
+    date_of_research: str = Field(..., description="Date when the research was conducted")
+    total_sources_found: int = Field(..., description="Total number of sources found")
+    urls: List[EvaluatedSource] = Field(..., description="List of sources found")
 
 class SourceURL(BaseModel):
     url: str = Field(..., description="URL of the source")
