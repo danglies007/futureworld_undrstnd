@@ -228,14 +228,14 @@ MARKET_FORCE_DEFINITIONS = {
 
 
 RESEARCH_INPUTS = {
-    'specialisation': 'Futurists',
-    'topic': 'Global Market Forces affecting the Banking sector',
-    'topic_short': 'Banking_forces', # used for file naming
+    'specialisation': 'Various',
+    'topic': 'Global Market Forces affecting the Mining Industry',
+    'topic_short': 'Mining_forces', # used for file naming
     'market': '',
     'business': '',
     'audience': 'Expert',
     'specific_points_of_interest': [''],
-    'research_sources': CUSTOM_SOURCES,
+    'research_sources': SOURCES_FAVOURITE,
     'minimum_number_of_sources': 25,
     'maximum_number_of_sources': 30,
     'minimum_number_of_forces': 0,
