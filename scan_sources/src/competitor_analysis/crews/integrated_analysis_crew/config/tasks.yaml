@@ -1,0 +1,263 @@
+# integrated_tasks.yaml - integrated_company_analysis_crew
+
+analyze_business_model:
+  description: >
+    You will receive both the CompanyInternalAnalysis and CompanyExternalAnalysis from
+    the previous crews. Your task is to analyze and compare internal and external perspectives
+    on {company_name}'s business model to develop a comprehensive understanding of how the
+    company creates and captures value.
+    
+    **MANDATORY ANALYSIS AREAS:**
+    1. Core business model components and their integration
+    2. Revenue models and their sustainability
+    3. Cost structure and operational efficiency
+    4. Value proposition and customer segments
+    5. Key partnerships and supply chain
+    6. Technology architecture and digital capabilities
+    7. Alignment between described and actual business model
+    8. Business model evolution and adaptation
+    
+    **MANDATORY WORKFLOW:**
+    1. Extract business model descriptions from both internal and external analyses
+    
+    2. Compare how the company describes its own business model with how
+       external analysts perceive it
+    
+    3. Identify key components of the business model and analyze each one
+       from both internal and external perspectives
+    
+    4. Assess the coherence and sustainability of the business model
+    
+    5. Identify potential blind spots or weaknesses in the company's
+       understanding of its own business model
+    
+    6. Structure findings using BusinessModelComponent models for
+       each major element of the business model
+    
+    7. Develop overall assessment of business model strengths,
+       vulnerabilities, and evolution trajectory
+    
+    **Quality requirements:**
+    1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
+    2. Confirm all sources have accurate attribution.
+    3. Maintain proper citation throughout.
+
+    **Final Output:**
+    Partial IntegratedCompanyAnalysis object focusing on business model
+    components and assessment, drawing on both internal and external perspectives.
+
+  expected_output: >
+    A partial IntegratedCompanyAnalysis object containing detailed business
+    model components analysis that integrates internal and external perspectives.
+  agent: business_model_analyst
+
+analyze_competitive_position:
+  description: >
+    You will receive both the CompanyInternalAnalysis and CompanyExternalAnalysis from
+    the previous crews. Your task is to synthesize internal claims and external assessments
+    of competitive advantage to develop an objective view of {company_name}'s true market
+    position and differentiation.
+    
+    **MANDATORY ANALYSIS AREAS:**
+    1. Market positioning and share trajectory
+    2. Claimed vs. validated competitive advantages
+    3. Key competitors and relative positioning
+    4. Points of differentiation (real vs. perceived)
+    5. Sustainability of competitive advantages
+    6. Customer perception and brand strength
+    7. Emerging competitive threats
+    8. Defensive moats and barriers to entry
+    
+    **MANDATORY WORKFLOW:**
+    1. Extract competitive positioning claims from internal analysis
+    
+    2. Extract external assessments of competitive position from external analysis
+    
+    3. Compare internal claims with external validation or challenges
+    
+    4. Identify competitive advantages that are consistently recognized
+       both internally and externally
+    
+    5. Highlight disconnects between how the company sees its advantages
+       versus how the market perceives them
+    
+    6. Analyze the sustainability of validated competitive advantages
+    
+    7. Structure findings using CompetitiveAdvantage models for
+       verified advantages, with evidence from both internal and external sources
+    
+    8. Develop an integrated assessment of market positioning that
+       balances internal aspirations with external realities
+    
+    **Quality requirements:**
+    1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
+    2. Confirm all sources have accurate attribution.
+    3. Maintain proper citation throughout.
+
+    **Final Output:**
+    Partial IntegratedCompanyAnalysis object focusing on competitive
+    advantages and market positioning, integrating internal and external views.
+
+  expected_output: >
+    A partial IntegratedCompanyAnalysis object containing detailed competitive
+    advantage assessment that integrates internal and external perspectives.
+  agent: competitive_position_analyst
+
+generate_strategic_insights:
+  description: >
+    You will receive both the CompanyInternalAnalysis and CompanyExternalAnalysis from
+    the previous crews. Your task is to generate key insights by comparing internal
+    strategic priorities with external market realities to identify alignment, disconnects,
+    and strategic options for {company_name}.
+    
+    **MANDATORY ANALYSIS AREAS:**
+    1. Strategic priority alignment with market opportunities
+    2. Execution capacity vs. strategic ambitions
+    3. Performance against stated strategic objectives
+    4. Strategic blind spots and cognitive biases
+    5. Resource allocation alignment with strategy
+    6. Strategic options and potential pivots
+    7. Key risks to strategic execution
+    8. Strategic inflection points and decision triggers
+    
+    **MANDATORY WORKFLOW:**
+    1. Extract stated strategic priorities from internal analysis
+    
+    2. Extract market realities and expectations from external analysis
+    
+    3. Assess the alignment between strategic priorities and market
+       opportunities/challenges
+    
+    4. Identify potential strategic blind spots by comparing internal
+       focus areas with external trends and concerns
+    
+    5. Analyze the company's track record of executing on strategic priorities
+    
+    6. Identify key strategic trade-offs and decision points
+    
+    7. Structure findings using KeyInsight models, with each insight
+       supported by evidence from both internal and external sources
+    
+    8. Develop an integrated assessment of strategic positioning that
+       highlights both aligned and misaligned elements
+    
+    **Quality requirements:**
+    1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
+    2. Confirm all sources have accurate attribution.
+    3. Maintain proper citation throughout.
+
+    **Final Output:**
+    Partial IntegratedCompanyAnalysis object focusing on key strategic
+    insights and options, drawing on both internal and external perspectives.
+
+  expected_output: >
+    A partial IntegratedCompanyAnalysis object containing strategic insights
+    that integrate internal and external perspectives.
+  agent: strategic_insight_analyst
+
+conduct_perstel_analysis:
+  description: >
+    You will receive both the CompanyInternalAnalysis and CompanyExternalAnalysis from
+    the previous crews. Your task is to apply the PERSTEL framework (Political, Economic,
+    Regulatory, Social, Technological, Environmental, Legal) to develop a comprehensive
+    view of macro factors affecting {company_name}.
+    
+    **MANDATORY ANALYSIS AREAS:**
+    For each PERSTEL dimension:
+    1. Key factors impacting the company and its industry
+    2. Company's awareness and response to these factors
+    3. Potential future developments in this dimension
+    4. Comparative positioning vs. competitors on this dimension
+    5. Risks and opportunities arising from this dimension
+    
+    **MANDATORY WORKFLOW:**
+    1. Extract mentions of macro factors from both internal and external analyses
+    
+    2. Categorize these factors according to the PERSTEL framework
+    
+    3. For each PERSTEL dimension, compare the company's internal
+       recognition and response with external assessments
+    
+    4. Identify potential blind spots or underappreciated factors
+       in each dimension
+    
+    5. Assess how well the company is positioned to address each
+       dimension compared to competitors
+    
+    6. Structure findings using PERSTELFactor models for each
+       significant factor identified
+    
+    7. Develop an integrated assessment of the macro environment
+       and the company's positioning within it
+    
+    **Quality requirements:**
+    1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
+    2. Confirm all sources have accurate attribution.
+    3. Maintain proper citation throughout.
+
+    **Final Output:**
+    Partial IntegratedCompanyAnalysis object focusing on PERSTEL factors
+    and their implications, drawing on both internal and external perspectives.
+
+  expected_output: >
+    A partial IntegratedCompanyAnalysis object containing PERSTEL analysis
+    that integrates internal and external perspectives.
+  agent: perstel_analyst
+
+create_integrated_analysis:
+  description: >
+    You will receive all partial IntegratedCompanyAnalysis objects from the previous tasks,
+    along with the original CompanyInternalAnalysis and CompanyExternalAnalysis. Your task is
+    to synthesize all these analyses into a comprehensive, integrated view of {company_name}
+    that balances insider perspectives with outside objectivity.
+    
+    **MANDATORY INTEGRATION AREAS:**
+    1. Executive summary of key findings and insights
+    2. Company background and evolution narrative
+    3. Business model assessment and sustainability
+    4. Market positioning and competitive dynamics
+    5. Performance assessment (financial and operational)
+    6. Strategic direction and execution capability
+    7. Key risks and opportunities
+    8. Future outlook and scenarios
+    9. Strategic options and potential recommendation areas
+    
+    **MANDATORY WORKFLOW:**
+    1. Review all partial IntegratedCompanyAnalysis objects
+    
+    2. Review the original CompanyInternalAnalysis and CompanyExternalAnalysis
+    
+    3. For each integration area, synthesize insights from all sources
+       into a cohesive narrative that represents a balanced perspective
+    
+    4. Highlight key areas where internal and external perspectives align,
+       indicating stronger confidence in these assessments
+    
+    5. Identify significant disconnects between internal and external
+       perspectives, indicating areas for deeper investigation
+    
+    6. Develop an executive summary that captures the most important
+       insights from the integrated analysis
+    
+    7. Structure the complete IntegratedCompanyAnalysis with all
+       required components, ensuring proper attribution to sources
+    
+    8. Review the final analysis for balance, objectivity, and actionability
+    
+    **Quality requirements:**
+    1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
+    2. Confirm all sources have accurate attribution.
+    3. Maintain proper citation throughout.
+
+    **Final Output:**
+    Complete IntegratedCompanyAnalysis object that provides a comprehensive,
+    balanced assessment of the company from all perspectives.
+    
+    The analysis should be structured to serve as a foundation for strategic
+    decision-making, highlighting both validated strengths and substantiated
+    concerns while avoiding both corporate spin and unfounded external criticism.
+
+  expected_output: >
+    A complete IntegratedCompanyAnalysis object containing a comprehensive,
+    balanced assessment of the company that integrates all perspectives.
+  agent: integrated_analysis_director

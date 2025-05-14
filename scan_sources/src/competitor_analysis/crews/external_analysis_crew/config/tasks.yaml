@@ -1,0 +1,307 @@
+# external_tasks.yaml - external_company_analysis_crew
+
+identify_company_external_sources:
+  description: >
+    You will identify and evaluate the most relevant external sources for analyzing {company_name} from outside perspectives.  Focus on recent sources, the date is {date}.
+    
+    Focus on finding the following types of external sources:
+    1. Recent news articles and media coverage, consider the current date is: {date}
+    2. Analyst reports and investment research
+    3. Industry analyses and market reports
+    4. Competitor statements and comparative analyses
+    5. Expert interviews and opinions
+    6. Customer reviews and feedback
+    7. Regulatory filings and legal proceedings
+    
+    For each source identified:
+    - Assess relevance to understanding the company from external perspectives
+    - Evaluate credibility and potential bias
+    - Check accessibility (prioritize freely available content)
+    - Determine recency (prioritize more recent analyses)
+    
+    **MANDATORY WORKFLOW:**
+    1. First, search for recent news coverage of the company
+    2. Identify major financial analyst coverage and ratings
+    3. Search for industry reports that include analysis of the company
+    4. Look for competitor statements about the industry landscape
+    5. For each source, extract or infer:
+       - Document title
+       - Publication date
+       - Source type
+       - Author/publisher
+       - URL
+       - Brief description of content
+    5. Clean each URL by removing query parameters (everything after '?' character) and fragments (everything after '#' character)
+    6. Score each source for relevance and credibility on a scale of 1-10
+    7. Organize results by source type and recency
+    8. Do not make up any sources or links to documents, if you cannot find a source, do not include it in the list
+    9. Do not fabricate any sources or links to documents, if you cannot find a source, do not include it in the list
+
+    **URL Cleaning Rules:**
+    1. Remove query strings (parameters after '?' in URLs)
+    2. Remove fragments (everything after '#' in URLs)
+    3. Only keep the base URL path to the document
+    4. Example: 
+       - Original: https://www.example.com/document.html?view=1&lang=en#page=2
+       - Cleaned: https://www.example.com/document.html
+
+    **Quality requirements:**
+    1. **NEVER FABRICATE INFORMATION - only use content from the provided sources.**
+    2. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
+
+    **Final Output:**
+    Compile results into a CompanySourceIdentificationResults object containing:
+    - External sources categorized by type
+    - Relevant metadata for each source (with cleaned URLs)
+    - Overall assessment of the diversity and quality of external perspectives
+
+  expected_output: >
+    A CompanySourceIdentificationResults object containing detailed information about the external sources identified for analysis, with all URLs properly cleaned.
+  agent: external_source_identifier
+
+analyze_news_and_media:
+  description: >
+    You will receive a list of external sources identified by the external_source_identifier agent.
+    Your job is to analyze news articles, media coverage, and public statements about {company_name} to identify significant events, trends in perception, and external assessments of the company.  Focus on recent sources, the date is {date}.
+    
+    **MANDATORY ANALYSIS AREAS:**
+    1. Key news events and their impact on company perception
+    2. Media narrative trends (positive, negative, neutral)
+    3. Public statements from key executives and their reception
+    4. Crisis events and the company's response
+    5. Product/service launches and their market reception
+    6. Company culture and leadership perception
+    7. Public controversies or challenges
+    
+    **MANDATORY WORKFLOW:**
+    1. For web-based news sources, use the web scraping tool:
+       Action: Scrape and Analyze Website Content
+       Action Input: 
+       url: [SOURCE URL]
+    
+    2. For PDF reports, first download them:
+       Action: Download File Tool
+       Action Input: 
+       url: [SOURCE URL]
+       
+       Then analyze them:
+       Action: Search a PDF's content
+       Action Input:
+       pdf: reference/[EXTRACTED FILENAME]
+       query: [TARGETED SEARCH QUERY]
+    
+    3. Categorize news and media coverage by:
+       - Subject matter (financial, operational, leadership, etc.)
+       - Sentiment (positive, negative, neutral)
+       - Impact level (high, medium, low)
+       - Recency
+    
+    4. Identify patterns and trends in external perception over time
+    
+    5. Structure findings using appropriate Pydantic models:
+       - NewsHighlight for significant news events
+       - AttributedItem for notable quotes and assessments
+    
+    6. Pay special attention to differences between how the company
+       presents itself versus how it is portrayed in media
+
+    7. Repeat steps 1 to 6 for each relevant source provided
+    
+    **Quality requirements:**
+    1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
+    2. Confirm all sources have accurate attribution.
+    3. Maintain proper citation throughout.
+
+    **Final Output:**
+    Partial CompanyExternalAnalysis object focusing on news highlights,
+    public perception, and notable external statements about the company.
+
+  expected_output: >
+    A partial CompanyExternalAnalysis object containing structured information
+    about news coverage and public perception of the company.
+  agent: news_analyst
+
+analyze_external_financials:
+  description: >
+    You will receive a list of external sources identified by the external_source_identifier agent.
+    Your job is to analyze external financial analyses, market expectations,
+    and performance metrics to provide an objective assessment of {company_name}'s
+    financial health and trajectory. Focus on recent sources, the date is {date}.
+    
+    **MANDATORY ANALYSIS AREAS:**
+    1. Analyst consensus on financial performance
+    2. Stock price performance and trends
+    3. Valuation metrics compared to industry
+    4. Analyst ratings and price targets
+    5. Identified financial strengths and weaknesses
+    6. Commentary on capital allocation decisions
+    7. Financial risks highlighted by external analysts
+    8. Comparison with key competitors
+    
+    **MANDATORY WORKFLOW:**
+    1. For web-based financial analyses, use the web scraping tool:
+       Action: Scrape and Analyze Website Content
+       Action Input: 
+       url: [SOURCE URL]
+    
+    2. For PDF reports, first download them:
+       Action: Download File Tool
+       Action Input: 
+       url: [SOURCE URL]
+       
+       Then analyze them:
+       Action: Search a PDF's content
+       Action Input:
+       pdf: reference/[EXTRACTED FILENAME]
+       query: [TARGETED SEARCH QUERY]
+    
+    3. Collect and organize external financial metrics and assessments
+    
+    4. Compare external financial analyses with each other to identify
+       consensus views versus outlier opinions
+    
+    5. Structure findings using appropriate Pydantic models:
+       - FinancialMetric for external assessments of financial performance
+       - AnalystPerspective for specific analyst views
+    
+    6. Note significant discrepancies between different external
+       financial assessments
+
+    **Quality requirements:**
+    1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
+    2. Confirm all sources have accurate attribution.
+    3. Maintain proper citation throughout.
+
+    **Final Output:**
+    ExternalFinancialAnalysisResult object focusing on external financial
+    assessments, market expectations, and comparative financial performance.
+
+  expected_output: >
+    An ExternalFinancialAnalysisResult object containing structured information
+    about external financial analyses and market perceptions of the company.
+  agent: financial_analyst
+
+analyze_market_position:
+  description: >
+    You will receive a list of external sources identified by the external_source_identifier agent.
+    Your job is to analyze the company's market position, competitive landscape,
+    and industry dynamics based on external industry reports, competitor statements, and market analyses. Focus on recent sources, the date is {date}.
+    
+    **MANDATORY ANALYSIS AREAS:**
+    1. Market share estimates and trends
+    2. Competitive positioning relative to peers
+    3. Industry trends and disruption factors
+    4. Competitor assessments of market dynamics
+    5. Customer perception and brand positioning
+    6. Product/service competitive advantages and disadvantages
+    7. Market opportunities and threats identified by external sources
+    8. Regulatory and environmental factors affecting the industry
+    
+    **MANDATORY WORKFLOW:**
+    1. For web-based market analyses, use the web scraping tool:
+       Action: Scrape and Analyze Website Content
+       Action Input: 
+       url: [SOURCE URL]
+    
+    2. For PDF reports, first download them:
+       Action: Download File Tool
+       Action Input: 
+       url: [SOURCE URL]
+       
+       Then analyze them:
+       Action: Search a PDF's content
+       Action Input:
+       pdf: reference/[EXTRACTED FILENAME]
+       query: [TARGETED SEARCH QUERY]
+    
+    3. Identify how external sources assess the company's:
+       - Competitive advantages and disadvantages
+       - Market position and trajectory
+       - Response to industry trends
+    
+    4. Analyze how competitors and industry experts view the company
+    
+    5. Structure findings using appropriate Pydantic models:
+       - CompetitorAssessment for analyses of key competitors
+       - MarketTrend for relevant industry trends
+       - SWOT elements for externally identified strengths/weaknesses
+    
+    6. Pay special attention to differing external perspectives on
+       the company's competitive position
+
+    **Quality requirements:**
+    1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
+    2. Confirm all sources have accurate attribution.
+    3. Maintain proper citation throughout.
+
+    **Final Output:**
+    MarketPositionAnalysisResult object focusing on market position,
+    competitive assessment, and industry dynamics from external perspectives.
+
+  expected_output: >
+    A MarketPositionAnalysisResult object containing structured information
+    about the company's market position and competitive landscape.
+  agent: market_position_analyst
+
+consolidate_external_analysis:
+  description: >
+    You will receive different analysis results from multiple analyst agents:
+    - NewsMediaAnalysisResult from the news_analyst
+    - ExternalFinancialAnalysisResult from the financial_analyst
+    - MarketPositionAnalysisResult from the market_position_analyst
+    Your job is to integrate these analyses into a comprehensive CompanyExternalAnalysis
+    object that presents a complete external view of {company_name}. The current date is {date}.
+    
+    **MANDATORY INTEGRATION AREAS:**
+    1. Create a unified external perception narrative
+    2. Synthesize market positioning and competitive assessment
+    3. Connect news events to financial performance assessments
+    4. Develop a comprehensive SWOT analysis from external perspectives
+    5. Identify consensus views versus areas of disagreement among external sources
+    6. Create an integrated assessment of external expectations for future performance
+    7. Identify key external concerns and positive outlook factors
+    
+    **MANDATORY WORKFLOW:**
+    1. Extract company perception, news highlights, and media sentiment from the NewsMediaAnalysisResult
+
+    2. Extract financial performance metrics, analyst perspectives, and stock performance from the ExternalFinancialAnalysisResult
+
+    3. Extract industry position, competitor assessments, and market trends from the MarketPositionAnalysisResult
+
+    4. Create a unified SWOT analysis by combining insights from all three sources
+
+    5. Review all partial objects
+    
+    6. For each integration area, combine information from all sources
+       while highlighting different external perspectives
+    
+    7. Identify areas of consensus across different external sources
+    
+    8. Highlight significant disagreements or contradictions in external assessments
+    
+    9. Develop a balanced synthesis that gives appropriate weight to
+       different external viewpoints
+    
+    10. Structure the integrated analysis using appropriate Pydantic models,
+       ensuring all elements are properly attributed to sources
+    
+    11. Create an executive summary that captures the essence of external
+       perspectives on the company
+    
+    **Quality requirements:**
+    1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
+    2. Confirm all sources have accurate attribution.
+    3. Maintain proper citation throughout.
+
+    **Final Output:**
+    Complete CompanyExternalAnalysis object that integrates all partial
+    analyses into a comprehensive external view of the company.
+    
+    Note: This consolidated analysis represents how the company is viewed
+    by external observers, which may differ significantly from how the
+    company presents itself in official documents.
+
+  expected_output: >
+    A complete CompanyExternalAnalysis object containing a comprehensive,
+    integrated analysis of the company based on external sources.
+  agent: external_analysis_consolidator

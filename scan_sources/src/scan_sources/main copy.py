@@ -51,7 +51,6 @@ class ScanState(BaseModel):
     user_urls: dict = None
     user_urls_research_context: dict = None
     implications_report: ImplicationAnalysisReport = None
-    saved_implications_report: ImplicationAnalysisReport = None
 
 class ScanFlow(Flow[ScanState]):
 
@@ -105,15 +104,11 @@ class ScanFlow(Flow[ScanState]):
         else:
             report_path = os.path.join("Resume_files", "saved_report.json")
             aggregated_market_forces_path = os.path.join("Resume_files", "aggregated_market_forces.json")
-            implications_report_path = os.path.join("Resume_files", "implications_report.json")
             if os.path.exists(report_path):
                 with open(report_path, "r") as f:
                     report_final_content_dict_saved = json.load(f)
-                with open(implications_report_path, "r") as f:
-                    implications_report_dict_saved = json.load(f)
-                print(report_final_content_dict_saved)          
+                    print(report_final_content_dict_saved)          
                 self.state.saved_report = report_final_content_dict_saved
-                self.state.saved_implications_report = implications_report_dict_saved
                 self.state.saved_research_context = self.research_inputs
                 return "report_found"
             elif os.path.exists(aggregated_market_forces_path):
@@ -293,7 +288,6 @@ class ScanFlow(Flow[ScanState]):
         self.state.research_context = self.research_inputs
         formatting_inputs = self.research_inputs.copy()
         formatting_inputs['report_final_content'] = report_final_content_dict
-        formatting_inputs['implications_report_content'] = self.state.implications_report
         formatting_result = FormattingCrew().crew().kickoff(inputs=formatting_inputs).raw
         self.state.markdown_report = formatting_result
         print("Final Markdown Report:\n")
@@ -306,7 +300,6 @@ class ScanFlow(Flow[ScanState]):
         self.state.saved_research_context = self.research_inputs
         formatting_inputs_from_saved = self.research_inputs.copy()
         formatting_inputs_from_saved['report_final_content'] = [self.state.saved_report]
-        formatting_inputs_from_saved['implications_report_content'] = [self.state.saved_implications_report]
         formatting_result_from_saved = FormattingCrew().crew().kickoff(inputs=formatting_inputs_from_saved).raw
         self.state.markdown_report_from_saved = formatting_result_from_saved
         print("Final Markdown Report:\n")

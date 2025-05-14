@@ -1,14 +1,14 @@
 import litellm
 import os
 # Custom Perplexity patch - using litellm_patch.py
-import litellm_patch
+# import litellm_patch
 from dotenv import load_dotenv
 load_dotenv()
 from openai import OpenAI
 
 
-# Importing patch PerplexityLLM
-from crew_perplexity import PerplexityLLM
+# # Importing patch PerplexityLLM
+# from crew_perplexity import PerplexityLLM
 
 
 from crewai import LLM
@@ -74,6 +74,8 @@ llm_gemini_2_0_flash_lite = LLM(model="gemini/gemini-2.0-flash-lite") # Fast int
 # llm_gpt_4_1_accurate = LLM(model="gpt-4o-2024-11-20", temperature=0.1)
 llm_gpt_4_1_accurate = LLM(model="gpt-4.1-2025-04-14", temperature=0.1)
 llm_gpt_4_1_mini_accurate = LLM(model="gpt-4.1-mini-2025-04-14", temperature=0.1)
+llm_gpt_4_1_mini_accurate_0 = LLM(model="gpt-4.1-mini-2025-04-14", temperature=0.0)
+
 
 llm_gpt4o_accurate = LLM(model="gpt-4o-2024-11-20", temperature=0.1, max_completion_tokens=8000, max_tokens=8000)
 llm_gpt4o_mini_accurate = LLM(model="gpt-4o-mini-2024-07-18", temperature=0.1, max_completion_tokens=8000, max_tokens=8000)
@@ -85,41 +87,41 @@ llm_perplexity_sonar.stop_words = []
 llm_perplexity_sonar_pro.stop_words = []
 
 
-lmm_perplexity_litellm_patch = LLM(
-    provider="perplexity",
-    model="perplexity/sonar",
-    config={
-        "stop": None,  # Explicitly set stop to None
-        "litellm_params": {
-            "api_base": "https://api.perplexity.ai",
-            "custom_llm_provider": "perplexity",
-            "force_timeout": 120,
-            "drop_params": ["stop"],  # Tell LiteLLM to drop the stop parameter
-            "temperature": 0.1
-        }
-    }
-)
+# lmm_perplexity_litellm_patch = LLM(
+#     provider="perplexity",
+#     model="perplexity/sonar",
+#     config={
+#         "stop": None,  # Explicitly set stop to None
+#         "litellm_params": {
+#             "api_base": "https://api.perplexity.ai",
+#             "custom_llm_provider": "perplexity",
+#             "force_timeout": 120,
+#             "drop_params": ["stop"],  # Tell LiteLLM to drop the stop parameter
+#             "temperature": 0.1
+#         }
+#     }
+# )
 
 
-# Perplexity via OpenAI client approach
-perplexity_api_key = os.environ.get("PERPLEXITY_API_KEY")
+# # Perplexity via OpenAI client approach
+# perplexity_api_key = os.environ.get("PERPLEXITY_API_KEY")
 
-# Create a Perplexity LLM using OpenAI client
-llm_perplexity_via_openai = LLM(
-    provider="openai",  # Use OpenAI as provider
-    model="perplexity/sonar",  # Perplexity model
-    api_key=perplexity_api_key,  # Use Perplexity API key
-    config={
-        "api_base": "https://api.perplexity.ai",
-        "extra_headers": {
-            "x-api-type": "perplexity"  # Tell LiteLLM this is Perplexity
-        }
-    }
-)
+# # Create a Perplexity LLM using OpenAI client
+# llm_perplexity_via_openai = LLM(
+#     provider="openai",  # Use OpenAI as provider
+#     model="perplexity/sonar",  # Perplexity model
+#     api_key=perplexity_api_key,  # Use Perplexity API key
+#     config={
+#         "api_base": "https://api.perplexity.ai",
+#         "extra_headers": {
+#             "x-api-type": "perplexity"  # Tell LiteLLM this is Perplexity
+#         }
+#     }
+# )
 
 
-# Perplexity via custom PerplexityLLM
-llm_perplexity_custom_patch = PerplexityLLM(
-    model="perplexity/sonar",  # Or "perplexity/sonar-pro" for the pro version
-    api_key=os.environ.get("PERPLEXITYAI_API_KEY")
-)
+# # Perplexity via custom PerplexityLLM
+# llm_perplexity_custom_patch = PerplexityLLM(
+#     model="perplexity/sonar",  # Or "perplexity/sonar-pro" for the pro version
+#     api_key=os.environ.get("PERPLEXITYAI_API_KEY")
+# )

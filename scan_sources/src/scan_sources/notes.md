@@ -1,5 +1,9 @@
 # General Notes
 
+## General Optimisation
+
+1. Always do search with a smarter model - not a mini model e.g. 4_1
+
 ## Planning states
 
 1. Sources

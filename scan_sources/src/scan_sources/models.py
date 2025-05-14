@@ -245,6 +245,7 @@ class MarketForce(BaseModel):
     force_name: str = Field(..., description="Name of the market force")
     force_category_name: str = Field(..., description="Name of the category within which the market force is grouped (e.g., 'Technological', 'Economic', 'Political', 'Environmental', 'Social', 'Regulatory')")
     description: str = Field(..., description="Detailed description of the market force")
+    strap_line: str = Field(..., description="Brief summary of the market force, captured in 2 sentences")
     sectors_affected: List[str] = Field(default_factory=list, description="Economic or business sectors most likely to be affected")
     impact_assessment: MarketForceImpact = Field(..., description="Assessment of the potential impact")
     key_findings: List[KeyFinding] = Field(default_factory=list, description="Key factual findings related to this force")
@@ -252,6 +253,7 @@ class MarketForce(BaseModel):
     business_implications: List[str] = Field(default_factory=list, description="Business implications of this force")
     related_forces: List[str] = Field(default_factory=list, description="Names of related market forces")
     early_signals: List[str] = Field(default_factory=list, description="Early signals of this market force")
+    takeout: str = Field(..., description="Key takeout of the market force, what is the 'so what?' of this market force?")
     sources: List[str] = Field(default_factory=list, description="Source references for this force")
 
 class MarketForceCategory(BaseModel):

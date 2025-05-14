@@ -1,4 +1,4 @@
-# tasks.yaml - futurist_formatting_crew
+# tasks.yaml - formatting_crew
 
 markdown_formatting_task:
   description: >
@@ -6,6 +6,8 @@ markdown_formatting_task:
 
     MARKET FORCE ANALYSIS REPORT: {report_final_content}
     
+    Format the executive report into a beautiful markdown document without '```'.
+
     1. Use proper markdown headers (#, ##, ###).
     2. Include the following line just below the Main Title: "Produced by Futureworld & NexusPlus Undrstnd.AI" without quotation marks.
     3. Do not try to overly summarize or condense the content provided.
@@ -13,7 +15,7 @@ markdown_formatting_task:
     5. Do not rename any of the market forces provided anywhere in the report as cross referenceing may be required throughout the report. 
     6. Include key findings and key insights as bullet points, if implications and explanations are available include them here.  
     7. Add proper spacing and sections breaks.
-    8. Make implications, signals and related forces stand out using blockquotes.
+    8. Make the strap line, implications, signals and related forces and takeout stand out using blockquotes.
     9. Where impact assessments are given, include the impact rationale.
     10. Ensure the date is properly formatted.
     11. Add a table of contents at the beginning.
@@ -25,6 +27,7 @@ markdown_formatting_task:
     17. Add a glossary at the end.
     18. Add a copyright notice at the end: "© {date} Futureworld & NexusPlus. All rights reserved."
     19. Ensure all content from the MarketForceAnalysisReport object are considered and incorporated into the final report.
+    20. Do not leave content out or information due to perceived length constraints, this is a full report not a summary.
   expected_output: >
     A beautifully formatted markdown report with proper structure, spacing, citations, and visual elements that enhance readability and presentation.  It should include all content, required formatting, sections, and attributions.
   agent: markdown_formatter
@@ -51,3 +54,50 @@ markdown_formatting_task:
 #   expected_output: >
 #     A beautifully formatted table or set of tables, with proper structure, headings, titles spacing, citations, and visual elements that enhance readability and presentation.  It should include all necessary content, required formatting, and attributions.
 #   agent: table_formatter
+
+markdown_implications_formatting_task:
+  description: >
+    You will receive an Implications Analysis Report as input. Format it as a beautiful markdown document, following the specified formatting guidelines.
+
+    IMPLICATIONS ANALYSIS REPORT: {implications_report_content}
+    
+    Format the report into a beautiful markdown document without '```'.
+    
+    1. Use proper markdown headers (#, ##, ###, ####).
+    2. Include the following line just below the Main Title: "Produced by Futureworld & NexusPlus Undrstnd.AI" without quotation marks.
+    3. Do not try to overly summarise or condense the content provided.
+    4. Structure the report with clear sections for:
+       - Executive Summary
+       - Methodology
+       - First-Order Implications
+       - Second-Order Implications
+       - Third-Order Implications
+       - Strategic Recommendations
+       - Critical Uncertainties
+       - Cross-Cutting Themes
+       - Conclusion
+    5. Do not rename any of the implications or market forces provided anywhere in the report as cross-referencing may be required throughout the report.
+    6. For each implication, clearly show:
+       - Category (Opportunity/Threat/Mixed/etc.)
+       - Parent implications and market forces relationships
+       - Impact level and time horizon
+       - Strategic considerations (as bullet points)
+       - Potential opportunities and threats (as bullet points)
+    7. Add proper spacing and section breaks.
+    8. Make strategic considerations, opportunities, and threats stand out using blockquotes or other markdown formatting.
+    9. Where impact assessments are given, include the impact level, time horizon, and uncertainty level.
+    10. Ensure the date is properly formatted.
+    11. Add a table of contents at the beginning.
+    12. Use horizontal rules (---) to separate major sections.
+    13. Add inline clickable citations for each major claim, key finding, or key insight using (Source Name, URL) format. Make these a different colour to the standard text.
+    14. Include a Sources section at the end with numbered references.
+    15. Each source should include title, date, publisher/author, and URL.
+    16. Link inline citations to the corresponding entry in the Sources section.
+    17. Add a glossary section explaining key terms used throughout the report.
+    18. Add a copyright notice at the end: "© {date} Futureworld & NexusPlus. All rights reserved."
+    19. Create a visual representation table showing the cascade from first-order through third-order implications.
+    20. Ensure all content from the Implications Analysis Report object is considered and incorporated into the final report.
+    21. Do not leave content out or information due to perceived length constraints, this is a full report not a summary.
+  expected_output: >
+    A beautifully formatted markdown report with proper structure, spacing, citations, and visual elements that enhance readability and presentation. It should include all content, required formatting, sections, and attributions, with clear visual hierarchy and relationships between different levels of implications.
+  agent: markdown_formatter

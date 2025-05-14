@@ -13,8 +13,8 @@ dependencies = [
 ]
 
 [project.scripts]
-kickoff = "scan_sources.main:kickoff"
-plot = "scan_sources.main:plot"
+kickoff = "competitor_analysis.main:kickoff"
+plot = "competitor_analysis.main:plot"
 
 [build-system]
 requires = ["hatchling"]

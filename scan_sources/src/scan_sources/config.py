@@ -236,10 +236,10 @@ RESEARCH_INPUTS = {
     'audience': 'Expert',
     'specific_points_of_interest': [''],
     'research_sources': SOURCES_FAVOURITE,
-    'minimum_number_of_sources': 25,
-    'maximum_number_of_sources': 30,
+    'minimum_number_of_sources': 1,
+    'maximum_number_of_sources': 1,
     'minimum_number_of_forces': 0,
     'source_score_threshold': 0,
-    'date': datetime.now().strftime('%Y-%m-%d'),
+    'date': datetime.now().strftime('%d %B %Y'),
     'market_force_definition': MARKET_FORCE_DEFINITIONS
 }

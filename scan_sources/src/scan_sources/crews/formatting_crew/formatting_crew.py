@@ -70,6 +70,7 @@ from crewai_tools import (
 	ScrapeWebsiteTool,
 	BraveSearchTool,
 	ScrapflyScrapeWebsiteTool,
+    CodeInterpreterTool
 )
 
 # Import Custom tools
@@ -84,6 +85,10 @@ from scan_sources.tools.custom_web_scrape_market_forces import MarketForcesScrap
 
 # Import Research variables to support naming
 from scan_sources.config import RESEARCH_INPUTS
+
+# Enable CodeInterpreter - THIS IS RISKY but useful for data analysis
+run_code = CodeInterpreterTool(unsafe_mode=True)
+
 
 @CrewBase
 class FormattingCrew():
@@ -100,6 +105,7 @@ class FormattingCrew():
             config=self.agents_config['markdown_formatter'],
             llm=llm_gpt_4_1,
             respect_context_window=True,
+            tools=[run_code],
             cache=True,
             verbose=True
         )
@@ -108,7 +114,7 @@ class FormattingCrew():
     def table_formatter(self) -> Agent:
         return Agent(
             config=self.agents_config['table_formatter'],
-            llm=llm_gpt_4_1,
+            llm=llm_claude_3_7_sonnet,
             respect_context_window=True,
             cache=True,
             verbose=True
@@ -121,6 +127,15 @@ class FormattingCrew():
         return Task(
             config=self.tasks_config['markdown_formatting_task'],
             output_file=f'outputs/markdown_report_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
+        )
+
+    @task
+    def markdown_implications_formatting_task(self) -> Task:
+        specialisation = self.research_inputs.get("specialisation")
+        topic_short = self.research_inputs.get("topic_short")
+        return Task(
+            config=self.tasks_config['markdown_implications_formatting_task'],
+            output_file=f'outputs/markdown_implications_report_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
         )
 
     # @task
