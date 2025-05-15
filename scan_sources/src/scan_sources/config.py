@@ -229,8 +229,8 @@ MARKET_FORCE_DEFINITIONS = {
 
 RESEARCH_INPUTS = {
     'specialisation': 'Various',
-    'topic': 'Global Market Forces affecting the Mining Industry',
-    'topic_short': 'Mining_forces', # used for file naming
+    'topic': 'Global Market Forces affecting the Banking Sector',
+    'topic_short': 'Banking_forces', # used for file naming
     'market': '',
     'business': '',
     'audience': 'Expert',

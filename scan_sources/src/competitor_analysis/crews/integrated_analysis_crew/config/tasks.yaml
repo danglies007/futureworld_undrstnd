@@ -2,10 +2,13 @@
 
 analyze_business_model:
   description: >
-    You will receive both the CompanyInternalAnalysis and CompanyExternalAnalysis from
+    You will receive both the Internal Analysis and External Analysis from
     the previous crews. Your task is to analyze and compare internal and external perspectives
     on {company_name}'s business model to develop a comprehensive understanding of how the
     company creates and captures value.
+
+    Internal Analysis: {internal_analysis}
+    External Analysis: {external_analysis}
     
     **MANDATORY ANALYSIS AREAS:**
     1. Core business model components and their integration
@@ -53,11 +56,14 @@ analyze_business_model:
 
 analyze_competitive_position:
   description: >
-    You will receive both the CompanyInternalAnalysis and CompanyExternalAnalysis from
+    You will receive both the Internal Analysis and External Analysis from
     the previous crews. Your task is to synthesize internal claims and external assessments
     of competitive advantage to develop an objective view of {company_name}'s true market
     position and differentiation.
-    
+
+    Internal Analysis: {internal_analysis}
+    External Analysis: {external_analysis}
+
     **MANDATORY ANALYSIS AREAS:**
     1. Market positioning and share trajectory
     2. Claimed vs. validated competitive advantages
@@ -105,10 +111,13 @@ analyze_competitive_position:
 
 generate_strategic_insights:
   description: >
-    You will receive both the CompanyInternalAnalysis and CompanyExternalAnalysis from
+    You will receive both the Internal Analysis and External Analysis from
     the previous crews. Your task is to generate key insights by comparing internal
     strategic priorities with external market realities to identify alignment, disconnects,
     and strategic options for {company_name}.
+    
+    Internal Analysis: {internal_analysis}
+    External Analysis: {external_analysis}
     
     **MANDATORY ANALYSIS AREAS:**
     1. Strategic priority alignment with market opportunities
@@ -157,10 +166,13 @@ generate_strategic_insights:
 
 conduct_perstel_analysis:
   description: >
-    You will receive both the CompanyInternalAnalysis and CompanyExternalAnalysis from
+    You will receive both the Internal Analysis and External Analysis from
     the previous crews. Your task is to apply the PERSTEL framework (Political, Economic,
     Regulatory, Social, Technological, Environmental, Legal) to develop a comprehensive
     view of macro factors affecting {company_name}.
+    
+    Internal Analysis: {internal_analysis}
+    External Analysis: {external_analysis}
     
     **MANDATORY ANALYSIS AREAS:**
     For each PERSTEL dimension:
@@ -207,9 +219,12 @@ conduct_perstel_analysis:
 create_integrated_analysis:
   description: >
     You will receive all partial IntegratedCompanyAnalysis objects from the previous tasks,
-    along with the original CompanyInternalAnalysis and CompanyExternalAnalysis. Your task is
+    along with the original Internal Analysis and External Analysis. Your task is
     to synthesize all these analyses into a comprehensive, integrated view of {company_name}
     that balances insider perspectives with outside objectivity.
+    
+    Internal Analysis: {internal_analysis}
+    External Analysis: {external_analysis}
     
     **MANDATORY INTEGRATION AREAS:**
     1. Executive summary of key findings and insights
@@ -225,7 +240,7 @@ create_integrated_analysis:
     **MANDATORY WORKFLOW:**
     1. Review all partial IntegratedCompanyAnalysis objects
     
-    2. Review the original CompanyInternalAnalysis and CompanyExternalAnalysis
+    2. Review the original Internal Analysis and External Analysis
     
     3. For each integration area, synthesize insights from all sources
        into a cohesive narrative that represents a balanced perspective

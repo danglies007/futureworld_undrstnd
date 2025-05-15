@@ -61,9 +61,60 @@ identify_company_external_sources:
 
 analyze_news_and_media:
   description: >
-    You will receive a list of external sources identified by the external_source_identifier agent.
-    Your job is to analyze news articles, media coverage, and public statements about {company_name} to identify significant events, trends in perception, and external assessments of the company.  Focus on recent sources, the date is {date}.
-    
+    You will receive a list sources from the identify_company_external_sources task.  
+
+    The list will be structured as follows:
+
+    {
+      "company_name": "Example Corp",
+      "ticker_symbol": "EXMP",
+      "industry": "Technology",
+      "date_of_identification": "2025-05-15",
+      "total_sources_found": 12,
+      "internal_sources": [
+        {
+          "url": "https://example.com/annual-report-2024",
+          "title": "Annual Report 2024",
+          "source_type": "annual_report",
+          "publication_date": "2024-12-31",
+          "author": "Example Corp",
+          "relevance_score": 0.95,
+          "summary": "Comprehensive annual report covering financial performance and strategic initiatives."
+        },
+        {
+          "url": "https://example.com/investor-presentation",
+          "title": "Q1 2025 Investor Presentation",
+          "source_type": "investor_presentation",
+          "publication_date": "2025-04-15",
+          "author": "Example Corp",
+          "relevance_score": 0.87,
+          "summary": "Quarterly presentation highlighting recent performance and future outlook."
+        }
+      ],
+      "external_sources": [
+        {
+          "url": "https://financial-times.com/example-corp-analysis",
+          "title": "Market Analysis: Example Corp's Growth Strategy",
+          "source_type": "news_article",
+          "publication_date": "2025-05-01",
+          "author": "Financial Times",
+          "relevance_score": 0.82,
+          "summary": "Analysis of the company's expansion plans and market positioning."
+        },
+        {
+          "url": "https://industry-analyst.com/reports/example-corp",
+          "title": "Industry Competitive Report: Example Corp",
+          "source_type": "analyst_report",
+          "publication_date": "2025-04-22",
+          "author": "Industry Analyst Group",
+          "relevance_score": 0.91,
+          "summary": "Detailed competitive analysis comparing Example Corp to industry peers."
+        }
+      ]
+    }
+
+    Using the "url" fields from the "external_sources" in the list, and based on the "source_type" field, analyze news articles, media coverage, and public statements about {company_name} to identify significant events, trends in perception, and external assessments of the company.  Focus on recent sources (based on the "publication_date" field), the current date is {date}.
+
     **MANDATORY ANALYSIS AREAS:**
     1. Key news events and their impact on company perception
     2. Media narrative trends (positive, negative, neutral)
@@ -77,12 +128,12 @@ analyze_news_and_media:
     1. For web-based news sources, use the web scraping tool:
        Action: Scrape and Analyze Website Content
        Action Input: 
-       url: [SOURCE URL]
+       url:
     
     2. For PDF reports, first download them:
        Action: Download File Tool
        Action Input: 
-       url: [SOURCE URL]
+       url:
        
        Then analyze them:
        Action: Search a PDF's content
@@ -105,29 +156,90 @@ analyze_news_and_media:
     6. Pay special attention to differences between how the company
        presents itself versus how it is portrayed in media
 
-    7. Repeat steps 1 to 6 for each relevant source provided
+    7. Make sure you clean any URL by removing query parameters (everything after '?' character) and fragments (everything after '#' character)
+    **URL Cleaning Rules:**
+      1. Remove query strings (parameters after '?' in URLs)
+      2. Remove fragments (everything after '#' in URLs)
+      3. Only keep the base URL path to the document
+      4. Example: 
+         - Original: https://www.example.com/document.pdf?view=1&lang=en#page=2
+         - Cleaned: https://www.example.com/document.pdf
+
+    8. Repeat steps 1 to 7 for each relevant source provided, for each new source provided, ignore the previous analysis and start from scratch.
     
     **Quality requirements:**
     1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
-    2. Confirm all sources have accurate attribution.
-    3. Maintain proper citation throughout.
+    2. NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.
+    3. Confirm all sources have accurate attribution.
+    4. Maintain proper citation throughout.
+    5. If the currency is not USD, provide both the original currency and the converted amount in USD, convert them to USD using the exchange rate at the time of the report, also indicate the exchange rate used and source.
 
     **Final Output:**
-    Partial CompanyExternalAnalysis object focusing on news highlights,
-    public perception, and notable external statements about the company.
+    A NewsMediaAnalysisResult object focusing on news highlights,
+    public perception, and notable external statements about the company, with all sources properly attributed.
+
+    IMPORTANT: Your response must be in valid JSON format that matches the expected output schema.
 
   expected_output: >
-    A partial CompanyExternalAnalysis object containing structured information
-    about news coverage and public perception of the company.
+    A "News analysis" aligned to the NewsMediaAnalysisResult object containing structured information about news coverage and public perception of the company.
   agent: news_analyst
 
 analyze_external_financials:
   description: >
-    You will receive a list of external sources identified by the external_source_identifier agent.
-    Your job is to analyze external financial analyses, market expectations,
-    and performance metrics to provide an objective assessment of {company_name}'s
-    financial health and trajectory. Focus on recent sources, the date is {date}.
-    
+    You will receive a list sources from the identify_company_external_sources task.  
+
+    The list will be structured as follows:
+
+    {
+      "company_name": "Example Corp",
+      "ticker_symbol": "EXMP",
+      "industry": "Technology",
+      "date_of_identification": "2025-05-15",
+      "total_sources_found": 12,
+      "internal_sources": [
+        {
+          "url": "https://example.com/annual-report-2024",
+          "title": "Annual Report 2024",
+          "source_type": "annual_report",
+          "publication_date": "2024-12-31",
+          "author": "Example Corp",
+          "relevance_score": 0.95,
+          "summary": "Comprehensive annual report covering financial performance and strategic initiatives."
+        },
+        {
+          "url": "https://example.com/investor-presentation",
+          "title": "Q1 2025 Investor Presentation",
+          "source_type": "investor_presentation",
+          "publication_date": "2025-04-15",
+          "author": "Example Corp",
+          "relevance_score": 0.87,
+          "summary": "Quarterly presentation highlighting recent performance and future outlook."
+        }
+      ],
+      "external_sources": [
+        {
+          "url": "https://financial-times.com/example-corp-analysis",
+          "title": "Market Analysis: Example Corp's Growth Strategy",
+          "source_type": "news_article",
+          "publication_date": "2025-05-01",
+          "author": "Financial Times",
+          "relevance_score": 0.82,
+          "summary": "Analysis of the company's expansion plans and market positioning."
+        },
+        {
+          "url": "https://industry-analyst.com/reports/example-corp",
+          "title": "Industry Competitive Report: Example Corp",
+          "source_type": "analyst_report",
+          "publication_date": "2025-04-22",
+          "author": "Industry Analyst Group",
+          "relevance_score": 0.91,
+          "summary": "Detailed competitive analysis comparing Example Corp to industry peers."
+        }
+      ]
+    }
+
+    Using the "url" fields from the "external_sources" in the list, and based on the "source_type" field, analyze external financial analyses, market expectations, and performance metrics to provide an objective assessment of {company_name}'s financial health and trajectory.  Focus on recent sources (based on the "publication_date" field), the current date is {date}.
+
     **MANDATORY ANALYSIS AREAS:**
     1. Analyst consensus on financial performance
     2. Stock price performance and trends
@@ -142,67 +254,133 @@ analyze_external_financials:
     1. For web-based financial analyses, use the web scraping tool:
        Action: Scrape and Analyze Website Content
        Action Input: 
-       url: [SOURCE URL]
+       url:
     
+    **MANDATORY WORKFLOW:**
+    1. For web-based financial analyses, use the web scraping tool:
+       Action: Scrape and Analyze Website Content
+       Action Input: 
+       url:
     2. For PDF reports, first download them:
        Action: Download File Tool
        Action Input: 
-       url: [SOURCE URL]
+       url:
        
        Then analyze them:
        Action: Search a PDF's content
        Action Input:
        pdf: reference/[EXTRACTED FILENAME]
        query: [TARGETED SEARCH QUERY]
-    
     3. Collect and organize external financial metrics and assessments
-    
     4. Compare external financial analyses with each other to identify
        consensus views versus outlier opinions
-    
-    5. Structure findings using appropriate Pydantic models:
+    5. Structure findings using appropriate schemas:
        - FinancialMetric for external assessments of financial performance
        - AnalystPerspective for specific analyst views
-    
     6. Note significant discrepancies between different external
        financial assessments
+    7. Do not pass all PDF content into the model, only pass the relevant content.  Use the pdf search tool to find relevant content.
+    8. Make sure you clean any URL by removing query parameters (everything after '?' character) and fragments (everything after '#' character)
+    **URL Cleaning Rules:**
+      1. Remove query strings (parameters after '?' in URLs)
+      2. Remove fragments (everything after '#' in URLs)
+      3. Only keep the base URL path to the document
+      4. Example: 
+         - Original: https://www.example.com/document.pdf?view=1&lang=en#page=2
+         - Cleaned: https://www.example.com/document.pdf
+    9. Repeat steps 1 to 8 for each relevant source provided
+
+
 
     **Quality requirements:**
     1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
-    2. Confirm all sources have accurate attribution.
-    3. Maintain proper citation throughout.
+    2. NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.
+    3. Confirm all sources have accurate attribution.
+    4. Maintain proper citation throughout.
+    5. If the currency is not USD, provide both the original currency and the converted amount in USD, convert them to USD using the exchange rate at the time of the report, also indicate the exchange rate used and source.
 
     **Final Output:**
     ExternalFinancialAnalysisResult object focusing on external financial
     assessments, market expectations, and comparative financial performance.
 
+    IMPORTANT: Your response must be in valid JSON format that matches the expected output schema.
+
   expected_output: >
-    An ExternalFinancialAnalysisResult object containing structured information
+    An "External Financial Analysis" aligned to the ExternalFinancialAnalysisResult object containing structured information
     about external financial analyses and market perceptions of the company.
   agent: financial_analyst
 
 analyze_market_position:
   description: >
-    You will receive a list of external sources identified by the external_source_identifier agent.
-    Your job is to analyze the company's market position, competitive landscape,
-    and industry dynamics based on external industry reports, competitor statements, and market analyses. Focus on recent sources, the date is {date}.
-    
+    You will receive a list sources from the identify_company_external_sources task.  
+
+    The list will be structured as follows:
+
+    {
+      "company_name": "Example Corp",
+      "ticker_symbol": "EXMP",
+      "industry": "Technology",
+      "date_of_identification": "2025-05-15",
+      "total_sources_found": 12,
+      "internal_sources": [
+        {
+          "url": "https://example.com/annual-report-2024",
+          "title": "Annual Report 2024",
+          "source_type": "annual_report",
+          "publication_date": "2024-12-31",
+          "author": "Example Corp",
+          "relevance_score": 0.95,
+          "summary": "Comprehensive annual report covering financial performance and strategic initiatives."
+        },
+        {
+          "url": "https://example.com/investor-presentation",
+          "title": "Q1 2025 Investor Presentation",
+          "source_type": "investor_presentation",
+          "publication_date": "2025-04-15",
+          "author": "Example Corp",
+          "relevance_score": 0.87,
+          "summary": "Quarterly presentation highlighting recent performance and future outlook."
+        }
+      ],
+      "external_sources": [
+        {
+          "url": "https://financial-times.com/example-corp-analysis",
+          "title": "Market Analysis: Example Corp's Growth Strategy",
+          "source_type": "news_article",
+          "publication_date": "2025-05-01",
+          "author": "Financial Times",
+          "relevance_score": 0.82,
+          "summary": "Analysis of the company's expansion plans and market positioning."
+        },
+        {
+          "url": "https://industry-analyst.com/reports/example-corp",
+          "title": "Industry Competitive Report: Example Corp",
+          "source_type": "analyst_report",
+          "publication_date": "2025-04-22",
+          "author": "Industry Analyst Group",
+          "relevance_score": 0.91,
+          "summary": "Detailed competitive analysis comparing Example Corp to industry peers."
+        }
+      ]
+    }
+
+    Using the "url" fields from the "external_sources" in the list, and based on the "source_type" field, the company's market position, competitive landscape, and industry dynamics based on external industry reports, competitor statements, and market analyses. Focus on recent sources (based on the "publication_date" field), the current date is {date}.
+
     **MANDATORY ANALYSIS AREAS:**
-    1. Market share estimates and trends
-    2. Competitive positioning relative to peers
-    3. Industry trends and disruption factors
-    4. Competitor assessments of market dynamics
+    1. Industry positioning including regulatory and environmental factors
+    2. Competitors and Competitive positioning relative to peers
+    3. Competitor assessments of market dynamics
+    4. Market trends, outlook, opportunities and threats and disruption factors
     5. Customer perception and brand positioning
-    6. Product/service competitive advantages and disadvantages
-    7. Market opportunities and threats identified by external sources
-    8. Regulatory and environmental factors affecting the industry
-    
+    6. Market share and market size, relative positioning and trends
+    7. Competitive advantages and disadvantages
+    8. ESG assessment and overview
+
     **MANDATORY WORKFLOW:**
     1. For web-based market analyses, use the web scraping tool:
        Action: Scrape and Analyze Website Content
        Action Input: 
        url: [SOURCE URL]
-    
     2. For PDF reports, first download them:
        Action: Download File Tool
        Action Input: 
@@ -213,44 +391,54 @@ analyze_market_position:
        Action Input:
        pdf: reference/[EXTRACTED FILENAME]
        query: [TARGETED SEARCH QUERY]
-    
     3. Identify how external sources assess the company's:
        - Competitive advantages and disadvantages
        - Market position and trajectory
        - Response to industry trends
-    
     4. Analyze how competitors and industry experts view the company
-    
     5. Structure findings using appropriate Pydantic models:
        - CompetitorAssessment for analyses of key competitors
        - MarketTrend for relevant industry trends
        - SWOT elements for externally identified strengths/weaknesses
-    
     6. Pay special attention to differing external perspectives on
        the company's competitive position
+    7. Do not pass all PDF content into the model, only pass the relevant content.  Use the pdf search tool to find relevant content.
+    8. Make sure you clean any URL by removing query parameters (everything after '?' character) and fragments (everything after '#' character)
+    **URL Cleaning Rules:**
+      1. Remove query strings (parameters after '?' in URLs)
+      2. Remove fragments (everything after '#' in URLs)
+      3. Only keep the base URL path to the document
+      4. Example: 
+         - Original: https://www.example.com/document.pdf?view=1&lang=en#page=2
+         - Cleaned: https://www.example.com/document.pdf
+    9. Repeat steps 1 to 8 for each relevant source provided
+
 
     **Quality requirements:**
     1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
-    2. Confirm all sources have accurate attribution.
-    3. Maintain proper citation throughout.
+    2. NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.
+    3. Confirm all sources have accurate attribution.
+    4. Maintain proper citation throughout.
+    5. If the currency is not USD, provide both the original currency and the converted amount in USD, convert them to USD using the exchange rate at the time of the report, also indicate the exchange rate used and source.
+
 
     **Final Output:**
     MarketPositionAnalysisResult object focusing on market position,
     competitive assessment, and industry dynamics from external perspectives.
 
+    IMPORTANT: Your response must be in valid JSON format that matches the expected output schema.
+
   expected_output: >
-    A MarketPositionAnalysisResult object containing structured information
-    about the company's market position and competitive landscape.
+    A "Market Position Analysis" aligned to the MarketPositionAnalysisResult object containing structured information about the company's market position and competitive landscape.
   agent: market_position_analyst
 
 consolidate_external_analysis:
   description: >
     You will receive different analysis results from multiple analyst agents:
-    - NewsMediaAnalysisResult from the news_analyst
-    - ExternalFinancialAnalysisResult from the financial_analyst
-    - MarketPositionAnalysisResult from the market_position_analyst
-    Your job is to integrate these analyses into a comprehensive CompanyExternalAnalysis
-    object that presents a complete external view of {company_name}. The current date is {date}.
+      - NewsMediaAnalysisResult from the news_analyst
+      - ExternalFinancialAnalysisResult from the financial_analyst
+      - MarketPositionAnalysisResult from the market_position_analyst
+    Your job is to integrate these analyses into a comprehensive a complete, comprehensive, cohesive external analysis of that presents a complete external view of {company_name}. The current date is {date}.
     
     **MANDATORY INTEGRATION AREAS:**
     1. Create a unified external perception narrative
@@ -263,45 +451,33 @@ consolidate_external_analysis:
     
     **MANDATORY WORKFLOW:**
     1. Extract company perception, news highlights, and media sentiment from the NewsMediaAnalysisResult
-
     2. Extract financial performance metrics, analyst perspectives, and stock performance from the ExternalFinancialAnalysisResult
-
     3. Extract industry position, competitor assessments, and market trends from the MarketPositionAnalysisResult
-
     4. Create a unified SWOT analysis by combining insights from all three sources
-
-    5. Review all partial objects
-    
-    6. For each integration area, combine information from all sources
-       while highlighting different external perspectives
-    
-    7. Identify areas of consensus across different external sources
-    
-    8. Highlight significant disagreements or contradictions in external assessments
-    
-    9. Develop a balanced synthesis that gives appropriate weight to
-       different external viewpoints
-    
-    10. Structure the integrated analysis using appropriate Pydantic models,
-       ensuring all elements are properly attributed to sources
-    
-    11. Create an executive summary that captures the essence of external
-       perspectives on the company
+    5. For each integration area, combine information from all sources while highlighting different external perspectives
+    6. Identify areas of consensus across different external sources
+    7. Highlight significant disagreements or contradictions in external assessments
+    8. Develop a balanced synthesis that gives appropriate weight to different external viewpoints
+    9. Structure the integrated analysis using appropriate Pydantic models, ensuring all elements are properly attributed to sources
+    10. Create an executive summary that captures the essence of external perspectives on the company
     
     **Quality requirements:**
     1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
-    2. Confirm all sources have accurate attribution.
-    3. Maintain proper citation throughout.
+    2. NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.
+    3. Confirm all sources have accurate attribution.
+    4. Maintain proper citation throughout.
+    5. If the currency is not USD, provide both the original currency and the converted amount in USD, convert them to USD using the exchange rate at the time of the report, also indicate the exchange rate used and source.    
 
     **Final Output:**
-    Complete CompanyExternalAnalysis object that integrates all partial
+    Complete CompanyExternalAnalysis object that integrates all
     analyses into a comprehensive external view of the company.
     
     Note: This consolidated analysis represents how the company is viewed
     by external observers, which may differ significantly from how the
     company presents itself in official documents.
+   
+    IMPORTANT: Your response must be in valid JSON format that matches the expected output schema.
 
   expected_output: >
-    A complete CompanyExternalAnalysis object containing a comprehensive,
-    integrated analysis of the company based on external sources.
+    A complete "External Analysis" aligned to the CompanyExternalAnalysis object containing a comprehensive, integrated analysis of the company based on external sources.
   agent: external_analysis_consolidator

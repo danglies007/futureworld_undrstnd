@@ -28,6 +28,10 @@ markdown_formatting_task:
     18. Add a copyright notice at the end: "© {date} Futureworld & NexusPlus. All rights reserved."
     19. Ensure all content from the MarketForceAnalysisReport object are considered and incorporated into the final report.
     20. Do not leave content out or information due to perceived length constraints, this is a full report not a summary.
+
+    **Quality Requirements**
+    1. Do not rename or change the names of any of the market forces provided anywhere in the initial report as cross referenceing may be required throughout the report. 
+
   expected_output: >
     A beautifully formatted markdown report with proper structure, spacing, citations, and visual elements that enhance readability and presentation.  It should include all content, required formatting, sections, and attributions.
   agent: markdown_formatter
@@ -98,6 +102,11 @@ markdown_implications_formatting_task:
     19. Create a visual representation table showing the cascade from first-order through third-order implications.
     20. Ensure all content from the Implications Analysis Report object is considered and incorporated into the final report.
     21. Do not leave content out or information due to perceived length constraints, this is a full report not a summary.
+
+    **Quality Requirements*
+    Do not rename or change the names of any of the market forces provided anywhere in the initial report as cross referenceing may be required throughout the report. 
+
+
   expected_output: >
     A beautifully formatted markdown report with proper structure, spacing, citations, and visual elements that enhance readability and presentation. It should include all content, required formatting, sections, and attributions, with clear visual hierarchy and relationships between different levels of implications.
   agent: markdown_formatter

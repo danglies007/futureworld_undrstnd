@@ -240,9 +240,11 @@ class ScanFlow(Flow[ScanState]):
         report_final_content = []
         report_final_content_json = []
         report_final_content_dict = []
+        
         reporting_inputs = self.research_inputs.copy()
         reporting_inputs['raw_market_forces'] = forces_final_content_dict
         reporting_result = ReportingCrew().crew().kickoff(reporting_inputs).pydantic
+
         report_final_content.append(reporting_result)
         report_final_content_json.append(reporting_result.model_dump_json())
         report_final_content_dict.append(reporting_result.model_dump())
@@ -267,9 +269,19 @@ class ScanFlow(Flow[ScanState]):
 # Develop Implications Report
     @listen(identify_market_forces)
     def develop_implications_report(self, forces_final_content_dict):
+        self.state.research_context = self.research_inputs
+        implications_report_final_content = []
+        implications_report_final_content_json = []
+        implications_report_final_content_dict = []
+
         implications_inputs = self.research_inputs.copy()
         implications_inputs['raw_market_forces'] = forces_final_content_dict
         implications_result = ImplicationsCrew().crew().kickoff(implications_inputs).pydantic
+
+        implications_report_final_content.append(implications_result)
+        implications_report_final_content_json.append(implications_result.model_dump_json())
+        implications_report_final_content_dict.append(implications_result.model_dump())
+        self.state.implications_report = implications_report_final_content
         self.state.implications_report = implications_result
         return implications_result
 
@@ -289,11 +301,11 @@ class ScanFlow(Flow[ScanState]):
 
     # Format the report into markdown from within the normal flow
     @listen(or_(develop_report, develop_saved_report))
-    def format_report(self, report_final_content_dict):
+    def format_report(self, report_final_content_dict, implications_report_final_content_dict):
         self.state.research_context = self.research_inputs
         formatting_inputs = self.research_inputs.copy()
         formatting_inputs['report_final_content'] = report_final_content_dict
-        formatting_inputs['implications_report_content'] = self.state.implications_report
+        formatting_inputs['implications_report_content'] = implications_report_final_content_dict
         formatting_result = FormattingCrew().crew().kickoff(inputs=formatting_inputs).raw
         self.state.markdown_report = formatting_result
         print("Final Markdown Report:\n")

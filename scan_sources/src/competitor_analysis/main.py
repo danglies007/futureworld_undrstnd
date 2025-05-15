@@ -97,6 +97,7 @@ class CompetitorAnalysisFlow(Flow[CompetitorAnalysisState]):
         internal_analysis_inputs = self.research_inputs.copy()
         internal_analysis_result = InternalAnalysisCrew().crew().kickoff(internal_analysis_inputs).pydantic
         self.state.internal_analysis = internal_analysis_result
+
         return internal_analysis_result
 
     @listen(competitor_analysis_flow)
@@ -110,14 +111,38 @@ class CompetitorAnalysisFlow(Flow[CompetitorAnalysisState]):
     @listen(and_(internal_analysis, external_analysis))
     def integrated_analysis(self):
         self.state.research_context = self.research_inputs
+        
+        # Creates a list of the integrated analysis results
+        integrated_analysis_content=[]
+        integrated_analysis_content_json=[]
+        integrated_analysis_content_dict=[]
+        
+        # preping the inputs to the crew
         integrated_analysis_inputs = self.research_inputs.copy()
-        # integrated_analysis_inputs['internal_analysis'] = self.state.internal_analysis # Did not work due to self as they are already being passed through
-        # integrated_analysis_inputs['external_analysis'] = self.state.external_analysis
-        integrated_analysis_inputs['internal_analysis'] = self.internal_analysis_result.copy()
-        integrated_analysis_inputs['external_analysis'] = self.external_analysis_result.copy()
+        integrated_analysis_inputs["internal_analysis"] = self.state.internal_analysis.model_dump()
+        integrated_analysis_inputs["external_analysis"] = self.state.external_analysis.model_dump()
         integrated_analysis_result = IntegratedAnalysisCrew().crew().kickoff(integrated_analysis_inputs).pydantic
+        
+        # Appends the results to the list - captures the outputs of the crew
+        integrated_analysis_content.append(integrated_analysis_result)
+        integrated_analysis_content_json.append(integrated_analysis_result.model_dump_json())
+        integrated_analysis_content_dict.append(integrated_analysis_result.model_dump())
+        
+        # Sets the state to the integrated analysis result
         self.state.integrated_analysis = integrated_analysis_result
         return integrated_analysis_result
+
+    # Format the report into markdown from within the normal flow
+    @listen(integrated_analysis)
+    def format_report(self):
+        self.state.research_context = self.research_inputs
+        formatting_inputs = self.research_inputs.copy()
+        formatting_inputs['report_final_content'] = self.state.integrated_analysis
+        formatting_result = FormattingCrew().crew().kickoff(inputs=formatting_inputs).raw
+        self.state.markdown_report = formatting_result
+        print("Final Markdown Report:\n")
+        print(formatting_result)
+        return formatting_result
 
 # # Develop the report from the forces
 #     @listen(integrated_analysis_result)

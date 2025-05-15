@@ -103,7 +103,7 @@ class FormattingCrew():
     def markdown_formatter(self) -> Agent:
         return Agent(
             config=self.agents_config['markdown_formatter'],
-            llm=llm_gpt_4_1,
+            llm=llm_gpt_4_1_accurate,
             respect_context_window=True,
             tools=[run_code],
             cache=True,

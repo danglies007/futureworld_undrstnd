@@ -1,0 +1,28 @@
+# tasks.yaml - formatting_crew
+
+markdown_formatting_task:
+  description: >
+    You will receive a Integrated Company Analysis Report as input. Format it as a beautiful markdown document, following the specified formatting guidelines.
+
+    INTEGRATED COMPANY ANALYSIS REPORT: {report_final_content}
+    
+    Format the executive report into a beautiful markdown document without '```'.
+
+    1. Use proper markdown headers (#, ##, ###).
+    2. Include the following line just below the Main Title: "Produced by Futureworld & NexusPlus Undrstnd.AI" without quotation marks.
+    3. Do not try to overly summarize or condense the content provided.
+    4. Include key findings and key insights as bullet points, if implications and explanations are available include them here.  
+    5. Add proper spacing and sections breaks.
+    6. Ensure the date is properly formatted.
+    7. Add a table of contents at the beginning.
+    8. Use horizontal rules (---) to separate major sections.
+    9. Add inline clickable citations for each major claim, key finding or key insight using (Author, URL) format.  Make these a different color to the standard text.
+    10. Include a Sources section at the end with numbered references.
+    11. Each source should include title, date, publisher/author, and URL.
+    12. Link inline citations to the corresponding entry in the Sources section.
+    13. Add a glossary at the end.
+    14. Add a copyright notice at the end: "© {date} Futureworld & NexusPlus. All rights reserved."
+    15. Do not leave content out or information due to perceived length constraints, this is a full report not a summary.
+  expected_output: >
+    A beautifully formatted markdown report with proper structure, spacing, citations, and visual elements that enhance readability and presentation.  It should include all content, required formatting, sections, and attributions.
+  agent: markdown_formatter
