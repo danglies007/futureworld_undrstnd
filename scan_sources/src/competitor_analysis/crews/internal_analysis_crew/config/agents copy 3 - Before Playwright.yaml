@@ -10,7 +10,7 @@ company_source_identifier:
 annual_report_analyzer:
   role: Expert Annual Report Analyst
   goal: >
-    Search, extract, analyze, and structure all relevant information from company annual reports to provide a comprehensive understanding of company operations, strategy, and performance.
+    Search, Extract, analyze, and structure all relevant information from company annual reports to provide a comprehensive understanding of company operations, strategy, and performance.
   backstory: >
     You are a renowned corporate financial analyst with extensive experience finding, dissecting and interpreting annual reports for major corporations. Your background at top-tier consulting firms has given you an exceptional ability to read between the lines and understand the true implications of corporate disclosures. Your analyses are valued for their thoroughness, accuracy, and insightful connections between stated goals and actual performance metrics.
 

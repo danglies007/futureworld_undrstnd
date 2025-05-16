@@ -51,17 +51,13 @@ from crewai_tools import (
     BraveSearchTool,
     ScrapflyScrapeWebsiteTool,
     SeleniumScrapingTool,
-    CodeInterpreterTool
+    CodeInterpreterTool,
+    RagTool
 )
 
 # Import Custom tools
 from tools.file_downloader import FileDownloaderTool
-from tools.custom_serper_dev_tool import (
-    CompanyInternalSearchTool,
-    CompanyFinancialDocumentTool,
-    CompanyAnnualReportTool,
-    CompanyESGReportTool
-)
+
 
 # Import Research variables to support naming
 from config_competitor_analysis import RESEARCH_INPUTS
@@ -91,27 +87,28 @@ class InternalAnalysisCrew():
     agents_config = 'config/agents.yaml'
     tasks_config = 'config/tasks.yaml'
     
-    @agent
-    def company_source_identifier(self) -> Agent:
-        return Agent(
-            config=self.agents_config['company_source_identifier'],
-            llm=llm_gpt_4_1_accurate,
-            tools=[SerperDevTool(), ScrapeWebsiteTool()],
-            verbose=True,
-            cache=True,
-            function_calling_llm=llm_gpt_4_1_accurate
-        )
+    # @agent
+    # def company_source_identifier(self) -> Agent:
+    #     return Agent(
+    #         config=self.agents_config['company_source_identifier'],
+    #         llm=llm_gpt_4_1_accurate,
+    #         tools=[SerperDevTool(), ScrapeWebsiteTool()],
+    #         verbose=True,
+    #         cache=True,
+    #         function_calling_llm=llm_gpt_4_1_accurate
+    #     )
 
     @agent
     def annual_report_analyzer(self) -> Agent:
         return Agent(
             config=self.agents_config['annual_report_analyzer'],
             llm=llm_gpt_4_1_accurate,
-            tools=[ScrapeWebsiteTool(), FileDownloaderTool(), PDFSearchTool(), run_code],
+            tools=[BraveSearchTool(), ScrapeWebsiteTool(), FileDownloaderTool(), RagTool(), run_code],
             verbose=True,
             respect_context_window=True,
             cache=True,
-            function_calling_llm=llm_gpt_4_1_accurate
+            max_iter=25,
+            function_calling_llm=llm_gpt4o_mini_accurate
         )
 
     @agent
@@ -119,11 +116,12 @@ class InternalAnalysisCrew():
         return Agent(
             config=self.agents_config['financial_statement_analyst'],
             llm=llm_gpt_4_1_accurate,
-            tools=[ScrapeWebsiteTool(), FileDownloaderTool(), PDFSearchTool(), run_code],
+            tools=[BraveSearchTool(), ScrapeWebsiteTool(), FileDownloaderTool(), RagTool(), run_code],
             verbose=True,
             respect_context_window=True,
             cache=True,
-            function_calling_llm=llm_gpt_4_1_accurate
+            max_iter=25,
+            function_calling_llm=llm_gpt4o_mini_accurate
         )
 
     @agent
@@ -131,11 +129,12 @@ class InternalAnalysisCrew():
         return Agent(
             config=self.agents_config['strategy_document_analyst'],
             llm=llm_gpt_4_1_accurate,
-            tools=[ScrapeWebsiteTool(), FileDownloaderTool(), PDFSearchTool(), run_code],
+            tools=[BraveSearchTool(), ScrapeWebsiteTool(), FileDownloaderTool(), RagTool(), run_code],
             verbose=True,
             respect_context_window=True,
             cache=True,
-            function_calling_llm=llm_gpt_4_1_mini_accurate
+            max_iter=25,
+            function_calling_llm=llm_gpt4o_mini_accurate
         )
 
     @agent
@@ -148,15 +147,15 @@ class InternalAnalysisCrew():
             cache=True
         )
 
-    @task
-    def identify_company_internal_sources(self) -> Task:
-        company_name = self.research_inputs.get("company_name")
-        return Task(
-            config=self.tasks_config['identify_company_internal_sources'],
-            output_file=f'outputs/comp_analysis/internal_sources_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            async_execution=False,
-            output_pydantic=CompanySourceIdentificationResults
-        )
+    # @task
+    # def identify_company_internal_sources(self) -> Task:
+    #     company_name = self.research_inputs.get("company_name")
+    #     return Task(
+    #         config=self.tasks_config['identify_company_internal_sources'],
+    #         output_file=f'outputs/comp_analysis/internal_sources_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+    #         async_execution=False,
+    #         output_pydantic=CompanySourceIdentificationResults
+    #     )
 
     @task
     def analyze_annual_reports(self) -> Task:
@@ -164,7 +163,7 @@ class InternalAnalysisCrew():
         return Task(
             config=self.tasks_config['analyze_annual_reports'],
             output_file=f'outputs/comp_analysis/annual_report_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            context=[self.identify_company_internal_sources()],
+            # context=[self.identify_company_internal_sources()],
             async_execution=False,
             output_pydantic=AnnualReportAnalysisResult
         )
@@ -175,7 +174,7 @@ class InternalAnalysisCrew():
         return Task(
             config=self.tasks_config['analyze_financial_statements'],
             output_file=f'outputs/comp_analysis/financial_statement_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            context=[self.identify_company_internal_sources()],
+            # context=[self.identify_company_internal_sources()],
             async_execution=False,
             output_pydantic=FinancialAnalysisResult
         )
@@ -186,7 +185,7 @@ class InternalAnalysisCrew():
         return Task(
             config=self.tasks_config['analyze_strategy_documents'],
             output_file=f'outputs/comp_analysis/strategy_document_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            context=[self.identify_company_internal_sources()],
+            # context=[self.identify_company_internal_sources()],
             async_execution=False,
             output_pydantic=StrategyAnalysisResult
         )

@@ -15,6 +15,7 @@ from crewai.flow import Flow, start, router,listen, and_, or_
 from competitor_analysis.crews.internal_analysis_crew.internal_analysis_crew import InternalAnalysisCrew
 from competitor_analysis.crews.external_analysis_crew.external_analysis_crew import ExternalAnalysisCrew
 from competitor_analysis.crews.integrated_analysis_crew.integrated_analysis_crew import IntegratedAnalysisCrew
+from competitor_analysis.crews.formatting_crew.formatting_crew import FormattingCrew
 
 from competitor_analysis.config_competitor_analysis import RESEARCH_INPUTS
 
@@ -30,6 +31,7 @@ class CompetitorAnalysisState(BaseModel):
     internal_analysis: CompanyInternalAnalysis = None
     external_analysis: CompanyExternalAnalysis = None
     integrated_analysis: CompanyIntegratedAnalysis = None
+    markdown_report: str = None
 
 class CompetitorAnalysisFlow(Flow[CompetitorAnalysisState]):
 
@@ -102,47 +104,50 @@ class CompetitorAnalysisFlow(Flow[CompetitorAnalysisState]):
 
     @listen(competitor_analysis_flow)
     def external_analysis(self):
-        self.state.research_context = self.research_inputs
-        external_analysis_inputs = self.research_inputs.copy()
-        external_analysis_result = ExternalAnalysisCrew().crew().kickoff(external_analysis_inputs).pydantic
-        self.state.external_analysis = external_analysis_result
-        return external_analysis_result
+    #     self.state.research_context = self.research_inputs
+    #     external_analysis_inputs = self.research_inputs.copy()
+    #     external_analysis_result = ExternalAnalysisCrew().crew().kickoff(external_analysis_inputs).pydantic
+    #     self.state.external_analysis = external_analysis_result
+    #     return external_analysis_result
+        pass
 
-    @listen(and_(internal_analysis, external_analysis))
+    @listen(and_(internal_analysis))
     def integrated_analysis(self):
-        self.state.research_context = self.research_inputs
+        # self.state.research_context = self.research_inputs
         
-        # Creates a list of the integrated analysis results
-        integrated_analysis_content=[]
-        integrated_analysis_content_json=[]
-        integrated_analysis_content_dict=[]
+        # # Creates a list of the integrated analysis results
+        # integrated_analysis_content=[]
+        # integrated_analysis_content_json=[]
+        # integrated_analysis_content_dict=[]
         
-        # preping the inputs to the crew
-        integrated_analysis_inputs = self.research_inputs.copy()
-        integrated_analysis_inputs["internal_analysis"] = self.state.internal_analysis.model_dump()
-        integrated_analysis_inputs["external_analysis"] = self.state.external_analysis.model_dump()
-        integrated_analysis_result = IntegratedAnalysisCrew().crew().kickoff(integrated_analysis_inputs).pydantic
+        # # preping the inputs to the crew
+        # integrated_analysis_inputs = self.research_inputs.copy()
+        # integrated_analysis_inputs["internal_analysis"] = self.state.internal_analysis.model_dump()
+        # integrated_analysis_inputs["external_analysis"] = self.state.external_analysis.model_dump()
+        # integrated_analysis_result = IntegratedAnalysisCrew().crew().kickoff(integrated_analysis_inputs).pydantic
         
-        # Appends the results to the list - captures the outputs of the crew
-        integrated_analysis_content.append(integrated_analysis_result)
-        integrated_analysis_content_json.append(integrated_analysis_result.model_dump_json())
-        integrated_analysis_content_dict.append(integrated_analysis_result.model_dump())
+        # # Appends the results to the list - captures the outputs of the crew
+        # integrated_analysis_content.append(integrated_analysis_result)
+        # integrated_analysis_content_json.append(integrated_analysis_result.model_dump_json())
+        # integrated_analysis_content_dict.append(integrated_analysis_result.model_dump())
         
-        # Sets the state to the integrated analysis result
-        self.state.integrated_analysis = integrated_analysis_result
-        return integrated_analysis_result
+        # # Sets the state to the integrated analysis result
+        # self.state.integrated_analysis = integrated_analysis_result
+        # return integrated_analysis_result
+        pass
 
     # Format the report into markdown from within the normal flow
     @listen(integrated_analysis)
     def format_report(self):
-        self.state.research_context = self.research_inputs
-        formatting_inputs = self.research_inputs.copy()
-        formatting_inputs['report_final_content'] = self.state.integrated_analysis
-        formatting_result = FormattingCrew().crew().kickoff(inputs=formatting_inputs).raw
-        self.state.markdown_report = formatting_result
-        print("Final Markdown Report:\n")
-        print(formatting_result)
-        return formatting_result
+        # self.state.research_context = self.research_inputs
+        # formatting_inputs = self.research_inputs.copy()
+        # formatting_inputs['report_final_content'] = self.state.integrated_analysis
+        # formatting_result = FormattingCrew().crew().kickoff(inputs=formatting_inputs).raw
+        # self.state.markdown_report = formatting_result
+        # print("Final Markdown Report:\n")
+        # print(formatting_result)
+        # return formatting_result
+        pass
 
 # # Develop the report from the forces
 #     @listen(integrated_analysis_result)

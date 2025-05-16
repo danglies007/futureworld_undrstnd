@@ -20,7 +20,7 @@ analyze_annual_reports:
     1. Think carefully about your goal and make sure you cover all key focus areas.
     2. You have access to a number of tools, use these tools as required to complete your task.  Guidelines on your tools and how to use them are included in the "TOOLS" section below.
     3. Focus your research on "internal" company sources e.g. the company website and company documents and presentations.
-    4. Use the BraveSearchTool tool to search for real information relating to the key focus areas and related to {company_name}.
+    4. Use the SerperDevTool tool to search for real information relating to the key focus areas and related to {company_name}.
       - Search for specific queries like "{company_name} annual report {year}"
     5. Use the ScrapeWebsiteTool to extract detailed data from websites.
         Try scraping from sites like:
@@ -48,14 +48,14 @@ analyze_annual_reports:
     **QUALITY REQUIREMENTS:**
     1. **NEVER FABRICATE INFORMATION**
         - only use content from your sources with clear attribution and citation.
-        - if you cannot find information for a field, do not make it up or fabricate information, instead leave it empty or make a comment in the field explaining why you cannot find the information.
+        - if you cannot find information for a field, do not make it up or fabricate information instead leave it empty or make a comment in the field explaining why you cannot find the information.
     2. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
     3. **NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.**
     4. **NEVER PASS A FULL PDF TO THE MODEL - use the download file tool to download the PDF and then use the search a PDF's content tool to only pass the relevant content of the PDF to the model.**
 
     **TOOLS**
     You have access to these tools should you need them:
-    1. BraveSearchTool: Use this tool to search the internet for real information relating to your goal.
+    1. SerperDevTool: Use this tool to search the internet for real information relating to your goal.
     2. ScrapeWebsiteTool: If you need to extract specific information from a website source, use the Scrape Website tool in order to read the details of the website.
     3. Run Code - Code Interpreter tool: 
         If you need to convert currecies you can use the Code Interpreter tool to write simple code to convert the currency from local currency to USD.
@@ -71,7 +71,7 @@ analyze_annual_reports:
         Action Input:
         pdf: reference/[EXTRACTED FILENAME]
         query: [TARGETED SEARCH QUERY]
-    6. IMPORTANT: If you are using URLs to download files or link to potential sources, make sure you clean any URL by removing query parameters (everything after '?' character) and fragments (everything after '#' character)
+    IMPORTANT: If you are using URLs to download files or link to potential sources, make sure you clean any URL by removing query parameters (everything after '?' character) and fragments (everything after '#' character)
         **URL Cleaning Rules:**
           1. Remove query strings (parameters after '?' in URLs)
           2. Remove fragments (everything after '#' in URLs)

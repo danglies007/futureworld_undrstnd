@@ -13,7 +13,8 @@ RESEARCH_INPUTS = {
     
     # Analysis parameters
     "date": datetime.now().strftime('%d %B %Y'),
-    "time_period": "2021-2025",
+    "year": datetime.now().strftime('%Y'),
+    "time_period": "2022-2025",
     "focus_areas": [],
     "competitor_names": [],
     

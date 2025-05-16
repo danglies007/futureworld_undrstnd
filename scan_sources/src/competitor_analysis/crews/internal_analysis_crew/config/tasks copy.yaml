@@ -2,7 +2,7 @@
 
 identify_company_internal_sources:
   description: >
-    You will identify and evaluate the most relevant internal sources for analyzing {company_name}.  Focus on recent sources, the date is {date}.
+    Identify and evaluate the most relevant internal sources for analyzing "{company_name}".  Focus on recent sources, the date is {date}.
     
     Focus on finding the following types of documents:
     1. Most recent annual reports (last 3 years if available), considering the current date is: {date}
@@ -45,6 +45,7 @@ identify_company_internal_sources:
     **Quality requirements:**
     1. **NEVER FABRICATE INFORMATION - only use content from the provided sources.**
     2. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
+    3. **NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.**
 
     **Final Output:**
     Compile results into a CompanySourceIdentificationResults object containing:
@@ -52,14 +53,67 @@ identify_company_internal_sources:
     - Relevant metadata for each source (with cleaned URLs)
     - Overall assessment of the document collection
 
+    IMPORTANT: Your response must be in valid JSON format that matches the expected output schema.
+
   expected_output: >
-    A CompanySourceIdentificationResults object containing detailed information about the internal company sources identified for analysis, with all URLs properly cleaned.
+    An "internal company sources" list of relevant sources aligned to the CompanySourceIdentificationResults object, containing detailed information about the internal company sources identified for analysis, with all URLs properly cleaned.
   agent: company_source_identifier
 
 analyze_annual_reports:
   description: >
-    You will receive a list of internal company sources identified by the company_source_identifier agent.
-    Your job is to thoroughly analyze all sources relating to annual reports and extract structured information about {company_name}. Focus on the most recent sources first, the date is {date}.
+    You will receive a list sources from the identify_company_internal_sources task.  
+    
+    The list will be structured as follows:
+
+    {
+      "company_name": "Example Corp",
+      "ticker_symbol": "EXMP",
+      "industry": "Technology",
+      "date_of_identification": "2025-05-15",
+      "total_sources_found": 12,
+      "internal_sources": [
+        {
+          "url": "https://example.com/annual-report-2024",
+          "title": "Annual Report 2024",
+          "source_type": "annual_report",
+          "publication_date": "2024-12-31",
+          "author": "Example Corp",
+          "relevance_score": 0.95,
+          "summary": "Comprehensive annual report covering financial performance and strategic initiatives."
+        },
+        {
+          "url": "https://example.com/investor-presentation",
+          "title": "Q1 2025 Investor Presentation",
+          "source_type": "investor_presentation",
+          "publication_date": "2025-04-15",
+          "author": "Example Corp",
+          "relevance_score": 0.87,
+          "summary": "Quarterly presentation highlighting recent performance and future outlook."
+        }
+      ],
+      "external_sources": [
+        {
+          "url": "https://financial-times.com/example-corp-analysis",
+          "title": "Market Analysis: Example Corp's Growth Strategy",
+          "source_type": "news_article",
+          "publication_date": "2025-05-01",
+          "author": "Financial Times",
+          "relevance_score": 0.82,
+          "summary": "Analysis of the company's expansion plans and market positioning."
+        },
+        {
+          "url": "https://industry-analyst.com/reports/example-corp",
+          "title": "Industry Competitive Report: Example Corp",
+          "source_type": "analyst_report",
+          "publication_date": "2025-04-22",
+          "author": "Industry Analyst Group",
+          "relevance_score": 0.91,
+          "summary": "Detailed competitive analysis comparing Example Corp to industry peers."
+        }
+      ]
+    }
+    
+    Using the "url" fields from the "internal_sources" in the list, thoroughly analyze the sources relating to annual reports (in the "source_type" field) and extract structured information aligned to the AnnualReportAnalysisResult object about {company_name}. Focus on the most recent sources (based on the "publication_date" field) first, the date is {date}.
     
     **MANDATORY ANALYSIS AREAS:**
     1. Company overview and business description
@@ -72,10 +126,10 @@ analyze_annual_reports:
     8. Leadership statements (CEO, Chairman, etc.)
     
     **MANDATORY WORKFLOW:**
-    1. Download each annual report PDF:
+    1. Based on the URL provided, download each annual report PDF:
        Action: Download File Tool
        Action Input:
-       url: [Use the actual URL from each annual report or investor presentation entry in the provided source list]
+       url:
     
     2. For each download, confirm success and extract the filename:
        "Successfully downloaded file: [filename]"
@@ -97,27 +151,91 @@ analyze_annual_reports:
     
     6. Cross-reference information across multiple years to identify trends and changes
     
-    7. Pay special attention to changes in strategic priorities, risk assessments,
-       and forward-looking statements over time
+    7. Pay special attention to changes in strategic priorities, risk assessments, and forward-looking statements over time
 
-    8. Repeat steps 1 to 7 for each relevant source provided
+    8. Make sure you clean any URL by removing query parameters (everything after '?' character) and fragments (everything after '#' character)
+    **URL Cleaning Rules:**
+      1. Remove query strings (parameters after '?' in URLs)
+      2. Remove fragments (everything after '#' in URLs)
+      3. Only keep the base URL path to the document
+      4. Example: 
+        - Original: https://www.example.com/document.pdf?view=1&lang=en#page=2
+        - Cleaned: https://www.example.com/document.pdf
+
+    9. Repeat steps 1 to 8 for each annual report relevant url from the internal_sources field in the list provided
 
     **Quality requirements:**
     1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
-    2. Confirm all sources have accurate attribution.
-    3. Maintain proper citation throughout.
+    2. NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.
+    3. Confirm all sources have accurate attribution.
+    4. Maintain proper citation throughout.
+    5. If the currency is not USD, provide both the original currency and the converted amount in USD, convert them to USD using the exchange rate at the time of the report, also indicate the exchange rate used and source.
+    6. Do not pass all PDF content into the model, only pass the relevant content.  Use the pdf search tool to find relevant content.
 
     **Final Output:**
     AnnualReportAnalysisResult object focusing on qualitative information extracted from annual reports, properly attributed to sources.
 
+    IMPORTANT: Your response must be in valid JSON format that matches the expected output schema.
+
   expected_output: >
-    An AnnualReportAnalysisResult object containing structured information extracted from the company's annual reports.
+    An "Annual Report Analysis" aligned to the AnnualReportAnalysisResult object containing structured information extracted from the company's annual reports.
   agent: annual_report_analyzer
+
 
 analyze_financial_statements:
   description: >
-    You will receive a list of internal company sources identified by the company_source_identifier agent.
-    Your job is to analyze all financial statements and financial sections of annual reports to extract structured financial information about {company_name}. Focus on recent sources, the date is {date}.
+    You will receive a list sources from the identify_company_internal_sources task.  
+
+    The list will be structured as follows:
+
+    {
+      "company_name": "Example Corp",
+      "ticker_symbol": "EXMP",
+      "industry": "Technology",
+      "date_of_identification": "2025-05-15",
+      "total_sources_found": 12,
+      "internal_sources": [
+        {
+          "url": "https://example.com/annual-report-2024",
+          "title": "Annual Report 2024",
+          "source_type": "annual_report",
+          "publication_date": "2024-12-31",
+          "author": "Example Corp",
+          "relevance_score": 0.95,
+          "summary": "Comprehensive annual report covering financial performance and strategic initiatives."
+        },
+        {
+          "url": "https://example.com/investor-presentation",
+          "title": "Q1 2025 Investor Presentation",
+          "source_type": "investor_presentation",
+          "publication_date": "2025-04-15",
+          "author": "Example Corp",
+          "relevance_score": 0.87,
+          "summary": "Quarterly presentation highlighting recent performance and future outlook."
+        }
+      ],
+      "external_sources": [
+        {
+          "url": "https://financial-times.com/example-corp-analysis",
+          "title": "Market Analysis: Example Corp's Growth Strategy",
+          "source_type": "news_article",
+          "publication_date": "2025-05-01",
+          "author": "Financial Times",
+          "relevance_score": 0.82,
+          "summary": "Analysis of the company's expansion plans and market positioning."
+        },
+        {
+          "url": "https://industry-analyst.com/reports/example-corp",
+          "title": "Industry Competitive Report: Example Corp",
+          "source_type": "analyst_report",
+          "publication_date": "2025-04-22",
+          "author": "Industry Analyst Group",
+          "relevance_score": 0.91,
+          "summary": "Detailed competitive analysis comparing Example Corp to industry peers."
+        }
+      ]
+    }
+    Using the "url" fields from the "internal_sources" in the list, thoroughly analyze the sources relating to financial statements and financial information (in the "source_type" field) and extract structured information aligned to the FinancialStatementAnalysisResult object about {company_name}. Focus on the most recent sources (based on the "publication_date" field) first, the date is {date}.
     
     **MANDATORY ANALYSIS AREAS:**
     1. Key financial metrics and their trends (revenue, profit, margins, etc.)
@@ -129,10 +247,10 @@ analyze_financial_statements:
     7. Management financial targets and performance against targets
     
     **MANDATORY WORKFLOW:**
-    1. Download each financial statement or annual report PDF:
+    1. Based on the URL provided, download each financial statement or annual report PDF:
        Action: Download File Tool
        Action Input:
-       url: [financial statement URL from internal_sources where source_type = "Financial Statements"]
+       url: 
     
     2. For each download, confirm success and extract the filename:
        "Successfully downloaded file: [filename]"
@@ -153,47 +271,117 @@ analyze_financial_statements:
     
     8. Compare financial performance across business segments
 
-    9. Repeat steps 1 to 8 for each relevant source provided
+    9. Make sure you clean any URL by removing query parameters (everything after '?' character) and fragments (everything after '#' character)
+    **URL Cleaning Rules:**
+      1. Remove query strings (parameters after '?' in URLs)
+      2. Remove fragments (everything after '#' in URLs)
+      3. Only keep the base URL path to the document
+      4. Example: 
+        - Original: https://www.example.com/document.pdf?view=1&lang=en#page=2
+        - Cleaned: https://www.example.com/document.pdf
+
+    10. Repeat steps 1 to 9 for each annual report relevant url from the internal_sources field in the list provided
 
     **CRITICAL DATA STRUCTURE REQUIREMENTS:**
-    1. The `financial_metrics` field MUST be structured as a dictionary (object) where:
-       - Each key is a financial category string (e.g., "Profitability", "Liquidity", "Growth", "Efficiency")
-       - Each value is a list of FinancialMetric objects related to that category
+    1. The `financial_metrics` field MUST be structured as a list of FinancialMetricCategory objects where:
+       - Each object has a `category_name` string (e.g., "Profitability", "Liquidity", "Growth", "Efficiency")
+       - Each object has a `metrics` field containing a list of FinancialMetric objects related to that category
        - Example structure:
          ```
-         "financial_metrics": {
-           "Profitability": [
-             { "metric_name": "Operating Margin", "unit": "%", "current_value": 15.2, ... },
-             { "metric_name": "Net Profit Margin", "unit": "%", "current_value": 8.7, ... }
-           ],
-           "Liquidity": [
-             { "metric_name": "Current Ratio", "unit": "ratio", "current_value": 1.8, ... },
-             { "metric_name": "Quick Ratio", "unit": "ratio", "current_value": 1.2, ... }
-           ]
-         }
+         "financial_metrics": [
+           { 
+             "category_name": "Profitability", 
+             "metrics": [
+               { "metric_name": "Operating Margin", "unit": "%", "current_value": 15.2, ... },
+               { "metric_name": "Net Profit Margin", "unit": "%", "current_value": 8.7, ... }
+             ]
+           },
+           { 
+             "category_name": "Liquidity", 
+             "metrics": [
+               { "metric_name": "Current Ratio", "unit": "ratio", "current_value": 1.8, ... },
+               { "metric_name": "Quick Ratio", "unit": "ratio", "current_value": 1.2, ... }
+             ]
+           }
+         ]
          ```
-       - Even if there are no metrics in a category, use an empty array: `"Category": []`
-       - NEVER format financial_metrics as a plain list - it must be a dictionary of categories
-
+       - If there are no metrics in a category, use an empty array for the metrics field: `"metrics": []`
+    
 
     **Quality requirements:**
     1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
-    2. Confirm all sources have accurate attribution.
-    3. Maintain proper citation throughout.
-    4. Ensure correct data structures for all fields, especially financial_metrics.
+    2. NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.
+    3. Confirm all sources have accurate attribution.
+    4. Maintain proper citation throughout.
+    5. Ensure correct data structures for all fields, especially financial_metrics.
+    6. If the currency is not USD, provide both the original currency and the converted amount in USD, convert them to USD using the exchange rate at the time of the report, also indicate the exchange rate used and source.
+    7. Do not pass all PDF content into the model, only pass the relevant content.  Use the pdf search tool to find relevant content.
 
     **Final Output:**
     FinancialAnalysisResult object focusing on financial metrics and capital allocation, properly attributed to sources.
 
+    IMPORTANT: Your response must be in valid JSON format that matches the expected output schema.
+
   expected_output: >
-    A FinancialAnalysisResult object containing structured financial information extracted from the company's financial statements, with financial_metrics organized as a dictionary of categories mapping to lists of metrics.
+    A "Financial Analysis" aligned to the FinancialAnalysisResult object containing structured financial information extracted from the company's financial statements, with financial_metrics organized as a dictionary of categories mapping to lists of metrics.
   agent: financial_statement_analyst
 
 analyze_strategy_documents:
   description: >
-    You will receive a list of internal company sources identified by the company_source_identifier agent.
-    Your job is to analyze all strategy-related documents and strategic sections of annual reports to extract structured information about {company_name}'s strategy. Focus on recent sources, the date is {date}.
-    
+    You will receive a list sources from the identify_company_internal_sources task.  
+
+    The list will be structured as follows:
+
+        {
+          "company_name": "Example Corp",
+          "ticker_symbol": "EXMP",
+          "industry": "Technology",
+          "date_of_identification": "2025-05-15",
+          "total_sources_found": 12,
+          "internal_sources": [
+            {
+              "url": "https://example.com/annual-report-2024",
+              "title": "Annual Report 2024",
+              "source_type": "annual_report",
+              "publication_date": "2024-12-31",
+              "author": "Example Corp",
+              "relevance_score": 0.95,
+              "summary": "Comprehensive annual report covering financial performance and strategic initiatives."
+            },
+            {
+              "url": "https://example.com/investor-presentation",
+              "title": "Q1 2025 Investor Presentation",
+              "source_type": "investor_presentation",
+              "publication_date": "2025-04-15",
+              "author": "Example Corp",
+              "relevance_score": 0.87,
+              "summary": "Quarterly presentation highlighting recent performance and future outlook."
+            }
+          ],
+          "external_sources": [
+            {
+              "url": "https://financial-times.com/example-corp-analysis",
+              "title": "Market Analysis: Example Corp's Growth Strategy",
+              "source_type": "news_article",
+              "publication_date": "2025-05-01",
+              "author": "Financial Times",
+              "relevance_score": 0.82,
+              "summary": "Analysis of the company's expansion plans and market positioning."
+            },
+            {
+              "url": "https://industry-analyst.com/reports/example-corp",
+              "title": "Industry Competitive Report: Example Corp",
+              "source_type": "analyst_report",
+              "publication_date": "2025-04-22",
+              "author": "Industry Analyst Group",
+              "relevance_score": 0.91,
+              "summary": "Detailed competitive analysis comparing Example Corp to industry peers."
+            }
+          ]
+        }
+
+    Using the "url" fields from the "internal_sources" in the list, thoroughly analyze the sources relating to strategy and strategic information (in the "source_type" field) and extract structured information aligned to the StrategyAnalysisResult object about {company_name}. Focus on the most recent sources (based on the "publication_date" field) first, the date is {date}.
+
     **MANDATORY ANALYSIS AREAS:**
     1. Business model description and evolution
     2. Strategic priorities and initiatives
@@ -205,10 +393,10 @@ analyze_strategy_documents:
     8. ESG/Sustainability strategy
     
     **MANDATORY WORKFLOW:**
-    1. Download each strategy document or annual report PDF:
+    1. Based on the URL provided, download each strategy document or annual report PDF:
        Action: Download File Tool
        Action Input: 
-       url: [Use the actual URL from each strategy document or annual report entry in the provided source list]
+       url: 
     
     2. For each download, confirm success and extract the filename:
        "Successfully downloaded file: [filename]"
@@ -230,27 +418,41 @@ analyze_strategy_documents:
     
     7. Pay special attention to how the company describes its competitive advantages and market positioning
 
-    8. Repeat steps 1 to 7 for each relevant source provided
+    8. Make sure you clean any URL by removing query parameters (everything after '?' character) and fragments (everything after '#' character)
+    **URL Cleaning Rules:**
+      1. Remove query strings (parameters after '?' in URLs)
+      2. Remove fragments (everything after '#' in URLs)
+      3. Only keep the base URL path to the document
+      4. Example: 
+        - Original: https://www.example.com/document.pdf?view=1&lang=en#page=2
+        - Cleaned: https://www.example.com/document.pdf
+
+    9. Repeat steps 1 to 8 for each relevant source provided
 
     **Quality requirements:**
     1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
-    2. Confirm all sources have accurate attribution.
-    3. Maintain proper citation throughout.
+    2. NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.
+    3. Confirm all sources have accurate attribution.
+    4. Maintain proper citation throughout.
+    5. If the currency is not USD, provide both the original currency and the converted amount in USD, convert them to USD using the exchange rate at the time of the report, also indicate the exchange rate used and source.
+    6. Do not pass all PDF content into the model, only pass the relevant content.  Use the pdf search tool to find relevant content.
 
     **Final Output:**
-    StrategyAnalysisResult object focusing on strategy and business model information, properly attributed to sources.
+    StrategyAnalysisResult object schema focusing on strategy and business model information, properly attributed to sources.
+
+    IMPORTANT: Your response must be in valid JSON format that matches the expected output schema.
 
   expected_output: >
-    A StrategyAnalysisResult object containing structured strategy information extracted from the company's strategic documents.
+    A "Strategy Analysis" aligned to the StrategyAnalysisResult object containing structured strategy information extracted from the company's strategic documents.
   agent: strategy_document_analyst
 
 consolidate_internal_analysis:
   description: >
     You will receive different analysis results from multiple analyst agents:
-    - AnnualReportAnalysisResult from the annual_report_analyzer 
-    - FinancialAnalysisResult from the financial_statement_analyst
-    - StrategyAnalysisResult from the strategy_document_analyst
-    Your job is to integrate these analyses into a comprehensive, cohesive internal company analysis that presents a complete picture of {company_name} from its own perspective. The current date is {date}.
+      - "Annual Report Analysis" aligned to the AnnualReportAnalysisResult from the annual_report_analyzer 
+      - "Financial Analysis" aligned to the FinancialAnalysisResult from the financial_statement_analyst
+      - "Strategy Analysis" aligned to the StrategyAnalysisResult from the strategy_document_analyst
+    Your job is to integrate these analyses into a complete, comprehensive, cohesive internal company analysis that presents a complete picture of {company_name} from its own perspective. The current date is {date}.
     
     **MANDATORY INTEGRATION AREAS:**
     1. Create a unified company overview combining business description, segments, and model
@@ -266,38 +468,30 @@ consolidate_internal_analysis:
        - AnnualReportAnalysisResult from annual_report_analyzer
        - FinancialAnalysisResult from financial_statement_analyst
        - StrategyAnalysisResult from strategy_document_analyst
-    
     2. Extract company overview, business segments, strategic priorities, and risk factors from the AnnualReportAnalysisResult
-       
-    3. Extract financial_performance and capital_allocation from the 
-       FinancialAnalysisResult
-       
+    3. Extract financial_performance and capital_allocation from the FinancialAnalysisResult
     4. Supplement strategic priorities from the StrategyAnalysisResult and use it to enhance the business model description
-
-
     5. For each integration area, combine information from all sources while avoiding duplication
-    
     6. Resolve any contradictions or inconsistencies across different documents, noting where these occur
-    
     7. Prioritize information from more recent documents when there are conflicts or updates to strategy
-    
     8. Identify key themes and patterns across all internal documents
-    
     9. Create cross-connections between strategic priorities, financial metrics, and business segments
-    
     10. Develop a summary analysis that captures the essence of the company's internal narrative
 
     **Quality requirements:**
     1. NEVER FABRICATE INFORMATION - only use content from the provided sources.
     2. Confirm all sources have accurate attribution.
     3. Maintain proper citation throughout.
+    4. If the currency is not USD, provide both the original currency and the converted amount in USD, convert them to USD using the exchange rate at the time of the report, also indicate the exchange rate used and source.
+    5. Do not pass all PDF content into the model, only pass the relevant content.  Use the pdf search tool to find relevant content.
 
     **Final Output:**
-    Complete CompanyInternalAnalysis object that integrates all partial analyses into a comprehensive internal view of the company.
+    Complete CompanyInternalAnalysis object that integrates all analyses into a comprehensive internal view of the company.
     
     Note: This consolidated analysis represents how the company portrays itself through official documents, not necessarily an objective assessment of its true position or performance.
 
+    IMPORTANT: Your response must be in valid JSON format that matches the expected output schema.
+
   expected_output: >
-    A complete CompanyInternalAnalysis object containing a comprehensive,
-    integrated analysis of the company based on internal sources.
+    A complete "Internal Analysis" aligned to the CompanyInternalAnalysis object containing a comprehensive, integrated analysis of the company based on internal sources.
   agent: internal_analysis_consolidator
