@@ -44,7 +44,9 @@ from crewai_tools import (
     ScrapeWebsiteTool,
     BraveSearchTool,
     ScrapflyScrapeWebsiteTool,
-    SeleniumScrapingTool
+    SeleniumScrapingTool,
+    CodeInterpreterTool,
+    RagTool
 )
 
 # Import Custom tools
@@ -56,7 +58,16 @@ from config_competitor_analysis import RESEARCH_INPUTS
 # Import Pydantic models
 from competitor_analysis.competitor_analysis_models import (
     CompanyIntegratedAnalysis,
+    BusinessModelAnalysis,
+    CompetitivePositionAnalysis,
+    StrategicInsightsAnalysis,
+    PERSTELAnalysis,
 )
+
+# Enable CodeInterpreter - THIS IS RISKY but useful for data analysis
+run_code = CodeInterpreterTool(unsafe_mode=True)
+
+
 
 # ===========================
 # Integrated Analysis Crew
@@ -83,50 +94,60 @@ class IntegratedAnalysisCrew():
     def business_model_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['business_model_analyst'],
-            llm=llm_gpt_4_1_mini_accurate,
+            llm=llm_gpt_4_1_accurate,
             verbose=True,
             respect_context_window=True,
-            cache=True
+            function_calling_llm=llm_gemini_2_0_flash,
+            cache=True,
+            tools=[BraveSearchTool(), ScrapeWebsiteTool(), FileDownloaderTool(), RagTool(), run_code]
         )
 
     @agent
     def competitive_position_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['competitive_position_analyst'],
-            llm=llm_gpt_4_1_mini_accurate,
+            llm=llm_gpt_4_1_accurate,
             verbose=True,
             respect_context_window=True,
-            cache=True
+            function_calling_llm=llm_gemini_2_0_flash,
+            cache=True,
+            tools=[BraveSearchTool(), ScrapeWebsiteTool(), FileDownloaderTool(), RagTool(), run_code]
         )
 
     @agent
     def strategic_insight_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['strategic_insight_analyst'],
-            llm=llm_gpt_4_1_mini_accurate,
+            llm=llm_gpt_4_1_accurate,
             verbose=True,
             respect_context_window=True,
-            cache=True
+            function_calling_llm=llm_gemini_2_0_flash,
+            cache=True,
+            tools=[BraveSearchTool(), ScrapeWebsiteTool(), FileDownloaderTool(), RagTool(), run_code]
         )
 
     @agent
     def perstel_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['perstel_analyst'],
-            llm=llm_gpt_4_1_mini_accurate,
+            llm=llm_gpt_4_1_accurate,
             verbose=True,
             respect_context_window=True,
-            cache=True
+            function_calling_llm=llm_gemini_2_0_flash,
+            cache=True,
+            tools=[BraveSearchTool(), ScrapeWebsiteTool(), FileDownloaderTool(), RagTool(), run_code]
         )
 
     @agent
     def integrated_analysis_director(self) -> Agent:
         return Agent(
             config=self.agents_config['integrated_analysis_director'],
-            llm=llm_gpt_4_1_mini_accurate,
+            llm=llm_gpt_4_1_accurate,
             verbose=True,
             respect_context_window=True,
-            cache=True
+            function_calling_llm=llm_gemini_2_0_flash,
+            cache=True,
+            tools=[BraveSearchTool(), ScrapeWebsiteTool(), FileDownloaderTool(), RagTool(), run_code]
         )
 
     @task
@@ -137,7 +158,7 @@ class IntegratedAnalysisCrew():
             config=self.tasks_config['analyze_business_model'],
             output_file=f'outputs/comp_analysis/business_model_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             async_execution=False,
-            output_pydantic=CompanyIntegratedAnalysis
+            output_pydantic=BusinessModelAnalysis
         )
         # # Add the analyses from previous crews to the task input
         # task.input = {
@@ -153,7 +174,7 @@ class IntegratedAnalysisCrew():
             config=self.tasks_config['analyze_competitive_position'],
             output_file=f'outputs/comp_analysis/competitive_position_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             async_execution=False,
-            output_pydantic=CompanyIntegratedAnalysis
+            output_pydantic=CompetitivePositionAnalysis
         )
         # task.input = {
         #     "internal_analysis": self.internal_analysis,
@@ -168,7 +189,7 @@ class IntegratedAnalysisCrew():
             config=self.tasks_config['generate_strategic_insights'],
             output_file=f'outputs/comp_analysis/strategic_insights_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             async_execution=False,
-            output_pydantic=CompanyIntegratedAnalysis
+            output_pydantic=StrategicInsightsAnalysis
         )
         # task.input = {
         #     "internal_analysis": self.internal_analysis,
@@ -183,7 +204,7 @@ class IntegratedAnalysisCrew():
             config=self.tasks_config['conduct_perstel_analysis'],
             output_file=f'outputs/comp_analysis/perstel_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             async_execution=False,
-            output_pydantic=CompanyIntegratedAnalysis
+            output_pydantic=PERSTELAnalysis
         )
         # task.input = {
         #     "internal_analysis": self.internal_analysis,

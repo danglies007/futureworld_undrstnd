@@ -108,7 +108,7 @@ class InternalAnalysisCrew():
             respect_context_window=True,
             cache=True,
             max_iter=25,
-            function_calling_llm=llm_gpt4o_mini_accurate
+            function_calling_llm=llm_gemini_2_0_flash
         )
 
     @agent
@@ -121,7 +121,7 @@ class InternalAnalysisCrew():
             respect_context_window=True,
             cache=True,
             max_iter=25,
-            function_calling_llm=llm_gpt4o_mini_accurate
+            function_calling_llm=llm_gemini_2_0_flash
         )
 
     @agent
@@ -134,7 +134,7 @@ class InternalAnalysisCrew():
             respect_context_window=True,
             cache=True,
             max_iter=25,
-            function_calling_llm=llm_gpt4o_mini_accurate
+            function_calling_llm=llm_gemini_2_0_flash
         )
 
     @agent

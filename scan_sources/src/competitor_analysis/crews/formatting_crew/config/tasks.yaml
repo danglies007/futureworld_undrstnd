@@ -2,11 +2,11 @@
 
 markdown_formatting_task:
   description: >
-    You will receive a Integrated Company Analysis Report as input. Format it as a beautiful markdown document, following the specified formatting guidelines.
+    You will receive a Report as input. Format it as a beautiful markdown document, following the specified formatting guidelines.
 
-    INTEGRATED COMPANY ANALYSIS REPORT: {report_final_content}
+    REPORT: {report_final_content}
     
-    Format the executive report into a beautiful markdown document without '```'.
+    Format the report into a beautiful markdown document without '```'.
 
     1. Use proper markdown headers (#, ##, ###).
     2. Include the following line just below the Main Title: "Produced by Futureworld & NexusPlus Undrstnd.AI" without quotation marks.
@@ -16,13 +16,17 @@ markdown_formatting_task:
     6. Ensure the date is properly formatted.
     7. Add a table of contents at the beginning.
     8. Use horizontal rules (---) to separate major sections.
-    9. Add inline clickable citations for each major claim, key finding or key insight using (Author, URL) format.  Make these a different color to the standard text.
-    10. Include a Sources section at the end with numbered references.
-    11. Each source should include title, date, publisher/author, and URL.
-    12. Link inline citations to the corresponding entry in the Sources section.
-    13. Add a glossary at the end.
-    14. Add a copyright notice at the end: "© {date} Futureworld & NexusPlus. All rights reserved."
-    15. Do not leave content out or information due to perceived length constraints, this is a full report not a summary.
+    9. Provide a short summary for each section at the start of that section
+    10. Add inline clickable citations for each major claim, data point, statistic, quote, key finding or key insight using (Author, URL) format.  Make these a different color to the standard text.
+    11. Make key insights and key findings stand out using blockquotes. 
+    12. Include a Sources section at the end with numbered references.
+    13. Each source should include title, date, publisher/author, and URL.
+    14. Link inline citations to the corresponding entry in the Sources section.
+    15. When making comparisons consider using tables to make it easier to read and understand.
+    16. Add a glossary at the end.
+    17. Add a copyright notice at the end: "© {date} Futureworld & NexusPlus. All rights reserved."
+    18. Do not leave content out or information due to perceived length constraints, this is a full report not a summary.
+    19. Use appropriate page breaks for an a4 page in portrait orientation.
   expected_output: >
     A beautifully formatted markdown report with proper structure, spacing, citations, and visual elements that enhance readability and presentation.  It should include all content, required formatting, sections, and attributions.
   agent: markdown_formatter

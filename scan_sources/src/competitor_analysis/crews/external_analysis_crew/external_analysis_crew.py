@@ -44,11 +44,14 @@ from crewai_tools import (
     ScrapeWebsiteTool,
     BraveSearchTool,
     ScrapflyScrapeWebsiteTool,
-    SeleniumScrapingTool
+    SeleniumScrapingTool, 
+    RagTool,
+    CodeInterpreterTool
 )
 
 # Import Custom tools
 from tools.file_downloader import FileDownloaderTool
+# from tools.custom_yahoo_finance_tool import YFinanceStockTool
 
 # Import Research variables to support naming
 from config_competitor_analysis import RESEARCH_INPUTS
@@ -62,6 +65,12 @@ from competitor_analysis.competitor_analysis_models import (
     MarketPositionAnalysisResult,
 )
 
+
+# Enable CodeInterpreter - THIS IS RISKY but useful for data analysis
+run_code = CodeInterpreterTool(unsafe_mode=True)
+
+
+
 # ===========================
 # External Analysis Crew
 # ===========================
@@ -74,72 +83,72 @@ class ExternalAnalysisCrew():
     agents_config = 'config/agents.yaml'
     tasks_config = 'config/tasks.yaml'
     
-    @agent
-    def external_source_identifier(self) -> Agent:
-        return Agent(
-            config=self.agents_config['external_source_identifier'],
-            llm=llm_gpt_4_1_mini_accurate,
-            tools=[BraveSearchTool(), ScrapeWebsiteTool()],
-            verbose=True,
-            cache=True,
-            function_calling_llm=llm_gpt_4_1_mini_accurate
-        )
+    # @agent
+    # def external_source_identifier(self) -> Agent:
+    #     return Agent(
+    #         config=self.agents_config['external_source_identifier'],
+    #         llm=llm_gpt_4_1_mini_accurate,
+    #         tools=[BraveSearchTool(), ScrapeWebsiteTool()],
+    #         verbose=True,
+    #         cache=True,
+    #         function_calling_llm=llm_gpt_4_1_mini_accurate
+    #     )
 
     @agent
     def news_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['news_analyst'],
-            llm=llm_gpt_4_1_mini_accurate,
-            tools=[ScrapeWebsiteTool(), FileDownloaderTool(), PDFSearchTool()],
+            llm=llm_gpt_4_1_accurate,
+            tools=[BraveSearchTool(), ScrapeWebsiteTool(), FileDownloaderTool(), RagTool(), run_code],
             verbose=True,
             respect_context_window=True,
             cache=True,
-            function_calling_llm=llm_gpt_4_1_mini_accurate
+            function_calling_llm=llm_gemini_2_0_flash
         )
 
     @agent
     def financial_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['financial_analyst'],
-            llm=llm_gpt_4_1_mini_accurate,
-            tools=[ScrapeWebsiteTool(), FileDownloaderTool(), PDFSearchTool()],
+            llm=llm_gpt_4_1_accurate,
+            tools=[BraveSearchTool(), ScrapeWebsiteTool(), FileDownloaderTool(), RagTool(), run_code],
             verbose=True,
             respect_context_window=True,
             cache=True,
-            function_calling_llm=llm_gpt_4_1_mini_accurate
+            function_calling_llm=llm_gemini_2_0_flash
         )
 
     @agent
     def market_position_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['market_position_analyst'],
-            llm=llm_gpt_4_1_mini_accurate,
-            tools=[ScrapeWebsiteTool(), FileDownloaderTool(), PDFSearchTool()],
+            llm=llm_gpt_4_1_accurate,
+            tools=[BraveSearchTool(), ScrapeWebsiteTool(), FileDownloaderTool(), RagTool(), run_code],
             verbose=True,
             respect_context_window=True,
             cache=True,
-            function_calling_llm=llm_gpt_4_1_mini_accurate
+            function_calling_llm=llm_gemini_2_0_flash
         )
 
     @agent
     def external_analysis_consolidator(self) -> Agent:
         return Agent(
             config=self.agents_config['external_analysis_consolidator'],
-            llm=llm_gpt_4_1_mini_accurate,
+            llm=llm_gpt_4_1_accurate,
             verbose=True,
             respect_context_window=True,
             cache=True
         )
 
-    @task
-    def identify_company_external_sources(self) -> Task:
-        company_name = self.research_inputs.get("company_name")
-        return Task(
-            config=self.tasks_config['identify_company_external_sources'],
-            output_file=f'outputs/comp_analysis/external_sources_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            async_execution=False,
-            output_pydantic=CompanySourceIdentificationResults
-        )
+    # @task
+    # def identify_company_external_sources(self) -> Task:
+    #     company_name = self.research_inputs.get("company_name")
+    #     return Task(
+    #         config=self.tasks_config['identify_company_external_sources'],
+    #         output_file=f'outputs/comp_analysis/external_sources_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
+    #         async_execution=False,
+    #         output_pydantic=CompanySourceIdentificationResults
+    #     )
 
     @task
     def analyze_news_and_media(self) -> Task:
@@ -147,7 +156,7 @@ class ExternalAnalysisCrew():
         return Task(
             config=self.tasks_config['analyze_news_and_media'],
             output_file=f'outputs/comp_analysis/news_media_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            context=[self.identify_company_external_sources()],
+            # context=[self.identify_company_external_sources()],
             async_execution=False,
             output_pydantic=NewsMediaAnalysisResult
         )
@@ -158,7 +167,7 @@ class ExternalAnalysisCrew():
         return Task(
             config=self.tasks_config['analyze_external_financials'],
             output_file=f'outputs/comp_analysis/external_financial_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            context=[self.identify_company_external_sources()],
+            # context=[self.identify_company_external_sources()],
             async_execution=False,
             output_pydantic=ExternalFinancialAnalysisResult
         )
@@ -169,7 +178,7 @@ class ExternalAnalysisCrew():
         return Task(
             config=self.tasks_config['analyze_market_position'],
             output_file=f'outputs/comp_analysis/market_position_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
-            context=[self.identify_company_external_sources()],
+            # context=[self.identify_company_external_sources()],
             async_execution=False,
             output_pydantic=MarketPositionAnalysisResult
         )

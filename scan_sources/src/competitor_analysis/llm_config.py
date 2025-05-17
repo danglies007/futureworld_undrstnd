@@ -125,3 +125,22 @@ llm_perplexity_sonar_pro.stop_words = []
 #     model="perplexity/sonar",  # Or "perplexity/sonar-pro" for the pro version
 #     api_key=os.environ.get("PERPLEXITYAI_API_KEY")
 # )
+
+# Configure the LLM to use Cerebras
+llm_cerebras_llama4_maverick = LLM(
+    model="cerebras/llama3.1-70b", # Replace with your chosen Cerebras model name, e.g., "cerebras/llama3.1-8b"
+    api_key=os.environ.get("CEREBRAS_API_KEY"), # Your Cerebras API key
+    base_url="https://api.cerebras.ai/v1",
+    temperature=0.5,
+    # Optional parameters:
+    # top_p=1,
+    # max_completion_tokens=8192, # Max tokens for the response
+    # response_format={"type": "json_object"} # Ensures the response is in JSON format
+)
+
+
+# HuggingFace Models
+llm_HF_llama_4_maverick = LLM(
+    model="huggingface/meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+    api_key=os.environ.get("HF_API_KEY")
+)

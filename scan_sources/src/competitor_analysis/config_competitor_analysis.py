@@ -5,7 +5,7 @@ from datetime import datetime
 
 RESEARCH_INPUTS = {
     # Target company details
-    "company_name": "First Abu Dhabi bank",
+    "company_name": "First Abu Dhabi Bank",
     "ticker_symbol": "FAB",
     "industry": "Banking",
     "specialisation": "CompanyAnalysis",
@@ -20,6 +20,7 @@ RESEARCH_INPUTS = {
     
     # Analysis depth
     "detail_level": "comprehensive",  # can be 'brief', 'standard', or 'comprehensive'
+    "audience": "Expert Investors",
     
     # Optional parameters
     "include_esg_analysis": True,
