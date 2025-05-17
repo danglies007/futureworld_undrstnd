@@ -10,6 +10,7 @@ from pydantic_core.core_schema import nullable_schema
 from config_competitor_analysis import RESEARCH_INPUTS
 
 # Google VertexAI does not like OPtional, had to change to Nullable=true
+# Changing from nullable=true to default_factory=list or default="" or default=0
 
 
 specialisation = RESEARCH_INPUTS.get('specialisation', 'CompanyAnalysis')
@@ -18,16 +19,16 @@ class SourceLink(BaseModel):
     """Represents a link to a source with its title."""
     title: str = Field(..., description="Title of the source")
     url: str = Field(..., description="URL of the source link")
-    date: str = Field(default=None, nullable=True, description="Publication date for the source")
+    date: str = Field(default="", description="Publication date for the source")
 
 class AttributedItem(BaseModel):
     """Base model for any item that needs attribution."""
     content: str = Field(..., description="The actual content (fact, statistic, quote, etc.)")
     source_url: str = Field(..., description="URL where this information was found")
-    source_text: str = Field(default=None, nullable=True, description="Exact word-for-word extract from the source")
-    source_name: str = Field(default=None, nullable=True, description="Name of the source")
-    quote_author: str = Field(default=None, nullable=True, description="Author of the quote e.g. CEO Mr. John Doe")
-    source_date: str = Field(default=None, nullable=True, description="Date of the source")
+    source_text: str = Field(default="", description="Exact word-for-word extract from the source")
+    source_name: str = Field(default="", description="Name of the source")
+    quote_author: str = Field(default="", description="Author of the quote e.g. CEO Mr. John Doe")
+    source_date: str = Field(default="", description="Date of the source")
 
 # Models for Company Source Identification
 
@@ -37,11 +38,11 @@ class CompanySource(BaseModel):
     title: str = Field(..., description="Title of the source")
     url: str = Field(..., description="URL of the source")
     source_type: str = Field(..., description="Type: annual_report, financial_statement, press_release, news_article, analyst_report, etc.")
-    publisher: str = Field(default=None, nullable=True, description="Publisher of the source")
-    source_date: str = Field(default=None, nullable=True, description="Date of publication")
-    author: str = Field(default=None, nullable=True, description="Author of the source")
+    publisher: str = Field(default="", description="Publisher of the source")
+    source_date: str = Field(default="", description="Date of publication")
+    author: str = Field(default="", description="Author of the source")
     relevance_score: float = Field(..., description="Relevance score (1-10)")
-    description: str = Field(default=None, nullable=True, description="Brief description of the source content")
+    description: str = Field(default="", description="Brief description of the source content")
     
     @field_validator('source_id', mode='before')
     @classmethod
@@ -51,8 +52,8 @@ class CompanySource(BaseModel):
 class CompanySourceIdentificationResults(BaseModel):
     """Results of source identification for company analysis."""
     company_name: str = Field(..., description="Name of the company being analyzed")
-    ticker_symbol: str = Field(default=None, nullable=True, description="Stock ticker symbol, if applicable")
-    industry: str = Field(default=None, nullable=True, description="Industry the company operates in")
+    ticker_symbol: str = Field(default="", description="Stock ticker symbol, if applicable")
+    industry: str = Field(default="", description="Industry the company operates in")
     date_of_identification: str = Field(..., description="Date when the sources were identified")
     total_sources_found: int = Field(..., description="Total number of sources found")
     internal_sources: List[CompanySource] = Field(default_factory=list, description="Sources from the company itself (annual reports, etc.)")
@@ -67,12 +68,12 @@ class HistoricalValue(BaseModel):
 class FinancialMetric(BaseModel):
     """Represents a key financial metric with historical data."""
     metric_name: str = Field(..., description="Name of the financial metric")
-    metric_description: str = Field(default=None, nullable=True, description="Description of what this metric represents")
+    metric_description: str = Field(default="", description="Description of what this metric represents")
     unit: str = Field(..., description="Unit of measurement (USD, %, ratio, etc.)")
-    current_value: float = Field(default=None, nullable=True, description="Most recent value")
-    historical_values: List[HistoricalValue] = Field(default=None, nullable=True, description="Historical values for this metric, typically found in previous years financial statements")
-    trend: str = Field(default=None, nullable=True, description="Trend description (increasing, decreasing, stable, volatile)")
-    source: List[SourceLink] = Field(default=None, nullable=True, description="Source of this information")
+    current_value: float = Field(default=0, nullable=True, description="Most recent value")
+    historical_values: List[HistoricalValue] = Field(default_factory=list, description="Historical values for this metric, typically found in previous years financial statements")
+    trend: str = Field(default="", description="Trend description (increasing, decreasing, stable, volatile)")
+    source: List[SourceLink] = Field(default_factory=list, description="Source of this information")
 
 class FinancialMetricCategory(BaseModel):
     """A category of financial metrics."""
@@ -90,26 +91,26 @@ class BusinessSegment(BaseModel):
     """Represents a business segment or division of the company."""
     segment_name: str = Field(..., description="Name of the business segment")
     segment_description: str = Field(..., description="Description of the segment's activities")
-    revenue: float = Field(default=None, nullable=True, description="Revenue of this segment - if revenue is not available use alternative metric for size e.g. net income etc")
-    revenue_contribution: float = Field(default=None, nullable=True, description="Percentage of total revenue from this segment")
-    growth_rate: float = Field(default=None, nullable=True, description="Growth rate of this segment")
-    profitability_metrics: List[ProfitabilityMetric] = Field(default=None, nullable=True, description="Key profitability metrics for this segment")
-    key_products_services: List[str] = Field(default=None, nullable=True, description="Key products or services in this segment")
-    geographical_presence: List[str] = Field(default=None, nullable=True, description="Geographical regions this segment operates in")
-    strategic_focus: str = Field(default=None, nullable=True, description="Strategic focus for this segment per company statements")
-    source_statements: List[AttributedItem] = Field(default=None, nullable=True, description="Direct statements from sources")
+    revenue: float = Field(default=0, nullable=True, description="Revenue of this segment - if revenue is not available use alternative metric for size e.g. net income etc")
+    revenue_contribution: float = Field(default=0, nullable=True, description="Percentage of total revenue from this segment")
+    growth_rate: float = Field(default=0, nullable=True, description="Growth rate of this segment")
+    profitability_metrics: List[ProfitabilityMetric] = Field(default_factory=list, description="Key profitability metrics for this segment")
+    key_products_services: List[str] = Field(default_factory=list, description="Key products or services in this segment")
+    geographical_presence: List[str] = Field(default_factory=list, description="Geographical regions this segment operates in")
+    strategic_focus: str = Field(default="", description="Strategic focus for this segment per company statements")
+    source_statements: List[AttributedItem] = Field(default_factory=list, description="Direct statements from sources")
     
 class StrategicPriority(BaseModel):
     """Represents a strategic priority stated by the company."""
     priority_id: str = Field(..., description="Unique identifier for this priority")
     priority_name: str = Field(..., description="Name/title of the strategic priority")
-    priority_description: str = Field(..., nullable=True, description="Detailed description of the priority")
-    related_initiatives: List[str] = Field(default=None, nullable=True, description="Initiatives related to this priority, include any statements, data, or metrics relating to the initiative from company sources")
-    expected_outcomes: List[str] = Field(default=None, nullable=True, description="Expected outcomes from this priority, include any statements, data, or metrics relating to the outcome from company sources")
-    timeline: str = Field(default=None, nullable=True, description="Timeline for implementation or expected results - include any statements, data, or metrics relating to the timeline from company sources")
-    investment_level: str = Field(default=None, nullable=True, description="Level of investment (financial, resource allocation) - include any statements, data, or metrics relating to the investment from company sources")
-    progress_indicators: List[str] = Field(default=None, nullable=True, description="Indicators used to measure progress, include any statements, data, or metrics relating to the indicator from company sources")
-    source_statements: List[AttributedItem] = Field(default=None, nullable=True, description="Direct statements from sources")
+    priority_description: str = Field(..., description="Detailed description of the priority")
+    related_initiatives: List[str] = Field(default_factory=list, description="Initiatives related to this priority, include any statements, data, or metrics relating to the initiative from company sources")
+    expected_outcomes: List[str] = Field(default_factory=list, description="Expected outcomes from this priority, include any statements, data, or metrics relating to the outcome from company sources")
+    timeline: str = Field(default="", description="Timeline for implementation or expected results - include any statements, data, or metrics relating to the timeline from company sources")
+    investment_level: str = Field(default="", description="Level of investment (financial, resource allocation) - include any statements, data, or metrics relating to the investment from company sources")
+    progress_indicators: List[str] = Field(default_factory=list, description="Indicators used to measure progress, include any statements, data, or metrics relating to the indicator from company sources")
+    source_statements: List[AttributedItem] = Field(default_factory=list, description="Direct statements from sources")
     
     @field_validator('priority_id', mode='before')
     @classmethod
@@ -120,22 +121,22 @@ class CapitalAllocation(BaseModel):
     """Represents how the company allocates its capital."""
     category: str = Field(..., description="Category of capital allocation")
     description: str = Field(..., description="Description of this allocation category")
-    percentage: float = Field(default=None, nullable=True, description="Percentage of total capital allocation")
-    amount: float = Field(default=None, nullable=True, description="Monetary amount allocated")
-    currency: str = Field(default=None, nullable=True, description="Currency of the amount")
-    trend: str = Field(default=None, nullable=True, description="Trend in this allocation (increasing, stable, decreasing)")
-    rationale: str = Field(default=None, nullable=True, description="Company's stated rationale for this allocation")
-    source: List[SourceLink] = Field(default=None, nullable=True, description="Source of this information")
+    percentage: float = Field(default=0, nullable=True, description="Percentage of total capital allocation")
+    amount: float = Field(default=0, nullable=True, description="Monetary amount allocated")
+    currency: str = Field(default="", description="Currency of the amount")
+    trend: str = Field(default="", description="Trend in this allocation (increasing, stable, decreasing)")
+    rationale: str = Field(default="", description="Company's stated rationale for this allocation")
+    source: List[SourceLink] = Field(default_factory=list, description="Source of this information")
 
 class RiskFactor(BaseModel):
     """Represents a risk factor identified by the company."""
     risk_id: str = Field(..., description="Unique identifier for this risk")
     risk_name: str = Field(..., description="Name/title of the risk factor")
-    risk_description: str = Field(default=None, nullable=True, description="Detailed description of the risk")
+    risk_description: str = Field(default="", description="Detailed description of the risk")
     risk_category: str = Field(..., description="Category of risk (operational, financial, regulatory, etc.)")
     potential_impact: str = Field(..., description="Potential impact if risk materializes")
     mitigation_strategies: List[str] = Field(default_factory=list, description="Strategies to mitigate this risk")
-    management_assessment: str = Field(default=None, nullable=True, description="Management's assessment of likelihood/severity")
+    management_assessment: str = Field(default="", description="Management's assessment of likelihood/severity")
     source_statements: List[AttributedItem] = Field(default_factory=list, description="Direct statements from sources")
     
     @field_validator('risk_id', mode='before')
@@ -147,17 +148,17 @@ class CostStructureItem(BaseModel):
     """Represents a component of a company's cost structure with flexible value types."""
     cost_category: str = Field(..., description="Category of cost (e.g., 'Technology investment')")
     value: str = Field(..., description="Value or description of the cost (can be numeric or descriptive)")
-    percentage: str = Field(default=None, nullable=True, description="Percentage of total costs, if available")
-    notes: str = Field(default=None, nullable=True, description="Additional notes about this cost component")
+    percentage: str = Field(default="", description="Percentage of total costs, if available")
+    notes: str = Field(default="", description="Additional notes about this cost component")
 
 class BusinessModelComponent(BaseModel):
     """Component of the company's business model."""
     component_name: str = Field(..., description="Name of the business model component")
-    component_description: str = Field(default=None, nullable=True, description="Description of this component")
-    strengths: List[str] = Field(default=None, nullable=True, description="Strengths of this component")
-    weaknesses: List[str] = Field(default=None, nullable=True, description="Weaknesses of this component")
-    evolution: str = Field(default=None, nullable=True, description="How this component has evolved over time")
-    future_direction: str = Field(default=None, nullable=True, description="Likely future direction for this component")
+    component_description: str = Field(default="", description="Description of this component")
+    strengths: List[str] = Field(default_factory=list, description="Strengths of this component")
+    weaknesses: List[str] = Field(default_factory=list, description="Weaknesses of this component")
+    evolution: str = Field(default="", description="How this component has evolved over time")
+    future_direction: str = Field(default="", description="Likely future direction for this component")
     sources: List[SourceLink] = Field(default_factory=list, description="Sources for this analysis")
 
 class BusinessModel(BaseModel):
@@ -167,21 +168,21 @@ class BusinessModel(BaseModel):
     value_creation: str = Field(..., description="How the company creates value for customers")
     value_capture: str = Field(..., description="How the company captures value (monetization)")
     revenue_streams: List[str] = Field(default_factory=list, description="Key revenue streams")
-    cost_structure: List[CostStructureItem] = Field(default=None, nullable=True, description="Breakdown of cost structure by category")
-    key_resources: List[str] = Field(default=None, nullable=True, description="Key resources required for the business model")
-    key_activities: List[str] = Field(default=None, nullable=True, description="Key activities performed in the business model")
-    key_partnerships: List[str] = Field(default=None, nullable=True, description="Key partnerships and supplier relationships")
-    customer_segments: List[str] = Field(default=None, nullable=True, description="Target customer segments")
-    customer_relationships: str = Field(default=None, nullable=True, description="How the company builds relationships with customers")
-    channels: List[str] = Field(default=None, nullable=True, description="Channels used to reach customers")
-    scalability: str = Field(default=None, nullable=True, description="Assessment of the business model's scalability")
-    sustainability: str = Field(default=None, nullable=True, description="Long-term sustainability assessment")
-    defensibility: str = Field(default=None, nullable=True, description="How defensible the business model is against competition")
+    cost_structure: List[CostStructureItem] = Field(default_factory=list, description="Breakdown of cost structure by category")
+    key_resources: List[str] = Field(default_factory=list, description="Key resources required for the business model")
+    key_activities: List[str] = Field(default_factory=list, description="Key activities performed in the business model")
+    key_partnerships: List[str] = Field(default_factory=list, description="Key partnerships and supplier relationships")
+    customer_segments: List[str] = Field(default_factory=list, description="Target customer segments")
+    customer_relationships: str = Field(default="", description="How the company builds relationships with customers")
+    channels: List[str] = Field(default_factory=list, description="Channels used to reach customers")
+    scalability: str = Field(default="", description="Assessment of the business model's scalability")
+    sustainability: str = Field(default="", description="Long-term sustainability assessment")
+    defensibility: str = Field(default="", description="How defensible the business model is against competition")
     components: List[BusinessModelComponent] = Field(default_factory=list, description="Detailed components of the business model")
-    evolution_history: List[str] = Field(default=None, nullable=True, description="How the business model has evolved over time")
-    future_direction: str = Field(default=None, nullable=True, description="Anticipated future evolution of the business model")
-    alignment: str = Field(default=None, nullable=True, description="Alignment between described and actual business model")
-    assessment: str = Field(default=None, nullable=True, description="Overall assessment of the business model")
+    evolution_history: List[str] = Field(default_factory=list, description="How the business model has evolved over time")
+    future_direction: str = Field(default="", description="Anticipated future evolution of the business model")
+    alignment: str = Field(default="", description="Alignment between described and actual business model")
+    assessment: str = Field(default="", description="Overall assessment of the business model")
     
     @field_validator('model_id', mode='before')
     @classmethod
@@ -193,12 +194,12 @@ class BusinessModelAnalysis(BaseModel):
     company_name: str = Field(..., description="Name of the company")
     analysis_date: str = Field(..., description="Date when the analysis was conducted")
     business_models: List[BusinessModel] = Field(..., description="Business models analyzed")
-    internal_perspective: str = Field(default=None, nullable=True, description="How the company describes its own business model")
-    external_perspective: str = Field(default=None, nullable=True, description="How external analysts perceive the business model") 
-    model_alignment: str = Field(default=None, nullable=True, description="Assessment of alignment between described and actual business model")
-    sustainability_assessment: str = Field(default=None, nullable=True, description="Assessment of the business model's sustainability")
-    coherence_assessment: str = Field(default=None, nullable=True, description="Assessment of how well business model components fit together")
-    business_model_evolution: str = Field(default=None, nullable=True, description="How the business model has evolved and may evolve")
+    internal_perspective: str = Field(default="", description="How the company describes its own business model")
+    external_perspective: str = Field(default="", description="How external analysts perceive the business model") 
+    model_alignment: str = Field(default="", description="Assessment of alignment between described and actual business model")
+    sustainability_assessment: str = Field(default="", description="Assessment of the business model's sustainability")
+    coherence_assessment: str = Field(default="", description="Assessment of how well business model components fit together")
+    business_model_evolution: str = Field(default="", description="How the business model has evolved and may evolve")
     sources: List[SourceLink] = Field(default_factory=list,  description="Sources used for this analysis")
     analysis_summary: str = Field(..., description="Summary of key findings from the business model analysis")
 
@@ -223,7 +224,7 @@ class AnnualReportAnalysisResult(BaseModel):
     strategic_priorities: List[StrategicPriority] = Field(default_factory=list, description="Strategic priorities from annual reports")
     risk_factors: List[RiskFactor] = Field(default_factory=list, description="Risk factors identified from annual reports")
     leadership_statements: List[AttributedItem] = Field(default_factory=list, description="Significant statements from leadership")
-    future_outlook: str = Field(default=None, nullable=True, description="Company's stated future outlook from annual reports")
+    future_outlook: str = Field(default="", description="Company's stated future outlook from annual reports")
     management_discussion_and_analysis: List[AttributedItem] = Field(default_factory=list, description="Management's discussion and analysis")
     sources_analyzed: List[SourceLink] = Field(..., description="Annual report sources analyzed")
 
@@ -239,8 +240,8 @@ class FinancialAnalysisResult(BaseModel):
     company_name: str = Field(..., description="Name of the company")
     analysis_date: str = Field(..., description="Date when the analysis was conducted")
     financial_metrics: List[FinancialMetricCategory] = Field(..., description="Financial metrics by category")
-    capital_allocation: List[CapitalAllocation] = Field(default=None, nullable=True, description="Capital allocation breakdown")
-    segment_financial_performance: List[SegmentFinancialPerformance] = Field(default=None, nullable=True, description="Financial performance by business segment")
+    capital_allocation: List[CapitalAllocation] = Field(default_factory=list, description="Capital allocation breakdown")
+    segment_financial_performance: List[SegmentFinancialPerformance] = Field(default_factory=list, description="Financial performance by business segment")
     sources_analyzed: List[SourceLink] = Field(..., description="Financial document sources analyzed")
 
 class StrategyAnalysisResult(BaseModel):
@@ -250,12 +251,12 @@ class StrategyAnalysisResult(BaseModel):
     strategy_overview: str = Field(..., description="Overview of the company's strategy")
     strategic_priorities: List[StrategicPriority] = Field(..., description="Strategic priorities from strategy documents")
     business_model_components: List[BusinessModelComponent] = Field(default_factory=list, description="Components of the business model")
-    innovation_focus: str = Field(default=None, nullable=True, description="Focus areas for innovation and R&D")
-    market_positioning: str = Field(default=None, nullable=True, description="Market positioning statements")
-    competitive_advantages: List[str] = Field(default=None, nullable=True, description="Claimed competitive advantages")
-    growth_strategies: List[AttributedItem] = Field(default=None, nullable=True, description="Growth strategies (organic/inorganic)")
-    digital_transformation: str = Field(default=None, nullable=True, description="Digital transformation initiatives")
-    sustainability_strategy: str = Field(default=None, nullable=True, description="ESG/Sustainability strategy")
+    innovation_focus: str = Field(default="", description="Focus areas for innovation and R&D")
+    market_positioning: str = Field(default="", description="Market positioning statements")
+    competitive_advantages: List[str] = Field(default_factory=list, description="Claimed competitive advantages")
+    growth_strategies: List[AttributedItem] = Field(default_factory=list, description="Growth strategies (organic/inorganic)")
+    digital_transformation: str = Field(default="", description="Digital transformation initiatives")
+    sustainability_strategy: str = Field(default="", description="ESG/Sustainability strategy")
     sources_analyzed: List[SourceLink] = Field(..., description="Strategy document sources analyzed")
 
 
@@ -271,12 +272,12 @@ class CompanyInternalAnalysis(BaseModel):
     business_segments: List[BusinessSegment] = Field(default_factory=list, description="Key business segments")
     growth_strategies: List[AttributedItem] = Field(default_factory=list, description="Growth strategies (organic/inorganic)")
     financial_performance: List[FinancialMetricCategory] = Field(..., description="Financial performance metrics by category")
-    market_positioning: str = Field(default=None, nullable=True, description="Market positioning statements")
-    competitive_advantages: List[str] = Field(default=None, nullable=True, description="Claimed competitive advantages")
+    market_positioning: str = Field(default="", description="Market positioning statements")
+    competitive_advantages: List[str] = Field(default_factory=list, description="Claimed competitive advantages")
     capital_allocation: List[CapitalAllocation] = Field(..., description="Capital allocation breakdown")
     risk_factors: List[RiskFactor] = Field(..., description="Risk factors identified by the company")
     leadership_statements: List[AttributedItem] = Field(default_factory=list, description="Significant statements from leadership")
-    future_outlook: str = Field(default=None, nullable=True, description="Company's stated future outlook")
+    future_outlook: str = Field(default="", description="Company's stated future outlook")
     sources_analyzed: List[SourceLink] = Field(..., description="Sources analyzed for this internal analysis")
     analysis_summary: str = Field(..., description="Summary of key findings from internal analysis")
 
@@ -290,7 +291,7 @@ class ComparisonMetric(BaseModel):
     metric_name: str = Field(..., description="Name of the metric")
     company_value: str = Field(..., description="Value for the analyzed company")
     competitor_value: str = Field(..., description="Value for the competitor")
-    difference: str = Field(default=None, nullable=True, description="Difference description")
+    difference: str = Field(default="", description="Difference description")
 
 class CompetitorAssessment(BaseModel):
     """Represents an assessment of a key competitor."""
@@ -301,7 +302,7 @@ class CompetitorAssessment(BaseModel):
     competitive_disadvantages: List[str] = Field(default_factory=list, description="Competitive disadvantages of this competitor")
     key_strategies: List[str] = Field(default_factory=list, description="Key strategies being pursued by this competitor")
     recent_developments: List[AttributedItem] = Field(default_factory=list, description="Recent significant developments")
-    comparison_metrics: List[ComparisonMetric] = Field(default=None, nullable=True, description="Comparative metrics vs. analyzed company")
+    comparison_metrics: List[ComparisonMetric] = Field(default_factory=list, description="Comparative metrics vs. analyzed company")
     threat_level: str = Field(..., description="Assessment of threat level (high, medium, low) - also provide rationale (and data if available) for this assessment")
     sources: List[SourceLink] = Field(default_factory=list, description="Sources for this competitor assessment")
 
@@ -323,14 +324,14 @@ class MarketTrend(BaseModel):
 
 class AnalystPerspective(BaseModel):
     """Represents a perspective from a financial/industry analyst."""
-    analyst_name: str = Field(default=None, nullable=True, description="Name of the analyst")
-    firm: str = Field(default=None, nullable=True, description="Name of the analyst's firm or source of this perspective")
-    rating: str = Field(default=None, nullable=True, description="Rating (buy, hold, sell, etc.)")
-    target_price: float = Field(default=None, nullable=True, description="Target price, if provided")
+    analyst_name: str = Field(default="", description="Name of the analyst")
+    firm: str = Field(default="", description="Name of the analyst's firm or source of this perspective")
+    rating: str = Field(default="", description="Rating (buy, hold, sell, etc.)")
+    target_price: float = Field(default=0, nullable=True, description="Target price, if provided")
     summary: str = Field(..., description="Summary of the analyst's view")
-    strengths_identified: List[str] = Field(default=None, nullable=True, description="Strengths identified by the analyst - do not make this up, if you cannot find info leave it blank")
-    concerns_identified: List[str] = Field(default=None, nullable=True, description="Concerns identified by the analyst - do not make this up, if you cannot find info leave it blank")
-    key_assumptions: List[str] = Field(default=None, nullable=True, description="Key assumptions made by the analyst - do not make this up, if you cannot find info leave it blank")
+    strengths_identified: List[str] = Field(default_factory=list, description="Strengths identified by the analyst - do not make this up, if you cannot find info leave it blank")
+    concerns_identified: List[str] = Field(default_factory=list, description="Concerns identified by the analyst - do not make this up, if you cannot find info leave it blank")
+    key_assumptions: List[str] = Field(default_factory=list, description="Key assumptions made by the analyst - do not make this up, if you cannot find info leave it blank")
     date: str = Field(..., description="Date of this perspective")
     source: List[SourceLink] = Field(..., description="Source of this perspective")
 
@@ -341,7 +342,7 @@ class NewsHighlight(BaseModel):
     date: str = Field(..., description="Date of publication")
     summary: str = Field(..., description="Summary of the news item")
     impact_assessment: str = Field(..., description="Assessment of potential impact on the company")
-    market_reaction: str = Field(default=None, nullable=True, description="How the market reacted, if applicable")
+    market_reaction: str = Field(default="", description="How the market reacted, if applicable")
     source: List[SourceLink] = Field(..., description="Source of this news item")
     
     @field_validator('highlight_id', mode='before')
@@ -355,12 +356,12 @@ class NewsMediaAnalysisResult(BaseModel):
     analysis_date: str = Field(..., description="Date when the analysis was conducted")
     company_perception: str = Field(..., description="Overall external perception of the company")
     news_highlights: List[NewsHighlight] = Field(..., description="Significant recent news")
-    key_events: List[AttributedItem] = Field(default=None, nullable=True, description="Important events affecting the company")
-    leadership_perception: str = Field(default=None, nullable=True, description="External perception of company leadership")
-    product_launches: List[AttributedItem] = Field(default=None, nullable=True, description="Product/service launches and their market reception")
-    company_culture: str = Field(default=None, nullable=True, description="External perception of company culture")
-    crisis_management: List[AttributedItem] = Field(default=None, nullable=True, description="Assessment of company's crisis responses")
-    controversies: List[AttributedItem] = Field(default=None, nullable=True, description="Public controversies or challenges")
+    key_events: List[AttributedItem] = Field(default_factory=list, description="Important events affecting the company")
+    leadership_perception: str = Field(default="", description="External perception of company leadership")
+    product_launches: List[AttributedItem] = Field(default_factory=list, description="Product/service launches and their market reception")
+    company_culture: str = Field(default="", description="External perception of company culture")
+    crisis_management: List[AttributedItem] = Field(default_factory=list, description="Assessment of company's crisis responses")
+    controversies: List[AttributedItem] = Field(default_factory=list, description="Public controversies or challenges")
     media_sentiment_trend: str = Field(..., description="Trend in media sentiment (positive, negative, neutral)")
     sources_analyzed: List[SourceLink] = Field(..., description="News and media sources analyzed")
 
@@ -369,8 +370,8 @@ class ValuationMetric(BaseModel):
     """A valuation metric with industry comparison."""
     metric_name: str = Field(..., description="Name of the valuation metric")
     company_value: str = Field(..., description="Value for the company")
-    industry_average: str = Field(default=None, nullable=True, description="Industry average")
-    comparison: str = Field(default=None, nullable=True, description="Comparison to industry")
+    industry_average: str = Field(default="", description="Industry average")
+    comparison: str = Field(default="", description="Comparison to industry")
 
 class StrengthWeaknessCategory(BaseModel):
     """A category of financial strengths or weaknesses."""
@@ -382,14 +383,14 @@ class ExternalFinancialAnalysisResult(BaseModel):
     company_name: str = Field(..., description="Name of the company")
     analysis_date: str = Field(..., description="Date when the analysis was conducted")
     financial_performance_external: List[FinancialMetricCategory] = Field(..., description="Financial performance according to external sources")
-    analyst_perspectives: List[AnalystPerspective] = Field(default=None, nullable=True, description="Perspectives from industry/financial analysts")
-    stock_performance: str = Field(default=None, nullable=True, description="Stock price performance assessment")
-    valuation_metrics: List[ValuationMetric] = Field(default=None, nullable=True, description="Key valuation metrics compared to industry")
-    financial_strengths: List[StrengthWeaknessCategory] = Field(default=None, nullable=True, description="Identified financial strengths")
-    financial_weaknesses: List[StrengthWeaknessCategory] = Field(default=None, nullable=True, description="Identified financial weaknesses")
-    capital_allocation: str = Field(default=None, nullable=True, description="Commentary on capital allocation decisions")
-    financial_risks: List[str] = Field(default=None, nullable=True, description="Financial risks highlighted by external analysts")
-    comparison_with_competitors: List[str] = Field(default=None, nullable=True, description="Comparison with key competitors")
+    analyst_perspectives: List[AnalystPerspective] = Field(default_factory=list, description="Perspectives from industry/financial analysts")
+    stock_performance: str = Field(default="", description="Stock price performance assessment")
+    valuation_metrics: List[ValuationMetric] = Field(default_factory=list, description="Key valuation metrics compared to industry")
+    financial_strengths: List[StrengthWeaknessCategory] = Field(default_factory=list, description="Identified financial strengths")
+    financial_weaknesses: List[StrengthWeaknessCategory] = Field(default_factory=list, description="Identified financial weaknesses")
+    capital_allocation: str = Field(default="", description="Commentary on capital allocation decisions")
+    financial_risks: List[str] = Field(default_factory=list, description="Financial risks highlighted by external analysts")
+    comparison_with_competitors: List[str] = Field(default_factory=list, description="Comparison with key competitors")
     sources_analyzed: List[SourceLink] = Field(..., description="Financial analysis sources analyzed")
 
 # For MarketPositionAnalysisResult
@@ -399,22 +400,22 @@ class MarketShareItem(BaseModel):
     category: str = Field(..., description="Category (segment, region, product line)")
     category_name: str = Field(..., description="Name of the specific category item")
     market_share: float = Field(..., description="Market share percentage")
-    trend: str = Field(default=None, nullable=True, description="Trend description")
-    source: List[SourceLink] = Field(default=None, nullable=True, description="Source of this information")
+    trend: str = Field(default="", description="Trend description")
+    source: List[SourceLink] = Field(default_factory=list, description="Source of this information")
 
 class MarketPositionAnalysisResult(BaseModel):
     """Analysis results regarding market position and competitive landscape."""
     company_name: str = Field(..., description="Name of the company")
     analysis_date: str = Field(..., description="Date when the analysis was conducted")
-    industry_position: str = Field(default=None, nullable=True, description="Position in the industry according to external sources")
+    industry_position: str = Field(default="", description="Position in the industry according to external sources")
     competitors: List[CompetitorAssessment] = Field(..., description="Assessment of key competitors")
-    competitor_market_assessment: str = Field(default=None, nullable=True, description="Market assessment from key competitors")
+    competitor_market_assessment: str = Field(default="", description="Market assessment from key competitors")
     market_trends: List[MarketTrend] = Field(..., description="Relevant market trends")
-    customer_perception: str = Field(default=None, nullable=True, description="How customers perceive the company")
-    market_share_data: List[MarketShareItem] = Field(default=None, nullable=True, description="Market share estimates and trends")
-    competitive_advantages_external: List[str] = Field(default=None, nullable=True, description="Externally recognized competitive advantages")
-    competitive_disadvantages_external: List[str] = Field(default=None, nullable=True, description="Externally recognized competitive disadvantages")
-    esg_assessment: str = Field(default=None, nullable=True, description="Environmental, Social, Governance assessment")
+    customer_perception: str = Field(default="", description="How customers perceive the company")
+    market_share_data: List[MarketShareItem] = Field(default_factory=list, description="Market share estimates and trends")
+    competitive_advantages_external: List[str] = Field(default_factory=list, description="Externally recognized competitive advantages")
+    competitive_disadvantages_external: List[str] = Field(default_factory=list, description="Externally recognized competitive disadvantages")
+    esg_assessment: str = Field(default="", description="Environmental, Social, Governance assessment")
     sources_analyzed: List[SourceLink] = Field(..., description="Market and competitive analysis sources analyzed")
 
 class SWOT(BaseModel):
@@ -432,12 +433,12 @@ class CompanyExternalAnalysis(BaseModel):
     industry_position: str = Field(..., description="Position in the industry according to external sources")
     competitors: List[CompetitorAssessment] = Field(..., description="Assessment of key competitors")
     market_trends: List[MarketTrend] = Field(..., description="Relevant market trends")
-    analyst_perspectives: List[AnalystPerspective] = Field(default=None, nullable=True, description="Perspectives from multiple industry/financial analysts")
+    analyst_perspectives: List[AnalystPerspective] = Field(default_factory=list, description="Perspectives from multiple industry/financial analysts")
     news_highlights: List[NewsHighlight] = Field(..., description="Significant recent news")
     financial_performance_external: List[FinancialMetricCategory] = Field(..., description="Financial performance according to external sources")
     swot_analysis: SWOT = Field(..., description="SWOT analysis from external perspective")
-    customer_perception: str = Field(default=None, nullable=True, description="How customers perceive the company")
-    esg_assessment: str = Field(default=None, nullable=True, description="Environmental, Social, Governance assessment")
+    customer_perception: str = Field(default="", description="How customers perceive the company")
+    esg_assessment: str = Field(default="", description="Environmental, Social, Governance assessment")
     sources_analyzed: List[SourceLink] = Field(..., description="Sources analyzed for this external analysis")
     analysis_summary: str = Field(..., description="Summary of key findings from external analysis")
 
@@ -467,7 +468,7 @@ class CompetitivePositionAnalysis(BaseModel):
     key_competitors: List[CompetitorAssessment] = Field(..., description="Assessment of key competitors")
     points_of_differentiation: List[str] = Field(default_factory=list, description="Points of differentiation (real vs. perceived)")
     sustainability_assessment: str = Field(..., description="Assessment of how sustainable the competitive advantages are")
-    customer_perception: str = Field(default=None, nullable=True, description="Customer perception and brand strength")
+    customer_perception: str = Field(default="", description="Customer perception and brand strength")
     emerging_threats: List[str] = Field(default_factory=list, description="Emerging competitive threats")
     defensive_moats: List[str] = Field(default_factory=list, description="Defensive moats and barriers to entry")
     internal_external_alignment: str = Field(..., description="Assessment of alignment between internal claims and external validation")
@@ -512,16 +513,16 @@ class PERSTELFactor(BaseModel):
     factor_name: str = Field(..., description="Name of this specific factor")
     factor_description: str = Field(..., description="Detailed description of the factor")
     potential_impact: str = Field(..., description="Potential impact on the company")
-    company_response: str = Field(default=None, nullable=True, description="How the company is responding to this factor")
+    company_response: str = Field(default="", description="How the company is responding to this factor")
     sources: List[SourceLink] = Field(default_factory=list, description="Sources for this factor")
 
 class PERSTELDimensionAssessment(BaseModel):
     """Assessment of one dimension of the PERSTEL analysis."""
     dimension: str = Field(..., description="Name of the PERSTEL dimension")
     key_factors: List[str] = Field(default_factory=list, description="Key factors in this dimension")
-    company_awareness: str = Field(default=None, nullable=True, description="Company's awareness of these factors")
-    future_developments: str = Field(default=None, nullable=True, description="Potential future developments")
-    comparative_positioning: str = Field(default=None, nullable=True, description="Positioning vs. competitors")
+    company_awareness: str = Field(default="", description="Company's awareness of these factors")
+    future_developments: str = Field(default="", description="Potential future developments")
+    comparative_positioning: str = Field(default="", description="Positioning vs. competitors")
 
 class PERSTELAnalysis(BaseModel):
     """Analysis applying the PERSTEL framework to macro factors affecting the company."""
@@ -561,8 +562,8 @@ class PERSTELAnalysis(BaseModel):
 class CompanyIntegratedAnalysis(BaseModel):
     """Comprehensive integrated analysis combining all detailed analyses into a cohesive view."""
     company_name: str = Field(..., description="Name of the company")
-    ticker_symbol: str = Field(default=None, nullable=True, description="Stock ticker symbol if applicable")
-    industry: str = Field(default=None, nullable=True, description="Industry the company operates in")
+    ticker_symbol: str = Field(default="", description="Stock ticker symbol if applicable")
+    industry: str = Field(default="", description="Industry the company operates in")
     analysis_date: str = Field(..., description="Date when the analysis was conducted")
     executive_summary: str = Field(..., description="Executive summary of key findings")
     company_background: str = Field(..., description="Background and history of the company")
@@ -588,10 +589,10 @@ class CompanyIntegratedAnalysis(BaseModel):
 class CompanyAnalysisInputs(BaseModel):
     """Configuration for company analysis research."""
     company_name: str = Field(..., description="Name of the company to analyze")
-    ticker_symbol: str = Field(default=None, nullable=True, description="Stock ticker symbol if applicable")
-    industry: str = Field(default=None, nullable=True, description="Industry the company operates in")
+    ticker_symbol: str = Field(default="", description="Stock ticker symbol if applicable")
+    industry: str = Field(default="", description="Industry the company operates in")
     specialisation: str = Field(default="CompanyAnalysis", description="Type of analysis specialization")
-    time_period: str = Field(default=None, nullable=True, description="Time period for analysis (e.g., '2020-2023')")
+    time_period: str = Field(default="", description="Time period for analysis (e.g., '2020-2023')")
     focus_areas: List[str] = Field(default_factory=list, description="Specific areas to focus on")
     competitor_names: List[str] = Field(default_factory=list, description="Known key competitors to include")
 

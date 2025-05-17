@@ -11,12 +11,13 @@ markdown_formatting_task:
     1. Use proper markdown headers (#, ##, ###).
     2. Include the following line just below the Main Title: "Produced by Futureworld & NexusPlus Undrstnd.AI" without quotation marks.
     3. Do not try to overly summarize or condense the content provided.
+    Provide a high quality executive summary at the start of the document.
     4. Include key findings and key insights as bullet points, if implications and explanations are available include them here.  
     5. Add proper spacing and sections breaks.
     6. Ensure the date is properly formatted.
     7. Add a table of contents at the beginning.
     8. Use horizontal rules (---) to separate major sections.
-    9. Provide a short summary for each section at the start of that section
+    9. For each of the sections after the executive summary, provide a short overview and summary for each section at the start of that section
     10. Add inline clickable citations for each major claim, data point, statistic, quote, key finding or key insight using (Author, URL) format.  Make these a different color to the standard text.
     11. Make key insights and key findings stand out using blockquotes. 
     12. Include a Sources section at the end with numbered references.

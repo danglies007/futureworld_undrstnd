@@ -5,11 +5,11 @@ from datetime import datetime
 
 RESEARCH_INPUTS = {
     # Target company details
-    "company_name": "First Abu Dhabi Bank",
-    "ticker_symbol": "FAB",
+    "company_name": "Emirates NBD",
+    "ticker_symbol": "ENBD",
     "industry": "Banking",
     "specialisation": "CompanyAnalysis",
-    "company_name_short": "FAB",
+    "company_name_short": "ENBD",
     
     # Analysis parameters
     "date": datetime.now().strftime('%d %B %Y'),

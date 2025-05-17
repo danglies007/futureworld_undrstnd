@@ -55,6 +55,7 @@ analyze_annual_reports:
     2. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
     3. **NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.**
     4. **NEVER PASS A FULL PDF TO THE MODEL - use the download file tool to download the PDF and then use the search a PDF's content tool to only pass the relevant content of the PDF to the model.**
+    5. **DO NOT USE TRUSTPILOT AND SIMILAR SITES FOR OPINIONS AND ANALYSIS - RATHER USE REPUTABLE SOURCES OR REPORTS**
 
     **TOOLS**
     You have access to these tools should you need them:
@@ -134,6 +135,7 @@ analyze_financial_statements:
     2. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
     3. **NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.**
     4. **NEVER PASS A FULL PDF TO THE MODEL - use the download file tool to download the PDF and then use the search a PDF's content tool to only pass the relevant content of the PDF to the model.**
+    5. **DO NOT USE TRUSTPILOT AND SIMILAR SITES FOR OPINIONS AND ANALYSIS - RATHER USE REPUTABLE SOURCES OR REPORTS**
 
     **TOOLS**
     You have access to these tools should you need them:
@@ -218,6 +220,7 @@ analyze_strategy_documents:
     2. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
     3. **NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.**
     4. **NEVER PASS A FULL PDF TO THE MODEL - use the download file tool to download the PDF and then use the search a PDF's content tool to only pass the relevant content of the PDF to the model.**
+    5. **DO NOT USE TRUSTPILOT AND SIMILAR SITES FOR OPINIONS AND ANALYSIS - RATHER USE REPUTABLE SOURCES OR REPORTS**
 
     **TOOLS**
     You have access to these tools should you need them:
@@ -295,6 +298,7 @@ consolidate_internal_analysis:
     1. **NEVER FABRICATE INFORMATION**
         - only use content from your sources with clear attribution and citation.
         - if you cannot find information for a field, do not make it up or fabricate information instead leave it empty or make a comment in the field explaining why you cannot find the information.
+    2. **DO NOT USE TRUSTPILOT AND SIMILAR SITES FOR OPINIONS AND ANALYSIS - RATHER USE REPUTABLE SOURCES OR REPORTS**
 
     **TOOLS**
     You have access to these tools should you need them:

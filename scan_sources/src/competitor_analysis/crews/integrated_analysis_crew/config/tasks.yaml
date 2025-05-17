@@ -48,6 +48,8 @@ analyze_business_model:
     2. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
     3. **NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.**
     4. **NEVER PASS A FULL PDF TO THE MODEL - use the download file tool to download the PDF and then use the search a PDF's content tool to only pass the relevant content of the PDF to the model.**
+    5. **DO NOT USE TRUSTPILOT AND SIMILAR SITES FOR OPINIONS AND ANALYSIS - RATHER USE REPUTABLE SOURCES OR REPORTS**
+
 
     **TOOLS**
     You have access to these tools should you need them:
@@ -128,6 +130,7 @@ analyze_competitive_position:
     2. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
     3. **NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.**
     4. **NEVER PASS A FULL PDF TO THE MODEL - use the download file tool to download the PDF and then use the search a PDF's content tool to only pass the relevant content of the PDF to the model.**
+    5. **DO NOT USE TRUSTPILOT AND SIMILAR SITES FOR OPINIONS AND ANALYSIS - RATHER USE REPUTABLE SOURCES OR REPORTS**
 
     **TOOLS**
     You have access to these tools should you need them:
@@ -209,6 +212,7 @@ generate_strategic_insights:
     2. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
     3. **NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.**
     4. **NEVER PASS A FULL PDF TO THE MODEL - use the download file tool to download the PDF and then use the search a PDF's content tool to only pass the relevant content of the PDF to the model.**
+    5. **DO NOT USE TRUSTPILOT AND SIMILAR SITES FOR OPINIONS AND ANALYSIS - RATHER USE REPUTABLE SOURCES OR REPORTS**
 
     **TOOLS**
     You have access to these tools should you need them:
@@ -289,6 +293,7 @@ conduct_perstel_analysis:
     2. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
     3. **NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.**
     4. **NEVER PASS A FULL PDF TO THE MODEL - use the download file tool to download the PDF and then use the search a PDF's content tool to only pass the relevant content of the PDF to the model.**
+    5. **DO NOT USE TRUSTPILOT AND SIMILAR SITES FOR OPINIONS AND ANALYSIS - RATHER USE REPUTABLE SOURCES OR REPORTS**
 
     **TOOLS**
     You have access to these tools should you need them:
@@ -381,6 +386,7 @@ create_integrated_analysis:
     2. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES**
     3. **NEVER GENERATE YOUR OWN PDF FILE NAME TO DOWNNLOAD - only download and use actual PDF files or documents.**
     4. **NEVER PASS A FULL PDF TO THE MODEL - use the download file tool to download the PDF and then use the search a PDF's content tool to only pass the relevant content of the PDF to the model.**
+    5. **DO NOT USE TRUSTPILOT AND SIMILAR SITES FOR OPINIONS AND ANALYSIS - RATHER USE REPUTABLE SOURCES OR REPORTS**
 
     **TOOLS**
     You have access to these tools should you need them:
