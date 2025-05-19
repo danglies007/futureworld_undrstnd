@@ -106,7 +106,7 @@ class SourceIdentificationCrew():
     def source_scout(self) -> Agent:
         return Agent(
             config=self.agents_config['source_scout'],
-            llm=llm_gpt_4_1,
+            llm=llm_gpt_4_1_accurate,
             tools=[SerperDevTool()],
             respect_context_window=True,
             cache=True,

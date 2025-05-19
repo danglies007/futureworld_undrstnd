@@ -96,7 +96,7 @@ class ImplicationsCrew():
     def first_order_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['first_order_analyst'],
-            llm=llm_gpt_4_1_accurate,
+            llm=llm_gpt_4_1,
             verbose=True,
             respect_context_window=True,
             cache=True,
@@ -106,7 +106,7 @@ class ImplicationsCrew():
     def second_order_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['second_order_analyst'],
-            llm=llm_gpt_4_1_accurate,
+            llm=llm_gpt_4_1,
             verbose=True,
             respect_context_window=True,
             cache=True,
@@ -116,7 +116,7 @@ class ImplicationsCrew():
     def third_order_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['third_order_analyst'],
-            llm=llm_gpt_4_1_accurate,
+            llm=llm_gpt_4_1,
             verbose=True,
             respect_context_window=True,
             cache=True,
@@ -126,7 +126,7 @@ class ImplicationsCrew():
     def implications_integrator(self) -> Agent:
         return Agent(
             config=self.agents_config['implications_integrator'],
-            llm=llm_gpt_4_1_accurate,
+            llm=llm_gpt_4_1,
             verbose=True,
             respect_context_window=True,
             cache=True,

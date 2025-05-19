@@ -209,6 +209,10 @@ ALL_SOURCES_FLATTENED = {
     }.items()
 }
 
+SOURCES_TESTING = [
+    "mckinsey"
+]
+
 # Definitions
 
 # Market Forces and Future Signals - How they are unpacked
@@ -232,12 +236,12 @@ RESEARCH_INPUTS = {
     'topic': 'Global Market Forces affecting the Banking Sector',
     'topic_short': 'Banking_forces', # used for file naming
     'market': '',
-    'business': '',
+    'business': 'First Abu Dhabi Bank',
     'audience': 'Expert',
     'specific_points_of_interest': [''],
-    'research_sources': SOURCES_FAVOURITE,
-    'minimum_number_of_sources': 1,
-    'maximum_number_of_sources': 1,
+    'research_sources': SOURCES_TESTING,
+    'minimum_number_of_sources': 5,
+    'maximum_number_of_sources': 5,
     'minimum_number_of_forces': 0,
     'source_score_threshold': 0,
     'date': datetime.now().strftime('%d %B %Y'),

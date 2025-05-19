@@ -56,6 +56,8 @@ from scan_sources.llm_config import (
 	llm_gemini_2_0_flash,
 	llm_gemini_2_5_flash,
 	llm_gpt_4_1_mini,
+    llm_gpt_4_1_mini_accurate,
+    llm_gpt_4_1_accurate,
     llm_gpt_4_1
 )
 llm_perplexity_custom_crew_patch = PerplexityLLM()
@@ -103,7 +105,7 @@ class FormattingCrew():
     def markdown_formatter(self) -> Agent:
         return Agent(
             config=self.agents_config['markdown_formatter'],
-            llm=llm_gpt_4_1_accurate,
+            llm=llm_gpt_4_1,
             respect_context_window=True,
             tools=[run_code],
             cache=True,

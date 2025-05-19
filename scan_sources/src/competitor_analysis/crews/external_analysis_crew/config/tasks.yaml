@@ -317,11 +317,15 @@ consolidate_external_analysis:
     5. Analyst perspectives - Perspectives from industry/financial analysts
     6. News highlights - Significant recent news
     7. Financial performance - Financial performance according to external sources
-    8. SWOT analysis - SWOT analysis from external perspective
-    9. Customer perception - How customers perceive the company
-    10. ESG assessment - Environmental, Social, Governance assessment
-    11. Sources analyzed - Sources analyzed for this external analysis
-    12. Analysis summary - Summary of key findings from external analysis
+    8. Growth strategy assessment
+    9. Organic growth statements
+    10. Inorganic growth statements
+    11. Acquisitions divestments
+    12. SWOT analysis - SWOT analysis from external perspective
+    13. Customer perception - How customers perceive the company
+    14. ESG assessment - Environmental, Social, Governance assessment
+    15. Sources analyzed - Sources analyzed for this external analysis
+    16. Analysis summary - Summary of key findings from external analysis
     
     **MANDATORY WORKFLOW:**
     1. You will receive different analysis results from multiple analyst agents:

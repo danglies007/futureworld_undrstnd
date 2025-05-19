@@ -501,6 +501,7 @@ class SourceIdentificationResultsURLonly(BaseModel):
     urls: List[SourceURL] = Field(..., description="List of source URLs")
 
 
+
 # Models for Implications (1st, 2nd and 3rd order)
 class ImplicationOrder(BaseModel):
     """Represents the order of an implication (1st, 2nd, or 3rd)."""
@@ -523,13 +524,17 @@ class Implication(BaseModel):
     parent_implications_names: List[str] = Field(default_factory=list, description="Names of parent implications (if any) obtained from FirstOrderImplication or SecondOrderImplication")
     parent_market_forces_ids: List[str] = Field(default_factory=list, description="IDs of parent market forces (if any) - For the FirstOrderImplication, Use the raw_market_force_id from the ResearchOutput, and for the SecondOrderImplication and ThirdOrderImplication, use the parent_market_forces_id from the FirstOrderImplication or SecondOrderImplication")
     parent_market_forces_names: List[str] = Field(default_factory=list, description="Names of parent market forces (if any) - For the FirstOrderImplication, Use the raw_market_force_name from the ResearchOutput, and for the SecondOrderImplication and ThirdOrderImplication, use the parent_market_forces_name from the FirstOrderImplication or SecondOrderImplication")
-    impact_level: str = Field(..., description="Estimated impact level (High, Medium, Low)")
-    time_horizon: str = Field(..., description="Expected time frame for manifestation")
-    uncertainty: str = Field(..., description="Level of uncertainty (High, Medium, Low)")
-    business_relevance: Optional[str] = Field(None, description="Specific relevance to the business if provided")
-    strategic_considerations: List[str] = Field(default_factory=list, description="Strategic considerations arising from this implication")
-    potential_opportunities: List[str] = Field(default_factory=list, description="Potential opportunities arising")
-    potential_threats: List[str] = Field(default_factory=list, description="Potential threats or challenges arising")
+    impact_level: str = Field(..., description="Estimated impact level (High, Medium, Low) - with a rationale")
+    time_horizon: str = Field(..., description="Expected time frame for manifestation - with a rationale")
+    uncertainty: str = Field(..., description="Level of uncertainty (High, Medium, Low) - with a rationale")
+    scenario_development: List[str] = Field(default_factory=list, description="For 2nd and 3rd order implications, Mini-scenarios illustrating how the implication might manifest")
+    indicators: List[str] = Field(default_factory=list, description="For 2nd and 3rd order implications, Key indicators or signals that would suggest the implication or scenario is emerging")
+    alternative_futures: List[str] = Field(default_factory=list, description="For 3rd order implications, Alternative futures based on different manifestations")
+    wild_card_events: List[str] = Field(default_factory=list, description="For 3rd order implications, Wild card or black swan events that could accelerate or trigger the shift")
+    business_relevance: List[str] = Field(default_factory=list, description="Specific relevance to the business if provided")
+    strategic_considerations: List[str] = Field(default_factory=list, description="Strategic considerations arising from this implication, provide more than one")
+    potential_opportunities: List[str] = Field(default_factory=list, description="Potential opportunities arising, provide more than one")
+    potential_threats: List[str] = Field(default_factory=list, description="Potential threats or challenges arising, provide more than one")
     
     @field_validator('implication_id', mode='before')
     @classmethod

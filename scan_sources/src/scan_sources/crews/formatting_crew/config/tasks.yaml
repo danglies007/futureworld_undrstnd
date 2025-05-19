@@ -76,15 +76,16 @@ markdown_implications_formatting_task:
        - First-Order Implications
        - Second-Order Implications
        - Third-Order Implications
+       - Cross-Cutting Themes
        - Strategic Recommendations
        - Critical Uncertainties
-       - Cross-Cutting Themes
        - Conclusion
     5. Do not rename any of the implications or market forces provided anywhere in the report as cross-referencing may be required throughout the report.
     6. For each implication, clearly show:
+       - Implication name and description
        - Category (Opportunity/Threat/Mixed/etc.)
-       - Parent implications and market forces relationships
-       - Impact level and time horizon
+       - Parent implications and or market forces relationships (as bullet points)
+       - Impact level and time horizon and level of uncertainty
        - Strategic considerations (as bullet points)
        - Potential opportunities and threats (as bullet points)
     7. Add proper spacing and section breaks.

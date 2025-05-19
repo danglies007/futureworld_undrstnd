@@ -2,12 +2,13 @@
 
 analyse_first_order_implications:
   description: >
-    You will receive a list of MARKET FORCES as input (from the previous crew, in ResearchOutput format).
+    You will receive a list of MARKET FORCES as input (from the previous crew, in ResearchOutput format).  If a specific BUSINESS is provided, where relevant consider how the implications will affect the business.
 
     MARKET FORCES: {raw_market_forces}
 
-    You will analyse the market forces to develop first-order implications. First-order implications are direct consequences or impacts that arise immediately from the identified market forces.
+    BUSINESS: {business}
 
+    You will analyse the market forces to develop first-order implications. First-order implications are direct consequences or impacts that arise immediately from the identified market forces.
 
     **Input Analysis:**
     1. Carefully review each market force from the combined market forces output
@@ -73,6 +74,10 @@ analyse_second_order_implications:
   description: >
     Using the first-order implications as your primary input, identify and analyse second-order implications. Second-order implications emerge from the interaction, combination, or compounding of first-order implications, representing further cascading effects that are one step removed from the original market forces.
 
+    If a specific BUSINESS is provided, where relevant consider how the implications will affect the business.
+
+    BUSINESS: {business}
+
     **Systems Thinking Approach:**
     1. Consider how first-order implications interact with each other
     2. Identify patterns, feedback loops, and non-linear relationships
@@ -136,6 +141,10 @@ analyse_second_order_implications:
 analyse_third_order_implications:
   description: >
     Building on the analysis of first and second-order implications, identify third-order implications that represent profound, systemic, or transformative changes that could emerge over longer time horizons. Third-order implications often involve paradigm shifts, new equilibrium states, or fundamental restructuring of systems.
+
+    If a specific BUSINESS is provided, where relevant consider how the implications will affect the business.
+
+    BUSINESS: {business}
 
     **Third-Order Thinking Framework:**
     1. Examine how multiple second-order implications might converge to create systemic changes
@@ -204,6 +213,10 @@ analyse_third_order_implications:
 integrate_all_implications:
   description: >
     Synthesise the first, second, and third-order implications into a coherent, comprehensive strategic narrative and analysis report that provides actionable insights for decision-makers. Your task is to identify patterns, themes, and strategic imperatives across all levels of implications and create a compelling, integrated perspective.
+
+    If a specific BUSINESS is provided, where relevant consider how the implications will affect the business.
+
+    BUSINESS: {business}
 
     **Strategic Integration Process:**
     1. Synthesise all implications into a coherent whole, identifying:

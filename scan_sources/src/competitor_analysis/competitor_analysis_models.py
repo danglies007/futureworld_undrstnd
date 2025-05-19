@@ -228,6 +228,36 @@ class AnnualReportAnalysisResult(BaseModel):
     management_discussion_and_analysis: List[AttributedItem] = Field(default_factory=list, description="Management's discussion and analysis")
     sources_analyzed: List[SourceLink] = Field(..., description="Annual report sources analyzed")
 
+# Models for growth
+
+class GrowthStatement(BaseModel):
+    """Captures a statement about growth from any source (company, analyst, news)"""
+    content: str = Field(..., description="The actual statement about growth")
+    source_url: str = Field(..., description="URL where this statement was found")
+    source_name: str = Field(default="", description="Name of the source")
+    date: str = Field(default="", description="Date of the statement")
+    growth_type: str = Field(..., description="Type: organic, inorganic, or both")
+
+class AcquisitionDivestment(BaseModel):
+    """Simple tracking of acquisition or divestment activity"""
+    name: str = Field(..., description="Name of the target company or divested unit")
+    activity_type: str = Field(..., description="Type: acquisition, divestment")
+    status: str = Field(..., description="Status: completed, pending, rumoured")
+    date: str = Field(default="", description="Date of the activity (if available)")
+    value: str = Field(default="", description="Value of the deal (if available)")
+    description: str = Field(default="", description="Brief description of the activity")
+    source_url: str = Field(..., description="URL where this was reported")
+
+# Simple integrated growth analysis model for the integrated analysis
+class IntegratedGrowthAnalysis(BaseModel):
+    """Simple integrated growth analysis combining internal and external perspectives"""
+    growth_strategy_summary: str = Field(..., description="Integrated summary of the company's growth strategy")
+    significant_acquisitions_divestments: List[AcquisitionDivestment] = Field(default_factory=list, description="Significant acquisitions and divestments")
+    organic_vs_inorganic_balance: str = Field(..., description="Assessment of balance between organic and inorganic growth")
+    growth_strategy_effectiveness: str = Field(..., description="Assessment of growth strategy effectiveness")
+    key_growth_statements: List[GrowthStatement] = Field(default_factory=list, description="Key statements about growth (from both internal and external sources)")
+
+
 # For FinancialAnalysisResult
 
 class SegmentFinancialPerformance(BaseModel):
@@ -275,6 +305,10 @@ class CompanyInternalAnalysis(BaseModel):
     market_positioning: str = Field(default="", description="Market positioning statements")
     competitive_advantages: List[str] = Field(default_factory=list, description="Claimed competitive advantages")
     capital_allocation: List[CapitalAllocation] = Field(..., description="Capital allocation breakdown")
+    growth_strategy_summary: str = Field(default="", description="Summary of the company's growth strategy")
+    organic_growth_statements: List[GrowthStatement] = Field(default_factory=list, description="Company statements about organic growth")
+    inorganic_growth_statements: List[GrowthStatement] = Field(default_factory=list, description="Company statements about inorganic growth (M&A)")
+    acquisitions_divestments: List[AcquisitionDivestment] = Field(default_factory=list, description="Company acquisitions and divestments")
     risk_factors: List[RiskFactor] = Field(..., description="Risk factors identified by the company")
     leadership_statements: List[AttributedItem] = Field(default_factory=list, description="Significant statements from leadership")
     future_outlook: str = Field(default="", description="Company's stated future outlook")
@@ -435,6 +469,10 @@ class CompanyExternalAnalysis(BaseModel):
     market_trends: List[MarketTrend] = Field(..., description="Relevant market trends")
     analyst_perspectives: List[AnalystPerspective] = Field(default_factory=list, description="Perspectives from multiple industry/financial analysts")
     news_highlights: List[NewsHighlight] = Field(..., description="Significant recent news")
+    external_growth_strategy_assessment: str = Field(default="", description="External assessment of the company's growth strategy")
+    external_organic_growth_statements: List[GrowthStatement] = Field(default_factory=list, description="External statements about organic growth")
+    external_inorganic_growth_statements: List[GrowthStatement] = Field(default_factory=list, description="External statements about inorganic growth (M&A)")
+    external_acquisitions_divestments: List[AcquisitionDivestment] = Field(default_factory=list, description="Acquisitions and divestments reported by external sources")
     financial_performance_external: List[FinancialMetricCategory] = Field(..., description="Financial performance according to external sources")
     swot_analysis: SWOT = Field(..., description="SWOT analysis from external perspective")
     customer_perception: str = Field(default="", description="How customers perceive the company")
@@ -579,6 +617,7 @@ class CompanyIntegratedAnalysis(BaseModel):
     performance_assessment: str = Field(..., description="Integrated assessment of overall performance")
     future_outlook: str = Field(..., description="Integrated outlook for the company's future")
     strategic_options: List[str] = Field(default_factory=list, description="Potential strategic options available")
+    integrated_growth_analysis: IntegratedGrowthAnalysis = Field(..., description="Integrated analysis of growth strategy")
     key_risks: List[AttributedItem] = Field(default_factory=list, description="Key risks facing the company")
     recommendations: List[str] = Field(default_factory=list, description="Strategic recommendations based on all analyses")
     recommendation_rationales: List[AttributedItem] = Field(default_factory=list, description="Rationales for each recommendation with supporting evidence")
