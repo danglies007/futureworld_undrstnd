@@ -1,6 +1,0 @@
-2025-05-20 08:29:16,240 - INFO - === Process Output Log: Market Forces Analysis Output ===
-2025-05-20 08:29:16,240 - INFO - Command: /Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/bin/python /Users/alex/Documents/Coding/undrstnd/frontend/src/run_scan_sources.py
-2025-05-20 08:29:16,240 - INFO - Working Directory: /Users/alex/Documents/Coding/undrstnd
-2025-05-20 08:29:16,240 - INFO - Start Timestamp: 2025-05-20 08:29:16
-2025-05-20 08:29:16,240 - INFO - === Output Begins ===
-2025-05-20 08:33:25,654 - INFO - Traceback (most recent call last):

@@ -1,9 +1,0 @@
-{
-  "status": "complete",
-  "message": "Foresight report generation complete",
-  "timestamp": "2025-05-19T12:42:56.295403+02:00",
-  "agent": "ReportWriter",
-  "task": "ReportFinalization",
-  "flow_state": "complete",
-  "progress": 100
-}
