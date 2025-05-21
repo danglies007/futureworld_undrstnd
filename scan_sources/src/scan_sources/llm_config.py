@@ -1,14 +1,14 @@
 import litellm
 import os
 # Custom Perplexity patch - using litellm_patch.py
-import litellm_patch
+from scan_sources import litellm_patch
 from dotenv import load_dotenv
 load_dotenv()
 from openai import OpenAI
 
 
 # Importing patch PerplexityLLM
-from crew_perplexity import PerplexityLLM
+from scan_sources.crew_perplexity import PerplexityLLM
 
 
 from crewai import LLM

@@ -12,15 +12,15 @@ load_dotenv()
                 
 from pydantic import BaseModel
 from crewai.flow import Flow, start, router,listen, and_, or_
-from competitor_analysis.crews.internal_analysis_crew.internal_analysis_crew import InternalAnalysisCrew
-from competitor_analysis.crews.external_analysis_crew.external_analysis_crew import ExternalAnalysisCrew
-from competitor_analysis.crews.integrated_analysis_crew.integrated_analysis_crew import IntegratedAnalysisCrew
-from competitor_analysis.crews.formatting_crew.formatting_crew import FormattingCrew
+from scan_sources.competitor_analysis.crews.internal_analysis_crew.internal_analysis_crew import InternalAnalysisCrew
+from scan_sources.competitor_analysis.crews.external_analysis_crew.external_analysis_crew import ExternalAnalysisCrew
+from scan_sources.competitor_analysis.crews.integrated_analysis_crew.integrated_analysis_crew import IntegratedAnalysisCrew
+from scan_sources.competitor_analysis.crews.formatting_crew.formatting_crew import FormattingCrew
 
-from competitor_analysis.config_competitor_analysis import RESEARCH_INPUTS
+from scan_sources.competitor_analysis.config_competitor_analysis import RESEARCH_INPUTS
 
 # Models for source internal analysis crew
-from competitor_analysis.competitor_analysis_models import (
+from scan_sources.competitor_analysis.competitor_analysis_models import (
     CompanyInternalAnalysis,
     CompanyExternalAnalysis,
     CompanyIntegratedAnalysis

@@ -7,12 +7,3 @@ db/
 outputs/
 db/
 cloud.env
-./Examples/
-./frontend/
-./logs/
-./mlruns/
-./frontend_old/
-zzz.research_crew/
-zzz.plan_crew/
-zzz.package_crew/
-./undrstnd_venv/

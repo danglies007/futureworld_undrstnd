@@ -5,7 +5,7 @@ import json
 from datetime import date, datetime, time, timedelta
 
 
-from config import RESEARCH_INPUTS
+from scan_sources.config import RESEARCH_INPUTS
 
 
 specialisation = RESEARCH_INPUTS['specialisation']
