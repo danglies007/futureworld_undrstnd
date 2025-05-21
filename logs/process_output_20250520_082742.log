@@ -1,0 +1,35 @@
+2025-05-20 08:27:42,009 - INFO - === Process Output Log: Market Forces Analysis Output ===
+2025-05-20 08:27:42,010 - INFO - Command: /Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/bin/python /Users/alex/Documents/Coding/undrstnd/frontend/src/run_scan_sources.py
+2025-05-20 08:27:42,010 - INFO - Working Directory: /Users/alex/Documents/Coding/undrstnd
+2025-05-20 08:27:42,010 - INFO - Start Timestamp: 2025-05-20 08:27:42
+2025-05-20 08:27:42,010 - INFO - === Output Begins ===
+2025-05-20 08:27:44,678 - INFO - Traceback (most recent call last):
+2025-05-20 08:27:44,680 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/frontend/src/run_scan_sources.py", line 34, in <module>
+2025-05-20 08:27:44,682 - INFO -     spec.loader.exec_module(main_module)
+2025-05-20 08:27:44,683 - INFO -   File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+2025-05-20 08:27:44,684 - INFO -   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2025-05-20 08:27:44,685 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/src/scan_sources/main.py", line 21, in <module>
+2025-05-20 08:27:44,687 - INFO -     mlflow.set_experiment("scan_sources")
+2025-05-20 08:27:44,688 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/tracking/fluent.py", line 157, in set_experiment
+2025-05-20 08:27:44,689 - INFO -     experiment = client.get_experiment_by_name(experiment_name)
+2025-05-20 08:27:44,691 - INFO -                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 08:27:44,692 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/tracking/client.py", line 1703, in get_experiment_by_name
+2025-05-20 08:27:44,693 - INFO -     return self._tracking_client.get_experiment_by_name(name)
+2025-05-20 08:27:44,694 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 08:27:44,696 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/tracking/_tracking_service/client.py", line 591, in get_experiment_by_name
+2025-05-20 08:27:44,697 - INFO -     return self.store.get_experiment_by_name(name)
+2025-05-20 08:27:44,699 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 08:27:44,700 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py", line 641, in get_experiment_by_name
+2025-05-20 08:27:44,702 - INFO -     response_proto = self._call_endpoint(GetExperimentByName, req_body)
+2025-05-20 08:27:44,703 - INFO -                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 08:27:44,705 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py", line 90, in _call_endpoint
+2025-05-20 08:27:44,706 - INFO -     return call_endpoint(self.get_host_creds(), endpoint, method, json_body, response_proto)
+2025-05-20 08:27:44,708 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 08:27:44,709 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 402, in call_endpoint
+2025-05-20 08:27:44,710 - INFO -     response = verify_rest_response(response, endpoint)
+2025-05-20 08:27:44,712 - INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 08:27:44,713 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 277, in verify_rest_response
+2025-05-20 08:27:44,714 - INFO -     raise MlflowException(f"{base_msg}. Response body: '{response.text}'")
+2025-05-20 08:27:44,716 - INFO - mlflow.exceptions.MlflowException: API request to endpoint was successful but the response body was not in a valid JSON format. Response body: '<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/><link rel="shortcut icon" href="./favicon.png"/><link rel="preload" href="./static/media/SourceSansPro-Regular.0d69e5ff5e92ac64a0c9.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="./static/media/SourceSansPro-SemiBold.abed79cd0df1827e18cf.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="./static/media/SourceSansPro-Bold.118dea98980e20a81ced.woff2" as="font" type="font/woff2" crossorigin><title>Streamlit</title><script>window.prerenderReady=!1</script><script defer="defer" src="./static/js/main.d55f6a3c.js"></script><link href="./static/css/main.29bca1b5.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>'
+2025-05-20 08:27:44,986 - ERROR - === Process completed with non-zero return code: 1 ===
+2025-05-20 08:27:44,986 - INFO - End Timestamp: 2025-05-20 08:27:44

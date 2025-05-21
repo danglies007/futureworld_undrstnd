@@ -7,8 +7,12 @@ from datetime import datetime
 from typing import Dict, Any
 from dotenv import load_dotenv
 load_dotenv()
-# import agentops
-# agentops.init()
+
+# Enabling agentops
+import agentops
+agentops.init()
+
+
                 
 from pydantic import BaseModel
 from crewai.flow import Flow, start, router,listen, and_, or_
@@ -17,6 +21,8 @@ from scan_sources.crews.market_force_extraction_crew.market_force_extraction_cre
 from scan_sources.crews.implications_crew.implications_crew import ImplicationsCrew
 from scan_sources.crews.reporting_crew.reporting_crew import ReportingCrew
 from scan_sources.crews.formatting_crew.formatting_crew import FormattingCrew
+from scan_sources.crews.implications_formatting_crew.implications_formatting_crew import ImplicationsFormattingCrew
+
 from scan_sources.config import RESEARCH_INPUTS, SOURCES_FUTURISTS, MARKET_FORCE_DEFINITIONS, SOURCES_CONSULTING_FIRMS, SOURCES_NEWS_SOURCES
 # Models for source identification crew
 from scan_sources.models import (
@@ -46,6 +52,7 @@ class ScanState(BaseModel):
     report: MarketForceAnalysisReport = None
     markdown_report: str = None
     markdown_report_from_saved: str = None
+    markdown_implications_report: str = None
     saved_research_context: dict = None
     saved_report: MarketForceAnalysisReport = None
     user_urls: dict = None
@@ -319,17 +326,28 @@ class ScanFlow(Flow[ScanState]):
         return formatting_result_from_saved
 
 # Format the reports into markdown from within the normal flow
-    @listen(or_(develop_report, develop_saved_report))
-    def format_report(self, report_final_content_dict, implications_report_final_content_dict):
+    @listen(develop_report)
+    def format_report(self, report_final_content_dict):
         self.state.research_context = self.research_inputs
         formatting_inputs = self.research_inputs.copy()
         formatting_inputs['report_final_content'] = report_final_content_dict
-        formatting_inputs['implications_report_content'] = implications_report_final_content_dict
         formatting_result = FormattingCrew().crew().kickoff(inputs=formatting_inputs).raw
         self.state.markdown_report = formatting_result
         print("Final Markdown Report:\n")
         print(formatting_result)
         return formatting_result
+
+# Format the implication reports into markdown from within the normal flow
+    @listen(develop_implications_report)
+    def format_implications_report(self, implications_report_final_content_dict):
+        self.state.research_context = self.research_inputs
+        formatting_inputs = self.research_inputs.copy()
+        formatting_inputs['implications_report_content'] = implications_report_final_content_dict
+        implications_formatting_result = ImplicationsFormattingCrew().crew().kickoff(inputs=formatting_inputs).raw
+        self.state.markdown_implications_report = implications_formatting_result
+        print("Final Markdown Implications Report:\n")
+        print(implications_formatting_result)
+        return implications_formatting_result
 
     @listen(and_(develop_report, develop_implications_report, identify_market_forces, identify_sources))
     def print_outputs(self):
@@ -340,9 +358,33 @@ class ScanFlow(Flow[ScanState]):
 
 
 
+def load_frontend_config():
+    """Load configuration from frontend temporary file if it exists."""
+    frontend_config_path = os.path.join(os.getcwd(), "temp_config.json")
+    if os.path.exists(frontend_config_path):
+        try:
+            with open(frontend_config_path, "r") as f:
+                frontend_config = json.load(f)
+                
+            # Update the global RESEARCH_INPUTS with frontend values
+            global RESEARCH_INPUTS
+            for key, value in frontend_config.items():
+                if key in RESEARCH_INPUTS:
+                    RESEARCH_INPUTS[key] = value
+                    
+            print(f"Loaded configuration from frontend: {frontend_config_path}")
+            return True
+        except Exception as e:
+            print(f"Error loading frontend configuration: {e}")
+    return False
+
 def kickoff():
+    # Try to load frontend configuration
+    load_frontend_config()
+    
     scan_flow = ScanFlow()
     scan_flow.kickoff()
+    return scan_flow
 
 def plot():
     scan_flow = ScanFlow()

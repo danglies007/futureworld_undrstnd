@@ -21,6 +21,14 @@ warnings.filterwarnings("ignore", category=PydanticDeprecatedSince20)
 import os
 import datetime
 
+# # Enabling MLflow
+# import mlflow
+
+# Temporarily disable MLflow tracking to avoid connection errors
+# mlflow.crewai.autolog()
+# mlflow.set_tracking_uri("http://localhost:5000")
+# # mlflow.set_experiment("Formatting_Crew")
+
 # Debugging imports
 import litellm
 litellm._turn_on_debug()
@@ -127,18 +135,20 @@ class FormattingCrew():
         specialisation = self.research_inputs.get("specialisation")
         topic_short = self.research_inputs.get("topic_short")
         return Task(
+            name="Markdown Formatting Task",
             config=self.tasks_config['markdown_formatting_task'],
             output_file=f'outputs/markdown_report_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
         )
 
-    @task
-    def markdown_implications_formatting_task(self) -> Task:
-        specialisation = self.research_inputs.get("specialisation")
-        topic_short = self.research_inputs.get("topic_short")
-        return Task(
-            config=self.tasks_config['markdown_implications_formatting_task'],
-            output_file=f'outputs/markdown_implications_report_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
-        )
+    # @task
+    # def markdown_implications_formatting_task(self) -> Task:
+    #     specialisation = self.research_inputs.get("specialisation")
+    #     topic_short = self.research_inputs.get("topic_short")
+    #     return Task(
+    #         name="Markdown Implications Formatting Task",
+    #         config=self.tasks_config['markdown_implications_formatting_task'],
+    #         output_file=f'outputs/markdown_implications_report_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
+    #     )
 
     # @task
     # def table_formatting_task(self) -> Task:
@@ -157,6 +167,7 @@ class FormattingCrew():
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
         return Crew(
+            name="ReportFormattingCrew",
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,

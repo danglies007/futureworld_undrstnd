@@ -21,6 +21,14 @@ warnings.filterwarnings("ignore", category=PydanticDeprecatedSince20)
 import os
 import datetime
 
+# # Enabling MLflow
+# import mlflow
+
+# # Temporarily disable MLflow tracking to avoid connection errors
+# mlflow.crewai.autolog()
+# mlflow.set_tracking_uri("http://localhost:5000")
+# # mlflow.set_experiment("Implications_Crew")
+
 # Debugging imports
 import litellm
 litellm._turn_on_debug()
@@ -75,6 +83,7 @@ from scan_sources.tools.file_downloader import FileDownloaderTool
 from scan_sources.tools.exa_search_tool import Exa_search_tool
 from scan_sources.tools.exa_crawl_tool import Exa_crawl_scrape_tool
 from scan_sources.tools.custom_web_scrape_market_forces import MarketForcesScrapeWebsiteTool
+from scan_sources.tools.custom_firecrawl_scrape_website_tool import FirecrawlScrapeWebsiteTool
 
 # firecrawl_crawl_tool = FirecrawlCrawlWebsiteTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
 # firecrawl_search_tool = FirecrawlSearchTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
@@ -96,9 +105,11 @@ class ImplicationsCrew():
     def first_order_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['first_order_analyst'],
+            tools=[FirecrawlScrapeWebsiteTool()],
             llm=llm_gpt_4_1,
             verbose=True,
             respect_context_window=True,
+            function_calling_llm=llm_gemini_2_0_flash,
             cache=True,
         )
 
@@ -106,9 +117,11 @@ class ImplicationsCrew():
     def second_order_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['second_order_analyst'],
+            tools=[FirecrawlScrapeWebsiteTool()],
             llm=llm_gpt_4_1,
             verbose=True,
             respect_context_window=True,
+            function_calling_llm=llm_gemini_2_0_flash,
             cache=True,
         )
 
@@ -116,9 +129,11 @@ class ImplicationsCrew():
     def third_order_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['third_order_analyst'],
+            tools=[FirecrawlScrapeWebsiteTool()],
             llm=llm_gpt_4_1,
             verbose=True,
             respect_context_window=True,
+            function_calling_llm=llm_gemini_2_0_flash,
             cache=True,
         )
 
@@ -138,6 +153,7 @@ class ImplicationsCrew():
         topic_short = self.research_inputs.get("topic_short")
         business = self.research_inputs.get("business", "general")
         return Task(
+            name="Analyse First Order Implications",
             config=self.tasks_config['analyse_first_order_implications'],
             output_file=f'outputs/first_order_implications_{specialisation}_{topic_short}_{business}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             output_pydantic=FirstOrderImplication
@@ -149,6 +165,7 @@ class ImplicationsCrew():
         topic_short = self.research_inputs.get("topic_short")
         business = self.research_inputs.get("business", "general")
         return Task(
+            name="Analyse Second Order Implications",
             config=self.tasks_config['analyse_second_order_implications'],
             output_file=f'outputs/second_order_implications_{specialisation}_{topic_short}_{business}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             context=[self.analyse_first_order_implications()],
@@ -161,6 +178,7 @@ class ImplicationsCrew():
         topic_short = self.research_inputs.get("topic_short")
         business = self.research_inputs.get("business", "general")
         return Task(
+            name="Analyse Third Order Implications",
             config=self.tasks_config['analyse_third_order_implications'],
             output_file=f'outputs/third_order_implications_{specialisation}_{topic_short}_{business}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             context=[self.analyse_second_order_implications()],
@@ -173,6 +191,7 @@ class ImplicationsCrew():
         topic_short = self.research_inputs.get("topic_short")
         business = self.research_inputs.get("business", "general")
         return Task(
+            name="Integrate All Implications",
             config=self.tasks_config['integrate_all_implications'],
             output_file=f'outputs/implications_analysis_report_{specialisation}_{topic_short}_{business}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             context=[
@@ -190,6 +209,7 @@ class ImplicationsCrew():
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
         return Crew(
+            name="ImplicationsCrew",
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,

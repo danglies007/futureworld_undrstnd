@@ -1,0 +1,51 @@
+research_strategy_task:
+  description: >
+    Conduct meta-research to determine the best approaches, methodologies, and content requirements for identifying and analysing {topic} {report_type}.
+    
+    Specifically:
+    - Research best practices in trend identification, strategic foresight, and futures studies
+    - Identify essential components that must be included in a comprehensive analysis of future-shaping forces
+    - Determine the most effective methodologies for different aspects of this research (scanning, analysis, insight development, etc.)
+    - Consider what constitutes high-quality evidence and documentation for future trends
+    - Evaluate approaches for assessing the potential impact and trajectory of major trends
+    - Research approaches specific to {sector} while considering broader societal context
+    
+    Your goal is to provide a comprehensive foundation for developing a detailed content plan.
+  expected_output: >
+    A detailed strategic research report that:
+    - Outlines best practices and methodologies for {report_type}
+    - Identifies essential components and areas of focus for a comprehensive analysis
+    - Recommends specific approaches for different aspects of the research (scanning, analysis, strategic interpretation)
+    - Provides guidance on evidence standards and source evaluation
+    - Includes recommendations specific to {sector} and {topic} but also encompassing broader contexts
+    
+    The report should provide clear, actionable guidance for the content planner to develop a comprehensive plan.
+  agent: research_strategist
+
+content_planning_task:
+  description: >
+    Based on the research strategy findings, create a detailed, structured content plan for the {topic} {report_type} that will guide the execution team.
+    
+    Your plan should:
+    - Define clear, numbered sections that cover all essential aspects of identifying and analysing market forces and social dynamics
+    - Specify research questions, objectives, and methodologies for each section
+    - Include guidance on sources to consult, data types to collect, and evaluation criteria to apply
+    - Structure the workflow to enable sequential progress from research through analysis to insight development and strategic interpretation
+    - Consider the specific needs of {sector} and {topic} while ensuring comprehensive coverage of relevant forces
+    - Ensure the plan will result in valuable, actionable insights for {audience_level}
+    
+    IMPORTANT: Number each section sequentially (1, 2, 3, etc.). These numbers will be preserved throughout the research process for easier tracking.
+    
+    The plan will serve as the foundation for all subsequent research and content development.
+  expected_output: >
+    A detailed content plan structured as JSON with numbered sections, each containing:
+    - Section number (1, 2, 3, etc.)
+    - Subtitle (area of focus)
+    - High-level goal
+    - Why it's important
+    - Sources to investigate
+    - Content outline with specific research questions and methodologies
+    - Evaluation criteria for quality and completeness
+    
+    The plan should be comprehensive, logically structured, and designed to generate valuable insights about future-shaping forces.
+  agent: content_planner

@@ -2,11 +2,9 @@
 
 analyse_first_order_implications:
   description: >
-    You will receive a list of MARKET FORCES as input (from the previous crew, in ResearchOutput format).  If a specific BUSINESS is provided, where relevant consider how the implications will affect the business.
+    You will receive a list of MARKET FORCES as input (from the previous crew, in ResearchOutput format).
 
     MARKET FORCES: {raw_market_forces}
-
-    BUSINESS: {business}
 
     You will analyse the market forces to develop first-order implications. First-order implications are direct consequences or impacts that arise immediately from the identified market forces.
 
@@ -23,12 +21,13 @@ analyse_first_order_implications:
        - Workforce implications
        - Technology adoption
 
-    **Business Context Application:**
+    **Business Context Application:** (only applicable when a Business is provided in the input ({business}))
     If a business context is provided, tailor your analysis to consider:
        - The business's current position in its industry
        - Its core competencies and capabilities
        - Its strategic direction and goals
        - Its potential vulnerabilities to these market forces
+       - the business is {business}
 
     **First-Order Implications Criteria:**
     To qualify as a valid first-order implication, each must:
@@ -74,10 +73,6 @@ analyse_second_order_implications:
   description: >
     Using the first-order implications as your primary input, identify and analyse second-order implications. Second-order implications emerge from the interaction, combination, or compounding of first-order implications, representing further cascading effects that are one step removed from the original market forces.
 
-    If a specific BUSINESS is provided, where relevant consider how the implications will affect the business.
-
-    BUSINESS: {business}
-
     **Systems Thinking Approach:**
     1. Consider how first-order implications interact with each other
     2. Identify patterns, feedback loops, and non-linear relationships
@@ -111,7 +106,7 @@ analyse_second_order_implications:
        3. Highlight critical uncertainties associated with the implication
 
     **Business Context Integration:**
-    If a business context is provided - {business}:
+    If a business is provided - {business}:
        - Assess how these second-order implications might specifically affect the business
        - Identify potential strategic response options
        - Highlight capability development needs
@@ -141,10 +136,6 @@ analyse_second_order_implications:
 analyse_third_order_implications:
   description: >
     Building on the analysis of first and second-order implications, identify third-order implications that represent profound, systemic, or transformative changes that could emerge over longer time horizons. Third-order implications often involve paradigm shifts, new equilibrium states, or fundamental restructuring of systems.
-
-    If a specific BUSINESS is provided, where relevant consider how the implications will affect the business.
-
-    BUSINESS: {business}
 
     **Third-Order Thinking Framework:**
     1. Examine how multiple second-order implications might converge to create systemic changes

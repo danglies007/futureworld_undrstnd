@@ -20,7 +20,7 @@ import datetime
 
 # Debugging imports
 import litellm
-litellm._turn_on_debug()
+# litellm._turn_on_debug()
 
 # Import LLMs
 from competitor_analysis.llm_config import (
@@ -107,6 +107,7 @@ class FormattingCrew():
     def markdown_formatting_task(self) -> Task:
         company_name = self.research_inputs.get("company_name")
         return Task(
+            name="Markdown Formatting Task",
             config=self.tasks_config['markdown_formatting_task'],
             output_file=f'outputs/comp_analysis/markdown_report_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.md',
         )
@@ -119,6 +120,7 @@ class FormattingCrew():
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
         return Crew(
+            name="FormattingCrew",
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,

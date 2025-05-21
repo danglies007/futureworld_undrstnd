@@ -327,9 +327,33 @@ class CompetitorAnalysisFlow(Flow[CompetitorAnalysisState]):
 # if __name__ == "__main__":
 #     kickoff_comp()
 
+def load_frontend_config():
+    """Load configuration from frontend temporary file if it exists."""
+    frontend_config_path = os.path.join(os.getcwd(), "temp_competitor_config.json")
+    if os.path.exists(frontend_config_path):
+        try:
+            with open(frontend_config_path, "r") as f:
+                frontend_config = json.load(f)
+                
+            # Update the global RESEARCH_INPUTS with frontend values
+            global RESEARCH_INPUTS
+            for key, value in frontend_config.items():
+                if key in RESEARCH_INPUTS:
+                    RESEARCH_INPUTS[key] = value
+                    
+            print(f"Loaded configuration from frontend: {frontend_config_path}")
+            return True
+        except Exception as e:
+            print(f"Error loading frontend configuration: {e}")
+    return False
+
 def kickoff():
+    # Try to load frontend configuration
+    load_frontend_config()
+    
     competitor_analysis_flow = CompetitorAnalysisFlow()
     competitor_analysis_flow.kickoff()
+    return competitor_analysis_flow
 
 def plot():
     competitor_analysis_flow = CompetitorAnalysisFlow()

@@ -1,0 +1,629 @@
+2025-05-20 08:59:53,177 - INFO - === Process Output Log: Market Forces Analysis Output ===
+2025-05-20 08:59:53,177 - INFO - Command: /Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/bin/python /Users/alex/Documents/Coding/undrstnd/frontend/src/run_scan_sources.py
+2025-05-20 08:59:53,177 - INFO - Working Directory: /Users/alex/Documents/Coding/undrstnd
+2025-05-20 08:59:53,177 - INFO - Start Timestamp: 2025-05-20 08:59:53
+2025-05-20 08:59:53,177 - INFO - === Output Begins ===
+2025-05-20 08:59:55,289 - INFO - /Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/pydantic/fields.py:1045: PydanticDeprecatedSince20: `min_items` is deprecated and will be removed, use `min_length` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+2025-05-20 08:59:55,291 - INFO -   warn('`min_items` is deprecated and will be removed, use `min_length` instead', DeprecationWarning)
+2025-05-20 08:59:55,292 - INFO - /Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/pydantic/fields.py:1051: PydanticDeprecatedSince20: `max_items` is deprecated and will be removed, use `max_length` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+2025-05-20 08:59:55,294 - INFO -   warn('`max_items` is deprecated and will be removed, use `max_length` instead', DeprecationWarning)
+2025-05-20 08:59:55,394 - INFO - /Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:623: UserWarning: <built-in function callable> is not a Python type (it may be an instance of an object), Pydantic will allow any object with no validation since we cannot even enforce that the input is an instance of the given type. To get rid of this error wrap the type with `pydantic.SkipValidation`.
+2025-05-20 08:59:55,396 - INFO -   warn(
+2025-05-20 08:59:56,287 - INFO - Using configuration from: /Users/alex/Documents/Coding/undrstnd/temp_config.json
+2025-05-20 08:59:56,288 - INFO - Starting Scan Sources crew...
+2025-05-20 08:59:56,290 - INFO - Loaded configuration from frontend: /Users/alex/Documents/Coding/undrstnd/temp_config.json
+2025-05-20 08:59:56,291 - INFO - ╭──────────────────────────────────────────── Flow Execution ─────────────────────────────────────────────╮
+2025-05-20 08:59:56,293 - INFO - │                                                                                                         │
+2025-05-20 08:59:56,295 - INFO - │  Starting Flow Execution                                                                                │
+2025-05-20 08:59:56,296 - INFO - │  Name: ScanFlow                                                                                         │
+2025-05-20 08:59:56,297 - INFO - │  ID: cc258649-43da-4699-9ad9-951d63e08be7                                                               │
+2025-05-20 08:59:56,300 - INFO - │                                                                                                         │
+2025-05-20 08:59:56,301 - INFO - │                                                                                                         │
+2025-05-20 08:59:56,303 - INFO - ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+2025-05-20 08:59:56,308 - INFO - 2025/05/20 08:59:56 WARNING mlflow.tracing.processor.mlflow: Creating a trace within the default experiment with id '0'. It is strongly recommended to not use the default experiment to log traces due to ambiguous search results and probable performance issues over time due to directory table listing performance degradation with high volumes of directories within a specific path. To avoid performance and disambiguation issues, set the experiment for your environment using `mlflow.set_experiment()` API.
+2025-05-20 08:59:56,338 - INFO - 🌊 Flow: ScanFlow
+2025-05-20 08:59:56,340 - INFO -     ID: cc258649-43da-4699-9ad9-951d63e08be7
+2025-05-20 08:59:56,341 - INFO - └── 🧠 Starting Flow...
+2025-05-20 08:59:56,344 - INFO - [1m[35m Flow started with ID: cc258649-43da-4699-9ad9-951d63e08be7[00m
+2025-05-20 08:59:56,346 - INFO - 🌊 Flow: ScanFlow
+2025-05-20 08:59:56,347 - INFO -     ID: cc258649-43da-4699-9ad9-951d63e08be7
+2025-05-20 08:59:56,348 - INFO - ├── 🧠 Starting Flow...
+2025-05-20 08:59:56,350 - INFO - └── 🔄 Running: market_forces_flow
+2025-05-20 08:59:56,355 - INFO - starting new flow...
+2025-05-20 08:59:56,360 - INFO - 🌊 Flow: ScanFlow
+2025-05-20 08:59:56,363 - INFO -     ID: cc258649-43da-4699-9ad9-951d63e08be7
+2025-05-20 08:59:56,366 - INFO - ├── Flow Method Step
+2025-05-20 08:59:56,367 - INFO - └── ✅ Completed: market_forces_flow
+2025-05-20 08:59:56,370 - INFO - 🌊 Flow: ScanFlow
+2025-05-20 08:59:56,372 - INFO -     ID: cc258649-43da-4699-9ad9-951d63e08be7
+2025-05-20 08:59:56,374 - INFO - ├── Flow Method Step
+2025-05-20 08:59:56,376 - INFO - ├── ✅ Completed: market_forces_flow
+2025-05-20 08:59:56,379 - INFO - └── 🔄 Running: entry_router
+2025-05-20 08:59:56,384 - INFO - 🌊 Flow: ScanFlow
+2025-05-20 08:59:56,387 - INFO -     ID: cc258649-43da-4699-9ad9-951d63e08be7
+2025-05-20 08:59:56,388 - INFO - ├── Flow Method Step
+2025-05-20 08:59:56,392 - INFO - ├── ✅ Completed: market_forces_flow
+2025-05-20 08:59:56,395 - INFO - └── ✅ Completed: entry_router
+2025-05-20 08:59:56,401 - INFO - 🌊 Flow: ScanFlow
+2025-05-20 08:59:56,429 - INFO -     ID: cc258649-43da-4699-9ad9-951d63e08be7
+2025-05-20 08:59:56,430 - INFO - ├── Flow Method Step
+2025-05-20 08:59:56,432 - INFO - ├── ✅ Completed: market_forces_flow
+2025-05-20 08:59:56,433 - INFO - ├── ✅ Completed: entry_router
+2025-05-20 08:59:56,435 - INFO - └── 🔄 Running: identify_sources
+2025-05-20 08:59:57,675 - INFO - ╭──────────────────────────────────────── Crew Execution Started ─────────────────────────────────────────╮
+2025-05-20 08:59:57,677 - INFO - │                                                                                                         │
+2025-05-20 08:59:57,679 - INFO - │  Crew Execution Started                                                                                 │
+2025-05-20 08:59:57,681 - INFO - │  Name: SourceIdentificationCrew                                                                         │
+2025-05-20 08:59:57,683 - INFO - │  ID: 9725bb77-dbf5-4604-a050-41f6c3fe1d29                                                               │
+2025-05-20 08:59:57,684 - INFO - │                                                                                                         │
+2025-05-20 08:59:57,686 - INFO - │                                                                                                         │
+2025-05-20 08:59:57,687 - INFO - ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+2025-05-20 08:59:58,767 - INFO - 🖇 AgentOps: [34mSession Replay: https://app.agentops.ai/sessions?trace_id=387002e287d43589a543764273a457b5[0m
+2025-05-20 08:59:58,771 - INFO - 🚀 Crew: SourceIdentificationCrew
+2025-05-20 08:59:58,773 - INFO - └── 📋 Task: da0e55b0-fd17-4987-8f72-0307f849c363
+2025-05-20 08:59:58,775 - INFO -        Status: Executing Task...
+2025-05-20 08:59:58,779 - INFO - 🚀 Crew: SourceIdentificationCrew
+2025-05-20 08:59:58,781 - INFO - └── 📋 Task: da0e55b0-fd17-4987-8f72-0307f849c363
+2025-05-20 08:59:58,783 - INFO -        Status: Executing Task...
+2025-05-20 08:59:58,785 - INFO -     └── 🤖 Agent: Source Discovery Specialist
+2025-05-20 08:59:58,787 - INFO -             Status: In Progress
+2025-05-20 08:59:58,791 - INFO - [1m[95m# Agent:[00m [1m[92mSource Discovery Specialist[00m
+2025-05-20 08:59:58,793 - INFO - [95m## Task:[00m [92m
+2025-05-20 08:59:58,794 - INFO - Your goal is to discover relevant recent urls from a diverse range of sources relating to Global Market Forces affecting Management Consulting for further evaluation.
+2025-05-20 08:59:58,796 - INFO - You have these key objectives for INITIAL URL DISCOVERY: 1. Identify a broad initial pool of 15-20 potentially valuable urls for researching Global Market Forces affecting Management Consulting. 2. Focus on urls with relevance to the Global Market Forces affecting Management Consulting,  3. Focus on more recent urls, considering the current date is 20 May 2025 - Do not include urls more than 1 year old. 4. Include at minimum these sources in your search: [].
+2025-05-20 08:59:58,798 - INFO - Discovery process: 1. Use the internet search tool to identify promising urls. 2. Begin by exploring the research_sources specified. 3. If provided, use [] to guide your search. 4. Capture basic information about each url (URL, title, publication date). 5. DO NOT attempt to scrape or read content in detail. 6. Ensure diversity in url types and perspectives.
+2025-05-20 08:59:58,799 - INFO - Source quality requirements: 1. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES** 2. **DO NOT CAPTURE LINKEDIN POSTS OR LINKEDIN COMMENTS** 3. **DO NOT CAPTURE YOUTUBE VIDEOS OR YOUTUBE COMMENTS** 4. **CLASSIFY THE SOURCE TYPE as PDF, WEBSITE, YOUTUBE OR OTHER** 5. **DO NOT INCLUDE ANY PAYWALLED OR SUBSCRIPTION ONLY SOURCES**
+2025-05-20 08:59:58,803 - INFO - Your output must conform to the PotentialSourcesURLOnly model.
+2025-05-20 08:59:58,807 - INFO - [00m
+2025-05-20 08:59:58,809 - INFO - 🤖 Agent: Source Discovery Specialist
+2025-05-20 08:59:58,811 - INFO -     Status: In Progress
+2025-05-20 08:59:58,812 - INFO - └── 🧠 Thinking...
+2025-05-20 08:59:58,817 - INFO - [92m08:59:58 - LiteLLM:DEBUG[0m: utils.py:324 - 
+2025-05-20 08:59:58,828 - INFO - 2025-05-20 08:59:58,774 - 8611810432 - utils.py-utils:324 - DEBUG: 
+2025-05-20 08:59:58,834 - INFO - [92m08:59:58 - LiteLLM:DEBUG[0m: utils.py:324 - [92mRequest to litellm:[0m
+2025-05-20 08:59:58,836 - INFO - 2025-05-20 08:59:58,774 - 8611810432 - utils.py-utils:324 - DEBUG: [92mRequest to litellm:[0m
+2025-05-20 08:59:58,838 - INFO - [92m08:59:58 - LiteLLM:DEBUG[0m: utils.py:324 - [92mlitellm.completion(model='gpt-4o-2024-11-20', messages=[{'role': 'system', 'content': 'You are Source Discovery Specialist. You are an expert information retriever with an exceptional ability to identify promising sources across various platforms and domains.  Your preliminary research forms the foundation for all subsequent analysis, so you prioritise breadth, diversity, and initial quality signals. You excel at finding sources that others might miss, and you\'re particularly adept at using search tools efficiently.\n\nYour personal goal is: Discover a diverse range of potentially valuable Various sources related to Global Market Forces affecting Management Consulting for an Expert audience\nWhen using external tools like internet search:\n  Use this exact format for tool calls:\n  Action: Search the internet\n  Action Input: \n  Only pass the query string directly — do not describe the parameter or include schema-like metadata.\n  \n\nYou ONLY have access to the following tools, and should NEVER make up tools that are not listed here:\n\nTool Name: Search the internet with Serper\nTool Arguments: {\'search_query\': {\'description\': \'Mandatory search query you want to use to search the internet\', \'type\': \'str\'}}\nTool Description: A tool that can be used to search the internet with a search_query. Supports different search types: \'search\' (default), \'news\'\n\nIMPORTANT: Use the following format in your response:\n\n```\nThought: you should always think about what to do\nAction: the action to take, only one name of [Search the internet with Serper], just the name, exactly as it\'s written.\nAction Input: the input to the action, just a simple JSON object, enclosed in curly braces, using " to wrap keys and values.\nObservation: the result of the action\n```\n\nOnce all necessary information is gathered, return the following format:\n\n```\nThought: I now know the final answer\nFinal Answer: the final answer to the original input question\n```'}, {'role': 'user', 'content': '\nCurrent Task: \nYour goal is to discover relevant recent urls from a diverse range of sources relating to Global Market Forces affecting Management Consulting for further evaluation.\nYou have these key objectives for INITIAL URL DISCOVERY: 1. Identify a broad initial pool of 15-20 potentially valuable urls for researching Global Market Forces affecting Management Consulting. 2. Focus on urls with relevance to the Global Market Forces affecting Management Consulting,  3. Focus on more recent urls, considering the current date is 20 May 2025 - Do not include urls more than 1 year old. 4. Include at minimum these sources in your search: [].\nDiscovery process: 1. Use the internet search tool to identify promising urls. 2. Begin by exploring the research_sources specified. 3. If provided, use [] to guide your search. 4. Capture basic information about each url (URL, title, publication date). 5. DO NOT attempt to scrape or read content in detail. 6. Ensure diversity in url types and perspectives.\nSource quality requirements: 1. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES** 2. **DO NOT CAPTURE LINKEDIN POSTS OR LINKEDIN COMMENTS** 3. **DO NOT CAPTURE YOUTUBE VIDEOS OR YOUTUBE COMMENTS** 4. **CLASSIFY THE SOURCE TYPE as PDF, WEBSITE, YOUTUBE OR OTHER** 5. **DO NOT INCLUDE ANY PAYWALLED OR SUBSCRIPTION ONLY SOURCES**\nYour output must conform to the PotentialSourcesURLOnly model.\n\n\nThis is the expected criteria for your final answer: A list of potential sources for evaluation, structured according to the PotentialSourcesURLOnly model.\n\nyou MUST return the actual complete content as the final answer, not a summary.\nEnsure your final answer contains only the content in the following format: {\n  "urls": List[{\n  "url": str\n}]\n}\n\nEnsure the final output does not include any code block markers like ```json or ```python.\n\nBegin! This is VERY important to you, use the tools available and give your best Final Answer, your job depends on it!\n\nThought:'}], temperature=0.1, stop=['\nObservation:'], max_tokens=8000, stream=False)[0m
+2025-05-20 08:59:58,841 - INFO - 2025-05-20 08:59:58,774 - 8611810432 - utils.py-utils:324 - DEBUG: [92mlitellm.completion(model='gpt-4o-2024-11-20', messages=[{'role': 'system', 'content': 'You are Source Discovery Specialist. You are an expert information retriever with an exceptional ability to identify promising sources across various platforms and domains.  Your preliminary research forms the foundation for all subsequent analysis, so you prioritise breadth, diversity, and initial quality signals. You excel at finding sources that others might miss, and you\'re particularly adept at using search tools efficiently.\n\nYour personal goal is: Discover a diverse range of potentially valuable Various sources related to Global Market Forces affecting Management Consulting for an Expert audience\nWhen using external tools like internet search:\n  Use this exact format for tool calls:\n  Action: Search the internet\n  Action Input: \n  Only pass the query string directly — do not describe the parameter or include schema-like metadata.\n  \n\nYou ONLY have access to the following tools, and should NEVER make up tools that are not listed here:\n\nTool Name: Search the internet with Serper\nTool Arguments: {\'search_query\': {\'description\': \'Mandatory search query you want to use to search the internet\', \'type\': \'str\'}}\nTool Description: A tool that can be used to search the internet with a search_query. Supports different search types: \'search\' (default), \'news\'\n\nIMPORTANT: Use the following format in your response:\n\n```\nThought: you should always think about what to do\nAction: the action to take, only one name of [Search the internet with Serper], just the name, exactly as it\'s written.\nAction Input: the input to the action, just a simple JSON object, enclosed in curly braces, using " to wrap keys and values.\nObservation: the result of the action\n```\n\nOnce all necessary information is gathered, return the following format:\n\n```\nThought: I now know the final answer\nFinal Answer: the final answer to the original input question\n```'}, {'role': 'user', 'content': '\nCurrent Task: \nYour goal is to discover relevant recent urls from a diverse range of sources relating to Global Market Forces affecting Management Consulting for further evaluation.\nYou have these key objectives for INITIAL URL DISCOVERY: 1. Identify a broad initial pool of 15-20 potentially valuable urls for researching Global Market Forces affecting Management Consulting. 2. Focus on urls with relevance to the Global Market Forces affecting Management Consulting,  3. Focus on more recent urls, considering the current date is 20 May 2025 - Do not include urls more than 1 year old. 4. Include at minimum these sources in your search: [].\nDiscovery process: 1. Use the internet search tool to identify promising urls. 2. Begin by exploring the research_sources specified. 3. If provided, use [] to guide your search. 4. Capture basic information about each url (URL, title, publication date). 5. DO NOT attempt to scrape or read content in detail. 6. Ensure diversity in url types and perspectives.\nSource quality requirements: 1. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES** 2. **DO NOT CAPTURE LINKEDIN POSTS OR LINKEDIN COMMENTS** 3. **DO NOT CAPTURE YOUTUBE VIDEOS OR YOUTUBE COMMENTS** 4. **CLASSIFY THE SOURCE TYPE as PDF, WEBSITE, YOUTUBE OR OTHER** 5. **DO NOT INCLUDE ANY PAYWALLED OR SUBSCRIPTION ONLY SOURCES**\nYour output must conform to the PotentialSourcesURLOnly model.\n\n\nThis is the expected criteria for your final answer: A list of potential sources for evaluation, structured according to the PotentialSourcesURLOnly model.\n\nyou MUST return the actual complete content as the final answer, not a summary.\nEnsure your final answer contains only the content in the following format: {\n  "urls": List[{\n  "url": str\n}]\n}\n\nEnsure the final output does not include any code block markers like ```json or ```python.\n\nBegin! This is VERY important to you, use the tools available and give your best Final Answer, your job depends on it!\n\nThought:'}], temperature=0.1, stop=['\nObservation:'], max_tokens=8000, stream=False)[0m
+2025-05-20 08:59:58,842 - INFO - [92m08:59:58 - LiteLLM:DEBUG[0m: utils.py:324 - 
+2025-05-20 08:59:58,871 - INFO - 2025-05-20 08:59:58,774 - 8611810432 - utils.py-utils:324 - DEBUG: 
+2025-05-20 08:59:58,874 - INFO - [92m08:59:58 - LiteLLM:DEBUG[0m: utils.py:324 - Initialized litellm callbacks, Async Success Callbacks: [<crewai.utilities.token_counter_callback.TokenCalcHandler object at 0x1549f7bc0>]
+2025-05-20 08:59:58,875 - INFO - 2025-05-20 08:59:58,774 - 8611810432 - utils.py-utils:324 - DEBUG: Initialized litellm callbacks, Async Success Callbacks: [<crewai.utilities.token_counter_callback.TokenCalcHandler object at 0x1549f7bc0>]
+2025-05-20 08:59:58,877 - INFO - [92m08:59:58 - LiteLLM:DEBUG[0m: litellm_logging.py:424 - self.optional_params: {}
+2025-05-20 08:59:58,878 - INFO - 2025-05-20 08:59:58,774 - 8611810432 - litellm_logging.py-litellm_logging:424 - DEBUG: self.optional_params: {}
+2025-05-20 08:59:58,880 - INFO - [92m08:59:58 - LiteLLM:DEBUG[0m: utils.py:324 - SYNC kwargs[caching]: False; litellm.cache: None; kwargs.get('cache')['no-cache']: False
+2025-05-20 08:59:58,881 - INFO - 2025-05-20 08:59:58,774 - 8611810432 - utils.py-utils:324 - DEBUG: SYNC kwargs[caching]: False; litellm.cache: None; kwargs.get('cache')['no-cache']: False
+2025-05-20 08:59:58,883 - INFO - [92m08:59:58 - LiteLLM:INFO[0m: utils.py:3100 - 
+2025-05-20 08:59:58,884 - INFO - LiteLLM completion() model= gpt-4o-2024-11-20; provider = openai
+2025-05-20 08:59:58,886 - INFO - 2025-05-20 08:59:58,778 - 8611810432 - utils.py-utils:3100 - INFO: 
+2025-05-20 08:59:58,888 - INFO - LiteLLM completion() model= gpt-4o-2024-11-20; provider = openai
+2025-05-20 08:59:58,890 - INFO - [92m08:59:58 - LiteLLM:DEBUG[0m: utils.py:3103 - 
+2025-05-20 08:59:58,892 - INFO - LiteLLM: Params passed to completion() {'model': 'gpt-4o-2024-11-20', 'functions': None, 'function_call': None, 'temperature': 0.1, 'top_p': None, 'n': None, 'stream': False, 'stream_options': None, 'stop': ['\nObservation:'], 'max_tokens': 8000, 'max_completion_tokens': None, 'modalities': None, 'prediction': None, 'audio': None, 'presence_penalty': None, 'frequency_penalty': None, 'logit_bias': None, 'user': None, 'custom_llm_provider': 'openai', 'response_format': None, 'seed': None, 'tools': None, 'tool_choice': None, 'max_retries': None, 'logprobs': None, 'top_logprobs': None, 'extra_headers': None, 'api_version': None, 'parallel_tool_calls': None, 'drop_params': None, 'allowed_openai_params': None, 'reasoning_effort': None, 'additional_drop_params': None, 'messages': [{'role': 'system', 'content': 'You are Source Discovery Specialist. You are an expert information retriever with an exceptional ability to identify promising sources across various platforms and domains.  Your preliminary research forms the foundation for all subsequent analysis, so you prioritise breadth, diversity, and initial quality signals. You excel at finding sources that others might miss, and you\'re particularly adept at using search tools efficiently.\n\nYour personal goal is: Discover a diverse range of potentially valuable Various sources related to Global Market Forces affecting Management Consulting for an Expert audience\nWhen using external tools like internet search:\n  Use this exact format for tool calls:\n  Action: Search the internet\n  Action Input: \n  Only pass the query string directly — do not describe the parameter or include schema-like metadata.\n  \n\nYou ONLY have access to the following tools, and should NEVER make up tools that are not listed here:\n\nTool Name: Search the internet with Serper\nTool Arguments: {\'search_query\': {\'description\': \'Mandatory search query you want to use to search the internet\', \'type\': \'str\'}}\nTool Description: A tool that can be used to search the internet with a search_query. Supports different search types: \'search\' (default), \'news\'\n\nIMPORTANT: Use the following format in your response:\n\n```\nThought: you should always think about what to do\nAction: the action to take, only one name of [Search the internet with Serper], just the name, exactly as it\'s written.\nAction Input: the input to the action, just a simple JSON object, enclosed in curly braces, using " to wrap keys and values.\nObservation: the result of the action\n```\n\nOnce all necessary information is gathered, return the following format:\n\n```\nThought: I now know the final answer\nFinal Answer: the final answer to the original input question\n```'}, {'role': 'user', 'content': '\nCurrent Task: \nYour goal is to discover relevant recent urls from a diverse range of sources relating to Global Market Forces affecting Management Consulting for further evaluation.\nYou have these key objectives for INITIAL URL DISCOVERY: 1. Identify a broad initial pool of 15-20 potentially valuable urls for researching Global Market Forces affecting Management Consulting. 2. Focus on urls with relevance to the Global Market Forces affecting Management Consulting,  3. Focus on more recent urls, considering the current date is 20 May 2025 - Do not include urls more than 1 year old. 4. Include at minimum these sources in your search: [].\nDiscovery process: 1. Use the internet search tool to identify promising urls. 2. Begin by exploring the research_sources specified. 3. If provided, use [] to guide your search. 4. Capture basic information about each url (URL, title, publication date). 5. DO NOT attempt to scrape or read content in detail. 6. Ensure diversity in url types and perspectives.\nSource quality requirements: 1. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES** 2. **DO NOT CAPTURE LINKEDIN POSTS OR LINKEDIN COMMENTS** 3. **DO NOT CAPTURE YOUTUBE VIDEOS OR YOUTUBE COMMENTS** 4. **CLASSIFY THE SOURCE TYPE as PDF, WEBSITE, YOUTUBE OR OTHER** 5. **DO NOT INCLUDE ANY PAYWALLED OR SUBSCRIPTION ONLY SOURCES**\nYour output must conform to the PotentialSourcesURLOnly model.\n\n\nThis is the expected criteria for your final answer: A list of potential sources for evaluation, structured according to the PotentialSourcesURLOnly model.\n\nyou MUST return the actual complete content as the final answer, not a summary.\nEnsure your final answer contains only the content in the following format: {\n  "urls": List[{\n  "url": str\n}]\n}\n\nEnsure the final output does not include any code block markers like ```json or ```python.\n\nBegin! This is VERY important to you, use the tools available and give your best Final Answer, your job depends on it!\n\nThought:'}], 'thinking': None}
+2025-05-20 08:59:58,894 - INFO - 2025-05-20 08:59:58,778 - 8611810432 - utils.py-utils:3103 - DEBUG: 
+2025-05-20 08:59:58,897 - INFO - LiteLLM: Params passed to completion() {'model': 'gpt-4o-2024-11-20', 'functions': None, 'function_call': None, 'temperature': 0.1, 'top_p': None, 'n': None, 'stream': False, 'stream_options': None, 'stop': ['\nObservation:'], 'max_tokens': 8000, 'max_completion_tokens': None, 'modalities': None, 'prediction': None, 'audio': None, 'presence_penalty': None, 'frequency_penalty': None, 'logit_bias': None, 'user': None, 'custom_llm_provider': 'openai', 'response_format': None, 'seed': None, 'tools': None, 'tool_choice': None, 'max_retries': None, 'logprobs': None, 'top_logprobs': None, 'extra_headers': None, 'api_version': None, 'parallel_tool_calls': None, 'drop_params': None, 'allowed_openai_params': None, 'reasoning_effort': None, 'additional_drop_params': None, 'messages': [{'role': 'system', 'content': 'You are Source Discovery Specialist. You are an expert information retriever with an exceptional ability to identify promising sources across various platforms and domains.  Your preliminary research forms the foundation for all subsequent analysis, so you prioritise breadth, diversity, and initial quality signals. You excel at finding sources that others might miss, and you\'re particularly adept at using search tools efficiently.\n\nYour personal goal is: Discover a diverse range of potentially valuable Various sources related to Global Market Forces affecting Management Consulting for an Expert audience\nWhen using external tools like internet search:\n  Use this exact format for tool calls:\n  Action: Search the internet\n  Action Input: \n  Only pass the query string directly — do not describe the parameter or include schema-like metadata.\n  \n\nYou ONLY have access to the following tools, and should NEVER make up tools that are not listed here:\n\nTool Name: Search the internet with Serper\nTool Arguments: {\'search_query\': {\'description\': \'Mandatory search query you want to use to search the internet\', \'type\': \'str\'}}\nTool Description: A tool that can be used to search the internet with a search_query. Supports different search types: \'search\' (default), \'news\'\n\nIMPORTANT: Use the following format in your response:\n\n```\nThought: you should always think about what to do\nAction: the action to take, only one name of [Search the internet with Serper], just the name, exactly as it\'s written.\nAction Input: the input to the action, just a simple JSON object, enclosed in curly braces, using " to wrap keys and values.\nObservation: the result of the action\n```\n\nOnce all necessary information is gathered, return the following format:\n\n```\nThought: I now know the final answer\nFinal Answer: the final answer to the original input question\n```'}, {'role': 'user', 'content': '\nCurrent Task: \nYour goal is to discover relevant recent urls from a diverse range of sources relating to Global Market Forces affecting Management Consulting for further evaluation.\nYou have these key objectives for INITIAL URL DISCOVERY: 1. Identify a broad initial pool of 15-20 potentially valuable urls for researching Global Market Forces affecting Management Consulting. 2. Focus on urls with relevance to the Global Market Forces affecting Management Consulting,  3. Focus on more recent urls, considering the current date is 20 May 2025 - Do not include urls more than 1 year old. 4. Include at minimum these sources in your search: [].\nDiscovery process: 1. Use the internet search tool to identify promising urls. 2. Begin by exploring the research_sources specified. 3. If provided, use [] to guide your search. 4. Capture basic information about each url (URL, title, publication date). 5. DO NOT attempt to scrape or read content in detail. 6. Ensure diversity in url types and perspectives.\nSource quality requirements: 1. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES** 2. **DO NOT CAPTURE LINKEDIN POSTS OR LINKEDIN COMMENTS** 3. **DO NOT CAPTURE YOUTUBE VIDEOS OR YOUTUBE COMMENTS** 4. **CLASSIFY THE SOURCE TYPE as PDF, WEBSITE, YOUTUBE OR OTHER** 5. **DO NOT INCLUDE ANY PAYWALLED OR SUBSCRIPTION ONLY SOURCES**\nYour output must conform to the PotentialSourcesURLOnly model.\n\n\nThis is the expected criteria for your final answer: A list of potential sources for evaluation, structured according to the PotentialSourcesURLOnly model.\n\nyou MUST return the actual complete content as the final answer, not a summary.\nEnsure your final answer contains only the content in the following format: {\n  "urls": List[{\n  "url": str\n}]\n}\n\nEnsure the final output does not include any code block markers like ```json or ```python.\n\nBegin! This is VERY important to you, use the tools available and give your best Final Answer, your job depends on it!\n\nThought:'}], 'thinking': None}
+2025-05-20 08:59:58,899 - INFO - [92m08:59:58 - LiteLLM:DEBUG[0m: utils.py:3106 - 
+2025-05-20 08:59:58,900 - INFO - LiteLLM: Non-Default params passed to completion() {'temperature': 0.1, 'stream': False, 'stop': ['\nObservation:'], 'max_tokens': 8000}
+2025-05-20 08:59:58,902 - INFO - 2025-05-20 08:59:58,778 - 8611810432 - utils.py-utils:3106 - DEBUG: 
+2025-05-20 08:59:58,904 - INFO - LiteLLM: Non-Default params passed to completion() {'temperature': 0.1, 'stream': False, 'stop': ['\nObservation:'], 'max_tokens': 8000}
+2025-05-20 08:59:58,905 - INFO - [92m08:59:58 - LiteLLM:DEBUG[0m: utils.py:324 - Final returned optional params: {'temperature': 0.1, 'stream': False, 'stop': ['\nObservation:'], 'max_tokens': 8000, 'extra_body': {}}
+2025-05-20 08:59:58,907 - INFO - 2025-05-20 08:59:58,778 - 8611810432 - utils.py-utils:324 - DEBUG: Final returned optional params: {'temperature': 0.1, 'stream': False, 'stop': ['\nObservation:'], 'max_tokens': 8000, 'extra_body': {}}
+2025-05-20 08:59:58,909 - INFO - [92m08:59:58 - LiteLLM:DEBUG[0m: litellm_logging.py:424 - self.optional_params: {'temperature': 0.1, 'stream': False, 'stop': ['\nObservation:'], 'max_tokens': 8000, 'extra_body': {}}
+2025-05-20 08:59:58,912 - INFO - 2025-05-20 08:59:58,778 - 8611810432 - litellm_logging.py-litellm_logging:424 - DEBUG: self.optional_params: {'temperature': 0.1, 'stream': False, 'stop': ['\nObservation:'], 'max_tokens': 8000, 'extra_body': {}}
+2025-05-20 08:59:58,917 - INFO - [92m08:59:58 - LiteLLM:DEBUG[0m: litellm_logging.py:787 - [92m
+2025-05-20 08:59:58,921 - INFO - POST Request Sent from LiteLLM:
+2025-05-20 08:59:58,925 - INFO - curl -X POST \
+2025-05-20 08:59:58,926 - INFO - https://api.openai.com/v1/ \
+2025-05-20 08:59:58,929 - INFO - -d '{'model': 'gpt-4o-2024-11-20', 'messages': [{'role': 'system', 'content': 'You are Source Discovery Specialist. You are an expert information retriever with an exceptional ability to identify promising sources across various platforms and domains.  Your preliminary research forms the foundation for all subsequent analysis, so you prioritise breadth, diversity, and initial quality signals. You excel at finding sources that others might miss, and you\'re particularly adept at using search tools efficiently.\n\nYour personal goal is: Discover a diverse range of potentially valuable Various sources related to Global Market Forces affecting Management Consulting for an Expert audience\nWhen using external tools like internet search:\n  Use this exact format for tool calls:\n  Action: Search the internet\n  Action Input: \n  Only pass the query string directly — do not describe the parameter or include schema-like metadata.\n  \n\nYou ONLY have access to the following tools, and should NEVER make up tools that are not listed here:\n\nTool Name: Search the internet with Serper\nTool Arguments: {\'search_query\': {\'description\': \'Mandatory search query you want to use to search the internet\', \'type\': \'str\'}}\nTool Description: A tool that can be used to search the internet with a search_query. Supports different search types: \'search\' (default), \'news\'\n\nIMPORTANT: Use the following format in your response:\n\n```\nThought: you should always think about what to do\nAction: the action to take, only one name of [Search the internet with Serper], just the name, exactly as it\'s written.\nAction Input: the input to the action, just a simple JSON object, enclosed in curly braces, using " to wrap keys and values.\nObservation: the result of the action\n```\n\nOnce all necessary information is gathered, return the following format:\n\n```\nThought: I now know the final answer\nFinal Answer: the final answer to the original input question\n```'}, {'role': 'user', 'content': '\nCurrent Task: \nYour goal is to discover relevant recent urls from a diverse range of sources relating to Global Market Forces affecting Management Consulting for further evaluation.\nYou have these key objectives for INITIAL URL DISCOVERY: 1. Identify a broad initial pool of 15-20 potentially valuable urls for researching Global Market Forces affecting Management Consulting. 2. Focus on urls with relevance to the Global Market Forces affecting Management Consulting,  3. Focus on more recent urls, considering the current date is 20 May 2025 - Do not include urls more than 1 year old. 4. Include at minimum these sources in your search: [].\nDiscovery process: 1. Use the internet search tool to identify promising urls. 2. Begin by exploring the research_sources specified. 3. If provided, use [] to guide your search. 4. Capture basic information about each url (URL, title, publication date). 5. DO NOT attempt to scrape or read content in detail. 6. Ensure diversity in url types and perspectives.\nSource quality requirements: 1. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES** 2. **DO NOT CAPTURE LINKEDIN POSTS OR LINKEDIN COMMENTS** 3. **DO NOT CAPTURE YOUTUBE VIDEOS OR YOUTUBE COMMENTS** 4. **CLASSIFY THE SOURCE TYPE as PDF, WEBSITE, YOUTUBE OR OTHER** 5. **DO NOT INCLUDE ANY PAYWALLED OR SUBSCRIPTION ONLY SOURCES**\nYour output must conform to the PotentialSourcesURLOnly model.\n\n\nThis is the expected criteria for your final answer: A list of potential sources for evaluation, structured according to the PotentialSourcesURLOnly model.\n\nyou MUST return the actual complete content as the final answer, not a summary.\nEnsure your final answer contains only the content in the following format: {\n  "urls": List[{\n  "url": str\n}]\n}\n\nEnsure the final output does not include any code block markers like ```json or ```python.\n\nBegin! This is VERY important to you, use the tools available and give your best Final Answer, your job depends on it!\n\nThought:'}], 'temperature': 0.1, 'stop': ['\nObservation:'], 'max_tokens': 8000, 'extra_body': {}}'
+2025-05-20 08:59:58,931 - INFO - [0m
+2025-05-20 08:59:58,936 - INFO - 2025-05-20 08:59:58,785 - 8611810432 - litellm_logging.py-litellm_logging:787 - DEBUG: [92m
+2025-05-20 08:59:58,939 - INFO - POST Request Sent from LiteLLM:
+2025-05-20 08:59:58,941 - INFO - curl -X POST \
+2025-05-20 08:59:58,942 - INFO - https://api.openai.com/v1/ \
+2025-05-20 08:59:58,944 - INFO - -d '{'model': 'gpt-4o-2024-11-20', 'messages': [{'role': 'system', 'content': 'You are Source Discovery Specialist. You are an expert information retriever with an exceptional ability to identify promising sources across various platforms and domains.  Your preliminary research forms the foundation for all subsequent analysis, so you prioritise breadth, diversity, and initial quality signals. You excel at finding sources that others might miss, and you\'re particularly adept at using search tools efficiently.\n\nYour personal goal is: Discover a diverse range of potentially valuable Various sources related to Global Market Forces affecting Management Consulting for an Expert audience\nWhen using external tools like internet search:\n  Use this exact format for tool calls:\n  Action: Search the internet\n  Action Input: \n  Only pass the query string directly — do not describe the parameter or include schema-like metadata.\n  \n\nYou ONLY have access to the following tools, and should NEVER make up tools that are not listed here:\n\nTool Name: Search the internet with Serper\nTool Arguments: {\'search_query\': {\'description\': \'Mandatory search query you want to use to search the internet\', \'type\': \'str\'}}\nTool Description: A tool that can be used to search the internet with a search_query. Supports different search types: \'search\' (default), \'news\'\n\nIMPORTANT: Use the following format in your response:\n\n```\nThought: you should always think about what to do\nAction: the action to take, only one name of [Search the internet with Serper], just the name, exactly as it\'s written.\nAction Input: the input to the action, just a simple JSON object, enclosed in curly braces, using " to wrap keys and values.\nObservation: the result of the action\n```\n\nOnce all necessary information is gathered, return the following format:\n\n```\nThought: I now know the final answer\nFinal Answer: the final answer to the original input question\n```'}, {'role': 'user', 'content': '\nCurrent Task: \nYour goal is to discover relevant recent urls from a diverse range of sources relating to Global Market Forces affecting Management Consulting for further evaluation.\nYou have these key objectives for INITIAL URL DISCOVERY: 1. Identify a broad initial pool of 15-20 potentially valuable urls for researching Global Market Forces affecting Management Consulting. 2. Focus on urls with relevance to the Global Market Forces affecting Management Consulting,  3. Focus on more recent urls, considering the current date is 20 May 2025 - Do not include urls more than 1 year old. 4. Include at minimum these sources in your search: [].\nDiscovery process: 1. Use the internet search tool to identify promising urls. 2. Begin by exploring the research_sources specified. 3. If provided, use [] to guide your search. 4. Capture basic information about each url (URL, title, publication date). 5. DO NOT attempt to scrape or read content in detail. 6. Ensure diversity in url types and perspectives.\nSource quality requirements: 1. **PROVIDE REAL WORKING URLS FOR ALL SOURCES - DO NOT PROVIDE FAKE OR MOCKED SOURCES** 2. **DO NOT CAPTURE LINKEDIN POSTS OR LINKEDIN COMMENTS** 3. **DO NOT CAPTURE YOUTUBE VIDEOS OR YOUTUBE COMMENTS** 4. **CLASSIFY THE SOURCE TYPE as PDF, WEBSITE, YOUTUBE OR OTHER** 5. **DO NOT INCLUDE ANY PAYWALLED OR SUBSCRIPTION ONLY SOURCES**\nYour output must conform to the PotentialSourcesURLOnly model.\n\n\nThis is the expected criteria for your final answer: A list of potential sources for evaluation, structured according to the PotentialSourcesURLOnly model.\n\nyou MUST return the actual complete content as the final answer, not a summary.\nEnsure your final answer contains only the content in the following format: {\n  "urls": List[{\n  "url": str\n}]\n}\n\nEnsure the final output does not include any code block markers like ```json or ```python.\n\nBegin! This is VERY important to you, use the tools available and give your best Final Answer, your job depends on it!\n\nThought:'}], 'temperature': 0.1, 'stop': ['\nObservation:'], 'max_tokens': 8000, 'extra_body': {}}'
+2025-05-20 08:59:58,945 - INFO - [0m
+2025-05-20 08:59:59,171 - INFO - [92m08:59:59 - LiteLLM:DEBUG[0m: main.py:5675 - openai.py: Received openai error - Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-05-20 08:59:59,175 - INFO - 2025-05-20 08:59:59,171 - 8611810432 - main.py-main:5675 - DEBUG: openai.py: Received openai error - Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-05-20 08:59:59,179 - INFO - [92m08:59:59 - LiteLLM:DEBUG[0m: utils.py:324 - RAW RESPONSE:
+2025-05-20 08:59:59,181 - INFO - Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-05-20 08:59:59,188 - INFO - 2025-05-20 08:59:59,171 - 8611810432 - utils.py-utils:324 - DEBUG: RAW RESPONSE:
+2025-05-20 08:59:59,191 - INFO - Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-05-20 08:59:59,215 - INFO - [92m08:59:59 - LiteLLM:DEBUG[0m: exception_mapping_utils.py:2243 - Logging Details: logger_fn - None | callable(logger_fn) - False
+2025-05-20 08:59:59,217 - INFO - 2025-05-20 08:59:59,172 - 8611810432 - exception_mapping_utils.py-exception_mapping_utils:2243 - DEBUG: Logging Details: logger_fn - None | callable(logger_fn) - False
+2025-05-20 08:59:59,219 - INFO - [92m08:59:59 - LiteLLM:DEBUG[0m: litellm_logging.py:2072 - Logging Details LiteLLM-Failure Call: [<crewai.utilities.token_counter_callback.TokenCalcHandler object at 0x1549f7bc0>]
+2025-05-20 08:59:59,221 - INFO - 2025-05-20 08:59:59,186 - 8611810432 - litellm_logging.py-litellm_logging:2072 - DEBUG: Logging Details LiteLLM-Failure Call: [<crewai.utilities.token_counter_callback.TokenCalcHandler object at 0x1549f7bc0>]
+2025-05-20 08:59:59,226 - INFO - LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+2025-05-20 08:59:59,230 - INFO - 🚀 Crew: SourceIdentificationCrew
+2025-05-20 08:59:59,231 - INFO - └── 📋 Task: da0e55b0-fd17-4987-8f72-0307f849c363
+2025-05-20 08:59:59,233 - INFO -        Status: Executing Task...
+2025-05-20 08:59:59,235 - INFO -     └── 🤖 Agent: Source Discovery Specialist
+2025-05-20 08:59:59,237 - INFO -             Status: In Progress
+2025-05-20 08:59:59,261 - INFO -         └── ❌ LLM Failed
+2025-05-20 08:59:59,284 - INFO - ╭─────────────────────────────────────────────── LLM Error ───────────────────────────────────────────────╮
+2025-05-20 08:59:59,292 - INFO - │                                                                                                         │
+2025-05-20 08:59:59,294 - INFO - │  ❌ LLM Call Failed                                                                                     │
+2025-05-20 08:59:59,296 - INFO - │  Error: litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key           │
+2025-05-20 08:59:59,303 - INFO - │  provided: your_api*****here. You can find your API key at                                              │
+2025-05-20 08:59:59,306 - INFO - │  https://platform.openai.com/account/api-keys.                                                          │
+2025-05-20 08:59:59,310 - INFO - │                                                                                                         │
+2025-05-20 08:59:59,312 - INFO - ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+2025-05-20 08:59:59,316 - INFO - 2025-05-20 08:59:59,191 - 8611810432 - llm.py-llm:903 - ERROR: LiteLLM call failed: litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.
+2025-05-20 08:59:59,317 - INFO - [31;1m🖇 AgentOps: Error in trace creation: litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.[0m
+2025-05-20 08:59:59,319 - INFO - [31;1m🖇 AgentOps: Error in trace creation: litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.[0m
+2025-05-20 08:59:59,321 - INFO - [91m Error during LLM call: litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.[00m
+2025-05-20 08:59:59,324 - INFO - [91m An unknown error occurred. Please check the details below.[00m
+2025-05-20 08:59:59,326 - INFO - [91m Error details: litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.[00m
+2025-05-20 08:59:59,328 - INFO - 🚀 Crew: SourceIdentificationCrew
+2025-05-20 08:59:59,330 - INFO - └── 📋 Task: da0e55b0-fd17-4987-8f72-0307f849c363
+2025-05-20 08:59:59,332 - INFO -        Assigned to: Source Discovery Specialist
+2025-05-20 08:59:59,334 - INFO -        Status: ❌ Failed
+2025-05-20 08:59:59,337 - INFO -     └── 🤖 Agent: Source Discovery Specialist
+2025-05-20 08:59:59,338 - INFO -             Status: In Progress
+2025-05-20 08:59:59,340 - INFO -         └── ❌ LLM Failed
+2025-05-20 08:59:59,342 - INFO - ╭───────────────────────────────────────────── Task Failure ──────────────────────────────────────────────╮
+2025-05-20 08:59:59,344 - INFO - │                                                                                                         │
+2025-05-20 08:59:59,345 - INFO - │  Task Failed                                                                                            │
+2025-05-20 08:59:59,347 - INFO - │  Name: da0e55b0-fd17-4987-8f72-0307f849c363                                                             │
+2025-05-20 08:59:59,351 - INFO - │  Agent: Source Discovery Specialist                                                                     │
+2025-05-20 08:59:59,357 - INFO - │                                                                                                         │
+2025-05-20 08:59:59,360 - INFO - │                                                                                                         │
+2025-05-20 08:59:59,364 - INFO - ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+2025-05-20 08:59:59,386 - INFO - [31;1m🖇 AgentOps: Error in trace creation: litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.[0m
+2025-05-20 08:59:59,388 - INFO - 🖇 AgentOps: [34mSession Replay: https://app.agentops.ai/sessions?trace_id=387002e287d43589a543764273a457b5[0m
+2025-05-20 09:00:00,069 - INFO - ╭───────────────────────────────────────────── Crew Failure ──────────────────────────────────────────────╮
+2025-05-20 09:00:00,076 - INFO - │                                                                                                         │
+2025-05-20 09:00:00,082 - INFO - │  Crew Execution Failed                                                                                  │
+2025-05-20 09:00:00,088 - INFO - │  Name: SourceIdentificationCrew                                                                         │
+2025-05-20 09:00:00,093 - INFO - │  ID: 9725bb77-dbf5-4604-a050-41f6c3fe1d29                                                               │
+2025-05-20 09:00:00,096 - INFO - │                                                                                                         │
+2025-05-20 09:00:00,100 - INFO - │                                                                                                         │
+2025-05-20 09:00:00,103 - INFO - ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+2025-05-20 09:00:00,109 - INFO - 🌊 Flow: ScanFlow
+2025-05-20 09:00:00,112 - INFO -     ID: cc258649-43da-4699-9ad9-951d63e08be7
+2025-05-20 09:00:00,114 - INFO - ├── Flow Method Step
+2025-05-20 09:00:00,117 - INFO - ├── ✅ Completed: market_forces_flow
+2025-05-20 09:00:00,119 - INFO - ├── ✅ Completed: entry_router
+2025-05-20 09:00:00,121 - INFO - └── ❌ Failed: identify_sources
+2025-05-20 09:00:00,126 - INFO - Traceback (most recent call last):
+2025-05-20 09:00:00,128 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/llms/openai/openai.py", line 724, in completion
+2025-05-20 09:00:00,130 - INFO -     raise e
+2025-05-20 09:00:00,132 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/llms/openai/openai.py", line 652, in completion
+2025-05-20 09:00:00,134 - INFO -     ) = self.make_sync_openai_chat_completion_request(
+2025-05-20 09:00:00,136 - INFO -         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,138 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/litellm_core_utils/logging_utils.py", line 149, in sync_wrapper
+2025-05-20 09:00:00,141 - INFO -     result = func(*args, **kwargs)
+2025-05-20 09:00:00,144 - INFO -              ^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,146 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/llms/openai/openai.py", line 471, in make_sync_openai_chat_completion_request
+2025-05-20 09:00:00,148 - INFO -     raise e
+2025-05-20 09:00:00,150 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/llms/openai/openai.py", line 453, in make_sync_openai_chat_completion_request
+2025-05-20 09:00:00,152 - INFO -     raw_response = openai_client.chat.completions.with_raw_response.create(
+2025-05-20 09:00:00,154 - INFO -                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,156 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/openai/_legacy_response.py", line 364, in wrapped
+2025-05-20 09:00:00,158 - INFO -     return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+2025-05-20 09:00:00,160 - INFO -                                       ^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,162 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/openai/utils.py", line 78, in wrapper
+2025-05-20 09:00:00,164 - INFO -     return func(
+2025-05-20 09:00:00,166 - INFO -            ^^^^^
+2025-05-20 09:00:00,168 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/openai/shared/chat_wrappers.py", line 104, in chat_wrapper
+2025-05-20 09:00:00,170 - INFO -     raise e
+2025-05-20 09:00:00,172 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/openai/shared/chat_wrappers.py", line 86, in chat_wrapper
+2025-05-20 09:00:00,174 - INFO -     response = wrapped(*args, **kwargs)
+2025-05-20 09:00:00,175 - INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,177 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/openai/_utils/_utils.py", line 279, in wrapper
+2025-05-20 09:00:00,179 - INFO -     return func(*args, **kwargs)
+2025-05-20 09:00:00,181 - INFO -            ^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,183 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 914, in create
+2025-05-20 09:00:00,185 - INFO -     return self._post(
+2025-05-20 09:00:00,203 - INFO -            ^^^^^^^^^^^
+2025-05-20 09:00:00,205 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1242, in post
+2025-05-20 09:00:00,207 - INFO -     return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+2025-05-20 09:00:00,209 - INFO -                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,210 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 919, in request
+2025-05-20 09:00:00,212 - INFO -     return self._request(
+2025-05-20 09:00:00,215 - INFO -            ^^^^^^^^^^^^^^
+2025-05-20 09:00:00,217 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1023, in _request
+2025-05-20 09:00:00,218 - INFO -     raise self._make_status_error_from_response(err.response) from None
+2025-05-20 09:00:00,220 - INFO - openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-05-20 09:00:00,225 - INFO - During handling of the above exception, another exception occurred:
+2025-05-20 09:00:00,230 - INFO - Traceback (most recent call last):
+2025-05-20 09:00:00,231 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/main.py", line 1797, in completion
+2025-05-20 09:00:00,233 - INFO -     raise e
+2025-05-20 09:00:00,235 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/main.py", line 1770, in completion
+2025-05-20 09:00:00,237 - INFO -     response = openai_chat_completions.completion(
+2025-05-20 09:00:00,238 - INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,241 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/llms/openai/openai.py", line 735, in completion
+2025-05-20 09:00:00,243 - INFO -     raise OpenAIError(
+2025-05-20 09:00:00,244 - INFO - litellm.llms.openai.common_utils.OpenAIError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-05-20 09:00:00,249 - INFO - During handling of the above exception, another exception occurred:
+2025-05-20 09:00:00,252 - INFO - Traceback (most recent call last):
+2025-05-20 09:00:00,255 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/flow/flow.py", line 1034, in _execute_single_listener
+2025-05-20 09:00:00,257 - INFO -     listener_result = await self._execute_method(listener_name, method)
+2025-05-20 09:00:00,259 - INFO -                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,261 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/flow/flow.py", line 876, in _execute_method
+2025-05-20 09:00:00,262 - INFO -     raise e
+2025-05-20 09:00:00,264 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/flow/flow.py", line 846, in _execute_method
+2025-05-20 09:00:00,266 - INFO -     else method(*args, **kwargs)
+2025-05-20 09:00:00,268 - INFO -          ^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,270 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/src/scan_sources/main.py", line 141, in identify_sources
+2025-05-20 09:00:00,271 - INFO -     sources_result = SourceIdentificationCrew().crew().kickoff(sources_inputs).pydantic
+2025-05-20 09:00:00,274 - INFO -                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,275 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 483, in safe_patch_function
+2025-05-20 09:00:00,277 - INFO -     patch_function(call_original, *args, **kwargs)
+2025-05-20 09:00:00,279 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/crewai/autolog.py", line 28, in patched_class_call
+2025-05-20 09:00:00,281 - INFO -     result = original(self, *args, **kwargs)
+2025-05-20 09:00:00,283 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,285 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 474, in call_original
+2025-05-20 09:00:00,288 - INFO -     return call_original_fn_with_event_logging(_original_fn, og_args, og_kwargs)
+2025-05-20 09:00:00,290 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,292 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 425, in call_original_fn_with_event_logging
+2025-05-20 09:00:00,294 - INFO -     original_fn_result = original_fn(*og_args, **og_kwargs)
+2025-05-20 09:00:00,295 - INFO -                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,312 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 471, in _original_fn
+2025-05-20 09:00:00,314 - INFO -     original_result = original(*_og_args, **_og_kwargs)
+2025-05-20 09:00:00,316 - INFO -                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,318 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/crew.py", line 649, in kickoff
+2025-05-20 09:00:00,321 - INFO -     result = self._run_sequential_process()
+2025-05-20 09:00:00,323 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,325 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/crew.py", line 761, in _run_sequential_process
+2025-05-20 09:00:00,327 - INFO -     return self._execute_tasks(self.tasks)
+2025-05-20 09:00:00,329 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,330 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/crew.py", line 864, in _execute_tasks
+2025-05-20 09:00:00,333 - INFO -     task_output = task.execute_sync(
+2025-05-20 09:00:00,335 - INFO -                   ^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,336 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/agentops/instrumentation/crewai/instrumentation.py", line 117, in wrapper
+2025-05-20 09:00:00,338 - INFO -     return func(tracer, duration_histogram, token_histogram, environment, application_name, wrapped, instance, args, kwargs)
+2025-05-20 09:00:00,341 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,343 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/agentops/instrumentation/crewai/instrumentation.py", line 345, in wrap_task_execute
+2025-05-20 09:00:00,344 - INFO -     result = wrapped(*args, **kwargs)
+2025-05-20 09:00:00,346 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,348 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 483, in safe_patch_function
+2025-05-20 09:00:00,350 - INFO -     patch_function(call_original, *args, **kwargs)
+2025-05-20 09:00:00,352 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/crewai/autolog.py", line 28, in patched_class_call
+2025-05-20 09:00:00,354 - INFO -     result = original(self, *args, **kwargs)
+2025-05-20 09:00:00,357 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,359 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 474, in call_original
+2025-05-20 09:00:00,361 - INFO -     return call_original_fn_with_event_logging(_original_fn, og_args, og_kwargs)
+2025-05-20 09:00:00,362 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,364 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 425, in call_original_fn_with_event_logging
+2025-05-20 09:00:00,367 - INFO -     original_fn_result = original_fn(*og_args, **og_kwargs)
+2025-05-20 09:00:00,368 - INFO -                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,370 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 471, in _original_fn
+2025-05-20 09:00:00,373 - INFO -     original_result = original(*_og_args, **_og_kwargs)
+2025-05-20 09:00:00,375 - INFO -                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,376 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/task.py", line 347, in execute_sync
+2025-05-20 09:00:00,378 - INFO -     return self._execute_core(agent, context, tools)
+2025-05-20 09:00:00,380 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,382 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/task.py", line 491, in _execute_core
+2025-05-20 09:00:00,384 - INFO -     raise e  # Re-raise the exception after emitting the event
+2025-05-20 09:00:00,386 - INFO -     ^^^^^^^
+2025-05-20 09:00:00,388 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/task.py", line 411, in _execute_core
+2025-05-20 09:00:00,391 - INFO -     result = agent.execute_task(
+2025-05-20 09:00:00,392 - INFO -              ^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,394 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/agentops/instrumentation/crewai/instrumentation.py", line 117, in wrapper
+2025-05-20 09:00:00,396 - INFO -     return func(tracer, duration_histogram, token_histogram, environment, application_name, wrapped, instance, args, kwargs)
+2025-05-20 09:00:00,398 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,401 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/agentops/instrumentation/crewai/instrumentation.py", line 293, in wrap_agent_execute_task
+2025-05-20 09:00:00,402 - INFO -     result = wrapped(*args, **kwargs)
+2025-05-20 09:00:00,404 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,406 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 483, in safe_patch_function
+2025-05-20 09:00:00,423 - INFO -     patch_function(call_original, *args, **kwargs)
+2025-05-20 09:00:00,425 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/crewai/autolog.py", line 28, in patched_class_call
+2025-05-20 09:00:00,427 - INFO -     result = original(self, *args, **kwargs)
+2025-05-20 09:00:00,429 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,431 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 474, in call_original
+2025-05-20 09:00:00,433 - INFO -     return call_original_fn_with_event_logging(_original_fn, og_args, og_kwargs)
+2025-05-20 09:00:00,436 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,438 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 425, in call_original_fn_with_event_logging
+2025-05-20 09:00:00,442 - INFO -     original_fn_result = original_fn(*og_args, **og_kwargs)
+2025-05-20 09:00:00,443 - INFO -                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,445 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 471, in _original_fn
+2025-05-20 09:00:00,447 - INFO -     original_result = original(*_og_args, **_og_kwargs)
+2025-05-20 09:00:00,449 - INFO -                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,451 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agent.py", line 319, in execute_task
+2025-05-20 09:00:00,453 - INFO -     raise e
+2025-05-20 09:00:00,455 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agent.py", line 295, in execute_task
+2025-05-20 09:00:00,457 - INFO -     result = self._execute_without_timeout(task_prompt, task)
+2025-05-20 09:00:00,459 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,461 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agent.py", line 399, in _execute_without_timeout
+2025-05-20 09:00:00,463 - INFO -     return self.agent_executor.invoke(
+2025-05-20 09:00:00,466 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,468 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agents/crew_agent_executor.py", line 123, in invoke
+2025-05-20 09:00:00,471 - INFO -     raise e
+2025-05-20 09:00:00,473 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agents/crew_agent_executor.py", line 112, in invoke
+2025-05-20 09:00:00,475 - INFO -     formatted_answer = self._invoke_loop()
+2025-05-20 09:00:00,476 - INFO -                        ^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,478 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agents/crew_agent_executor.py", line 208, in _invoke_loop
+2025-05-20 09:00:00,480 - INFO -     raise e
+2025-05-20 09:00:00,482 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agents/crew_agent_executor.py", line 155, in _invoke_loop
+2025-05-20 09:00:00,484 - INFO -     answer = get_llm_response(
+2025-05-20 09:00:00,487 - INFO -              ^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,489 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/utilities/agent_utils.py", line 156, in get_llm_response
+2025-05-20 09:00:00,491 - INFO -     raise e
+2025-05-20 09:00:00,494 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/utilities/agent_utils.py", line 147, in get_llm_response
+2025-05-20 09:00:00,496 - INFO -     answer = llm.call(
+2025-05-20 09:00:00,499 - INFO -              ^^^^^^^^^
+2025-05-20 09:00:00,501 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/agentops/instrumentation/crewai/instrumentation.py", line 117, in wrapper
+2025-05-20 09:00:00,504 - INFO -     return func(tracer, duration_histogram, token_histogram, environment, application_name, wrapped, instance, args, kwargs)
+2025-05-20 09:00:00,508 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,510 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/agentops/instrumentation/crewai/instrumentation.py", line 368, in wrap_llm_call
+2025-05-20 09:00:00,512 - INFO -     result = wrapped(*args, **kwargs)
+2025-05-20 09:00:00,514 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,516 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 483, in safe_patch_function
+2025-05-20 09:00:00,518 - INFO -     patch_function(call_original, *args, **kwargs)
+2025-05-20 09:00:00,520 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/crewai/autolog.py", line 28, in patched_class_call
+2025-05-20 09:00:00,521 - INFO -     result = original(self, *args, **kwargs)
+2025-05-20 09:00:00,524 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,526 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 474, in call_original
+2025-05-20 09:00:00,545 - INFO -     return call_original_fn_with_event_logging(_original_fn, og_args, og_kwargs)
+2025-05-20 09:00:00,547 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,549 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 425, in call_original_fn_with_event_logging
+2025-05-20 09:00:00,551 - INFO -     original_fn_result = original_fn(*og_args, **og_kwargs)
+2025-05-20 09:00:00,553 - INFO -                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,555 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 471, in _original_fn
+2025-05-20 09:00:00,557 - INFO -     original_result = original(*_og_args, **_og_kwargs)
+2025-05-20 09:00:00,559 - INFO -                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,561 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/llm.py", line 888, in call
+2025-05-20 09:00:00,563 - INFO -     return self._handle_non_streaming_response(
+2025-05-20 09:00:00,566 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,567 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/llm.py", line 727, in _handle_non_streaming_response
+2025-05-20 09:00:00,569 - INFO -     response = litellm.completion(**params)
+2025-05-20 09:00:00,571 - INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,574 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/src/scan_sources/litellm_patch.py", line 35, in patched_completion
+2025-05-20 09:00:00,575 - INFO -     return original_completion(*args, **kwargs)
+2025-05-20 09:00:00,577 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,579 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/utils.py", line 1247, in wrapper
+2025-05-20 09:00:00,581 - INFO -     raise e
+2025-05-20 09:00:00,583 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/utils.py", line 1125, in wrapper
+2025-05-20 09:00:00,585 - INFO -     result = original_function(*args, **kwargs)
+2025-05-20 09:00:00,587 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,589 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/main.py", line 3182, in completion
+2025-05-20 09:00:00,591 - INFO -     raise exception_type(
+2025-05-20 09:00:00,593 - INFO -           ^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,595 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2214, in exception_type
+2025-05-20 09:00:00,596 - INFO -     raise e
+2025-05-20 09:00:00,599 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 393, in exception_type
+2025-05-20 09:00:00,601 - INFO -     raise AuthenticationError(
+2025-05-20 09:00:00,603 - INFO - litellm.exceptions.AuthenticationError: litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.
+2025-05-20 09:00:00,605 - INFO - 2025/05/20 09:00:00 WARNING mlflow.tracing.export.async_export_queue: Failed to log trace to MLflow backend. Error: When an mlflow-artifacts URI was supplied, the tracking URI must be a valid http or https URI, but it was currently set to file:///Users/alex/Documents/Coding/undrstnd/mlruns. Perhaps you forgot to set the tracking URI to the running MLflow server. To set the tracking URI, use either of the following methods:
+2025-05-20 09:00:00,609 - INFO - 1. Set the MLFLOW_TRACKING_URI environment variable to the desired tracking URI. `export MLFLOW_TRACKING_URI=http://localhost:5000`
+2025-05-20 09:00:00,611 - INFO - 2. Set the tracking URI programmatically by calling `mlflow.set_tracking_uri`. `mlflow.set_tracking_uri('http://localhost:5000')`.
+2025-05-20 09:00:00,613 - INFO - [Flow._execute_single_listener] Error in method identify_sources: litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.
+2025-05-20 09:00:00,615 - INFO - Traceback (most recent call last):
+2025-05-20 09:00:00,617 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/llms/openai/openai.py", line 724, in completion
+2025-05-20 09:00:00,619 - INFO -     raise e
+2025-05-20 09:00:00,621 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/llms/openai/openai.py", line 652, in completion
+2025-05-20 09:00:00,623 - INFO -     ) = self.make_sync_openai_chat_completion_request(
+2025-05-20 09:00:00,625 - INFO -         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,627 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/litellm_core_utils/logging_utils.py", line 149, in sync_wrapper
+2025-05-20 09:00:00,629 - INFO -     result = func(*args, **kwargs)
+2025-05-20 09:00:00,631 - INFO -              ^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,633 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/llms/openai/openai.py", line 471, in make_sync_openai_chat_completion_request
+2025-05-20 09:00:00,635 - INFO -     raise e
+2025-05-20 09:00:00,637 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/llms/openai/openai.py", line 453, in make_sync_openai_chat_completion_request
+2025-05-20 09:00:00,640 - INFO -     raw_response = openai_client.chat.completions.with_raw_response.create(
+2025-05-20 09:00:00,642 - INFO -                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,659 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/openai/_legacy_response.py", line 364, in wrapped
+2025-05-20 09:00:00,661 - INFO -     return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+2025-05-20 09:00:00,663 - INFO -                                       ^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,666 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/openai/utils.py", line 78, in wrapper
+2025-05-20 09:00:00,669 - INFO -     return func(
+2025-05-20 09:00:00,672 - INFO -            ^^^^^
+2025-05-20 09:00:00,675 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/openai/shared/chat_wrappers.py", line 104, in chat_wrapper
+2025-05-20 09:00:00,678 - INFO -     raise e
+2025-05-20 09:00:00,680 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/openai/shared/chat_wrappers.py", line 86, in chat_wrapper
+2025-05-20 09:00:00,682 - INFO -     response = wrapped(*args, **kwargs)
+2025-05-20 09:00:00,684 - INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,687 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/openai/_utils/_utils.py", line 279, in wrapper
+2025-05-20 09:00:00,690 - INFO -     return func(*args, **kwargs)
+2025-05-20 09:00:00,693 - INFO -            ^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,695 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 914, in create
+2025-05-20 09:00:00,697 - INFO -     return self._post(
+2025-05-20 09:00:00,699 - INFO -            ^^^^^^^^^^^
+2025-05-20 09:00:00,701 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1242, in post
+2025-05-20 09:00:00,703 - INFO -     return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+2025-05-20 09:00:00,705 - INFO -                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,708 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 919, in request
+2025-05-20 09:00:00,710 - INFO -     return self._request(
+2025-05-20 09:00:00,712 - INFO -            ^^^^^^^^^^^^^^
+2025-05-20 09:00:00,714 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1023, in _request
+2025-05-20 09:00:00,716 - INFO -     raise self._make_status_error_from_response(err.response) from None
+2025-05-20 09:00:00,718 - INFO - openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-05-20 09:00:00,724 - INFO - During handling of the above exception, another exception occurred:
+2025-05-20 09:00:00,728 - INFO - Traceback (most recent call last):
+2025-05-20 09:00:00,730 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/main.py", line 1797, in completion
+2025-05-20 09:00:00,732 - INFO -     raise e
+2025-05-20 09:00:00,734 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/main.py", line 1770, in completion
+2025-05-20 09:00:00,737 - INFO -     response = openai_chat_completions.completion(
+2025-05-20 09:00:00,738 - INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,741 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/llms/openai/openai.py", line 735, in completion
+2025-05-20 09:00:00,743 - INFO -     raise OpenAIError(
+2025-05-20 09:00:00,745 - INFO - litellm.llms.openai.common_utils.OpenAIError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-05-20 09:00:00,750 - INFO - During handling of the above exception, another exception occurred:
+2025-05-20 09:00:00,754 - INFO - Traceback (most recent call last):
+2025-05-20 09:00:00,757 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/frontend/src/run_scan_sources.py", line 47, in <module>
+2025-05-20 09:00:00,760 - INFO -     kickoff()
+2025-05-20 09:00:00,763 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/src/scan_sources/main.py", line 371, in kickoff
+2025-05-20 09:00:00,765 - INFO -     scan_flow.kickoff()
+2025-05-20 09:00:00,768 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 483, in safe_patch_function
+2025-05-20 09:00:00,770 - INFO -     patch_function(call_original, *args, **kwargs)
+2025-05-20 09:00:00,791 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/crewai/autolog.py", line 28, in patched_class_call
+2025-05-20 09:00:00,794 - INFO -     result = original(self, *args, **kwargs)
+2025-05-20 09:00:00,796 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,798 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 474, in call_original
+2025-05-20 09:00:00,801 - INFO -     return call_original_fn_with_event_logging(_original_fn, og_args, og_kwargs)
+2025-05-20 09:00:00,802 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,805 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 425, in call_original_fn_with_event_logging
+2025-05-20 09:00:00,808 - INFO -     original_fn_result = original_fn(*og_args, **og_kwargs)
+2025-05-20 09:00:00,810 - INFO -                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,812 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 471, in _original_fn
+2025-05-20 09:00:00,814 - INFO -     original_result = original(*_og_args, **_og_kwargs)
+2025-05-20 09:00:00,816 - INFO -                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,818 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/flow/flow.py", line 722, in kickoff
+2025-05-20 09:00:00,821 - INFO -     return asyncio.run(run_flow())
+2025-05-20 09:00:00,824 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,826 - INFO -   File "/Users/alex/.pyenv/versions/3.12.0/lib/python3.12/asyncio/runners.py", line 194, in run
+2025-05-20 09:00:00,828 - INFO -     return runner.run(main)
+2025-05-20 09:00:00,830 - INFO -            ^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,832 - INFO -   File "/Users/alex/.pyenv/versions/3.12.0/lib/python3.12/asyncio/runners.py", line 118, in run
+2025-05-20 09:00:00,834 - INFO -     return self._loop.run_until_complete(task)
+2025-05-20 09:00:00,836 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,838 - INFO -   File "/Users/alex/.pyenv/versions/3.12.0/lib/python3.12/asyncio/base_events.py", line 664, in run_until_complete
+2025-05-20 09:00:00,841 - INFO -     return future.result()
+2025-05-20 09:00:00,843 - INFO -            ^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,845 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/flow/flow.py", line 720, in run_flow
+2025-05-20 09:00:00,847 - INFO -     return await self.kickoff_async(inputs)
+2025-05-20 09:00:00,851 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,853 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/flow/flow.py", line 787, in kickoff_async
+2025-05-20 09:00:00,856 - INFO -     await asyncio.gather(*tasks)
+2025-05-20 09:00:00,858 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/flow/flow.py", line 823, in _execute_start_method
+2025-05-20 09:00:00,860 - INFO -     await self._execute_listeners(start_method_name, result)
+2025-05-20 09:00:00,862 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/flow/flow.py", line 935, in _execute_listeners
+2025-05-20 09:00:00,864 - INFO -     await asyncio.gather(*tasks)
+2025-05-20 09:00:00,867 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/flow/flow.py", line 1034, in _execute_single_listener
+2025-05-20 09:00:00,869 - INFO -     listener_result = await self._execute_method(listener_name, method)
+2025-05-20 09:00:00,871 - INFO -                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,874 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/flow/flow.py", line 876, in _execute_method
+2025-05-20 09:00:00,875 - INFO -     raise e
+2025-05-20 09:00:00,877 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/flow/flow.py", line 846, in _execute_method
+2025-05-20 09:00:00,880 - INFO -     else method(*args, **kwargs)
+2025-05-20 09:00:00,882 - INFO -          ^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,884 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/src/scan_sources/main.py", line 141, in identify_sources
+2025-05-20 09:00:00,887 - INFO -     sources_result = SourceIdentificationCrew().crew().kickoff(sources_inputs).pydantic
+2025-05-20 09:00:00,889 - INFO -                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,892 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 483, in safe_patch_function
+2025-05-20 09:00:00,894 - INFO -     patch_function(call_original, *args, **kwargs)
+2025-05-20 09:00:00,895 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/crewai/autolog.py", line 28, in patched_class_call
+2025-05-20 09:00:00,898 - INFO -     result = original(self, *args, **kwargs)
+2025-05-20 09:00:00,901 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,903 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 474, in call_original
+2025-05-20 09:00:00,905 - INFO -     return call_original_fn_with_event_logging(_original_fn, og_args, og_kwargs)
+2025-05-20 09:00:00,907 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,926 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 425, in call_original_fn_with_event_logging
+2025-05-20 09:00:00,929 - INFO -     original_fn_result = original_fn(*og_args, **og_kwargs)
+2025-05-20 09:00:00,931 - INFO -                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,933 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 471, in _original_fn
+2025-05-20 09:00:00,935 - INFO -     original_result = original(*_og_args, **_og_kwargs)
+2025-05-20 09:00:00,937 - INFO -                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,939 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/crew.py", line 649, in kickoff
+2025-05-20 09:00:00,941 - INFO -     result = self._run_sequential_process()
+2025-05-20 09:00:00,943 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,945 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/crew.py", line 761, in _run_sequential_process
+2025-05-20 09:00:00,947 - INFO -     return self._execute_tasks(self.tasks)
+2025-05-20 09:00:00,950 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,952 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/crew.py", line 864, in _execute_tasks
+2025-05-20 09:00:00,954 - INFO -     task_output = task.execute_sync(
+2025-05-20 09:00:00,958 - INFO -                   ^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,960 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/agentops/instrumentation/crewai/instrumentation.py", line 117, in wrapper
+2025-05-20 09:00:00,963 - INFO -     return func(tracer, duration_histogram, token_histogram, environment, application_name, wrapped, instance, args, kwargs)
+2025-05-20 09:00:00,965 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,967 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/agentops/instrumentation/crewai/instrumentation.py", line 345, in wrap_task_execute
+2025-05-20 09:00:00,969 - INFO -     result = wrapped(*args, **kwargs)
+2025-05-20 09:00:00,971 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,974 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 483, in safe_patch_function
+2025-05-20 09:00:00,976 - INFO -     patch_function(call_original, *args, **kwargs)
+2025-05-20 09:00:00,978 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/crewai/autolog.py", line 28, in patched_class_call
+2025-05-20 09:00:00,980 - INFO -     result = original(self, *args, **kwargs)
+2025-05-20 09:00:00,982 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,984 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 474, in call_original
+2025-05-20 09:00:00,987 - INFO -     return call_original_fn_with_event_logging(_original_fn, og_args, og_kwargs)
+2025-05-20 09:00:00,989 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,992 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 425, in call_original_fn_with_event_logging
+2025-05-20 09:00:00,994 - INFO -     original_fn_result = original_fn(*og_args, **og_kwargs)
+2025-05-20 09:00:00,996 - INFO -                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:00,999 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 471, in _original_fn
+2025-05-20 09:00:01,002 - INFO -     original_result = original(*_og_args, **_og_kwargs)
+2025-05-20 09:00:01,004 - INFO -                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,006 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/task.py", line 347, in execute_sync
+2025-05-20 09:00:01,008 - INFO -     return self._execute_core(agent, context, tools)
+2025-05-20 09:00:01,010 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,012 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/task.py", line 491, in _execute_core
+2025-05-20 09:00:01,015 - INFO -     raise e  # Re-raise the exception after emitting the event
+2025-05-20 09:00:01,017 - INFO -     ^^^^^^^
+2025-05-20 09:00:01,019 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/task.py", line 411, in _execute_core
+2025-05-20 09:00:01,021 - INFO -     result = agent.execute_task(
+2025-05-20 09:00:01,024 - INFO -              ^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,026 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/agentops/instrumentation/crewai/instrumentation.py", line 117, in wrapper
+2025-05-20 09:00:01,028 - INFO -     return func(tracer, duration_histogram, token_histogram, environment, application_name, wrapped, instance, args, kwargs)
+2025-05-20 09:00:01,031 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,034 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/agentops/instrumentation/crewai/instrumentation.py", line 293, in wrap_agent_execute_task
+2025-05-20 09:00:01,037 - INFO -     result = wrapped(*args, **kwargs)
+2025-05-20 09:00:01,039 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,041 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 483, in safe_patch_function
+2025-05-20 09:00:01,043 - INFO -     patch_function(call_original, *args, **kwargs)
+2025-05-20 09:00:01,061 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/crewai/autolog.py", line 28, in patched_class_call
+2025-05-20 09:00:01,063 - INFO -     result = original(self, *args, **kwargs)
+2025-05-20 09:00:01,066 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,068 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 474, in call_original
+2025-05-20 09:00:01,071 - INFO -     return call_original_fn_with_event_logging(_original_fn, og_args, og_kwargs)
+2025-05-20 09:00:01,074 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,076 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 425, in call_original_fn_with_event_logging
+2025-05-20 09:00:01,078 - INFO -     original_fn_result = original_fn(*og_args, **og_kwargs)
+2025-05-20 09:00:01,080 - INFO -                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,082 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 471, in _original_fn
+2025-05-20 09:00:01,085 - INFO -     original_result = original(*_og_args, **_og_kwargs)
+2025-05-20 09:00:01,087 - INFO -                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,090 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agent.py", line 319, in execute_task
+2025-05-20 09:00:01,092 - INFO -     raise e
+2025-05-20 09:00:01,094 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agent.py", line 295, in execute_task
+2025-05-20 09:00:01,096 - INFO -     result = self._execute_without_timeout(task_prompt, task)
+2025-05-20 09:00:01,098 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,100 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agent.py", line 399, in _execute_without_timeout
+2025-05-20 09:00:01,103 - INFO -     return self.agent_executor.invoke(
+2025-05-20 09:00:01,105 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,109 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agents/crew_agent_executor.py", line 123, in invoke
+2025-05-20 09:00:01,111 - INFO -     raise e
+2025-05-20 09:00:01,114 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agents/crew_agent_executor.py", line 112, in invoke
+2025-05-20 09:00:01,117 - INFO -     formatted_answer = self._invoke_loop()
+2025-05-20 09:00:01,119 - INFO -                        ^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,121 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agents/crew_agent_executor.py", line 208, in _invoke_loop
+2025-05-20 09:00:01,124 - INFO -     raise e
+2025-05-20 09:00:01,126 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/agents/crew_agent_executor.py", line 155, in _invoke_loop
+2025-05-20 09:00:01,128 - INFO -     answer = get_llm_response(
+2025-05-20 09:00:01,130 - INFO -              ^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,133 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/utilities/agent_utils.py", line 156, in get_llm_response
+2025-05-20 09:00:01,135 - INFO -     raise e
+2025-05-20 09:00:01,137 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/utilities/agent_utils.py", line 147, in get_llm_response
+2025-05-20 09:00:01,139 - INFO -     answer = llm.call(
+2025-05-20 09:00:01,141 - INFO -              ^^^^^^^^^
+2025-05-20 09:00:01,144 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/agentops/instrumentation/crewai/instrumentation.py", line 117, in wrapper
+2025-05-20 09:00:01,146 - INFO -     return func(tracer, duration_histogram, token_histogram, environment, application_name, wrapped, instance, args, kwargs)
+2025-05-20 09:00:01,150 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,152 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/agentops/instrumentation/crewai/instrumentation.py", line 368, in wrap_llm_call
+2025-05-20 09:00:01,155 - INFO -     result = wrapped(*args, **kwargs)
+2025-05-20 09:00:01,158 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,161 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 483, in safe_patch_function
+2025-05-20 09:00:01,163 - INFO -     patch_function(call_original, *args, **kwargs)
+2025-05-20 09:00:01,166 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/crewai/autolog.py", line 28, in patched_class_call
+2025-05-20 09:00:01,168 - INFO -     result = original(self, *args, **kwargs)
+2025-05-20 09:00:01,171 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,174 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 474, in call_original
+2025-05-20 09:00:01,177 - INFO -     return call_original_fn_with_event_logging(_original_fn, og_args, og_kwargs)
+2025-05-20 09:00:01,179 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,183 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 425, in call_original_fn_with_event_logging
+2025-05-20 09:00:01,185 - INFO -     original_fn_result = original_fn(*og_args, **og_kwargs)
+2025-05-20 09:00:01,190 - INFO -                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,213 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/autologging_utils/safety.py", line 471, in _original_fn
+2025-05-20 09:00:01,215 - INFO -     original_result = original(*_og_args, **_og_kwargs)
+2025-05-20 09:00:01,218 - INFO -                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,221 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/llm.py", line 888, in call
+2025-05-20 09:00:01,223 - INFO -     return self._handle_non_streaming_response(
+2025-05-20 09:00:01,226 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,228 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/crewai/llm.py", line 727, in _handle_non_streaming_response
+2025-05-20 09:00:01,232 - INFO -     response = litellm.completion(**params)
+2025-05-20 09:00:01,235 - INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,238 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/src/scan_sources/litellm_patch.py", line 35, in patched_completion
+2025-05-20 09:00:01,240 - INFO -     return original_completion(*args, **kwargs)
+2025-05-20 09:00:01,243 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,245 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/utils.py", line 1247, in wrapper
+2025-05-20 09:00:01,248 - INFO -     raise e
+2025-05-20 09:00:01,251 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/utils.py", line 1125, in wrapper
+2025-05-20 09:00:01,253 - INFO -     result = original_function(*args, **kwargs)
+2025-05-20 09:00:01,256 - INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,259 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/main.py", line 3182, in completion
+2025-05-20 09:00:01,261 - INFO -     raise exception_type(
+2025-05-20 09:00:01,263 - INFO -           ^^^^^^^^^^^^^^^
+2025-05-20 09:00:01,267 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2214, in exception_type
+2025-05-20 09:00:01,269 - INFO -     raise e
+2025-05-20 09:00:01,272 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 393, in exception_type
+2025-05-20 09:00:01,275 - INFO -     raise AuthenticationError(
+2025-05-20 09:00:01,278 - INFO - litellm.exceptions.AuthenticationError: litellm.AuthenticationError: AuthenticationError: OpenAIException - Incorrect API key provided: your_api*****here. You can find your API key at https://platform.openai.com/account/api-keys.
+2025-05-20 09:00:01,642 - ERROR - === Process completed with non-zero return code: 1 ===
+2025-05-20 09:00:01,642 - INFO - End Timestamp: 2025-05-20 09:00:01

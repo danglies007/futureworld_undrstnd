@@ -1,0 +1,268 @@
+======================================================
+                DETAILED ANALYSIS REPORT              
+======================================================
+
+OVERALL EXECUTION
+------------------
+Start Time: 2025-05-20 09:03:23
+End Time: 2025-05-20 09:18:43
+Total Duration: 15 minutes, 20 seconds
+Total Cost: $2.169561
+Number of API Calls: 80
+Average Cost per Call: $0.027120
+
+LLM MODELS USED
+-------------
+- gpt-4o-2024-11-20 (Provider: openai)
+- gpt-4o-mini-2024-07-18 (Provider: openai)
+- gpt-4.1-2025-04-14 (Provider: openai)
+
+
+======================================================
+                CONFIGURATION DETAILS                
+======================================================
+
+FRONTEND PARAMETERS:
+--------------------
+Topic: Global Market Forces affecting Management Consulting
+Topic Short Name: Consulting_Forces
+Target Market: 
+Business Name: Accenture
+Target Audience: Expert
+Specialisation: Various
+Minimum Number of Sources: 2
+Maximum Number of Sources: 2
+Minimum Number of Forces: 0
+Source Score Threshold: 0
+
+Date: 20 May 2025
+
+
+======================================================
+                    CREW DETAILS                   
+======================================================
+
+CREW: ScanFlow                                                                                         │
+
+CREW: SourceIdentificationCrew                                                                         │
+
+CREW: MarketForceExtractionCrew                                                                        │
+
+CREW: ReportingCrew                                                                                    │
+
+CREW: ImplicationsCrew                                                                                 │
+
+
+======================================================
+                    TASK DETAILS                   
+======================================================
+
+TASK: 855e7984-7e2f-43d4-b619-451f48895efd
+------------------------------------------------------------
+ID: 855e7984-7e2f-43d4-b619-451f48895efd
+Status: Executing Task...
+Start Time: 2025-05-20 09:03:29
+
+LLM Models Used:
+- gpt-4.1-2025-04-14
+- gpt-4o-2024-11-20
+- gpt-4o-mini-2024-07-18
+
+Total Cost: $0.022837
+Number of API Calls: 1
+Average Cost per Call: $0.022837
+
+Token Usage:
+
+------------------------------------------------------------
+
+TASK: 74bebc94-72c7-4560-966e-e70ba235af68
+------------------------------------------------------------
+ID: 74bebc94-72c7-4560-966e-e70ba235af68
+Status: Executing Task...
+Start Time: 2025-05-20 09:03:46
+
+LLM Models Used:
+- gpt-4.1-2025-04-14
+- gpt-4o-2024-11-20
+- gpt-4o-mini-2024-07-18
+
+Total Cost: $0.022837
+Number of API Calls: 1
+Average Cost per Call: $0.022837
+
+Token Usage:
+
+------------------------------------------------------------
+
+TASK: c8b1d922-67ed-4ae4-8d06-a16c5b9be762
+------------------------------------------------------------
+ID: c8b1d922-67ed-4ae4-8d06-a16c5b9be762
+Status: Executing Task...
+Start Time: 2025-05-20 09:04:12
+
+LLM Models Used:
+- gpt-4.1-2025-04-14
+- gpt-4o-2024-11-20
+- gpt-4o-mini-2024-07-18
+
+Total Cost: $0.022837
+Number of API Calls: 1
+Average Cost per Call: $0.022837
+
+Token Usage:
+
+------------------------------------------------------------
+
+TASK: dc2f6894-aa68-4534-87a3-2330ee865a3b
+------------------------------------------------------------
+ID: dc2f6894-aa68-4534-87a3-2330ee865a3b
+Status: Executing Task...
+Start Time: 2025-05-20 09:04:33
+
+LLM Models Used:
+- gpt-4.1-2025-04-14
+- gpt-4o-2024-11-20
+- gpt-4o-mini-2024-07-18
+
+Total Cost: $0.022837
+Number of API Calls: 1
+Average Cost per Call: $0.022837
+
+Token Usage:
+
+------------------------------------------------------------
+
+TASK: 78f491a7-4580-4ffd-8e40-279fb563a3b2
+------------------------------------------------------------
+ID: 78f491a7-4580-4ffd-8e40-279fb563a3b2
+Status: Executing Task...
+Start Time: 2025-05-20 09:04:33
+
+LLM Models Used:
+- gpt-4.1-2025-04-14
+- gpt-4o-2024-11-20
+- gpt-4o-mini-2024-07-18
+
+Total Cost: $0.022837
+Number of API Calls: 1
+Average Cost per Call: $0.022837
+
+Token Usage:
+
+------------------------------------------------------------
+
+TASK: 14b954a9-9a4c-4a71-93a9-fb3067bb546f
+------------------------------------------------------------
+ID: 14b954a9-9a4c-4a71-93a9-fb3067bb546f
+Status: Executing Task...
+Start Time: 2025-05-20 09:06:07
+
+LLM Models Used:
+- gpt-4.1-2025-04-14
+- gpt-4o-2024-11-20
+- gpt-4o-mini-2024-07-18
+
+Total Cost: $0.022837
+Number of API Calls: 1
+Average Cost per Call: $0.022837
+
+Token Usage:
+
+------------------------------------------------------------
+
+TASK: 1f0851ac-df48-403f-8145-23348658cab7
+------------------------------------------------------------
+ID: 1f0851ac-df48-403f-8145-23348658cab7
+Status: Executing Task...
+Start Time: 2025-05-20 09:07:57
+
+LLM Models Used:
+- gpt-4.1-2025-04-14
+- gpt-4o-2024-11-20
+- gpt-4o-mini-2024-07-18
+
+Total Cost: $0.022837
+Number of API Calls: 1
+Average Cost per Call: $0.022837
+
+Token Usage:
+
+------------------------------------------------------------
+
+TASK: cc95c23e-4018-4a1a-a4af-be513ffedf06
+------------------------------------------------------------
+ID: cc95c23e-4018-4a1a-a4af-be513ffedf06
+Status: Executing Task...
+Start Time: 2025-05-20 09:10:10
+
+LLM Models Used:
+- gpt-4.1-2025-04-14
+- gpt-4o-2024-11-20
+- gpt-4o-mini-2024-07-18
+
+Total Cost: $0.022837
+Number of API Calls: 1
+Average Cost per Call: $0.022837
+
+Token Usage:
+
+------------------------------------------------------------
+
+TASK: 941dc734-bf91-4f11-9acd-ee4c9168072a
+------------------------------------------------------------
+ID: 941dc734-bf91-4f11-9acd-ee4c9168072a
+Status: Executing Task...
+Start Time: 2025-05-20 09:12:58
+
+LLM Models Used:
+- gpt-4.1-2025-04-14
+- gpt-4o-2024-11-20
+- gpt-4o-mini-2024-07-18
+
+Total Cost: $0.022837
+Number of API Calls: 1
+Average Cost per Call: $0.022837
+
+Token Usage:
+
+------------------------------------------------------------
+
+TASK: a4eceee3-fa1c-4e04-96c7-238d2fdf6b36
+------------------------------------------------------------
+ID: a4eceee3-fa1c-4e04-96c7-238d2fdf6b36
+Status: Executing Task...
+Start Time: 2025-05-20 09:14:21
+
+LLM Models Used:
+- gpt-4.1-2025-04-14
+- gpt-4o-2024-11-20
+- gpt-4o-mini-2024-07-18
+
+Total Cost: $0.022837
+Number of API Calls: 1
+Average Cost per Call: $0.022837
+
+Token Usage:
+
+------------------------------------------------------------
+
+TASK: 31637a01-058e-4d8b-a846-341446ba282c
+------------------------------------------------------------
+ID: 31637a01-058e-4d8b-a846-341446ba282c
+Status: Executing Task...
+Description: 2025-05-20 09:17:42,652 - INFO - If a specific BUSINESS is provided, where relevant consider how the implications will affect the business.
+Start Time: 2025-05-20 09:16:36
+
+LLM Models Used:
+- gpt-4.1-2025-04-14
+- gpt-4o-2024-11-20
+- gpt-4o-mini-2024-07-18
+
+Total Cost: $0.022837
+Number of API Calls: 1
+Average Cost per Call: $0.022837
+
+Token Usage:
+
+------------------------------------------------------------

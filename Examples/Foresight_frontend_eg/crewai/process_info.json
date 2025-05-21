@@ -1,0 +1,22 @@
+{
+  "pid": 32566,
+  "startTime": "5/19/2025, 12:42:51 PM",
+  "config": {
+    "sector": "Mining",
+    "report_type": "Strategic Foresight Report",
+    "topic": "Future of Mining",
+    "year": 2025,
+    "audience_level": "Strategic Decision Makers",
+    "company": "Exxaro Resources Limited",
+    "company_short": "Exxaro Resources Limited",
+    "geography": "Global",
+    "specified_sources": [
+      "Harvard Business Review",
+      "https://hbr.org",
+      "McKinsey Global Institute",
+      "Gartner",
+      "World Economic Forum",
+      "https://ftsg.com/"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+2025-05-20 08:55:55,705 - INFO - === Process Output Log: Market Forces Analysis Output ===
+2025-05-20 08:55:55,705 - INFO - Command: /Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/bin/python /Users/alex/Documents/Coding/undrstnd/frontend/src/run_scan_sources.py
+2025-05-20 08:55:55,705 - INFO - Working Directory: /Users/alex/Documents/Coding/undrstnd
+2025-05-20 08:55:55,705 - INFO - Start Timestamp: 2025-05-20 08:55:55
+2025-05-20 08:55:55,705 - INFO - === Output Begins ===
+2025-05-20 08:55:58,048 - INFO - /Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/pydantic/fields.py:1045: PydanticDeprecatedSince20: `min_items` is deprecated and will be removed, use `min_length` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+2025-05-20 08:55:58,050 - INFO -   warn('`min_items` is deprecated and will be removed, use `min_length` instead', DeprecationWarning)
+2025-05-20 08:55:58,052 - INFO - /Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/pydantic/fields.py:1051: PydanticDeprecatedSince20: `max_items` is deprecated and will be removed, use `max_length` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+2025-05-20 08:55:58,053 - INFO -   warn('`max_items` is deprecated and will be removed, use `max_length` instead', DeprecationWarning)
+2025-05-20 08:55:58,184 - INFO - /Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:623: UserWarning: <built-in function callable> is not a Python type (it may be an instance of an object), Pydantic will allow any object with no validation since we cannot even enforce that the input is an instance of the given type. To get rid of this error wrap the type with `pydantic.SkipValidation`.
+2025-05-20 08:55:58,186 - INFO -   warn(
+2025-05-20 08:55:59,124 - INFO - Traceback (most recent call last):
+2025-05-20 08:55:59,126 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/frontend/src/run_scan_sources.py", line 34, in <module>
+2025-05-20 08:55:59,127 - INFO -     spec.loader.exec_module(main_module)
+2025-05-20 08:55:59,128 - INFO -   File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+2025-05-20 08:55:59,130 - INFO -   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+2025-05-20 08:55:59,131 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/src/scan_sources/main.py", line 18, in <module>
+2025-05-20 08:55:59,132 - INFO -     from scan_sources.crews.source_identification_crew.source_identification_crew import SourceIdentificationCrew
+2025-05-20 08:55:59,134 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/src/scan_sources/crews/source_identification_crew/source_identification_crew.py", line 30, in <module>
+2025-05-20 08:55:59,136 - INFO -     mlflow.set_experiment("Source_Identification_Crew")
+2025-05-20 08:55:59,137 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/tracking/fluent.py", line 157, in set_experiment
+2025-05-20 08:55:59,138 - INFO -     experiment = client.get_experiment_by_name(experiment_name)
+2025-05-20 08:55:59,140 - INFO -                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 08:55:59,141 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/tracking/client.py", line 1703, in get_experiment_by_name
+2025-05-20 08:55:59,142 - INFO -     return self._tracking_client.get_experiment_by_name(name)
+2025-05-20 08:55:59,144 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 08:55:59,145 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/tracking/_tracking_service/client.py", line 591, in get_experiment_by_name
+2025-05-20 08:55:59,146 - INFO -     return self.store.get_experiment_by_name(name)
+2025-05-20 08:55:59,148 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 08:55:59,149 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py", line 641, in get_experiment_by_name
+2025-05-20 08:55:59,151 - INFO -     response_proto = self._call_endpoint(GetExperimentByName, req_body)
+2025-05-20 08:55:59,152 - INFO -                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 08:55:59,153 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/store/tracking/rest_store.py", line 90, in _call_endpoint
+2025-05-20 08:55:59,154 - INFO -     return call_endpoint(self.get_host_creds(), endpoint, method, json_body, response_proto)
+2025-05-20 08:55:59,156 - INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 08:55:59,157 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 402, in call_endpoint
+2025-05-20 08:55:59,158 - INFO -     response = verify_rest_response(response, endpoint)
+2025-05-20 08:55:59,160 - INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-20 08:55:59,161 - INFO -   File "/Users/alex/Documents/Coding/undrstnd/scan_sources/.venv/lib/python3.12/site-packages/mlflow/utils/rest_utils.py", line 265, in verify_rest_response
+2025-05-20 08:55:59,162 - INFO -     raise MlflowException(
+2025-05-20 08:55:59,164 - INFO - mlflow.exceptions.MlflowException: API request to endpoint /api/2.0/mlflow/experiments/get-by-name failed with error code 403 != 200. Response body: ''
+2025-05-20 08:55:59,788 - ERROR - === Process completed with non-zero return code: 1 ===
+2025-05-20 08:55:59,788 - INFO - End Timestamp: 2025-05-20 08:55:59

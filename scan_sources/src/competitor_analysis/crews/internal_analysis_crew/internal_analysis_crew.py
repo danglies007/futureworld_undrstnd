@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Agentops
-import agentops
-agentops.init()
+# import agentops
+# agentops.init()
 
 # Ignore warnings
 import warnings
@@ -19,8 +19,8 @@ import os
 import datetime
 
 # Debugging imports
-import litellm
-litellm._turn_on_debug()
+# import litellm
+# litellm._turn_on_debug()
 
 # Import LLMs
 from competitor_analysis.llm_config import (
@@ -161,6 +161,7 @@ class InternalAnalysisCrew():
     def analyze_annual_reports(self) -> Task:
         company_name = self.research_inputs.get("company_name")
         return Task(
+            name="Analyze Annual Reports",
             config=self.tasks_config['analyze_annual_reports'],
             output_file=f'outputs/comp_analysis/annual_report_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             # context=[self.identify_company_internal_sources()],
@@ -172,6 +173,7 @@ class InternalAnalysisCrew():
     def analyze_financial_statements(self) -> Task:
         company_name = self.research_inputs.get("company_name")
         return Task(
+            name="Analyze Financial Statements",
             config=self.tasks_config['analyze_financial_statements'],
             output_file=f'outputs/comp_analysis/financial_statement_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             # context=[self.identify_company_internal_sources()],
@@ -183,6 +185,7 @@ class InternalAnalysisCrew():
     def analyze_strategy_documents(self) -> Task:
         company_name = self.research_inputs.get("company_name")
         return Task(
+            name="Analyze Strategy Documents",
             config=self.tasks_config['analyze_strategy_documents'],
             output_file=f'outputs/comp_analysis/strategy_document_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             # context=[self.identify_company_internal_sources()],
@@ -194,6 +197,7 @@ class InternalAnalysisCrew():
     def consolidate_internal_analysis(self) -> Task:
         company_name = self.research_inputs.get("company_name")
         return Task(
+            name="Consolidate Internal Analysis",
             config=self.tasks_config['consolidate_internal_analysis'],
             output_file=f'outputs/comp_analysis/consolidated_internal_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             context=[
@@ -217,6 +221,7 @@ class InternalAnalysisCrew():
     def crew(self) -> Crew:
         """Creates the InternalAnalysisCrew"""
         return Crew(
+            name="InternalAnalysisCrew",
             agents=self.agents,
             tasks=self.tasks,
             process=Process.sequential,

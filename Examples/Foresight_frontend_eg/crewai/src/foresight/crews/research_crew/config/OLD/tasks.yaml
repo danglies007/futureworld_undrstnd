@@ -1,0 +1,233 @@
+trend_research_task:
+  description: >
+    Conduct thorough research to identify and document potential "Tsunamis of Change" according to the provided section from the content plan.
+    
+    Research this section: {subtitle}
+    Goal: {high_level_goal}
+    Importance: {why_important}
+    
+    Follow this content outline:
+    {content_outline}
+    
+    Initial sources to consider:
+    {sources}
+
+    For each potential trend or force identified:
+    - Search multiple diverse reputable sources for confirmation and evidence
+    - Collect quantifiable data and statistics that demonstrate its significance
+    - Document expert opinions and perspectives from credible sources
+    - Gather examples and case studies that illustrate the trend
+    - Evaluate the potential scope and scale of impact
+    
+    Ensure all information is properly sourced with working references. If information cannot be found, clearly state this rather than making assumptions.  
+
+    INCLUDE THE ACTUAL URLS / HYPERLINKS FOR SOURCES, CITATIONS AND REFERENCES
+    
+    Use various search tools as appropriate:
+    - Internet searches for recent reports and analyses
+    - Academic and research databases for peer-reviewed insights
+    - Industry publications for sector-specific trends
+    - News sources for current developments
+    - Statistical databases for quantitative support
+  expected_output: >
+    A comprehensive research report documenting potential "Tsunamis of Change" with:
+    - Clear documentation of trends and forces identified
+    - Supporting evidence including statistics, expert quotes, and examples
+    - Source citations for all claims and data points - INCLUDE THE ACTUAL URLS / HYPERLINKS FOR SOURCES, CITATIONS AND REFERENCES
+    - Initial assessment of significance and potential impact
+    - Properly organised and structured information ready for analysis
+    
+    The report should form a solid foundation of evidence for subsequent analysis and insight development.
+  agent: trend_researcher
+
+trend_analysis_task:
+  description: >
+    Analyse the research data collected to identify meaningful patterns, connections, and potential "Tsunamis of Change" according to the provided section from the content plan.
+    
+    Section: {subtitle}
+
+    Your analysis should:
+    - Evaluate the significance, potential impact, and trajectory of different trends
+    - Identify which trends represent the most important forces shaping the future
+    - Recognise connections and relationships between different trends
+    - Distinguish between symptoms and underlying drivers of change
+    - Organise and structure the information to highlight key patterns
+    - Prepare the groundwork for insight development
+    
+    Ensure all analysis is based on the evidence collected rather than speculation or opinion. Where the evidence is inconclusive, indicate this clearly.
+
+    Consider the section's goal: {high_level_goal}
+    
+  expected_output: >
+    An analytical report that:
+    - Identifies the most significant trends and forces from the research data
+    - Provides structured analysis of their potential impact and trajectory
+    - Highlights connections and patterns across different trends
+    - Distinguishes between primary drivers and secondary effects
+    - Prepares the information in a format conducive to insight development
+    
+    The analysis should add meaning and structure to the raw research data.
+  agent: trend_analyst
+
+insight_development_task:
+  description: >
+    Develop meaningful insights about how the identified trends and forces will shape the future, according to the provided section from the content plan.
+    
+    Section: {subtitle}
+
+    For each major trend or cluster of related trends:
+    - Identify underlying patterns and drivers
+    - Develop clear, evidence-based insights that explain the significance and implications
+    - Connect data points across different domains where relevant
+    - Determine potential acceleration factors and inhibitors
+    - Assess the broader implications for society, markets, and organisations
+    - Potential opportunities and threats
+    - Critical uncertainties and variables
+    - Timeline considerations
+    - Sector-specific impacts
+    
+    Ensure all insights are validated against multiple sources and based on factual evidence rather than speculation.
+    Where specific data points require additional verification, mark them clearly rather than making assumptions.
+    
+    Focus on developing insights that will be valuable and actionable for {audience_level}.
+
+     Align with section importance: {why_important}
+  expected_output: >
+    A detailed insights report that:
+    - Articulates clear, actionable insights derived from the identified trends
+    - Provides supporting evidence and reasoning for each insight
+    - Explains the significance and potential trajectory of each "tsunami of change"
+    - Highlights connections between different trends where relevant
+    - Maintains proper source citations throughout
+    
+    The insights should go beyond describing trends to explaining why they matter and how they might evolve.
+  agent: insights_lead
+
+exponential_analysis_task:
+  description: >
+    Interpret the developed insights to identify potential exponential growth patterns and strategic implications, according to the provided section from the content plan.
+    
+    Section: {subtitle}
+
+    For each major insight:
+    - Assess whether it represents or contains potential for exponential/non-linear change
+    - Identify possible tipping points, acceleration factors, and feedback loops
+    - Project scenarios for how these forces might evolve over different time horizons
+    - Evaluate strategic implications for {sector} and adjacent areas
+    - Consider how different exponential forces might interact and amplify each other
+    
+    Ensure all projections and strategic interpretations are grounded in evidence while still capturing the potentially disruptive nature of exponential change.
+    Where specific projections are more speculative, clearly indicate this and provide reasoning.
+
+    Consider the section goal: {high_level_goal}
+
+  expected_output: >
+    A strategic analysis report that:
+    - Identifies which "tsunamis of change" show potential for exponential growth or non-linear development
+    - Provides evidence-based projections for different time horizons (near, medium, long-term)
+    - Articulates strategic implications for different stakeholders
+    - Explores potential interactions between different exponential forces
+    - Maintains balance between evidence-based analysis and forward-looking projection
+    
+    The analysis should help decision-makers understand the strategic significance of these forces.
+  agent: exponential_growth_lead
+
+content_writing_task:
+  description: >
+    Transform the research, analysis, and insights into well-structured, detailed content about "Tsunamis of Change" according to the provided section from the content plan.
+
+    Section: {subtitle}
+    
+    Your writing should:
+    - Follow the content outline: {content_outline}
+    - Present the identified trends, insights, and strategic implications in clear, compelling language
+    - Structure the content logically with appropriate headings, subheadings, and narrative flow
+    - Ensure all content is evidence-based and properly sourced with working references
+    - Balance academic rigour with accessibility for {audience_level}
+    - Use appropriate examples, analogies, and explanations to make complex ideas understandable
+    - Address the section's importance: {why_important}
+    
+    If specific information cannot be verified, explicitly indicate this rather than making assumptions or omitting important points.
+  expected_output: >
+    A well-written content draft that:
+    - Follows the content outline
+    - Clearly communicates the identified "Tsunamis of Change" and their significance
+    - Is logically structured with appropriate headings and narrative flow
+    - Includes proper citations and references throughout
+    - Balances detail and clarity for the target audience
+    - Uses appropriate language, examples, and explanations
+    - Maintains engaging narrative
+    - Addresses section objectives
+    
+    The content should effectively communicate complex ideas while maintaining factual accuracy.
+  agent: content_writer
+
+content_editing_task:
+  description: >
+    Review and refine the written content about "Tsunamis of Change" according to the provided section from the content plan.
+
+    Section: {subtitle}
+    
+    Your editing should focus on:
+    - Ensuring factual accuracy and proper sourcing of all claims
+    - Verifying that all references and links are valid and working
+    - Improving clarity, coherence, and logical flow
+    - Enhancing readability and engagement while maintaining accuracy
+    - Ensuring appropriate tone and level of complexity for {audience_level}
+    - Consistency in terminology
+    - Identifying and addressing any gaps, inconsistencies, or potential inaccuracies
+    
+    Ensure alignment with: {high_level_goal}
+
+    If specific claims cannot be verified, mark them clearly rather than removing important information that may be accurate.
+  expected_output: >
+    A polished, high-quality content draft that:
+    - Maintains factual accuracy with proper sourcing
+    - Features improved clarity, coherence, and flow
+    - Has enhanced readability and engagement
+    - Is appropriate for the target audience in tone and complexity
+    - Has addressed gaps, inconsistencies, and potential inaccuracies
+    
+    The edited content should represent a significant improvement in quality while maintaining the substance of the original draft.
+  agent: content_editor
+
+quality_review_task:
+  description: >
+    Conduct a comprehensive quality review of the "Tsunamis of Change" content according to the provided section from the content plan, and then implement all recommended improvements to deliver a final, polished version.
+
+    Section: {subtitle}
+    
+    Your task has two parts:
+    1. REVIEW: Assess the content for factual accuracy, structural integrity, and compliance with best practices
+    2. IMPLEMENT: Apply all necessary improvements and refinements to create the final version of the content
+    
+    During review, assess:
+    - Achievement of section goal: {high_level_goal}
+    - Coverage of outlined content: {content_outline}
+    - Factual accuracy and proper sourcing of all claims
+    - Validity and functionality of all references and links
+    - Overall quality, clarity, coherence, and impact of the content
+    - Effectiveness in identifying and analysing market forces and social dynamics
+    - Value and actionability of insights for strategic decision-makers
+    - Compliance with requirements specified in the content plan
+    
+    During implementation:
+    - Correct any factual inaccuracies identified
+    - Update any outdated statistics or data points
+    - Enhance clarity, flow, and readability
+    - Strengthen any weak sections
+    - Add missing information and sources where needed  - INCLUDE THE ACTUAL URLS / HYPERLINKS FOR SOURCES, CITATIONS AND REFERENCES
+    - Ensure proper formatting and consistent style
+    - Maintain the authoritative voice and strategic focus
+    
+    The output should be the complete, final version of the content with all improvements integrated - NOT a review report.
+  expected_output: >
+    A complete, final version of the content that:
+    - Has incorporated all quality improvements
+    - Maintains factual accuracy with proper sourcing
+    - Features enhanced clarity, coherence, and flow
+    - Has addressed gaps, inconsistencies, and potential inaccuracies
+    - Is ready for publication without further edits
+    
+    The output should be the polished, publication-ready final content that demonstrates high quality, accuracy, and strategic value - not a review of the content.
+  agent: quality_reviewer

@@ -211,6 +211,10 @@ ALL_SOURCES_FLATTENED = {
 
 SOURCES_TESTING = [
     "mckinsey"
+    "bain"
+    "wef"
+    "Amy Webb"
+    "BCG"
 ]
 
 # Definitions
@@ -233,17 +237,17 @@ MARKET_FORCE_DEFINITIONS = {
 
 RESEARCH_INPUTS = {
     'specialisation': 'Various',
-    'topic': 'Global Market Forces affecting the Banking Sector',
-    'topic_short': 'Banking_forces', # used for file naming
+    'topic': 'Global Market Forces affecting the Mining Industry',
+    'topic_short': 'Mining_Forces', # used for file naming
     'market': '',
-    'business': 'First Abu Dhabi Bank',
+    'business': 'Exxaro Resources Limited',
     'audience': 'Expert',
     'specific_points_of_interest': [''],
     'research_sources': SOURCES_TESTING,
     'minimum_number_of_sources': 5,
     'maximum_number_of_sources': 5,
     'minimum_number_of_forces': 0,
-    'source_score_threshold': 0,
+    'source_score_threshold': 10,
     'date': datetime.now().strftime('%d %B %Y'),
     'market_force_definition': MARKET_FORCE_DEFINITIONS
 }

@@ -21,7 +21,15 @@ warnings.filterwarnings("ignore", category=PydanticDeprecatedSince20)
 import os
 import datetime
 
-# Debugging imports
+# # Enabling MLflow
+# import mlflow
+
+# # Temporarily disable MLflow tracking to avoid connection errors
+# mlflow.crewai.autolog()
+# mlflow.set_tracking_uri("http://localhost:5000")
+# # mlflow.set_experiment("Reporting_Crew")
+
+# # Debugging imports
 import litellm
 litellm._turn_on_debug()
 
@@ -111,6 +119,7 @@ class ReportingCrew():
         specialisation = self.research_inputs.get("specialisation")
         topic_short = self.research_inputs.get("topic_short")
         return Task(
+            name="Reporting Task",
             config=self.tasks_config['reporting_task'],
             output_file=f'outputs/report_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             output_pydantic=MarketForceAnalysisReport
@@ -123,6 +132,7 @@ class ReportingCrew():
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
         return Crew(
+            name="ReportingCrew",
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,

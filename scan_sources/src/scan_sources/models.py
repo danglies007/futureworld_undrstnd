@@ -14,16 +14,16 @@ class AttributedItem(BaseModel):
     """Base model for any item that needs attribution."""
     content: str = Field(..., description="The actual content (fact, statistic, quote, etc.)")
     source_url: str = Field(..., description="URL where this information was found")
-    source_text: Optional[str] = Field(None, description="Exact actual word for word extract of the Original paragraph or sentence extracted directly from the source")
-    source_name: Optional[str] = Field(None, description="Name of the source")
+    source_text: List[str] = Field(default_factory=list, description="Exact actual word for word extract of the Original paragraph or sentence extracted directly from the source")
+    source_name: List[str] = Field(default_factory=list, description="Name of the source")
 
 class SearchMetadata(BaseModel):
     """Metadata about the search that produced this market force."""
     search_query: str = Field(..., description="The exact search query used to find this information")
     search_timestamp: str = Field(..., description="When the search was conducted")
     search_engine: str = Field(default="Default Search Tool", description="The search engine or tool used")
-    search_results_count: Optional[int] = Field(None, description="Number of total results found")
-    search_position: Optional[int] = Field(None, description="Position in search results where this was found")
+    search_results_count: int = Field(default=0, description="Number of total results found")
+    search_position: int = Field(default=0, description="Position in search results where this was found")
 
 # Not using this yet, want to use this to capture the details of the crew used to generate this market report
 class Crewdetails(BaseModel):
@@ -38,7 +38,7 @@ class SourceLink(BaseModel):
     """Represents a link to a source with its title."""
     title: str = Field(..., description="Title of the source or key term link")
     url: str = Field(..., description="URL of the source link")
-    date: Optional[str] = Field(None, description="Optional publication date for the source")
+    date: List[str] = Field(default_factory=list, description="Optional publication date for the source")
 
 class RawMarketForce(BaseModel):
     raw_market_force_id: str = Field(..., description="Unique identifier for this market force")
@@ -140,8 +140,8 @@ class StructuredMarketForce(BaseModel):
     long_description: str = Field(..., description="Detailed description of the market force")
     examples: List[str] = Field(default_factory=list, description="Examples of the market force in action")
     source_name: str = Field(..., description="Name of the source")
-    source_url: Optional[str] = Field(None, description="URL or reference to the source")
-    source_date: Optional[str] = Field(None, description="Date of publication")
+    source_url: List[str] = Field(default_factory=list, description="URL or reference to the source")
+    source_date: List[str] = Field(default_factory=list, description="Date of publication")
     key_terms: List[str] = Field(default_factory=list, description="Key terms associated with this market force")
     mentioned_entities: List[str] = Field(default_factory=list, description="Entities mentioned in relation to this market force")
     
@@ -173,7 +173,7 @@ class ConsolidatedMarketForce(BaseModel):
     consolidated_description: str = Field(..., description="Comprehensive description combining insights from all sources")
     all_examples: List[str] = Field(default_factory=list, description="Combined examples from all sources")
     all_sources: List[SourceLink] = Field(default_factory=list, description="All source references")
-    first_identified: Optional[str] = Field(None, description="Earliest date this market force was identified")
+    first_identified: List[str] = Field(default_factory=list, description="Earliest date this market force was identified")
     
     @field_validator('consolidated_id', mode='before')
     @classmethod
@@ -213,8 +213,8 @@ class KeyInsight(BaseModel):
     """Represents a key insight, interpreting findings with implications."""
     insight: str = Field(..., description="The key interpretive insight derived from findings (the 'so what?').")
     sources: List[SourceLink] = Field(description="List of SourceLinks that contributed to this insight.",default_factory=list)
-    explanation: Optional[str] = Field(None, description="Brief explanation of why this insight matters or the underlying drivers.")
-    implications: Optional[str] = Field(None, description="Key implications of this insight for the topic/sector.")
+    explanation: List[str] = Field(default_factory=list, description="Brief explanation of why this insight matters or the underlying drivers.")
+    implications: List[str] = Field(default_factory=list, description="Key implications of this insight for the topic/sector.")
 
 class MarketForceReportSection(BaseModel):
     section_title: str = Field(description="Section title")
@@ -238,7 +238,7 @@ class MarketForceImpact(BaseModel):
     impact_level: str = Field(..., description="Level of potential impact (High, Medium, Low)")
     uncertainty_level: str = Field(..., description="Level of uncertainty about relating to how the market force will evolve (High, Medium, Low)")
     time_horizon: str = Field(..., description="Expected time frame for impact (e.g., '1-3 years', '3-5 years')")
-    impact_rationale: Optional[str] = Field(None, description="Brief explanation of why this impact assessment was given")
+    impact_rationale: List[str] = Field(default_factory=list, description="Brief explanation of why this impact assessment was given")
 
 class MarketForce(BaseModel):
     """Information about a specific market force."""
@@ -270,19 +270,24 @@ class MarketForceInteraction(BaseModel):
     description: str = Field(..., description="Description of how these forces interact")
     potential_outcomes: List[str] = Field(default_factory=list, description="Potential outcomes from this interaction")
 
+class UncertaintyImpactCategory(BaseModel):
+    """Category in the uncertainty-impact matrix."""
+    category_name: str = Field(..., description="Name of the uncertainty-impact category")
+    market_forces: List[str] = Field(default_factory=list, description="Market forces in this category")
+
 class MarketForceAnalysisReport(BaseModel):
     """Comprehensive report on market forces."""
     report_title: str = Field(..., description="Title of the report")
     generation_date: str = Field(..., description="Report generation date")
     executive_summary: str = Field(..., description="A concise executive summary")
-    overall_key_findings: List[str] = Field(default_factory=list,description="Overall key factual findings across all market forces")
-    overall_key_insights: List[str] = Field(default_factory=list,description="Overall key insights across all market forces based on the overall key findings")
-    force_categories: List[MarketForceCategory] = Field(...,description="Categories of market forces with analysis")
-    force_interactions: List[MarketForceInteraction] = Field(default_factory=list,description="Analysis of how different market forces interact")
-    uncertainty_impact_matrix: Dict[str, List[str]] = Field(default_factory=dict,description="Matrix categorizing forces by uncertainty and impact levels")
-    strategic_implications: List[str] = Field(default_factory=list,description="Strategic implications derived from market force analysis")
-    glossary: List[str] = Field(default_factory=list,description="Glossary of terms used in the report")
-    sources: List[str] = Field(default_factory=list,description="All sources used in the report")
+    overall_key_findings: List[str] = Field(default_factory=list, description="Overall key factual findings across all market forces")
+    overall_key_insights: List[str] = Field(default_factory=list, description="Overall key insights across all market forces based on the overall key findings")
+    force_categories: List[MarketForceCategory] = Field(..., description="Categories of market forces with analysis")
+    force_interactions: List[MarketForceInteraction] = Field(default_factory=list, description="Analysis of how different market forces interact")
+    uncertainty_impact_matrix: List[UncertaintyImpactCategory] = Field(default_factory=list, description="Matrix categorising forces by uncertainty and impact levels")
+    strategic_implications: List[str] = Field(default_factory=list, description="Strategic implications derived from market force analysis")
+    glossary: List[str] = Field(default_factory=list, description="Glossary of terms used in the report")
+    sources: List[str] = Field(default_factory=list, description="All sources used in the report")
 
 # Source Identification
 
@@ -337,7 +342,7 @@ class PotentialSource(BaseModel):
     url: str = Field(..., description="URL of the source")
     title: str = Field(..., description="Title based on search snippet")
     source_type: str = Field(..., description="Source type (PDF, Website, Other)")
-    publication_date: Optional[str] = Field(None, description="Apparent publication date if visible")
+    publication_date: List[str] = Field(default_factory=list, description="Apparent publication date if visible")
     initial_relevance: str = Field(..., description="Brief reason why this source appears promising")
 
     # @field_validator('id', mode='before')
@@ -369,7 +374,9 @@ class EvaluatedSource(BaseModel):
     url: str = Field(..., description="Source URL")
     title: str = Field(..., description="Source Title")
     source_type: str = Field(..., description="Source type (PDF, Website, Other)")
-    source_date: Optional[str] = Field(None, description="Apparent publication date if visible")
+    publisher: List[str] = Field(default_factory=list, description="Publisher if known")
+    source_date: List[str] = Field(default_factory=list, description="Apparent publication date if visible")
+    author: List[str] = Field(default_factory=list, description="Author if known")
     relevance_score: float = Field(..., description="Relevance score of the source")
     credibility_score: float = Field(..., description="Credibility score of the source")
     recency_score: float = Field(..., description="Recency score of the source")
@@ -404,24 +411,24 @@ class NotApprovedSources(BaseModel):
 class ApprovedSource(BaseModel):
     """Represents a source that has been evaluated for quality."""
     no: int = Field(..., description="Number of the approved source")
-    id: str = Field(..., description="Unique identifier for the approved source")
+    # id: str = Field(..., description="Unique identifier for the approved source")
     url: str = Field(..., description="URL of the approved source")
     title: str = Field(..., description="Title of the approved source")
     source_type: str = Field(..., description="Source type (PDF, Website, Other)")
-    publisher: Optional[str] = Field(None, description="Publisher if known")
-    source_date: Optional[str] = Field(None, description="Publication date if known")
-    author: Optional[str] = Field(None, description="Author if known")
-    description: Optional[str] = Field(None, description="Brief description of the source content")
+    publisher: List[str] = Field(default_factory=list, description="Publisher if known")
+    source_date: List[str] = Field(default_factory=list, description="Publication date if known")
+    author: List[str] = Field(default_factory=list, description="Author if known")
+    description: List[str] = Field(default_factory=list, description="Brief description of the source content")
     relevance_score: float = Field(..., description="Relevance score for the approved source")
     credibility_score: float = Field(..., description="Credibility score for the approved source")
     recency_score: float = Field(..., description="Recency score for the approved source")
     total_score: float = Field(..., description="Combined quality score for the approved source (sum of relevance, credibility and recency scores)")
     accessible: bool = Field(..., description="Whether the source is accessible (not paywalled)")
 
-    @field_validator('id', mode='before')
-    @classmethod
-    def set_id_if_none(cls, v):
-        return v or f"ASRC-{uuid.uuid4().hex[:8]}"
+    # @field_validator('id', mode='before')
+    # @classmethod
+    # def set_id_if_none(cls, v):
+    #     return v or f"ASRC-{uuid.uuid4().hex[:8]}"
 
 class ApprovedSources(BaseModel):
     approved_sources: List[ApprovedSource] = Field(..., description="List of approved sources")
@@ -452,7 +459,7 @@ class SourceIdentificationResults(BaseModel):
     """Results approved in the source evaluation process"""
     topic: str = Field(..., description="Topic of the research")
     specialisation: str = Field(..., description="Specialisation of the research")
-    date_of_approval: str = Field(..., description="Date when the approval was conducted")
+    date_of_approval: str = Field(..., description="Date when the research was conducted")
     total_sources_approved: int = Field(..., description="Number of sources that passed quality criteria")
     quality_threshold: float = Field(..., description="Minimum quality score required for approval")
     approved_sources: List[ApprovedSource] = Field(..., description="List of evaluated sources of a high quality with quality scores above the threshold")
@@ -477,9 +484,9 @@ class EvaluatedSource(BaseModel):
     eval_source_url: str = Field(..., description="Should inherit from the pot_source_url from the SourceDiscoveryResults")
     eval_source_title: str = Field(..., description="Should inherit from the pot_source_title from the SourceDiscoveryResults")
     eval_source_source_type: str = Field(..., description="Should inherit from the pot_source_source_type from the SourceDiscoveryResults")
-    eval_source_publisher: Optional[str] = Field(None, description="Publisher if known")
-    publication_date: Optional[str] = Field(None, description="Publication date, if known, from the source or source metadata")
-    author: Optional[str] = Field(None, description="Author if known, if know, from the source or source metadata")
+    eval_source_publisher: List[str] = Field(default_factory=list, description="Publisher if known")
+    publication_date: List[str] = Field(default_factory=list, description="Publication date, if known, from the source or source metadata")
+    author: List[str] = Field(default_factory=list, description="Author if known, if know, from the source or source metadata")
     relevance_score: float = Field(..., description="Relevance score (1-10)")
     credibility_score: float = Field(..., description="Credibility score (1-10)")
     recency_score: float = Field(..., description="Recency score (1-10)")
@@ -558,7 +565,7 @@ class ImplicationAnalysisReport(BaseModel):
     implications_report_title: str = Field(..., description="Title of the implications analysis report")
     implications_report_generation_date: str = Field(..., description="Report generation date")
     topic: str = Field(..., description="The topic the implications analysis is focused on")
-    business_context: Optional[str] = Field(None, description="Business context if provided")
+    business_context: List[str] = Field(default_factory=list, description="Business context if provided")
     implications_report_executive_summary: str = Field(..., description="Concise executive summary of key findings")
     implications_report_methodology: str = Field(..., description="Description of the methodology used for implications analysis")
     first_order_implications: List[Implication] = Field(default_factory=list, description="List of first-order implications recieved from the analyse_first_order_implications task")

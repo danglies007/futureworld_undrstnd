@@ -36,7 +36,7 @@ source_evaluation:
   description: >
     Using the list of urls from the source_scout agent as your ONLY input, evaluate each url following the workflow shown below.
 
-    GOAL: Process each and every url.  For each url provided,use the url metadata and the source information to to evaluate and score it on:
+    GOAL: Process each and every url.  For each url provided, gather the url metadata and the source information to to evaluate and score it on:
     - relevance, 
     - credibility
     - recency
@@ -53,7 +53,7 @@ source_evaluation:
       - less than 1 month old source: 10
       
     2. Calculate a total score by taking the sum of the relevance, credibility and recency scores
-    3. Accessibility - Test if the url links to a valid website or PDF, if the site is valid inidicate it with "Yes" if not indicate it with "No" - eliminate any paywalled or overview sites with no significant content 
+    3. Accessibility - Test if the url links to a valid website or PDF, if the site is valid inidicate it with "True" if not indicate it with "False" - eliminate any paywalled or overview sites with no significant content 
     4. In order to score the url you will need to:
       - Determine if the url is a website or pdf, based on the source type.
       - If the source type is "website":
@@ -70,7 +70,7 @@ source_evaluation:
     **VERY IMPORTANT: Process each url ONE BY ONE to avoid context window limitations. Do not attempt to process all urls at once.**
 
   expected_output: >
-    A complete list of all evaluated urls with scoring for each url structured according to the EvaluatedSources model.
+    A complete list of all urls, which have been evaluated and scored.  The final output should be structured according to the EvaluatedSources model.
   agent: source_evaluator
 
 # not_approved_sources_classification:
@@ -123,12 +123,13 @@ source_evaluation:
 
 metadata_extraction:
   description: >
-    Convert the urls with total scores greater than {source_score_threshold} into a list of urls with populated information for each url, structured according to the SourceIdentificationResults model.
+    Convert the urls with total scores greater than {source_score_threshold} into a JSON list of urls with populated information for each url, structured according to the ApprovedSources model.
 
+    Provide no more than {minimum_number_of_sources} urls in your final output.  Ensure you prioritize urls with the highest total scores.
 
-
+    CRITICAL: Your final output must be PURE JSON without any markdown formatting, explanation text, or code blocks. DO NOT wrap your output in ```json``` tags or any other formatting.
   expected_output: >
-    A complete list of all urls, with populated information for each url, structured according to the SourceIdentificationResults model.
+    A pure JSON object containing no more than {minimum_number_of_sources} urls prioritized by total score, conforming exactly to the ApprovedSources schema.
   agent: metadata_extractor
 
 
@@ -138,7 +139,7 @@ metadata_extraction:
 
 #     Your GOAL is to process all urls and extract any outstanding information for every url with a total score above the threshold of:{source_score_threshold}.  Ignore any urls which are not accessible.
 
-#     **MANDATORY WORKFLOW PER SOURCE:**
+#     **MANDATORY WORKFLOW PER SOURCE:**s
 #     1. Check the source type to see if it is a website, if it is a website, use a tool to read the website. Let the result be `Observation_HTML`.
 #     2. **IMMEDIATE NEXT STEP:** Your *only* goal now is to analyze `Observation_HTML`.
 #        Think: "I need to extract metadata from the url I just received."

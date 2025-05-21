@@ -21,6 +21,15 @@ warnings.filterwarnings("ignore", category=PydanticDeprecatedSince20)
 import os
 import datetime
 
+
+# # Enabling MLflow
+# import mlflow
+
+# # Temporarily disable MLflow tracking to avoid connection errors
+# mlflow.crewai.autolog()
+# mlflow.set_tracking_uri("http://localhost:5000")
+# # mlflow.set_experiment("Market_Force_Extraction_Crew")
+
 # Debugging imports
 import litellm
 litellm._turn_on_debug()
@@ -79,7 +88,9 @@ from scan_sources.tools.file_downloader import FileDownloaderTool
 from scan_sources.tools.exa_search_tool import Exa_search_tool
 from scan_sources.tools.exa_crawl_tool import Exa_crawl_scrape_tool
 from scan_sources.tools.custom_web_scrape_market_forces import MarketForcesScrapeWebsiteTool
+from scan_sources.tools.custom_firecrawl_scrape_website_tool import FirecrawlScrapeWebsiteTool
 # from scan_sources.tools.enhanced_selenium_scraper import EnhancedSeleniumScrapeTool
+
 
 # firecrawl_crawl_tool = FirecrawlCrawlWebsiteTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
 # firecrawl_search_tool = FirecrawlSearchTool(api_key=os.getenv("FIRECRAWL_API_KEY"))
@@ -108,7 +119,7 @@ class MarketForceExtractionCrew():
         return Agent(
             config=self.agents_config['html_market_force_extractor'],
             llm=llm_gpt_4_1_accurate,
-            tools=[SeleniumScrapingTool()],
+            tools=[FirecrawlScrapeWebsiteTool()],
             verbose=True,
             respect_context_window=True,
             cache=True,
@@ -142,6 +153,7 @@ class MarketForceExtractionCrew():
         specialisation = self.research_inputs.get("specialisation")
         topic_short = self.research_inputs.get("topic_short")
         return Task(
+            name="HTML Market Force Extraction",
             config=self.tasks_config['html_market_force_extraction'],
             output_file=f'outputs/html_market_force_extraction_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             async_execution=True,
@@ -153,6 +165,7 @@ class MarketForceExtractionCrew():
         specialisation = self.research_inputs.get("specialisation")
         topic_short = self.research_inputs.get("topic_short")
         return Task(
+            name="PDF Market Force Extraction",
             config=self.tasks_config['pdf_market_force_extraction'],
             output_file=f'outputs/pdf_market_force_extraction_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             async_execution=True,
@@ -164,6 +177,7 @@ class MarketForceExtractionCrew():
         specialisation = self.research_inputs.get("specialisation")
         topic_short = self.research_inputs.get("topic_short")
         return Task(
+            name="Combine Market Forces",
             config=self.tasks_config['combine_market_forces'],
             output_file=f'outputs/combined_market_forces_{specialisation}_{topic_short}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             context=[self.html_market_force_extraction(),self.pdf_market_force_extraction()],
@@ -177,6 +191,7 @@ class MarketForceExtractionCrew():
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
         return Crew(
+            name="MarketForceExtractionCrew",
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,

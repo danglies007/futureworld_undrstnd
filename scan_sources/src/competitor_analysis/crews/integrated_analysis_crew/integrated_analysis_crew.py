@@ -16,7 +16,7 @@ import datetime
 
 # Debugging imports
 import litellm
-litellm._turn_on_debug()
+# litellm._turn_on_debug()
 
 # Import LLMs
 from competitor_analysis.llm_config import (
@@ -155,6 +155,7 @@ class IntegratedAnalysisCrew():
         company_name = self.research_inputs.get("company_name")
         # Pass both internal and external analyses to the task
         task = Task(
+            name="Analyze Business Model",
             config=self.tasks_config['analyze_business_model'],
             output_file=f'outputs/comp_analysis/business_model_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             async_execution=False,
@@ -171,6 +172,7 @@ class IntegratedAnalysisCrew():
     def analyze_competitive_position(self) -> Task:
         company_name = self.research_inputs.get("company_name")
         task = Task(
+            name="Analyze Competitive Position",
             config=self.tasks_config['analyze_competitive_position'],
             output_file=f'outputs/comp_analysis/competitive_position_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             async_execution=False,
@@ -186,6 +188,7 @@ class IntegratedAnalysisCrew():
     def generate_strategic_insights(self) -> Task:
         company_name = self.research_inputs.get("company_name")
         task = Task(
+            name="Generate Strategic Insights",
             config=self.tasks_config['generate_strategic_insights'],
             output_file=f'outputs/comp_analysis/strategic_insights_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             async_execution=False,
@@ -201,6 +204,7 @@ class IntegratedAnalysisCrew():
     def conduct_perstel_analysis(self) -> Task:
         company_name = self.research_inputs.get("company_name")
         task = Task(
+            name="Conduct PERSTEL Analysis",
             config=self.tasks_config['conduct_perstel_analysis'],
             output_file=f'outputs/comp_analysis/perstel_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             async_execution=False,
@@ -216,6 +220,7 @@ class IntegratedAnalysisCrew():
     def create_integrated_analysis(self) -> Task:
         company_name = self.research_inputs.get("company_name")
         task = Task(
+            name="Create Integrated Analysis",
             config=self.tasks_config['create_integrated_analysis'],
             output_file=f'outputs/comp_analysis/integrated_company_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             context=[
@@ -236,6 +241,7 @@ class IntegratedAnalysisCrew():
     def crew(self) -> Crew:
         """Creates the IntegratedAnalysisCrew"""
         return Crew(
+            name="IntegratedAnalysisCrew",
             agents=self.agents,
             tasks=self.tasks,
             process=Process.sequential,

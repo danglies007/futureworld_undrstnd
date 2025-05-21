@@ -16,7 +16,7 @@ import datetime
 
 # Debugging imports
 import litellm
-litellm._turn_on_debug()
+# litellm._turn_on_debug()
 
 # Import LLMs
 from competitor_analysis.llm_config import (
@@ -154,6 +154,7 @@ class ExternalAnalysisCrew():
     def analyze_news_and_media(self) -> Task:
         company_name = self.research_inputs.get("company_name")
         return Task(
+            name="Analyze News and Media",
             config=self.tasks_config['analyze_news_and_media'],
             output_file=f'outputs/comp_analysis/news_media_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             # context=[self.identify_company_external_sources()],
@@ -165,6 +166,7 @@ class ExternalAnalysisCrew():
     def analyze_external_financials(self) -> Task:
         company_name = self.research_inputs.get("company_name")
         return Task(
+            name="Analyze External Financials",
             config=self.tasks_config['analyze_external_financials'],
             output_file=f'outputs/comp_analysis/external_financial_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             # context=[self.identify_company_external_sources()],
@@ -176,6 +178,7 @@ class ExternalAnalysisCrew():
     def analyze_market_position(self) -> Task:
         company_name = self.research_inputs.get("company_name")
         return Task(
+            name="Analyze Market Position",
             config=self.tasks_config['analyze_market_position'],
             output_file=f'outputs/comp_analysis/market_position_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             # context=[self.identify_company_external_sources()],
@@ -187,6 +190,7 @@ class ExternalAnalysisCrew():
     def consolidate_external_analysis(self) -> Task:
         company_name = self.research_inputs.get("company_name")
         return Task(
+            name="Consolidate External Analysis",
             config=self.tasks_config['consolidate_external_analysis'],
             output_file=f'outputs/comp_analysis/consolidated_external_analysis_{company_name}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.json',
             context=[
@@ -201,6 +205,7 @@ class ExternalAnalysisCrew():
     def crew(self) -> Crew:
         """Creates the ExternalAnalysisCrew"""
         return Crew(
+            name="External Analysis Crew",
             agents=self.agents,
             tasks=self.tasks,
             process=Process.sequential,

@@ -1,0 +1,402 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for CrewAI logs */
+.log-content h3 {
+  @apply text-xl font-bold text-blue-600 dark:text-blue-400 mt-6 mb-2;
+}
+
+.log-content h4 {
+  @apply text-lg font-semibold text-indigo-600 dark:text-indigo-400 mt-4 mb-2;
+}
+
+.log-content code {
+  @apply text-sm;
+}
+
+.log-content pre {
+  @apply whitespace-pre-wrap;
+}
+
+.log-content p {
+  @apply my-1;
+}
+
+/* Allow HTML in markdown for colored spans */
+.log-content span.text-blue-500,
+.log-content span.text-green-500,
+.log-content span.text-red-500,
+.log-content span.text-purple-500,
+.log-content span.text-gray-400,
+.log-content span.text-gray-500 {
+  @apply inline;
+}
+
+/* Enhanced log styling */
+.log-content {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  padding: 0.5rem;
+}
+
+.log-entry {
+  margin: 3px 0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.dark .log-entry {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.log-info {
+  border-left: 3px solid #3b82f6;
+}
+
+.log-error {
+  border-left: 3px solid #ef4444;
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+.dark .log-error {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.log-warning {
+  border-left: 3px solid #f59e0b;
+  background-color: rgba(245, 158, 11, 0.05);
+}
+
+.dark .log-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.log-timestamp {
+  color: #9ca3af;
+  font-size: 0.75em;
+  white-space: nowrap;
+}
+
+.log-logger {
+  color: #3b82f6;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.log-level-info {
+  color: #10b981;
+  font-weight: 600;
+  padding: 0 4px;
+  border-radius: 3px;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.log-level-error {
+  color: #ef4444;
+  font-weight: 600;
+  padding: 0 4px;
+  border-radius: 3px;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.log-level-warning {
+  color: #f59e0b;
+  font-weight: 600;
+  padding: 0 4px;
+  border-radius: 3px;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.log-message {
+  flex: 1;
+}
+
+.log-agent-header {
+  margin: 16px 0 8px 0;
+  padding: 8px 12px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.dark .log-agent-header {
+  background-color: #2563eb;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.log-agent-header h3 {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.log-task {
+  margin: 8px 0;
+  padding: 8px 12px;
+  background-color: #f3f4f6;
+  border-left: 4px solid #6366f1;
+  border-radius: 4px;
+}
+
+.dark .log-task {
+  background-color: #1f2937;
+}
+
+.log-final-answer {
+  margin: 16px 0;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dark .log-final-answer {
+  border-color: #374151;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.log-final-answer h4 {
+  margin: 0;
+  padding: 8px 12px;
+  background-color: #f3f4f6;
+  border-bottom: 1px solid #d1d5db;
+  font-size: 1em;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.dark .log-final-answer h4 {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+.log-final-answer-content {
+  padding: 12px;
+  background-color: #f9fafb;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+.dark .log-final-answer-content {
+  background-color: #111827;
+}
+
+.log-status {
+  margin: 6px 0;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.log-status-executing {
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.log-status-completed {
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.status-icon {
+  font-size: 1.2em;
+}
+
+.log-thinking {
+  margin: 6px 0;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background-color: rgba(139, 92, 246, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.thinking-icon {
+  color: #8b5cf6;
+}
+
+.thinking-text {
+  color: #8b5cf6;
+  font-weight: 500;
+}
+
+.log-http-request {
+  margin: 4px 0;
+  padding: 4px 8px;
+  color: #6b7280;
+  font-size: 0.9em;
+  border-left: 2px solid #9ca3af;
+}
+
+.log-completion-box {
+  margin: 12px 0;
+  padding: 12px;
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 6px;
+}
+
+.completion-title {
+  font-weight: 600;
+  color: #059669;
+  margin-bottom: 8px;
+}
+
+.completion-detail {
+  margin: 4px 0;
+}
+
+/* Code block styling */
+.log-code-block {
+  margin: 12px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.dark .log-code-block {
+  border-color: #374151;
+  background-color: #111827;
+}
+
+.code-header {
+  padding: 6px 12px;
+  background-color: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.dark .code-header {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+.code-content {
+  margin: 0;
+  padding: 12px;
+  overflow-x: auto;
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+/* Toggle button styles */
+.format-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.format-toggle button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 500;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.format-toggle button.active {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.dark .format-toggle button {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+.dark .format-toggle button.active {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
